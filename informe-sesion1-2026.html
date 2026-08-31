@@ -1,0 +1,704 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sesión N°1 · 2026 — Capital Data</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{--azul:#1a3fff;--negro:#0a0a0a;--crema:#f5f2eb;--gris-claro:#f0ede6;--gris-borde:#e2ddd4;--texto:#1a1a1a;--texto-suave:#6b6b6b;--acento:#c8ff00}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:"Instrument Sans",sans-serif;background:var(--crema);color:var(--texto);max-width:1200px;margin:0 auto;padding:0}
+.informe-nav{background:var(--negro);padding:1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.informe-nav-logo{font-family:"DM Mono",monospace;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--acento);text-decoration:none}
+.informe-nav-back{font-family:"DM Mono",monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,242,235,.4);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .2s}
+.informe-nav-back:hover{color:var(--crema)}
+.informe-header{background:var(--negro);padding:5rem 2.5rem 4rem;position:relative;overflow:hidden}
+.informe-header::after{content:"";position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--azul),transparent)}
+.informe-eyebrow{font-family:"DM Mono",monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acento);margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem}
+.informe-eyebrow::before{content:"";display:block;width:2rem;height:1px;background:var(--acento)}
+.informe-header h1{font-family:"Fraunces",serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:300;color:var(--crema);line-height:1.1;letter-spacing:-.02em;margin-bottom:2rem;max-width:800px}
+.informe-meta-bar{display:flex;gap:2rem;flex-wrap:wrap;align-items:center}
+.informe-meta-item{font-family:"DM Mono",monospace;font-size:.65rem;letter-spacing:.1em;color:rgba(245,242,235,.4);display:flex;align-items:center;gap:.5rem}
+.informe-meta-item a{color:var(--azul);text-decoration:none}.informe-meta-item a:hover{color:var(--acento)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--gris-borde);border-bottom:1px solid var(--gris-borde)}
+.stat{background:white;padding:2rem 1.5rem;text-align:center}
+.stat .n{font-family:"Fraunces",serif;font-size:2.8rem;font-weight:300;color:var(--azul);line-height:1;margin-bottom:.4rem}
+.stat .label{font-family:"DM Mono",monospace;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--texto-suave)}
+.res{background:white;border-left:3px solid var(--azul);padding:2rem 2.5rem;font-family:"Fraunces",serif;font-size:1.05rem;font-weight:300;font-style:italic;line-height:1.7;color:var(--texto)}
+.contenido{padding:3rem 2.5rem}
+h2{font-family:"Fraunces",serif;font-size:1.8rem;font-weight:300;color:var(--negro);margin-top:3.5rem;margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:1px solid var(--gris-borde);display:flex;align-items:center;gap:.6rem}
+h2:first-child{margin-top:0}
+h3{font-family:"Fraunces",serif;font-size:1.2rem;font-weight:400;margin-bottom:.75rem;color:var(--negro)}
+.card{background:white;border:1px solid var(--gris-borde);padding:2rem;margin-bottom:1.5rem}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+th{background:var(--negro);color:var(--crema);padding:.75rem 1rem;text-align:left;font-family:"DM Mono",monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;font-weight:400}
+td{padding:.85rem 1rem;border-bottom:1px solid var(--gris-borde);vertical-align:top;line-height:1.5}
+tr:last-child td{border-bottom:none}tr:hover td{background:var(--gris-claro)}
+.informe-footer{background:var(--negro);padding:2.5rem;display:flex;justify-content:space-between;align-items:center;margin-top:4rem}
+.informe-footer-logo{font-family:"Fraunces",serif;font-size:1.2rem;font-weight:300;color:var(--crema)}
+.informe-footer-logo span{color:var(--acento);font-style:italic}
+.informe-footer-info{font-family:"DM Mono",monospace;font-size:.58rem;letter-spacing:.1em;color:rgba(245,242,235,.3);text-align:right;line-height:1.8}
+@media(max-width:768px){.informe-header{padding:3.5rem 1.5rem 3rem}.contenido{padding:2rem 1.5rem}.res{padding:1.5rem}.informe-nav{padding:1rem 1.5rem}.informe-footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}.informe-footer-info{text-align:center}}
+</style></head><body>
+<nav class="informe-nav">
+  <a href="index.html" class="informe-nav-logo" style="display:flex;align-items:center;gap:.6rem"><span style="display:inline-flex;align-items:center;width:28px;height:28px;flex-shrink:0"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 48 48" role="img">
+<title>Capital Data</title>
+<!-- centro: 24,24 -->
+<!-- 8 nodos perimetrales en forma cuadrada -->
+<!-- esquinas: 6,6 | 42,6 | 42,42 | 6,42 -->
+<!-- medios: 24,5 | 43,24 | 24,43 | 5,24 -->
+<!-- 4 nodos interiores anillo: 13,13 | 35,13 | 35,35 | 13,35 -->
+
+<!-- Centro → perimetrales -->
+<line x1="24" y1="24" x2="6"  y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="5"  stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="43" y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="43" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="6"  y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="5"  y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+
+<!-- Centro → interiores -->
+<path d="M24,24 Q18,18 13,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,18 35,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,30 35,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q18,30 13,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+
+<!-- Borde perimetral cuadrado -->
+<path d="M6,6   Q15,5  24,5"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M24,5  Q33,5  42,6"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M42,6  Q43,15 43,24" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M43,24 Q43,33 42,42" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M42,42 Q33,43 24,43" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M24,43 Q15,43 6,42"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M6,42  Q5,33  5,24"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M5,24  Q5,15  6,6"   stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+
+<!-- Conexiones interiores entre sí -->
+<path d="M13,13 Q24,12 35,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+<path d="M35,13 Q36,24 35,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+<path d="M35,35 Q24,36 13,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+<path d="M13,35 Q12,24 13,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+
+<!-- Cruzadas interiores → perimetrales -->
+<path d="M13,13 Q9,9   6,6"   stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q38,9  42,6"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,35 Q38,38 42,42" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,35 Q9,38  6,42"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,13 Q9,18  5,24"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q39,18 43,24" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+
+<!-- Nodos perimetrales -->
+<circle cx="6"  cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="5"  r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="43" cy="24" r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="43" r="1.8" fill="#1a3fff"/>
+<circle cx="6"  cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="5"  cy="24" r="1.8" fill="#1a3fff"/>
+
+<!-- Nodos interiores anillo -->
+<circle cx="13" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="35" r="1"   fill="#c8ff00"/>
+<circle cx="13" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="35" r="1"   fill="#c8ff00"/>
+
+<!-- Nodo central -->
+<circle cx="24" cy="24" r="7"   fill="#0a0a0a" stroke="#c8ff00" stroke-width="1.5"/>
+<circle cx="24" cy="24" r="3.5" fill="#1a3fff"/>
+<circle cx="24" cy="24" r="1.5" fill="#c8ff00"/>
+</svg></span>Capital Data</a>
+  <a href="sesiones.html" class="informe-nav-back">&larr; Sesiones</a>
+</nav>
+<div class="informe-header">
+  <div class="informe-eyebrow">Informe N&deg;1 &middot; 2026</div>
+  <h1>Sesi&oacute;n Ordinaria N&deg;1<br>83&deg; Per&iacute;odo Legislativo</h1>
+  <div class="informe-meta-bar">
+    <span class="informe-meta-item">&#128197; 5 de marzo de 2026</span>
+    <span class="informe-meta-item">&#128336; 10:35 &ndash; 15:30 hs</span>
+    <span class="informe-meta-item">&#127909; <a href="https://www.youtube.com/watch?v=i3j7uLo8ukw" target="_blank">Ver sesi&oacute;n en YouTube</a></span>
+  </div>
+</div>
+<div class="contenido">
+
+<div class="stats">
+<div class="stat"><div class="n">23</div><div class="label">Presentes</div></div>
+<div class="stat"><div class="n">285+</div><div class="label">Expedientes</div></div>
+<div class="stat"><div class="n">37</div><div class="label">Votaciones</div></div>
+<div class="stat"><div class="n">75+</div><div class="label">Intervenciones</div></div>
+</div>
+<div class="res">Primera sesión ordinaria del 83° período legislativo. Sesión extensa (casi 5 horas) dominada por cinco grandes ejes de debate: emergencia en seguridad pública, abusos sexuales en el Senado Provincial, reforma laboral nacional, habilitación comercial digital y femicidios. Se derivaron a comisión los proyectos de mayor envergadura política; se aprobaron resoluciones de servicios públicos, beneplácitos institucionales y distinciones culturales y científicas. La única votación con mayoría calificada explícita fue el beneplácito a Tomás Etcheverry (unanimidad). La única moción rechazada fue el tratamiento urgente del proyecto sobre femicidios.</div>
+
+<h2>👥 Concejales</h2><div class="card"><table>
+<tr><th>Nombre</th><th>Cargo</th><th>Bloque</th><th>Intervenciones</th><th>Posición</th><th>Temas</th><th>Resumen</th></tr>
+<tr><td><strong>Marcelo Gustavo GALLAND</strong></td><td>Presidente</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">—</td><td><span style="background:#7f8c8d;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">presidencia</span></td><td>Conducción de sesión</td><td>Condujo la sesión como presidente del cuerpo, otorgando la palabra, llamando al orden en momentos de tensión y dando trámite a todos los expedientes del sumario.</td></tr>
+<tr><td><strong>Juan Manuel GRANILLO FERNÁNDEZ</strong></td><td>Vicepresidente 1°</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~10</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gestión</span></td><td>Digitalización municipal, habilitaciones comerciales, seguridad, estadísticas delictuales, abusos en el Senado, boleta única, Club Sudamérica, reforma laboral, litigiosidad laboral, estacionamiento medido</td><td>Principal vocero del oficialismo municipal. Defendió avances en digitalización de trámites y gratuidad de habilitaciones. En seguridad, citó estadísticas oficiales de baja del delito. Rechazó la comisión investigadora por abusos en el Senado argumentando incompetencia del Concejo. Rebatió la litigiosidad laboral con datos de Brasil. Defendió el estacionamiento medido como política de uso del espacio público.</td></tr>
+<tr><td><strong>Juan Pablo ALLAN</strong></td><td>Vicepresidente 2°</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~6</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposición</span></td><td>Seguridad, diagnóstico inseguridad, inversión presupuestaria, femicidios, reforma laboral, EDELAP, cortes de luz</td><td>Presidente de la Comisión de Seguridad. Criticó la falta de decisión política municipal en seguridad. Cuestionó las estadísticas del proyecto de femicidios. Celebró la reforma laboral. Denunció crisis energética con cortes reiterados y presentó resolución dirigida a EDELAP, aprobada en el recinto.</td></tr>
+<tr><td><strong>Josefina María BOLIS</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~8</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gestión</span></td><td>Lenguaje inclusivo, microsatélite Atenea, marcapasos, glaciares, libertad de prensa, mujeres con discapacidad, doctorado honoris causa, femicidios</td><td>Concejala de mayor actividad en temas científicos y de género. Defendió el lenguaje inclusivo citando la Ley de Identidad de Género y la RAE desde 2009. Presentó y fundamentó proyectos sobre microsatélite Atenea (UNLP/CONAE) y marcapasos (CONICET/Hospital Rossi), ambos aprobados. Expresó preocupación por ley de glaciares y hostigamiento a periodistas.</td></tr>
+<tr><td><strong>Guillermo Arcadio BARDÓN</strong></td><td>Concejal</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~7</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposición</span></td><td>Monotasa, ordenanza fiscal, seguridad, femicidios, labor parlamentaria, reforma laboral, empleo informal, cierre de empresas</td><td>El opositor más técnico en datos. Propuso ampliar el universo de la monotasa. En seguridad, cuestionó las estadísticas con datos sobre causas con tipificación provisoria y acusó al oficialismo de mentir. Rechazó la moción de femicidios por contener datos incorrectos. Defendió la reforma laboral señalando que el 50% de trabajadores está en negro y que cerraron 12.000 pymes en el período anterior. Su "no mientan más" fue la frase más dura de la sesión.</td></tr>
+<tr><td><strong>Gastón Manuel ÁLVAREZ</strong></td><td>Concejal</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~6</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposición</span></td><td>Habilitación comercial digital, simplificación de trámites, boleta única, Parque Saavedra, Defensora Ciudadana</td><td>Presentó el proyecto de habilitación comercial digital inmediata para actividades de bajo riesgo, que generó el debate más conciliador de la sesión. Defendió la boleta única como sistema más transparente. Denunció politización del Parque Saavedra con imágenes partidarias frente al Hospital de Niños. Cuestionó la compatibilidad de la Defensora Ciudadana Luciana Bartoli por expresiones políticas en Twitter.</td></tr>
+<tr><td><strong>María Ona PARRILLI</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~6</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gestión</span></td><td>Economía, inflación, lenguaje, formación laboral, reforma laboral, estadísticas de empleo, historia de La Plata</td><td>Cuestionó prioridades económicas del gobierno nacional comparando precios de 2023 y 2026. Pidió no usar términos despectivos como "fisuras". Destacó cursos de formación del Ministerio de Trabajo provincial. Criticó duramente la reforma laboral y solicitó estadísticas sobre empleo registrado. Recordó que La Plata se llamó "Ciudad de Eva Perón" (1952-1955) al responder sobre la presencia de imágenes peronistas en el Parque Saavedra.</td></tr>
+<tr><td><strong>Nicolás Luis MORZONE</strong></td><td>Concejal</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">PRO</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~12</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposición</span></td><td>Emergencia en seguridad pública, plan integral de seguridad, abusos en el Senado, caravanas de motos, reforma laboral, Tomás Etcheverry, Diario El Día, Parque Saavedra, hantavirus/ratas, estacionamiento medido, seguridad vial</td><td>El concejal más activo de la sesión. Presentó el proyecto de emergencia en seguridad, denunciando el silencio del intendente con datos concretos (98.643 causas penales, solo 7% del presupuesto a seguridad). Exigió posicionamiento sobre abusos en el Senado. Defendió la reforma laboral. Criticó el cierre del Parque Saavedra por 8 meses como especulación electoral. Alertó sobre proliferación de ratas y el nuevo sistema de multas de estacionamiento. También fundamentó los beneplácitos a Etcheverry y al Diario El Día.</td></tr>
+<tr><td><strong>Iván Gabriel ZANETTO</strong></td><td>Concejal</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">PRO</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~3</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposición</span></td><td>Seguridad, presencia policial en barrios vulnerables, seguridad vial, accidentes fatales</td><td>Criticó que el plan de seguridad se concentre en Plaza Moreno en lugar de barrios vulnerables. Alertó sobre 12 muertes en accidentes viales en enero-febrero 2026, calificando a La Plata como la ciudad con el peor índice vial de Argentina y América Latina (1 muerto cada 3 días). Reclamó decisión política en seguridad vial.</td></tr>
+<tr><td><strong>Sergio Daniel RESA</strong></td><td>Concejal</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~3</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gestión</span></td><td>Digitalización, datacenter municipal, distribución de impuestos, habilitaciones comerciales</td><td>Destacó la construcción del datacenter municipal como habilitador de la digitalización de trámites. Mencionó el nuevo Plan de Ordenamiento Territorial. Señaló que solo el 15% de los impuestos pagados por los platenses vuelve al municipio, argumentando limitaciones presupuestarias estructurales.</td></tr>
+<tr><td><strong>Romina del Carmen SANTANA</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~3</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gestión</span></td><td>Reforma laboral, derechos laborales, inconstitucionalidad, RIGI</td><td>Rechazó la reforma laboral calificándola de regresiva e inconstitucional (artículo 14 bis), citando al Papa Francisco. Defendió la asimetría entre trabajadores y empleadores como fundamento del derecho laboral. Criticó que los trabajadores formales no llegan a fin de mes por la falta de políticas productivas del gobierno nacional.</td></tr>
+<tr><td><strong>Pablo Emanuel ELIAS</strong></td><td>Concejal</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~3</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gestión</span></td><td>Gestión municipal, espacio público, femicidios, reforma laboral, derechos laborales</td><td>Defendió la gestión del intendente Alak en ordenamiento del espacio público e inversiones en seguridad. Propuso modificar el proyecto de femicidios para hacerlo viable. Advirtió que las recetas de flexibilización laboral ya fracasaron históricamente (70, 90, 2001) y destacó que su bloque representa al movimiento obrero organizado.</td></tr>
+<tr><td><strong>Gisella Yiuliana DI DIO</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~3</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gestión</span></td><td>Femicidios, violencia de género, abusos en el Senado</td><td>Presidenta de la Comisión de Género. Presentó moción de tratamiento urgente para el proyecto sobre femicidios, que fue rechazada. Ofreció acompañar un repudio por los abusos en el Senado pero no la comisión investigadora por incompetencia del Concejo. Su cierre —"¿Qué pasión tienen por las mujeres? Ahí está la preocupación"— fue el momento más emotivo de la sesión.</td></tr>
+<tr><td><strong>Micaela MAGGIO</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~2</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gestión</span></td><td>Rectificación mediática, hantavirus, medidas sanitarias</td><td>Aclaró que la ministra de Mujeres había rectificado declaraciones sobre abusos en el Senado que habían sido mal reportadas por Infobae. Defendió las medidas de la Secretaría de Salud ante el brote de hantavirus: de 120 casos sospechosos solo 15 fueron confirmados, con corredor epidemiológico activo en Avenida 44 y protocolo de desratización.</td></tr>
+<tr><td><strong>Sol María MALUENDEZ</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">1</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gestión</span></td><td>Abusos en el Senado, violencia de género</td><td>Criticó la forma en que Morzone abordó el tema de abusos en el Senado. Señaló que las víctimas habían pedido explícitamente no mediatizar el caso y que el Concejo carece de competencia para investigar hechos del Senado Provincial. Destacó que la jerarquización del área de género fue un logro del kirchnerismo.</td></tr>
+<tr><td><strong>Pablo Darío POGGIO</strong></td><td>Concejal</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">1</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gestión</span></td><td>Consejo Municipal de Pueblos Originarios</td><td>Presentó su primer proyecto: creación del Consejo Municipal de Pueblos Originarios, destacando la presencia de comunidades Mapuche, Toba, Guaraní y Querandí en La Plata y la necesidad de respetar su identidad, derechos constitucionales y diversidad cultural.</td></tr>
+<tr><td><strong>Raúl Omar RECAVARREN</strong></td><td>Concejal</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">0</td><td><span style="background:#95a5a6;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">sin intervenciones</span></td><td></td><td></td></tr>
+<tr><td><strong>María Florencia BARCIA</strong></td><td>Concejala</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">1</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposición</span></td><td>Seguridad, testimonio personal de robo</td><td>Relató su experiencia como víctima de robo el 30 de noviembre, sin resultados de la investigación a meses del hecho. Describió vivir con rejas, alarmas y miedo constante, instando al cuerpo a trabajar más seriamente en seguridad. Su testimonio fue uno de los momentos de mayor impacto emocional de la sesión.</td></tr>
+<tr><td><strong>María Florencia DE FEO</strong></td><td>Concejala</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~4</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposición</span></td><td>Seguridad, decisión política, reforma laboral, impacto local, conformación de bloques</td><td>Criticó la falta de prioridad en seguridad por parte del gobierno municipal. Defendió el impacto local de la reforma laboral nacional y señaló que los cierres de comercios citados por la oposición ocurrieron antes de la promulgación de la ley. Cuestionó el ahogamiento tributario municipal sobre los comercios platenses.</td></tr>
+<tr><td><strong>Sabrina Luz MORALES</strong></td><td>Concejala</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~3</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposición</span></td><td>Libertad de elección de género en documentación oficial, ambiente, glaciares, hantavirus, zoonosis, delegaciones</td><td>Presentó proyecto sobre libertad de elección de género en designaciones oficiales del Concejo, criticando imposiciones lingüísticas. Como presidenta de la Comisión de Ambiente se comprometió a trabajar el tema glaciares. Señaló que los vecinos de la periferia no reciben respuesta de las delegaciones sobre cebos para roedores en el contexto del brote de hantavirus.</td></tr>
+<tr><td><strong>Nadia Soledad PEDERNERA</strong></td><td>Concejala</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">0</td><td><span style="background:#95a5a6;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">sin intervenciones</span></td><td></td><td></td></tr>
+<tr><td><strong>Gustavo Alberto STAFFOLANI</strong></td><td>Concejal</td><td><span style="background:#e74c3c;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">UCR</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~2</td><td><span style="background:#3498db;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">moderado</span></td><td>Impuestos provinciales, coparticipación, labor parlamentaria</td><td>Señaló que solo el 20% de los impuestos provinciales vuelve a La Plata, cuestionando la distribución de recursos. No acompañó la moción sobre femicidios por respeto a los acuerdos de labor parlamentaria, aclarando que la presidenta del bloque Fuerza Patria ya había acordado el destino del proyecto en comisión.</td></tr>
+<tr><td><strong>Melany HOROMADIUK</strong></td><td>Concejala</td><td><span style="background:#16a085;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">ASAP Nueva Generación</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~3</td><td><span style="background:#3498db;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">moderado</span></td><td>Femicidios, boleta única, doble vara, Defensora Ciudadana</td><td>Defendió respetar los acuerdos de labor parlamentaria en el caso del proyecto de femicidios. Aclaró la diferencia entre el proyecto de boleta única nacional y el provincial. Cuestionó la doble vara del bloque libertario al criticar a la Defensora Ciudadana por un tuit político mientras defendían al presidente por promocionar la criptomoneda Libra.</td></tr>
+<tr><td><strong>Darío GANDUGLIA</strong></td><td>Concejal</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Propuesta Vecinal (PROve)</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">0</td><td><span style="background:#95a5a6;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">sin intervenciones</span></td><td></td><td></td></tr>
+</table></div>
+
+<h2>📋 Temas tratados</h2><div class="card"><table>
+<tr><th>#</th><th>Título</th><th>Tipo</th><th>Expediente</th><th>Descripción</th><th>Concejales que hablaron</th><th>Resultado</th></tr>
+
+<tr><td style="text-align:center">1–2</td><td><strong>Mensajes Ejecutivo — Reservas de espacio (Habilitación y Diagnóstico de la Comunidad)</strong></td><td>Mensaje Ejecutivo</td><td style="font-family:monospace">—</td><td>Reserva de espacio para el Centro de Habilitación y el Centro de Diagnóstico de la Comunidad</td><td>—</td><td><span style="background:#95a5a6;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">Dado destino</span></td></tr>
+
+<tr><td style="text-align:center">3–14</td><td><strong>Asuntos particulares — Taxis, remises, estacionamiento, Plaza Rocha, refinería, transportistas</strong></td><td>Presentaciones vecinales / sectoriales</td><td style="font-family:monospace">—</td><td>Quejas por ruido en Plaza Rocha; defensa refinería La Plata; credenciales Asociación Profesionales del Volante; múltiples solicitudes de aumento de tarifas de taxis; habilitaciones remises; reservas de estacionamiento</td><td>—</td><td><span style="background:#95a5a6;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">Dado destino a comisión</span></td></tr>
+
+<tr><td style="text-align:center">15</td><td><strong>Consejo Municipal de Pueblos Originarios</strong></td><td>Proyecto de Ordenanza</td><td style="font-family:monospace">—</td><td>Fuerza Patria (Poggio). Crea ámbito municipal para acompañar necesidades y promover la cultura de comunidades Mapuche, Toba, Guaraní y Querandí presentes en La Plata</td><td>Pablo Darío POGGIO</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Hacienda y Legislación)</span></td></tr>
+
+<tr><td style="text-align:center">16</td><td><strong>Libertad de elección de género en documentación oficial del Concejo</strong></td><td>Proyecto de Ordenanza</td><td style="font-family:monospace">—</td><td>La Libertad Avanza (Morales). Elimina la obligación de usar feminizaciones en cargos del Concejo, citando la RAE como fundamento y devolviendo la libertad de designación</td><td>Sabrina Luz MORALES, Josefina María BOLIS</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Género y Legislación)</span></td></tr>
+
+<tr><td style="text-align:center">17–20</td><td><strong>Proyectos urbanos LLA — Apertura calles 37, estudio hidráulico El Mirador, parada Ruta 11 y calle 609, reserva estacionamiento Vanoni</strong></td><td>Proyectos de Ordenanza</td><td style="font-family:monospace">—</td><td>Bloque La Libertad Avanza. Cuatro proyectos urbanos sin debate: evaluación técnica apertura de calles, estudio hidráulico, parada de colectivos y reserva de estacionamiento</td><td>—</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">Dado destino a comisión</span></td></tr>
+
+<tr><td style="text-align:center">21</td><td><strong>Modificación Ordenanza Fiscal 12.681 — Ampliar universo monotasa</strong></td><td>Proyecto de Ordenanza</td><td style="font-family:monospace">79.587</td><td>La Libertad Avanza (Bardón). Amplía el universo de contribuyentes de la monotasa (seguridad e higiene, publicidad, espacio público) a comercios con facturación menor a $108M/año aunque no sean monotributistas o tengan más de un local. Bardón criticó la contradicción del oficialismo: aprobó aumentos de hasta 450% en noviembre 2025 y luego los revirtió por resolución</td><td>Guillermo BARDÓN, Juan Manuel GRANILLO FERNÁNDEZ</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Hacienda y Legislación)</span></td></tr>
+
+<tr><td style="text-align:center">22</td><td><strong>Régimen de habilitación comercial digital inmediata</strong></td><td>Proyecto de Ordenanza</td><td style="font-family:monospace">—</td><td>La Libertad Avanza (Álvarez). Trámite 100% web para actividades de bajo riesgo: declaración jurada vinculante, habilitación provisoria por QR (90 días), gratuidad del trámite, exención de tasa publicitaria 90 días, digitalización de renovaciones y transferencias de fondo de comercio. Granillo Fernández respondió que muchas medidas ya están en implementación</td><td>Gastón ÁLVAREZ, Juan Manuel GRANILLO FERNÁNDEZ, Sergio RESA</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Desarrollo Local y Legislación)</span></td></tr>
+
+<tr><td style="text-align:center">23</td><td><strong>Comisión especial investigadora — Abusos sexuales en el Senado Provincial</strong></td><td>Proyecto de Ordenanza</td><td style="font-family:monospace">—</td><td>PRO (Morzone). Crea comisión investigadora en el Concejo sobre la presunta red de abusos en el Senado ("La Capitana"). Incluye artículo obligando al intendente a presentarse como particular damnificado. 10 víctimas durante 10 años, personas detenidas en prisión preventiva</td><td>Nicolás MORZONE, Juan Manuel GRANILLO FERNÁNDEZ, Sol MALUENDEZ, Gisella DI DIO, Micaela MAGGIO</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Género y Legislación)</span></td></tr>
+
+<tr><td style="text-align:center">24</td><td><strong>Declaración de emergencia en seguridad pública en el Partido de La Plata</strong></td><td>Proyecto de Ordenanza</td><td style="font-family:monospace">—</td><td>PRO (Morzone). Declara emergencia por 2 años (prorrogable 2 más) en los 430 km² del partido. Establece reasignación presupuestaria hacia seguridad, fondo intangible, mapa del delito georeferenciado público, simplificación de contrataciones y comparecencia trimestral del intendente. Solo 7% del presupuesto municipal va a seguridad vs. 60% a obra pública</td><td>Nicolás MORZONE, Juan Manuel GRANILLO FERNÁNDEZ, Guillermo BARDÓN, Juan Pablo ALLAN, Iván ZANETTO, María Ona PARRILLI, María Florencia BARCIA, María Florencia DE FEO, Sergio RESA, Pablo ELIAS, Gustavo STAFFOLANI</td><td><span style="background:#3498db;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">En debate (A comisión: Seguridad y Legislación)</span></td></tr>
+
+<tr><td style="text-align:center">25</td><td><strong>Programa "Cuida el Agua desde el Hogar"</strong></td><td>Proyecto de Ordenanza</td><td style="font-family:monospace">—</td><td>UCR (Staffolani). Crea programa de concientización sobre uso responsable del agua en hogares del partido</td><td>—</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">Dado destino a comisión</span></td></tr>
+
+<tr><td style="text-align:center">26–37</td><td><strong>Decretos culturales — Personalidades destacadas, aniversarios, libros, homenajes (Fuerza Patria)</strong></td><td>Proyectos de Decreto</td><td style="font-family:monospace">26–37</td><td>Fuerza Patria. Doce proyectos: Raúl Archubi (p.d. póstuma), aniversario Provincia de Buenos Aires, Gabriel Rodríguez Molina, homenaje Dr. Ramón Carrillo, Oscar Pedrosa (p.d. póstuma), Dr. Floreal Ferrara (p.d. póstuma), libro "Interpretar la Ausencia", libro "Recuperar Malvinas" (Ramos Padilla), libro "Cenizas", 80° aniversario triunfo electoral Perón, preocupación por caída del consumo de leche, beneplácito Casa Pulsar, artistas en Cosquín 2026</td><td>Josefina BOLIS (varios), Guillermo BARDÓN (aclaración)</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">Dado destino a Comisión de Cultura</span></td></tr>
+
+<tr><td style="text-align:center">33</td><td><strong>Interés municipal — Jornadas Médicas Multidisciplinarias</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">33</td><td>Fuerza Patria. Declara de interés municipal las jornadas médicas multidisciplinarias</td><td>—</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">38</td><td><strong>Preocupación por aumento de femicidios en Argentina</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">38</td><td>Fuerza Patria (Di Dio). Manifiesta preocupación por el incremento de femicidios a nivel nacional. Di Dio solicitó tratamiento urgente (sobre tablas). Bardón y Allan rechazaron la moción señalando que las estadísticas muestran una baja y que el proyecto contiene datos incorrectos</td><td>Gisella DI DIO, Juan Pablo ALLAN, Guillermo BARDÓN, Pablo ELIAS, Josefina BOLIS, Gustavo STAFFOLANI, Nicolás MORZONE, Melany HOROMADIUK</td><td><span style="background:#e74c3c;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">❌ Moción rechazada — A comisión (Género)</span></td></tr>
+
+<tr><td style="text-align:center">41</td><td><strong>Interés municipal — Microsatélite Atenea (UNLP / CONAE)</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">41</td><td>Fuerza Patria (Bolis). Declara de interés municipal el desarrollo del microsatélite argentino diseñado para orbitar la Luna, con participación de UNLP, CONAE, UBA, UNSAM, CNEA e IAR. Aprobado con modificaciones acordadas en labor parlamentaria</td><td>Josefina BOLIS, Guillermo BARDÓN (aclaración modificaciones)</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobado por unanimidad</span></td></tr>
+
+<tr><td style="text-align:center">42</td><td><strong>Interés municipal — Marcapasos (Hospital Rossi / UNLP / CONICET)</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">42</td><td>Fuerza Patria (Bolis). Declara de interés científico y sanitario el desarrollo de un marcapasos que imita el ritmo natural del corazón, patentado por la Provincia de Buenos Aires, resultado de la tesis doctoral de la Dra. Magdalena de Feo</td><td>Josefina BOLIS</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">43</td><td><strong>Preocupación por modificación de la Ley 26.639 de Glaciares</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">43</td><td>Fuerza Patria (Bolis). Manifiesta preocupación ante posibles cambios a la ley de presupuestos mínimos para la preservación de glaciares y ambiente periglaciar</td><td>Josefina BOLIS, Sabrina MORALES</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Legislación)</span></td></tr>
+
+<tr><td style="text-align:center">44</td><td><strong>Preocupación por violencia contra trabajadores de prensa</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">44</td><td>Fuerza Patria (Bolis). Repudia hechos de violencia y hostigamiento contra periodistas, vinculados también a la reforma laboral que deroga el Estatuto del Periodista</td><td>Josefina BOLIS, Guillermo BARDÓN</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Cultura y Educación)</span></td></tr>
+
+<tr><td style="text-align:center">45</td><td><strong>Beneplácito — Jornada mujeres con discapacidad "Voces que deben ser escuchadas"</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">45</td><td>Fuerza Patria (Bolis). Visibiliza la doble exclusión de mujeres con discapacidad: 8 de cada 10 han vivido situaciones de violencia de género</td><td>Josefina BOLIS</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Género)</span></td></tr>
+
+<tr><td style="text-align:center">46–47–49</td><td><strong>Huésped de honor / Honoris Causa — Farrell, Malamud Gotti, Nino (UNLP)</strong></td><td>Proyectos de Decreto</td><td style="font-family:monospace">46–47–49</td><td>Fuerza Patria (Bolis). Reconoce la distinción otorgada por la Facultad de Ciencias Jurídicas y Sociales de la UNLP a los juristas Martín Diego Farrell y Jaime Malamud Gotti (huéspedes de honor), y Doctorado Honoris Causa para ambos más Carlos Santiago Nino (póstumamente). Tratados conjuntamente</td><td>Josefina BOLIS</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobados (conjunto)</span></td></tr>
+
+<tr><td style="text-align:center">48</td><td><strong>Beneplácito — 100° aniversario Círculo Cultural Tolosano</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">48</td><td>Fuerza Patria. Reconoce el centenario de la institución cultural de Tolosa</td><td>—</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">50</td><td><strong>Beneplácito — 110° aniversario Club Sudamérica (Tolosa)</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">50</td><td>Fuerza Patria (Granillo Fernández). Reconoce la trayectoria del club de Tolosa con más de 400 socios y 350 deportistas, destacado en básquet</td><td>Juan Manuel GRANILLO FERNÁNDEZ</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">51–52</td><td><strong>Personalidad destacada Carlos Castro; Escuela de Danzas Nélida Carmona</strong></td><td>Proyectos de Decreto</td><td style="font-family:monospace">51–52</td><td>La Libertad Avanza</td><td>—</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Cultura)</span></td></tr>
+
+<tr><td style="text-align:center">53</td><td><strong>Beneplácito por proyecto de Boleta Única de Papel (Provincia de Buenos Aires)</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">53</td><td>La Libertad Avanza (Álvarez). Manifiesta beneplácito por la presentación del proyecto en la Legislatura provincial. Destaca transparencia, eficiencia y ahorro de $8.000 millones en impresión. Granillo Fernández cuestionó que no había grandes denuncias de fraude con el sistema anterior</td><td>Gastón ÁLVAREZ, Juan Manuel GRANILLO FERNÁNDEZ, Melany HOROMADIUK</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Legislación)</span></td></tr>
+
+<tr><td style="text-align:center">54</td><td><strong>Preocupación por caravanas de motos en Plaza Islas Malvinas</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">54</td><td>La Libertad Avanza (Bardón). Expresa preocupación por el desorden generado por motos con caños modificados en plazas céntricas</td><td>Nicolás MORZONE, Juan Manuel GRANILLO FERNÁNDEZ, María Ona PARRILLI</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Transporte)</span></td></tr>
+
+<tr><td style="text-align:center">55</td><td><strong>Interés municipal — 143° aniversario de Los Hornos</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">55</td><td>Conmemoración de la localidad de Los Hornos</td><td>—</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">56</td><td><strong>Beneplácito por sanción de la Reforma Laboral (Ley nacional)</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">56</td><td>La Libertad Avanza (Allan). Celebra la aprobación de la reforma laboral. Votación en Senado nacional: 42 a 28 con 2 abstenciones. Debate extenso entre los bloques sobre informalidad laboral, litigiosidad, historial de políticas similares y derechos constitucionales</td><td>Juan Pablo ALLAN, Romina SANTANA, María Ona PARRILLI, Nicolás MORZONE, María Florencia DE FEO, Guillermo BARDÓN, Pablo ELIAS, Juan Manuel GRANILLO FERNÁNDEZ</td><td><span style="background:#3498db;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">En debate — A comisión (Legislación)</span></td></tr>
+
+<tr><td style="text-align:center">57–58</td><td><strong>Media sanción régimen penal de minoridad; preocupación trabajadores de cooperativas</strong></td><td>Proyectos de Decreto</td><td style="font-family:monospace">—</td><td>Bloque La Libertad Avanza</td><td>—</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Legislación)</span></td></tr>
+
+<tr><td style="text-align:center">59</td><td><strong>Preocupación por robo en Escuela N° 62</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">—</td><td>Preocupación por inseguridad en establecimiento escolar</td><td>—</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Cultura y Educación)</span></td></tr>
+
+<tr><td style="text-align:center">60 y 65</td><td><strong>Beneplácito — Título ATP 500 de Tomás Etcheverry en Río de Janeiro</strong></td><td>Proyectos de Decreto</td><td style="font-family:monospace">60 / 65</td><td>PRO (Morzone). Reconoce el primer título ATP 500 de un tenista platense. Tratados conjuntamente</td><td>Nicolás MORZONE</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobado por unanimidad</span></td></tr>
+
+<tr><td style="text-align:center">61</td><td><strong>Preocupación por asentamiento incipiente en calles 4 entre 502 y 503</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">—</td><td>Preocupación por nueva ocupación irregular</td><td>—</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Planeamiento)</span></td></tr>
+
+<tr><td style="text-align:center">62–63</td><td><strong>Beneplácito captura Maduro; Persona no grata Milagro Salas</strong></td><td>Proyectos de Decreto</td><td style="font-family:monospace">—</td><td>PRO. Punto 62: beneplácito por puesta a disposición de la justicia de Nicolás Maduro. Punto 63: declara persona no grata a Milagro Salas en el Partido de La Plata</td><td>—</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Legislación)</span></td></tr>
+
+<tr><td style="text-align:center">64</td><td><strong>Preocupación por víctimas fatales en accidentes viales — enero-febrero 2026</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">—</td><td>PRO (Zanetto). 12 muertes en siniestros viales en enero-febrero. La Plata descrita como la ciudad con peor índice vial de Argentina y América Latina (1 muerto cada 3 días). Señala que la emergencia en seguridad vial presentada anteriormente tampoco fue tratada</td><td>Iván ZANETTO, Nicolás MORZONE</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Transporte y Tránsito)</span></td></tr>
+
+<tr><td style="text-align:center">66</td><td><strong>Beneplácito — 142° aniversario del Diario El Día</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">—</td><td>Reconoce la trayectoria del diario fundado junto con La Plata, con mención a la familia Kraiselburd y la periodista Laura Romoli presente en la sala</td><td>Nicolás MORZONE</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">67–68</td><td><strong>Argentina Medita 2025; Empresa Chafla S.A. — combate incendios Chubut</strong></td><td>Proyectos de Decreto</td><td style="font-family:monospace">—</td><td>ASAP Nueva Generación (Horomadiuk)</td><td>—</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Cultura)</span></td></tr>
+
+<tr><td style="text-align:center">70</td><td><strong>Pronto despacho del expediente 77.612 (lomo de burro)</strong></td><td>Resolución</td><td style="font-family:monospace">77-612</td><td>Fuerza Patria. Solicita pronto despacho. Morzone cuestionó brevemente y Granillo Fernández aclaró que se trata de un reductor de velocidad (lomo de burro)</td><td>Nicolás MORZONE, Juan Manuel GRANILLO FERNÁNDEZ</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">71–115</td><td><strong>Resoluciones LLA — Obras varias, informes, reductores de velocidad, árboles, poda</strong></td><td>Resoluciones</td><td style="font-family:monospace">—</td><td>La Libertad Avanza. Múltiples pedidos de obras barriales, informes a organismos municipales, reposición de reductores de velocidad, extracción e inspección de especies arbóreas y plan de poda 2025-2026</td><td>—</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">Mayoría a comisión de Obras y Servicios Públicos</span></td></tr>
+
+<tr><td style="text-align:center">81</td><td><strong>Bacheo en diferentes calles</strong></td><td>Resolución</td><td style="font-family:monospace">—</td><td>La Libertad Avanza</td><td>—</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">105</td><td><strong>Remoción y compactación de vehículo abandonado</strong></td><td>Resolución</td><td style="font-family:monospace">—</td><td>La Libertad Avanza</td><td>—</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">116</td><td><strong>Informe a EDELAP sobre reiterados cortes de electricidad</strong></td><td>Resolución</td><td style="font-family:monospace">—</td><td>La Libertad Avanza (Allan). La Plata en "zona de crisis energética" desde hace más de un año. Solicita al Municipio que interceda ante la concesionaria e informe causas</td><td>Juan Pablo ALLAN</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">121–122</td><td><strong>Intimación a ABSA y Telecentro por reparaciones</strong></td><td>Resoluciones</td><td style="font-family:monospace">—</td><td>Reparación de pérdida de agua (ABSA) y reparación de poste (Telecentro)</td><td>—</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobados</span></td></tr>
+
+<tr><td style="text-align:center">126</td><td><strong>Informe sobre obras de puesta en valor del Parque Saavedra</strong></td><td>Resolución</td><td style="font-family:monospace">—</td><td>PRO (Morzone). Parque cerrado desde julio 2025. Morzone enumeró principios del derecho administrativo violados (razonabilidad, continuidad, finalidad del acto). Álvarez agregó quejas vecinales y desorden. Parrilli respondió históricamente. Inauguración prevista para el 19/11 (Día de La Plata, año electoral)</td><td>Nicolás MORZONE, Gastón ÁLVAREZ, María Ona PARRILLI</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Planeamiento)</span></td></tr>
+
+<tr><td style="text-align:center">131–211</td><td><strong>Múltiples intimaciones a ABSA por pérdidas de agua</strong></td><td>Resoluciones</td><td style="font-family:monospace">—</td><td>Puntos 131, 150, 162, 164, 167, 168, 183, 184, 189, 210, 211 y otros: todos aprobados y comunicados a la empresa</td><td>—</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobados</span></td></tr>
+
+<tr><td style="text-align:center">175</td><td><strong>Modificación de destino — Punto 175 a Comisión de Transporte y Tránsito</strong></td><td>Moción procedimental</td><td style="font-family:monospace">—</td><td>Bardón solicitó cambiar el destino de comisión de Obras y Servicios Públicos a Transporte y Tránsito</td><td>Guillermo BARDÓN</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Moción aprobada</span></td></tr>
+
+<tr><td style="text-align:center">214–215</td><td><strong>Resoluciones — Informes a Vicegobernadora y Senado sobre abusos sexuales</strong></td><td>Resoluciones</td><td style="font-family:monospace">214 / 215</td><td>PRO (Morzone). Punto 214: solicita al Ejecutivo que se dirija a la Vicegobernadora para requerir informes sobre las denuncias penales. Punto 215: informe detallado sobre la red de abusos. Tratados conjuntamente con el Punto 23</td><td>(debatidos con Punto 23)</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Legislación)</span></td></tr>
+
+<tr><td style="text-align:center">216</td><td><strong>Informe obras Parque Saavedra — artesanos, biblioteca, compostaje</strong></td><td>Resolución</td><td style="font-family:monospace">—</td><td>PRO / LLA. Álvarez sumó quejas vecinales: biblioteca con imágenes políticas, artesanos sin autorización, galería abandonada, feria sin sanitarios. Parrilli respondió con contexto histórico de La Plata</td><td>Gastón ÁLVAREZ, María Ona PARRILLI</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Planeamiento)</span></td></tr>
+
+<tr><td style="text-align:center">217–219</td><td><strong>Hantavirus / Proliferación de ratas / ESUR (servicio de higiene urbana)</strong></td><td>Resoluciones</td><td style="font-family:monospace">—</td><td>PRO (Morzone). Alerta sobre proliferación de roedores. Maggio (FP) detalló medidas sanitarias: 15 casos confirmados de 120 sospechosos, corredor epidemiológico en Av. 44, desratización con protocolos, articulación con Región Sanitaria 11. Morales señaló que delegaciones no tienen información ni cebos para vecinos</td><td>Nicolás MORZONE, Micaela MAGGIO, Sabrina MORALES</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Salud / Hacienda)</span></td></tr>
+
+<tr><td style="text-align:center">256</td><td><strong>Bacheo en diversas calles</strong></td><td>Resolución</td><td style="font-family:monospace">—</td><td>ASAP Nueva Generación (Horomadiuk)</td><td>—</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">260–279</td><td><strong>Reparaciones varias — ABSA, bacheo y servicios (varios bloques)</strong></td><td>Resoluciones</td><td style="font-family:monospace">—</td><td>Puntos 260, 270, 273, 276, 279 y otros. Bloque UCR, Propuesta Vecinal, ASAP y LLA</td><td>—</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobados</span></td></tr>
+
+<tr><td style="text-align:center">282</td><td><strong>Repudio al sistema automatizado de estacionamiento medido</strong></td><td>Proyecto de Decreto (labor)</td><td style="font-family:monospace">—</td><td>PRO (Morzone). Calificó el sistema de "abusivo e inconstitucional", más caro que una cochera privada. Granillo Fernández defendió el cobro por uso del espacio público como política habitual en ciudades medianas y grandes</td><td>Nicolás MORZONE, Juan Manuel GRANILLO FERNÁNDEZ</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Hacienda)</span></td></tr>
+
+<tr><td style="text-align:center">283–284</td><td><strong>Asunción Decano Odontología UNLP; Regreso gendarme Nahuel Gallo</strong></td><td>Proyectos de Decreto (labor)</td><td style="font-family:monospace">—</td><td>La Libertad Avanza</td><td>—</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión</span></td></tr>
+
+<tr><td style="text-align:center">281</td><td><strong>Beneplácito — 99° aniversario del natalicio del Dr. Raúl Alfonsín</strong></td><td>Decreto (labor)</td><td style="font-family:monospace">—</td><td>Incorporado en labor legislativa. Aprobado sin debate</td><td>—</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">285</td><td><strong>Informe sobre situación de la Defensora Ciudadana Luciana Bartoli</strong></td><td>Resolución (labor)</td><td style="font-family:monospace">Res. 78.54</td><td>La Libertad Avanza (Álvarez). Solicita informe por posible incompatibilidad de la titular por un tuit político durante la apertura de sesiones del Congreso. El artículo 7 de la ordenanza prohíbe actividad política en ese cargo. Álvarez planteó dos opciones: que cese la incompatibilidad o que renuncie</td><td>Gastón ÁLVAREZ, Melany HOROMADIUK</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Legislación)</span></td></tr>
+
+</table></div>
+
+<h2>🗳️ Votaciones</h2><div class="card">
+
+<div style="border:1px solid #ddd;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0">#1 — Moción para adelantar el Punto 24 (emergencia en seguridad) antes del Punto 23 (abusos en el Senado)</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Aprobado</span></div>
+<div style="margin-top:8px">✅ <b>Mayoría</b> &nbsp; ❌ <b>—</b> &nbsp; ⬜ <b>—</b></div>
+<p style="color:#777;font-style:italic">Moción de Nicolás MORZONE aprobada por mayoría simple sin debate. Votos individuales no registrados.</p></div>
+
+<div style="border:1px solid #ddd;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0">#2 — Moción para adelantar y unificar los Puntos 214 y 215 con el Punto 23 (abusos en el Senado)</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Aprobado</span></div>
+<div style="margin-top:8px">✅ <b>Mayoría</b> &nbsp; ❌ <b>—</b> &nbsp; ⬜ <b>—</b></div>
+<p style="color:#777;font-style:italic">Moción de Nicolás MORZONE aprobada sin debate. Votos individuales no registrados.</p></div>
+
+<div style="border:1px solid #ddd;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #e74c3c">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0">#3 — Moción de tratamiento urgente (sobre tablas) del Punto 38: preocupación por femicidios en Argentina</h4><span style="background:#e74c3c;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Rechazado</span></div>
+<div style="margin-top:8px">✅ <b>Minoría</b> &nbsp; ❌ <b>Mayoría</b> &nbsp; ⬜ <b>—</b></div>
+<div style="margin-top:10px">
+<strong>Posiciones declaradas durante el debate:</strong><br><br>
+<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Gisella DI DIO — A favor (proponente)</span>
+<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Josefina BOLIS — A favor</span>
+<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Romina SANTANA — A favor</span>
+<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">María Ona PARRILLI — A favor</span>
+<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Pablo ELIAS — A favor (propuso modificación)</span>
+<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Nicolás MORZONE — A favor</span>
+<span style="background:#e74c3c;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Guillermo BARDÓN — En contra ("levanto las dos manos para rechazar")</span>
+<span style="background:#e74c3c;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Juan Pablo ALLAN — En contra (datos incorrectos)</span>
+<span style="background:#e74c3c;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Juan Manuel GRANILLO FERNÁNDEZ — En contra</span>
+<span style="background:#e74c3c;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Melany HOROMADIUK — En contra (respeto a labor parlamentaria)</span>
+<span style="background:#e74c3c;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Gustavo STAFFOLANI — En contra (respeto a labor parlamentaria)</span>
+<span style="background:#e74c3c;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Sabrina MORALES — En contra (bloque LLA)</span>
+<span style="background:#e74c3c;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">María Florencia DE FEO — En contra (bloque LLA)</span>
+<span style="background:#e74c3c;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Gastón ÁLVAREZ — En contra (bloque LLA)</span>
+<span style="background:#e74c3c;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">María Florencia BARCIA — En contra (bloque LLA)</span>
+<span style="background:#95a5a6;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Iván ZANETTO — No registrado</span>
+<span style="background:#95a5a6;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Sol MALUENDEZ — No registrado</span>
+<span style="background:#95a5a6;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Pablo POGGIO — No registrado</span>
+<span style="background:#95a5a6;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Micaela MAGGIO — No registrado</span>
+<span style="background:#95a5a6;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Sergio RESA — No registrado</span>
+<span style="background:#95a5a6;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Nadia PEDERNERA — No registrado</span>
+<span style="background:#95a5a6;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Raúl RECAVARREN — No registrado</span>
+<span style="background:#95a5a6;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Darío GANDUGLIA — No registrado</span>
+</div>
+<p style="color:#777;font-style:italic">Requería mayoría calificada (2/3) para tratamiento sobre tablas. LLA (8), UCR (1) y ASAP (1) votaron en contra. El proyecto fue derivado a la Comisión de Género conforme al destino original de labor parlamentaria.</p></div>
+
+<div style="border:1px solid #ddd;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0">#4 — Moción de Bardón para modificar destino del Punto 175 a Comisión de Transporte y Tránsito</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Aprobado</span></div>
+<div style="margin-top:8px">✅ <b>Mayoría</b> &nbsp; ❌ <b>—</b> &nbsp; ⬜ <b>—</b></div>
+<p style="color:#777;font-style:italic">Moción de Guillermo BARDÓN aprobada sin oposición registrada.</p></div>
+
+<div style="border:1px solid #ddd;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0">#5 — Beneplácito por título ATP 500 del tenista platense Tomás Etcheverry en Río de Janeiro (Puntos 60 y 65)</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Aprobado</span></div>
+<div style="margin-top:8px">✅ <b>23 (unanimidad)</b> &nbsp; ❌ <b>0</b> &nbsp; ⬜ <b>0</b></div>
+<div style="margin-top:8px">
+<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Marcelo Gustavo GALLAND — Afirmativo</span>
+<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Juan Manuel GRANILLO FERNÁNDEZ — Afirmativo</span>
+<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Juan Pablo ALLAN — Afirmativo</span>
+<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Gastón ÁLVAREZ — Afirmativo</span>
+<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">María Florencia BARCIA — Afirmativo</span>
+<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Guillermo BARDÓN — Afirmativo</span>
+<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Josefina BOLIS — Afirmativo</span>
+<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">María Florencia DE FEO — Afirmativo</span>
+<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Gisella DI DIO — Afirmativo</span>
+<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Pablo ELIAS — Afirmativo</span>
+<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Darío GANDUGLIA — Afirmativo</span>
+<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Melany HOROMADIUK — Afirmativo</span>
+<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Micaela MAGGIO — Afirmativo</span>
+<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Sol MALUENDEZ — Afirmativo</span>
+<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Sabrina MORALES — Afirmativo</span>
+<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Nicolás MORZONE — Afirmativo</span>
+<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">María Ona PARRILLI — Afirmativo</span>
+<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Nadia PEDERNERA — Afirmativo</span>
+<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Pablo POGGIO — Afirmativo</span>
+<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Raúl RECAVARREN — Afirmativo</span>
+<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Sergio RESA — Afirmativo</span>
+<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Romina SANTANA — Afirmativo</span>
+<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Gustavo STAFFOLANI — Afirmativo</span>
+<span style="background:#27ae60;color:white;padding:2px 8px;border-radius:3px;margin:2px;display:inline-block;font-size:.85em">Iván ZANETTO — Afirmativo</span>
+</div>
+<p style="color:#777;font-style:italic">Única votación con unanimidad explícita en la sesión. 23 concejales presentes, todos afirmativos.</p></div>
+
+<div style="border:1px solid #ddd;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0">#6 — Beneplácito por 142° aniversario del Diario El Día (Punto 66)</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Aprobado</span></div>
+<div style="margin-top:8px">✅ <b>Mayoría</b> &nbsp; ❌ <b>—</b> &nbsp; ⬜ <b>—</b></div>
+<p style="color:#777;font-style:italic">Sin disidencias registradas. Aprobado por la afirmativa.</p></div>
+
+<div style="border:1px solid #ddd;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0">#7 — Microsatélite Atenea UNLP/CONAE (Punto 41, con modificaciones de labor parlamentaria)</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Aprobado</span></div>
+<div style="margin-top:8px">✅ <b>Unanimidad</b> &nbsp; ❌ <b>—</b> &nbsp; ⬜ <b>—</b></div>
+<p style="color:#777;font-style:italic">Aprobado con modificaciones acordadas en labor parlamentaria. Sin disidencias.</p></div>
+
+<div style="border:1px solid #ddd;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0">#8 — Marcapasos Hospital Rossi / UNLP / CONICET (Punto 42)</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Aprobado</span></div>
+<div style="margin-top:8px">✅ <b>Sin disidencias</b> &nbsp; ❌ <b>—</b> &nbsp; ⬜ <b>—</b></div>
+<p style="color:#777;font-style:italic">Sin debate ni oposición registrada.</p></div>
+
+<div style="border:1px solid #ddd;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0">#9 — Huéspedes de honor y Honoris Causa juristas Farrell, Malamud Gotti y Nino (Puntos 46, 47 y 49)</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Aprobado</span></div>
+<div style="margin-top:8px">✅ <b>Sin disidencias</b> &nbsp; ❌ <b>—</b> &nbsp; ⬜ <b>—</b></div>
+<p style="color:#777;font-style:italic">Tratados conjuntamente a pedido de la concejala Josefina BOLIS. Sin debate ni oposición.</p></div>
+
+<div style="border:1px solid #ddd;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0">#10 al #37 — Resoluciones de servicios públicos (ABSA, EDELAP, Telecentro, bacheos, beneplácitos institucionales)</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Todos Aprobados</span></div>
+<div style="margin-top:8px">✅ <b>Sin disidencias en todos los casos</b> &nbsp; ❌ <b>—</b> &nbsp; ⬜ <b>—</b></div>
+<p style="color:#777;font-style:italic">Incluye: Puntos 48, 50, 55, 70, 81, 105, 116, 121, 122, 131, 150, 162, 164, 167, 168, 183, 184, 189, 210, 211, 256, 260, 270, 273, 276, 279 y 281. Todos aprobados y comunicados al Departamento Ejecutivo o a los organismos correspondientes. Votos individuales no registrados por el sistema de transcripción automática.</p></div>
+
+</div>
+
+<h2>💬 Principales puntos de debate</h2>
+<div class="card">
+
+  <div style="border-left:5px solid #e74c3c;padding:15px;margin-bottom:20px;background:#fdf2f2;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#c0392b">🔴 1. Emergencia en Seguridad Pública — El debate más extenso y confrontativo</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#8e44ad">PRO + La Libertad Avanza</strong><br>
+        <small style="color:#666">Morzone, Bardón, Allan, Barcia, Zanetto, De Feo</small>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Proyecto de emergencia en seguridad por 2 años, con mapa del delito público y rendición trimestral del intendente</li>
+          <li>Solo el 7% del presupuesto va a seguridad vs. el 60% a obra pública</li>
+          <li>98.643 causas judiciales en 2024 (+5,3%) y 23.210 con tipificación provisoria que distorsionan estadísticas favorables</li>
+          <li>Patrulleros comprados en depósitos del COM sin personal</li>
+          <li>Testimonio personal: Barcia víctima de robo el 30/11 sin respuesta policial a meses del hecho</li>
+          <li>Antecedentes exitosos en Rosario, Córdoba, CABA, Barcelona y Medellín</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#2980b9">Fuerza Patria</strong><br>
+        <small style="color:#666">Granillo Fernández, Elias, Resa</small>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Estadísticas oficiales (Procuración) muestran baja del delito: homicidios -6,1%, robos -14,2%</li>
+          <li>La seguridad es competencia primaria provincial; el municipio actúa desde la prevención</li>
+          <li>Licitación de $10.500M en tecnología: 1.200 cámaras, 120 km de fibra óptica, lectores de patente, drones y botones antipánico</li>
+          <li>La emergencia es "marketinera"; ya existe un plan integral en ejecución</li>
+          <li>Solo el 15% de impuestos pagados por platenses vuelve al municipio (Resa)</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top:12px;background:#fff3f3;padding:10px;border-radius:5px;font-size:.9em">
+      <strong>⚡ Momentos de mayor tensión:</strong> Bardón afirmó que los patrulleros estaban vacios en los galpones del COM: <em>"No mientan más"</em> (repetido dos veces, con intervención del presidente para pedir respeto). Morzone cerró: <em>"Vayan a caminar a Parque Avellaneda y les van a decir: zona liberada."</em>
+    </div>
+  </div>
+
+  <div style="border-left:5px solid #8e44ad;padding:15px;margin-bottom:20px;background:#f8f4fb;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#6c3483">🟣 2. Abusos sexuales en el Senado Provincial — El debate de mayor carga política</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#f39c12">Nicolás Morzone (PRO)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Comisión investigadora en el Concejo y pedidos de informe a la Vicegobernadora</li>
+          <li>Obligó al intendente a presentarse como particular damnificado</li>
+          <li>10 víctimas durante 10 años, acusados con prisión preventiva</li>
+          <li>Exigió posicionamiento público de Unión por la Patria</li>
+          <li>Defendió la visibilización como forma de sororidad real, no el silencio</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#2980b9">Fuerza Patria</strong><br>
+        <small style="color:#666">Granillo Fernández, Maluendez, Di Dio, Maggio</small>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>El Concejo no tiene competencia sobre hechos del Senado Provincial</li>
+          <li>Las víctimas pidieron explícitamente no mediatizar el caso</li>
+          <li>Di Dio ofreció acompañar un repudio pero no la comisión investigadora</li>
+          <li>Maggio aclaró que la nota de Infobae sobre la ministra fue rectificada</li>
+          <li>Los acusados ya están detenidos; la justicia actúa</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-left:5px solid #e67e22;padding:15px;margin-bottom:20px;background:#fef9f0;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#ca6f1e">🟠 3. Reforma Laboral Nacional — Debate ideológico con comparativas internacionales</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#8e44ad">La Libertad Avanza + PRO</strong><br>
+        <small style="color:#666">Allan, Bardón, Morzone, De Feo</small>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Modernización necesaria para incorporar al 50% de trabajadores informales</li>
+          <li>La rigidez anterior genera la "industria del juicio" y desinversión</li>
+          <li>Ejemplos exitosos: Paraguay, Uruguay, Brasil, EEUU, Singapur</li>
+          <li>12.000 pymes cerraron con el sistema laboral anterior</li>
+          <li>Los cierres de comercios citados por la oposición son anteriores a la ley</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#2980b9">Fuerza Patria</strong><br>
+        <small style="color:#666">Santana, Parrilli, Granillo Fernández, Elias</small>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Ley regresiva e inconstitucional (artículo 14 bis); citaron al Papa Francisco</li>
+          <li>Litigiosidad argentina: 8-10 juicios/1.000 trabajadores vs. 30-40 en Brasil (Granillo Fernández)</li>
+          <li>Las mismas recetas fracasaron en el 70, el 90 y el 2001</li>
+          <li>Cierre de comercios platenses en 2026 y caída del consumo</li>
+          <li>El FALL (fondo de indemnización) irá a la CNV, no a los trabajadores</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-left:5px solid #e74c3c;padding:15px;margin-bottom:20px;background:#fdf2f2;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#c0392b">🔴 4. Femicidios — Moción rechazada y el momento más emotivo de la sesión</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#2980b9">Gisella Di Dio (Fuerza Patria)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Pidió tratamiento urgente con la misma urgencia que se había tratado el caso del Senado</li>
+          <li>Denunció la asimetría: "¿Qué pasión tienen por las mujeres? Ahí está la preocupación"</li>
+          <li>Contó con apoyo de otros concejales de FP y del PRO (Morzone)</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#8e44ad">La Libertad Avanza + UCR + ASAP</strong><br>
+        <small style="color:#666">Bardón, Allan, Staffolani, Horomadiuk</small>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Las estadísticas (Oficina de la Mujer, SCBA) muestran baja en 2024: 250 (2023) vs. 228 (2024)</li>
+          <li>El proyecto contiene datos incorrectos; aprobar hechos falsos es irresponsable</li>
+          <li>La presidenta del propio bloque FP acordó el destino a comisión en labor parlamentaria</li>
+          <li>Tratarlo sobre tablas sería ignorar los acuerdos institucionales</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-left:5px solid #3498db;padding:15px;margin-bottom:20px;background:#f0f7fd;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#2471a3">🔵 5. Lenguaje Inclusivo y Género en Documentación Oficial</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#8e44ad">Sabrina Morales (La Libertad Avanza)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Proyecto para eliminar imposición de usar "concejala" en designaciones oficiales</li>
+          <li>El cargo "Concejal" es gramaticalmente correcto para ambos géneros según la RAE</li>
+          <li>Criticó la "militancia lingüística" como sesgo ideológico</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#2980b9">Josefina Bolis (Fuerza Patria)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>La Ley de Identidad de Género consagra el uso de marcas de género</li>
+          <li>La RAE acepta y promueve las inflexiones de género desde 2009</li>
+          <li>El genérico masculino no es neutral: es una construcción cultural</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-left:5px solid #27ae60;padding:15px;margin-bottom:20px;background:#f0faf4;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#1e8449">🟢 6. Habilitaciones Comerciales Digitales — El único punto de acercamiento genuino</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#8e44ad">Gastón Álvarez (La Libertad Avanza)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Trámite 100% web, QR provisional (90 días), gratuidad, sin tasa publicitaria por 90 días</li>
+          <li>Señaló que las diferencias políticas no deberían impedir acuerdos técnicos</li>
+          <li>Cerró con: "No solamente la política es marcar las diferencias; a veces ponerse de acuerdo"</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#2980b9">Granillo Fernández y Resa (Fuerza Patria)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Reconocieron el valor del proyecto y su compatibilidad con la gestión</li>
+          <li>Muchas medidas ya están en implementación: datacenter, plataforma digital, habilitaciones con DDJJ</li>
+          <li>Fue el único debate donde oposición y oficialismo llegaron a un punto de trabajo conjunto</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-left:5px solid #f39c12;padding:15px;background:#fef9f0;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#d35400">🟡 7. Parque Saavedra y Estacionamiento Medido — Críticas a decisiones de la gestión municipal</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#f39c12">PRO + La Libertad Avanza</strong><br>
+        <small style="color:#666">Morzone, Álvarez</small>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Parque cerrado 8 meses sin obra iniciada: viola razonabilidad, continuidad y finalidad del acto administrativo</li>
+          <li>Inauguración prevista para el 19/11 (Día de La Plata, año electoral) = especulación política</li>
+          <li>Quejas vecinales: biblioteca con imágenes políticas, artesanos sin autorización, feria sin sanitarios</li>
+          <li>Estacionamiento medido automatizado: más caro que una cochera, "abusivo e inconstitucional"</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#2980b9">Fuerza Patria</strong><br>
+        <small style="color:#666">Granillo Fernández, Parrilli</small>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Parrilli: La Plata se llamó "Ciudad de Eva Perón" entre 1952 y 1955; las imágenes peronistas tienen historia en el espacio público</li>
+          <li>Granillo Fernández: el cobro por uso del espacio público es política habitual en ciudades medianas y grandes</li>
+          <li>El oficialismo no respondió a los argumentos jurídicos sobre el cierre del parque</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div></div>
+<!-- SECCIÓN: CÓMO SE HIZO + DISCLAIMER -->
+<div style="background:var(--negro);padding:5rem 2.5rem;">
+  <div style="max-width:800px;margin:0 auto;">
+
+    <!-- CÓMO SE HIZO -->
+    <div style="margin-bottom:4rem;">
+      <div style="font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acento);margin-bottom:2rem;display:flex;align-items:center;gap:.75rem;">
+        <span style="display:block;width:2rem;height:1px;background:var(--acento);flex-shrink:0"></span>
+        Cómo se hizo este informe
+      </div>
+
+      <p style="font-family:'Fraunces',serif;font-size:clamp(1.1rem,2vw,1.4rem);font-weight:300;font-style:italic;line-height:1.6;color:rgba(245,242,235,.85);margin-bottom:2rem;">
+        Cada sesión del Concejo Deliberante es pública. El desafío es convertirla en información útil.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);margin-bottom:1.2rem;">
+        Las sesiones del HCD de La Plata se transmiten en vivo y quedan grabadas en YouTube. Son la forma más directa de acceso a la deliberación legislativa municipal — pero también son extensas, técnicas y difíciles de seguir para quien no tiene horas disponibles ni formación específica en derecho o política local.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);margin-bottom:1.2rem;">
+        En Capital Data procesamos esas sesiones con <strong style="color:rgba(245,242,235,.6);">modelos de lenguaje de inteligencia artificial</strong> para extraer lo sustancial: quién habló, sobre qué, con qué posición, y qué se votó. El material fuente son las actas y desgrabaciones oficiales, complementadas con el video de la sesión. A partir de eso, construimos el informe que ven acá: concejal por concejal, tema por tema, bloque por bloque.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);margin-bottom:1.2rem;">
+        El objetivo no es reemplazar el seguimiento directo de la sesión — es hacerlo posible para quienes no pueden dedicarle cinco horas. Una ciudad que delibera en público merece que esa deliberación llegue a más personas.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);">
+        La información pública existe. Nosotros la hacemos legible.
+      </p>
+    </div>
+
+    <!-- SEPARADOR -->
+    <div style="height:1px;background:rgba(245,242,235,.08);margin-bottom:4rem;"></div>
+
+    <!-- DISCLAIMER -->
+    <div>
+      <div style="font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,242,235,.3);margin-bottom:2rem;display:flex;align-items:center;gap:.75rem;">
+        <span style="display:block;width:2rem;height:1px;background:rgba(245,242,235,.2);flex-shrink:0"></span>
+        Aviso importante
+      </div>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);margin-bottom:1rem;">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">Capital Data no es un medio de comunicación ni un partido político.</strong> Somos un equipo independiente que usa inteligencia artificial para analizar información pública municipal. No recibimos financiamiento del Estado ni de ninguna fuerza política. Nuestro único interés es que los datos del gobierno local sean accesibles para todos.
+      </p>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);margin-bottom:1rem;">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">Este análisis puede contener errores.</strong> Los procesos de extracción y síntesis automatizada tienen limitaciones. Las posiciones atribuidas a cada concejal reflejan nuestra interpretación del material disponible y pueden no capturar matices o contextos relevantes. Si encontrás una inconsistencia, escribinos: la corregimos y la publicamos.
+      </p>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);margin-bottom:1rem;">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">Todo el material es público.</strong> Las sesiones del Concejo Deliberante están disponibles para cualquier persona. Cualquiera puede acceder a ellas, verificar nuestros análisis y llegar a sus propias conclusiones. Eso es exactamente lo que queremos.
+      </p>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">El objetivo no es el análisis en sí.</strong> Es demostrar que una ciudad mejor gobernada empieza por una ciudad mejor comprendida — y que comprender ya no requiere un equipo de expertos ni un presupuesto de investigación. Requiere voluntad, herramientas abiertas y la convicción de que la información pública le pertenece a la gente.
+      </p>
+    </div>
+
+  </div>
+</div>
+<footer class="informe-footer">
+  <div class="informe-footer-logo" style="display:flex;align-items:center;gap:.5rem"><span style="display:inline-flex;align-items:center;width:20px;height:20px;flex-shrink:0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 48 48" role="img">
+<title>Capital Data</title>
+<!-- centro: 24,24 -->
+<!-- 8 nodos perimetrales en forma cuadrada -->
+<!-- esquinas: 6,6 | 42,6 | 42,42 | 6,42 -->
+<!-- medios: 24,5 | 43,24 | 24,43 | 5,24 -->
+<!-- 4 nodos interiores anillo: 13,13 | 35,13 | 35,35 | 13,35 -->
+
+<!-- Centro → perimetrales -->
+<line x1="24" y1="24" x2="6"  y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="5"  stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="43" y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="43" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="6"  y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="5"  y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+
+<!-- Centro → interiores -->
+<path d="M24,24 Q18,18 13,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,18 35,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,30 35,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q18,30 13,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+
+<!-- Borde perimetral cuadrado -->
+<path d="M6,6   Q15,5  24,5"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M24,5  Q33,5  42,6"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M42,6  Q43,15 43,24" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M43,24 Q43,33 42,42" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M42,42 Q33,43 24,43" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M24,43 Q15,43 6,42"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M6,42  Q5,33  5,24"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M5,24  Q5,15  6,6"   stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+
+<!-- Conexiones interiores entre sí -->
+<path d="M13,13 Q24,12 35,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.20"/>
+<path d="M35,13 Q36,24 35,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.20"/>
+<path d="M35,35 Q24,36 13,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.20"/>
+<path d="M13,35 Q12,24 13,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.20"/>
+
+<!-- Cruzadas interiores → perimetrales -->
+<path d="M13,13 Q9,9   6,6"   stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q38,9  42,6"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,35 Q38,38 42,42" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,35 Q9,38  6,42"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,13 Q9,18  5,24"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q39,18 43,24" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+
+<!-- Nodos perimetrales -->
+<circle cx="6"  cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="5"  r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="43" cy="24" r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="43" r="1.8" fill="#1a3fff"/>
+<circle cx="6"  cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="5"  cy="24" r="1.8" fill="#1a3fff"/>
+
+<!-- Nodos interiores anillo -->
+<circle cx="13" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="35" r="1"   fill="#c8ff00"/>
+<circle cx="13" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="35" r="1"   fill="#c8ff00"/>
+
+<!-- Nodo central -->
+<circle cx="24" cy="24" r="7"   fill="#0a0a0a" stroke="#c8ff00" stroke-width="1.5"/>
+<circle cx="24" cy="24" r="3.5" fill="#1a3fff"/>
+<circle cx="24" cy="24" r="1.5" fill="#c8ff00"/>
+</svg></span>Capital <span>Data</span></div>
+  <div class="informe-footer-info">
+    La Plata &middot; Capital de la Provincia de Buenos Aires<br>
+    Pol&iacute;ticas p&uacute;blicas e inteligencia artificial<br>
+    @capitaldata
+  </div>
+</footer>
+</body></html>

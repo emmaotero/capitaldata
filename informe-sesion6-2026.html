@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sesi&oacute;n N&deg;6 &middot; 2026 — Capital Data</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+
+:root{--azul:#1a3fff;--negro:#0a0a0a;--crema:#f5f2eb;--gris-claro:#f0ede6;--gris-borde:#e2ddd4;--texto:#1a1a1a;--texto-suave:#6b6b6b;--acento:#c8ff00}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:"Instrument Sans",sans-serif;background:var(--crema);color:var(--texto);max-width:1200px;margin:0 auto;padding:0}
+.informe-nav{background:var(--negro);padding:1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.informe-nav-logo{font-family:"DM Mono",monospace;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--acento);text-decoration:none}
+.informe-nav-back{font-family:"DM Mono",monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,242,235,.4);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .2s}
+.informe-nav-back:hover{color:var(--crema)}
+.informe-header{background:var(--negro);padding:5rem 2.5rem 4rem;position:relative;overflow:hidden}
+.informe-header::after{content:"";position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--azul),transparent)}
+.informe-eyebrow{font-family:"DM Mono",monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acento);margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem}
+.informe-eyebrow::before{content:"";display:block;width:2rem;height:1px;background:var(--acento)}
+.informe-header h1{font-family:"Fraunces",serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:300;color:var(--crema);line-height:1.1;letter-spacing:-.02em;margin-bottom:2rem;max-width:800px}
+.informe-meta-bar{display:flex;gap:2rem;flex-wrap:wrap;align-items:center}
+.informe-meta-item{font-family:"DM Mono",monospace;font-size:.65rem;letter-spacing:.1em;color:rgba(245,242,235,.4);display:flex;align-items:center;gap:.5rem}
+.informe-meta-item a{color:var(--azul);text-decoration:none}.informe-meta-item a:hover{color:var(--acento)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--gris-borde);border-bottom:1px solid var(--gris-borde)}
+.stat{background:white;padding:2rem 1.5rem;text-align:center}
+.stat .n{font-family:"Fraunces",serif;font-size:2.8rem;font-weight:300;color:var(--azul);line-height:1;margin-bottom:.4rem}
+.stat .label{font-family:"DM Mono",monospace;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--texto-suave)}
+.res{background:white;border-left:3px solid var(--azul);padding:2rem 2.5rem;font-family:"Fraunces",serif;font-size:1.05rem;font-weight:300;font-style:italic;line-height:1.7;color:var(--texto)}
+.contenido{padding:3rem 2.5rem}
+h2{font-family:"Fraunces",serif;font-size:1.8rem;font-weight:300;color:var(--negro);margin-top:3.5rem;margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:1px solid var(--gris-borde);display:flex;align-items:center;gap:.6rem}
+h2:first-child{margin-top:0}
+h3{font-family:"Fraunces",serif;font-size:1.2rem;font-weight:400;margin-bottom:.75rem;color:var(--negro)}
+.card{background:white;border:1px solid var(--gris-borde);padding:2rem;margin-bottom:1.5rem}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+th{background:var(--negro);color:var(--crema);padding:.75rem 1rem;text-align:left;font-family:"DM Mono",monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;font-weight:400}
+td{padding:.85rem 1rem;border-bottom:1px solid var(--gris-borde);vertical-align:top;line-height:1.5}
+tr:last-child td{border-bottom:none}tr:hover td{background:var(--gris-claro)}
+.informe-footer{background:var(--negro);padding:2.5rem;display:flex;justify-content:space-between;align-items:center;margin-top:0}
+.informe-footer-logo{font-family:"Fraunces",serif;font-size:1.2rem;font-weight:300;color:var(--crema)}
+.informe-footer-logo span{color:var(--acento);font-style:italic}
+.informe-footer-info{font-family:"DM Mono",monospace;font-size:.58rem;letter-spacing:.1em;color:rgba(245,242,235,.3);text-align:right;line-height:1.8}
+@media(max-width:768px){.informe-header{padding:3.5rem 1.5rem 3rem}.contenido{padding:2rem 1.5rem}.res{padding:1.5rem}.informe-nav{padding:1rem 1.5rem}.informe-footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}.informe-footer-info{text-align:center}}
+
+</style>
+</head>
+<body>
+
+<nav class="informe-nav">
+  <a href="index.html" class="informe-nav-logo" style="display:flex;align-items:center;gap:.6rem"><span style="display:inline-flex;align-items:center;width:28px;height:28px;flex-shrink:0"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 48 48" role="img">
+<title>Capital Data</title>
+<!-- centro: 24,24 -->
+<!-- 8 nodos perimetrales en forma cuadrada -->
+<!-- esquinas: 6,6 | 42,6 | 42,42 | 6,42 -->
+<!-- medios: 24,5 | 43,24 | 24,43 | 5,24 -->
+<!-- 4 nodos interiores anillo: 13,13 | 35,13 | 35,35 | 13,35 -->
+
+<!-- Centro → perimetrales -->
+<line x1="24" y1="24" x2="6"  y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="5"  stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="43" y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="43" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="6"  y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="5"  y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+
+<!-- Centro → interiores -->
+<path d="M24,24 Q18,18 13,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,18 35,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,30 35,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q18,30 13,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+
+<!-- Borde perimetral cuadrado -->
+<path d="M6,6   Q15,5  24,5"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M24,5  Q33,5  42,6"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M42,6  Q43,15 43,24" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M43,24 Q43,33 42,42" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M42,42 Q33,43 24,43" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M24,43 Q15,43 6,42"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M6,42  Q5,33  5,24"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M5,24  Q5,15  6,6"   stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+
+<!-- Conexiones interiores entre sí -->
+<path d="M13,13 Q24,12 35,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+<path d="M35,13 Q36,24 35,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+<path d="M35,35 Q24,36 13,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+<path d="M13,35 Q12,24 13,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+
+<!-- Cruzadas interiores → perimetrales -->
+<path d="M13,13 Q9,9   6,6"   stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q38,9  42,6"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,35 Q38,38 42,42" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,35 Q9,38  6,42"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,13 Q9,18  5,24"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q39,18 43,24" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+
+<!-- Nodos perimetrales -->
+<circle cx="6"  cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="5"  r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="43" cy="24" r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="43" r="1.8" fill="#1a3fff"/>
+<circle cx="6"  cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="5"  cy="24" r="1.8" fill="#1a3fff"/>
+
+<!-- Nodos interiores anillo -->
+<circle cx="13" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="35" r="1"   fill="#c8ff00"/>
+<circle cx="13" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="35" r="1"   fill="#c8ff00"/>
+
+<!-- Nodo central -->
+<circle cx="24" cy="24" r="7"   fill="#0a0a0a" stroke="#c8ff00" stroke-width="1.5"/>
+<circle cx="24" cy="24" r="3.5" fill="#1a3fff"/>
+<circle cx="24" cy="24" r="1.5" fill="#c8ff00"/>
+</svg></span>Capital Data</a>
+  <a href="sesiones.html" class="informe-nav-back">&larr; Sesiones</a>
+</nav>
+
+<div class="informe-header">
+  <div class="informe-eyebrow">Informe N&deg;6 &middot; 2026</div>
+  <h1>Sesi&oacute;n Ordinaria N&deg;6<br>83&deg; Per&iacute;odo Legislativo</h1>
+  <div class="informe-meta-bar">
+    <span class="informe-meta-item">&#128197; 21 de mayo de 2026</span>
+    <span class="informe-meta-item">&#128336; 11:31 &mdash; 16:45 hs</span>
+    <span class="informe-meta-item">&#128203; 322 puntos en el sumario</span>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="n">22</div><div class="label">Presentes</div></div>
+  <div class="stat"><div class="n">322</div><div class="label">Puntos</div></div>
+  <div class="stat"><div class="n">8+</div><div class="label">Votaciones</div></div>
+  <div class="stat"><div class="n">70+</div><div class="label">Intervenciones</div></div>
+</div>
+
+<div class="res">Sesi&oacute;n presidida por Sergio Resa (Vicepresidente 1&deg;, en reemplazo de Galland). El debate central fue la Rendici&oacute;n de Cuentas 2025 del Departamento Ejecutivo, que deriv&oacute; en una discusi&oacute;n pol&iacute;tico-econ&oacute;mica amplia sobre los modelos de gesti&oacute;n. Otros ejes: Ciudadano Ilustre para Ra&uacute;l Kraiselburd (consenso transversal), desfinanciamiento del sistema sanitario federal e IOMA, repudio a la violencia en la Facultad de Psicolog&iacute;a de la UNLP, situaci&oacute;n del mercado de alquileres y la Red de Movilidad Ciclista. Sesi&oacute;n de menor intensidad confrontacional que la N&deg;5, con varios puntos aprobados por unanimidad.</div>
+
+<div class="contenido">
+
+<h2>&#128101; Concejales</h2><div class="card"><table>
+<tr><th>Nombre</th><th>Cargo</th><th>Bloque</th><th>Interv.</th><th>Posici&oacute;n</th><th>Temas principales</th><th>Resumen</th></tr>
+
+<tr><td><strong>Sergio Daniel RESA</strong></td><td>Presidente de la sesi&oacute;n (Vicepresidente 1&deg;)</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">&mdash;</td><td><span style="background:#7f8c8d;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">presidencia</span></td><td>Conducci&oacute;n de sesi&oacute;n</td><td>Presidi&oacute; la sesi&oacute;n en reemplazo del presidente Galland. Condujo el debate con fluidez, administr&oacute; los tiempos e invit&oacute; al concejal Pablo El&iacute;as a izar y arriar el Pabel&oacute;n Nacional.</td></tr>
+
+<tr><td><strong>Guillermo Arcadio BARD&Oacute;N</strong></td><td>Concejal</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~8</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Ciudadano Ilustre Kraiselburd, Rendici&oacute;n de Cuentas (defensa gesti&oacute;n nacional), aniversarios locales, salud/IOMA</td><td>Solicit&oacute; el adelantamiento del Pt.82 para tratar en primer lugar el Ciudadano Ilustre a Ra&uacute;l Kraiselburd. Fund&oacute; el proyecto destacando el rol del periodismo independiente y la trayectoria del diario El D&iacute;a. En Rendici&oacute;n de Cuentas apoy&oacute; el rumbo econ&oacute;mico nacional y cuestion&oacute; al kirchnerismo. Impuls&oacute; los decretos de aniversarios de Ringuelet, Gorina, Abasto y el d&iacute;a del Bombero Voluntario. En salud/IOMA coincidi&oacute; con FP en la urgencia del tema pero desde una lectura diferente de las responsabilidades.</td></tr>
+
+<tr><td><strong>Pablo Emanuel ELIAS</strong></td><td>Concejal</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~4</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Ciudadano Ilustre Kraiselburd, Rendici&oacute;n de Cuentas (defensa gesti&oacute;n municipal)</td><td>Sum&oacute; palabras al reconocimiento a Kraiselburd destacando su v&iacute;nculo con la comunidad platense y la importancia del Diario El D&iacute;a como actor de la ciudad. En Rendici&oacute;n de Cuentas defendi&oacute; la gesti&oacute;n municipal y record&oacute; el contexto econ&oacute;mico provincial heredado. Ize&oacute; y arri&oacute; el Pabel&oacute;n Nacional.</td></tr>
+
+<tr><td><strong>Nicol&aacute;s Luis MORZONE</strong></td><td>Concejal</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">PRO</span></td><td style="text-align:center;font-weight:bold">~6</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Ciudadano Ilustre Kraiselburd, Rendici&oacute;n de Cuentas, LISFI</td><td>Intervino en el reconocimiento a Kraiselburd vinculando el periodismo independiente con el ejercicio de la democracia. En Rendici&oacute;n de Cuentas fue el orador del PRO: cuestion&oacute; que el debate se corriera hacia modelos nacionales cuando el expediente juzga la gesti&oacute;n local del intendente Alak. Cit&oacute; el adagio latino "verba volant, scripta manent" para marcar que las metas incumplidas quedan firmadas en el expediente. Apoy&oacute; el rumbo econ&oacute;mico del gobierno nacional. Al final de la sesi&oacute;n present&oacute; el repudio a los hechos de violencia en el evento deportivo de la LISFI.</td></tr>
+
+<tr><td><strong>Josefina Mar&iacute;a BOLIS</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~6</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Desfinanciamiento del sistema sanitario federal, IOMA, Rendici&oacute;n de Cuentas</td><td>Solicit&oacute; el tratamiento conjunto de los Pts. 75 (desfinanciamiento sanitario) y 90 (IOMA). Fundamentó el proyecto con datos concretos: ajuste del gobierno nacional en medicamentos (programa Remediar), PAMI y prestaciones esenciales, con efecto cascada sobre los efectores locales. Cuestion&oacute; que se llame "estr&eacute;s financiero" a lo que es un ajuste que afecta vidas. En Rendici&oacute;n de Cuentas critic&oacute; el uso de met&aacute;foras de "salud" por parte del PRO en el contexto del ajuste sanitario. Su intervenci&oacute;n fue la m&aacute;s extensa del debate de salud.</td></tr>
+
+<tr><td><strong>Juan Pablo ALLAN</strong></td><td>Vicepresidente 2&deg;</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Rendici&oacute;n de Cuentas (defensa ajuste nacional)</td><td>Intervino para defender el ajuste del gobierno nacional en la Rendici&oacute;n de Cuentas: argument&oacute; que reducir el gasto p&uacute;blico es necesario y cuestion&oacute; el modelo kirchnerista de "imprimir dinero y cobrar impuestos" como causa de la crisis.</td></tr>
+
+<tr><td><strong>Gast&oacute;n Manuel &Aacute;LVAREZ</strong></td><td>Concejal</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Rendici&oacute;n de Cuentas, exportaciones simplificadas (ARCA)</td><td>Intervino brevemente en Rendici&oacute;n de Cuentas. Present&oacute; el decreto de benep&aacute;cito por la Resoluci&oacute;n Conjunta del Ministerio de Econom&iacute;a y ARCA que elimina topes de facturaci&oacute;n al r&eacute;gimen de exportaci&oacute;n simplificada.</td></tr>
+
+<tr><td><strong>Mar&iacute;a Florencia DE FEO</strong></td><td>Concejala</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Robos de luminarias en Villa Elvira, cortes de luz en City Bell y Villa Castells</td><td>Present&oacute; la preocupaci&oacute;n por el incremento de robos de luminarias en Villa Elvira (Pt.81) y solicit&oacute; el tratamiento junto con las resoluciones de cortes el&eacute;ctricos en City Bell y Villa Castells. Intervenci&oacute;n t&eacute;cnica y vecinal, sin participaci&oacute;n en los debates pol&iacute;ticos centrales.</td></tr>
+
+<tr><td><strong>Soledad PEDERNERA</strong></td><td>Concejala</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Violencia en la Facultad de Psicolog&iacute;a de la UNLP</td><td>Fund&oacute; el repudio a los hechos del 8 de mayo en la Facultad de Psicolog&iacute;a. Agradeci&oacute; el acompa&ntilde;amiento de todos los bloques y denunci&oacute; que militantes que apoyan al presidente Milei fueron agredidos reiteradamente por pensar distinto. Se&ntilde;al&oacute; que en algunas ocasiones hubo lesiones graves.</td></tr>
+
+<tr><td><strong>Dar&iacute;o GANDUGLIA</strong></td><td>Concejal</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Propuesta Vecinal (PROve)</span></td><td style="text-align:center;font-weight:bold">~3</td><td><span style="background:#3498db;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">moderado</span></td><td>Red de Movilidad Ciclista (REDCI), cr&eacute;ditos para taxis el&eacute;ctricos</td><td>Present&oacute; el proyecto de creaci&oacute;n de la Red de Movilidad Ciclista del Partido de La Plata (REDCI), proponiendo integrar las ciclov&iacute;as existentes en una red coherente con criterios de seguridad. Tambi&eacute;n present&oacute; la resoluci&oacute;n para gestionar l&iacute;neas de cr&eacute;dito destinadas a titulares de taxis y remises para adquirir veh&iacute;culos el&eacute;ctricos o h&iacute;bridos.</td></tr>
+
+<tr><td><strong>Gisella Yiuliana DI DIO</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Ciudadano Ilustre Dr. Lucas Gonz&aacute;lez (oncolog&iacute;a Hospital Rossi), Rendici&oacute;n de Cuentas</td><td>Present&oacute; el decreto de Inter&eacute;s Municipal por la labor del director del servicio de oncolog&iacute;a del Hospital Rossi. Intervino brevemente en el debate de Rendici&oacute;n de Cuentas, defendiendo la pol&iacute;tica de salud municipal (producci&oacute;n p&uacute;blica de medicamentos, gesti&oacute;n de Soledad Fern&aacute;ndez como subsecretaria).</td></tr>
+
+<tr><td><strong>Micaela MAGGIO</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Rendici&oacute;n de Cuentas (defensa gesti&oacute;n salud municipal)</td><td>Respondi&oacute; a Morzone en Rendici&oacute;n de Cuentas defendiendo la gesti&oacute;n de Alak en salud: producci&oacute;n p&uacute;blica de medicamentos a nivel municipal, inversi&oacute;n sostenida a pesar del contexto de desfinanciamiento nacional. Corrigi&oacute; lo que consider&oacute; una omisi&oacute;n de Morzone sobre ese punto.</td></tr>
+
+<tr><td><strong>Mar&iacute;a Ona PARRILLI</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~3</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Mercado de alquileres, Rendici&oacute;n de Cuentas</td><td>Present&oacute; la preocupaci&oacute;n por el mercado de alquileres (Pt.79) con datos concretos: menos oferta, precios por encima de la inflaci&oacute;n, alquileres desde $500.000, familias que destinan el 45&ndash;65% del salario a la vivienda. En Rendici&oacute;n de Cuentas replic&oacute; a Morzone comparando el discurso del gobierno nacional con el "segundo semestre" de Macri.</td></tr>
+
+<tr><td><strong>Romina del Carmen SANTANA</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Rendici&oacute;n de Cuentas (modelo econ&oacute;mico), enolog&iacute;a platense</td><td>Intervino en Rendici&oacute;n de Cuentas cuestionando el modelo econ&oacute;mico nacional: el endeudamiento, la entrega de recursos naturales y el impacto del cierre de comercios por falta de consumo. Present&oacute; el decreto de Inter&eacute;s Municipal por la trayectoria del en&oacute;logo platense Ulises Fontana.</td></tr>
+
+<tr><td><strong>Sol Mar&iacute;a MALUENDEZ</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Violencia en la Facultad de Psicolog&iacute;a de la UNLP</td><td>Present&oacute; el decreto de preocupaci&oacute;n (Pt.73) por los hechos de violencia en la Facultad de Psicolog&iacute;a, tratado en conjunto con el Pt.83 (LLA). Reconoci&oacute; que la violencia debe repudiarse sin importar el origen pol&iacute;tico, aunque el texto difiere en el encuadre respecto a la versi&oacute;n de Pedernera (LLA).</td></tr>
+
+<tr><td><strong>Melany HOROMADIUK</strong></td><td>Concejala</td><td><span style="background:#16a085;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">ASAP Nueva Generaci&oacute;n</span></td><td style="text-align:center;font-weight:bold">~1</td><td><span style="background:#3498db;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">moderado</span></td><td>Festival Folcl&oacute;rico Paraguay, sem&aacute;foros Avenida 137 y 42</td><td>Present&oacute; el decreto de Inter&eacute;s Municipal para el Festival Folcl&oacute;rico Patria y Madre (125&deg; aniversario de la independencia de Paraguay). Sin intervenciones en los debates de fondo.</td></tr>
+
+<tr><td><strong>Gustavo Alberto STAFFOLANI</strong></td><td>Concejal</td><td><span style="background:#e74c3c;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">UCR</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#3498db;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">moderado</span></td><td>Ciudadano Ilustre Kraiselburd, proyecto cultural</td><td>Sum&oacute; palabras al reconocimiento a Kraiselburd coincidiendo en la importancia de Ra&uacute;l como figura involucrada con la ciudad. Present&oacute; el decreto de Inter&eacute;s Municipal del proyecto "Entrelazando Culturas Musicales Argentina &ndash; Catalunya".</td></tr>
+
+<tr><td><strong>Iv&aacute;n Gabriel ZANETTO</strong></td><td>Concejal</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">PRO</span></td><td style="text-align:center;font-weight:bold">~1</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Diplomatura procesal penal (inter&eacute;s municipal)</td><td>Present&oacute; el decreto de Inter&eacute;s Municipal de la diplomatura universitaria internacional "Pr&aacute;ctica Procesal Penal y Sistema Judicial". Intervenci&oacute;n breve, sin participaci&oacute;n en los debates pol&iacute;ticos centrales.</td></tr>
+
+<tr><td><strong>Juan Manuel GRANILLO FERN&Aacute;NDEZ</strong></td><td>Vicepresidente 1&deg; (ausente como Presidente)</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~1</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Rendici&oacute;n de Cuentas</td><td>Intervino brevemente en el debate de Rendici&oacute;n de Cuentas cuestionando que la oposici&oacute;n traslade el debate de la gesti&oacute;n local hacia pol&iacute;ticas nacionales. Presidi&oacute; el Concejo en el lugar de Resa cuando este ejerci&oacute; brevemente el uso de la palabra.</td></tr>
+
+</table></div>
+
+<h2>&#128203; Temas tratados</h2><div class="card"><table>
+<tr><th>#</th><th>T&iacute;tulo</th><th>Tipo</th><th>Expediente</th><th>Concejales que hablaron</th><th>Resultado</th></tr>
+
+<tr><td style="text-align:center">82</td><td><strong>Ciudadano Ilustre &mdash; Ra&uacute;l Kraiselburd, por su trayectoria period&iacute;stica</strong> <em>(adelantado por pedido de Bard&oacute;n)</em></td><td>Decreto &mdash; LLA (Bard&oacute;n)</td><td style="font-family:monospace">80.683</td><td>BARD&Oacute;N, MORZONE, ELIAS, STAFFOLANI</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado por unanimidad</span></td></tr>
+
+<tr><td style="text-align:center">2</td><td><strong>Ratificaci&oacute;n del convenio con el Centro Aconcagua y Biblioteca Popular Juan Vucetich</strong></td><td>Mensaje del DE</td><td style="font-family:monospace">80.637</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">4 y 5</td><td><strong>Donaciones de obras de arte al Mumart (Alicia Sottile y Ra&uacute;l Osvaldo Moneta)</strong></td><td>Mensajes del DE</td><td style="font-family:monospace">80.639 / 80.640</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobados</span></td></tr>
+
+<tr><td style="text-align:center">67</td><td><strong>Hu&eacute;sped de Honor &mdash; Horacio Anselmi (trayectoria deportiva)</strong></td><td>Decreto &mdash; FP (Galland)</td><td style="font-family:monospace">80.794</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">71</td><td><strong>Hu&eacute;sped de Honor &mdash; Marcos Milinkovic (deporte)</strong></td><td>Decreto &mdash; FP (Galland)</td><td style="font-family:monospace">80.833</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">73 + 83</td><td><strong>Repudio y preocupaci&oacute;n por los hechos de violencia en la Facultad de Psicolog&iacute;a de la UNLP (8 de mayo)</strong></td><td>Decretos &mdash; FP (Maluendez) / LLA (Pedernera) &mdash; despacho de labor conjunto</td><td style="font-family:monospace">80.870 / 80.690</td><td>PEDERNERA, MALUENDEZ</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">75 + 90</td><td><strong>Preocupaci&oacute;n por el desfinanciamiento del sistema sanitario federal + suspensi&oacute;n de atenci&oacute;n a afiliados de IOMA por la AMP</strong></td><td>Decretos &mdash; FP (Bolis) / LLA (Bard&oacute;n) &mdash; tratamiento conjunto</td><td style="font-family:monospace">80.877 / 80.832</td><td>BOLIS, BARD&Oacute;N, ALLAN</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisi&oacute;n de Salud</span></td></tr>
+
+<tr><td style="text-align:center">79</td><td><strong>Preocupaci&oacute;n por la situaci&oacute;n del mercado de alquileres</strong></td><td>Decreto &mdash; FP (Parrilli)</td><td style="font-family:monospace">80.888</td><td>PARRILLI</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisi&oacute;n de Desarrollo Local</span></td></tr>
+
+<tr><td style="text-align:center">81</td><td><strong>Preocupaci&oacute;n por el incremento de robos de luminarias en Villa Elvira</strong></td><td>Decreto &mdash; LLA (De Feo)</td><td style="font-family:monospace">80.642</td><td>DE FEO</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">84&ndash;88</td><td><strong>Ben&eacute;placitos: 139&deg; aniversario Club Gimnasia, 140&deg; Ringuelet, 103&deg; Gorina, 135&deg; Abasto (con Pt.321), D&iacute;a del Bombero Voluntario</strong></td><td>Decretos &mdash; LLA (Bard&oacute;n)</td><td style="font-family:monospace">80.789&ndash;80.793</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Todos aprobados</span></td></tr>
+
+<tr><td style="text-align:center">91</td><td><strong>Ben&eacute;placito &mdash; eliminaci&oacute;n de topes de facturaci&oacute;n al r&eacute;gimen de exportaci&oacute;n simplificada (ARCA)</strong></td><td>Decreto &mdash; LLA (&Aacute;lvarez)</td><td style="font-family:monospace">80.835</td><td>&Aacute;LVAREZ</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">93 y 95</td><td><strong>Inter&eacute;s Municipal &mdash; libro "El peso de la prueba como garant&iacute;a" y marca "Nuestra Tierra T&eacute; Blends"</strong></td><td>Decretos &mdash; PRO (Morzone)</td><td style="font-family:monospace">80.615 / 80.652</td><td>&mdash;</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisi&oacute;n de Cultura</span></td></tr>
+
+<tr><td style="text-align:center">94</td><td><strong>Inter&eacute;s Municipal &mdash; evento "Corriendo por un sue&ntilde;o 2"</strong></td><td>Decreto &mdash; PRO (Morzone)</td><td style="font-family:monospace">80.825</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">97</td><td><strong>Inter&eacute;s Municipal &mdash; "Entrelazando culturas musicales: Argentina &ndash; Catalunya"</strong></td><td>Decreto &mdash; UCR (Staffolani)</td><td style="font-family:monospace">80.874</td><td>STAFFOLANI</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">63</td><td><strong>Creaci&oacute;n de la Red de Movilidad Ciclista del Partido de La Plata (REDCI)</strong></td><td>Proyecto de Ordenanza &mdash; PROve (Ganduglia)</td><td style="font-family:monospace">80.881</td><td>GANDUGLIA</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisiones de Planeamiento, Transporte y Hacienda</span></td></tr>
+
+<tr><td style="text-align:center">OD N&deg;2 &mdash; Pts. 1&ndash;4</td><td><strong>Rendici&oacute;n de Cuentas Ejercicio 2025 (DE Central, Ente Municipal, Mercado Regional La Plata, EMATUR)</strong></td><td>Decretos &mdash; Comisi&oacute;n de Hacienda</td><td style="font-family:monospace">80.032</td><td>MORZONE, BOLIS, PARRILLI, MAGGIO, SANTANA, ALLAN, BARD&Oacute;N, GRANILLO FERN&Aacute;NDEZ</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado (mayor&iacute;a)</span></td></tr>
+
+<tr><td style="text-align:center">317 y 318</td><td><strong>Reservas de estacionamiento para cam&oacute;n blindado (Banco Naci&oacute;n) y abrigo mixto municipal</strong></td><td>Ordenanzas &mdash; Comisi&oacute;n de Transporte</td><td style="font-family:monospace">78.868 / 79.040</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobados</span></td></tr>
+
+<tr><td style="text-align:center">319</td><td><strong>Repudio y preocupaci&oacute;n por los hechos de violencia durante una jornada de LISFI</strong></td><td>Decreto &mdash; FP (incorporado en labor)</td><td style="font-family:monospace">80.945</td><td>MORZONE</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">OD N&deg;2 &mdash; Pts. 5&ndash;15</td><td><strong>Ordenanzas de estacionamiento (Sagasti, ANSES, Jard&iacute;n Meridiano V, Centro de Diagn&oacute;stico MON) + decretos de seguridad (incendios, hechos delictivos)</strong></td><td>Varios &mdash; Comisiones de Transporte y Seguridad</td><td style="font-family:monospace">Varios</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Todos aprobados</span></td></tr>
+
+</table></div>
+
+<h2>&#128381;&#65039; Votaciones</h2><div class="card">
+
+<div style="border:1px solid #e2ddd4;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0;font-family:'Fraunces',serif;font-weight:400">#1 &mdash; Ciudadano Ilustre Ra&uacute;l Kraiselburd (Pt. 82)</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Aprobado por unanimidad</span></div>
+<div style="margin-top:8px">&#10003; <b>Todos los bloques</b></div>
+<p style="color:#6b6b6b;font-style:italic;font-size:.9em;margin-top:6px">El proyecto fue firmado por todos los bloques. Bard&oacute;n (LLA) lo present&oacute; y solicit&oacute; su adelantamiento. Morzone vincul&oacute; el periodismo independiente con la democracia. El debate fue el m&aacute;s c&aacute;lido de la sesi&oacute;n, con referencias personales de varios concejales al diario El D&iacute;a y a Ra&uacute;l Kraiselburd.</p></div>
+
+<div style="border:1px solid #e2ddd4;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0;font-family:'Fraunces',serif;font-weight:400">#2 &mdash; Repudio a la violencia en la Facultad de Psicolog&iacute;a de la UNLP (Pts. 73 + 83)</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Aprobado</span></div>
+<div style="margin-top:8px">&#10003; <b>Todos los bloques</b> &nbsp; (despacho de labor conjunto)</div>
+<p style="color:#6b6b6b;font-style:italic;font-size:.9em;margin-top:6px">FP (Maluendez, Pt.73) y LLA (Pedernera, Pt.83) presentaron textos distintos pero acordaron el tratamiento conjunto. Pedernera enfatiz&oacute; que los agredidos eran militantes libertarios; Maluendez encuadr&oacute; el repudio sin referencia pol&iacute;tica expl&iacute;cita.</p></div>
+
+<div style="border:1px solid #e2ddd4;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0;font-family:'Fraunces',serif;font-weight:400">#3 &mdash; Rendici&oacute;n de Cuentas Ejercicio 2025 (OD N&deg;2, Pts. 1&ndash;4)</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Aprobado (mayor&iacute;a)</span></div>
+<div style="margin-top:8px">&#10003; <b>FP + LLA + PRO</b> &nbsp; &#10007; <b>Abstenci&oacute;n / voto negativo minorías</b></div>
+<p style="color:#6b6b6b;font-style:italic;font-size:.9em;margin-top:6px">El debate m&aacute;s extenso de la sesi&oacute;n. FP defendi&oacute; la gesti&oacute;n municipal en el marco de un contexto de desfinanciamiento nacional. LLA y PRO aprobaron la rendici&oacute;n y aprovecharon para defender el rumbo econ&oacute;mico del gobierno nacional y cuestionar el kirchnerismo.</p></div>
+
+<div style="border:1px solid #e2ddd4;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0;font-family:'Fraunces',serif;font-weight:400">#4 &mdash; Ben&eacute;placitos y aniversarios (Pts. 84&ndash;88, 67, 71, 136, 321)</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Todos aprobados</span></div>
+<div style="margin-top:8px">&#10003; <b>Unanimidad</b></div>
+<p style="color:#6b6b6b;font-style:italic;font-size:.9em;margin-top:6px">Club Gimnasia 139&deg; aniversario, Ringuelet 140&deg;, Gorina 103&deg;, Abasto 135&deg; (FP y LLA en conjunto), D&iacute;a del Bombero Voluntario, H&eacute;spedes de Honor Anselmi y Milinkovic. Todos sin debate.</p></div>
+
+<div style="border:1px solid #e2ddd4;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0;font-family:'Fraunces',serif;font-weight:400">#5 &mdash; Ordenanzas de estacionamiento OD N&deg;2 (Pts. 5&ndash;8)</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Aprobadas</span></div>
+<div style="margin-top:8px">&#10003; <b>Mayor&iacute;a</b></div>
+<p style="color:#6b6b6b;font-style:italic;font-size:.9em;margin-top:6px">Reservas para Sagasti, Centro de Diagn&oacute;stico MON, sede ANSES y Jard&iacute;n Meridiano V. Pendientes desde sesi&oacute;n anterior.</p></div>
+
+</div>
+
+<h2>&#128172; Principales puntos de debate</h2>
+<div class="card">
+
+  <div style="border-left:5px solid #3498db;padding:15px;margin-bottom:20px;background:#f0f7fd;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#2471a3">&#128309; 1. Ciudadano Ilustre Ra&uacute;l Kraiselburd &mdash; El &uacute;nico momento de consenso total</h3>
+    <p style="font-size:.9em;color:#444;line-height:1.7">El proyecto fue firmado por todos los bloques antes de la sesi&oacute;n. Bard&oacute;n (LLA) lo present&oacute; y solicit&oacute; el adelantamiento como primer punto. El debate fue c&aacute;lido y sin pol&eacute;mica: Morzone se refiri&oacute; al periodismo independiente como pilar de la democracia moderna, Elias destac&oacute; el v&iacute;nculo del Diario El D&iacute;a con la identidad platense, Staffolani coincidi&oacute; en que es un reconocimiento merecido. La nota de color la puso el concejal Resa al mencionar una reuni&oacute;n sobre la obra del hospital donde la presencia de Kraiselburd fue destacada. Fue el momento de mayor temperatura emocional positiva de la sesi&oacute;n.</p>
+  </div>
+
+  <div style="border-left:5px solid #e74c3c;padding:15px;margin-bottom:20px;background:#fdf2f2;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#c0392b">&#128308; 2. Rendici&oacute;n de Cuentas 2025 &mdash; El expediente como arena pol&iacute;tica</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#f39c12">PRO (Morzone)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>El debate no deber&iacute;a correrse hacia modelos nacionales: "venimos a discutir la gesti&oacute;n del intendente, no otra cosa".</li>
+          <li>"Verba volant, scripta manent": las metas incumplidas quedan firmadas en el expediente por el intendente y el secretario de Hacienda.</li>
+          <li>El PRO apoya el rumbo econ&oacute;mico nacional de manera irrenunciable. Cuestion&oacute; al kirchnerismo como responsable de la crisis heredada (200% de inflaci&oacute;n, 52% de pobreza).</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#2980b9">Fuerza Patria (Bolis, Maggio, Parrilli, Santana)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Bolis: cuestionar el uso de met&aacute;foras de "terapia intensiva" cuando hay personas que no podr&aacute;n salir de la terapia intensiva real por el ajuste en salud.</li>
+          <li>Maggio: defensa concreta de la gesti&oacute;n municipal en salud &mdash; producci&oacute;n p&uacute;blica de medicamentos, inversi&oacute;n sostenida.</li>
+          <li>Parrilli: comparaci&oacute;n del discurso nacional con el "segundo semestre" de Macri. Datos del mercado de alquileres: familias destinan el 45&ndash;65% del salario a la vivienda.</li>
+          <li>Santana: el endeudamiento y la entrega de recursos naturales cuestionan el relato del "cuidado de los recursos".</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#8e44ad">LLA (Allan, Bard&oacute;n)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Allan: el ajuste es necesario porque la alternativa &mdash; imprimir dinero y subir impuestos &mdash; produjo la crisis actual.</li>
+          <li>Bard&oacute;n: coincide con la preocupaci&oacute;n por el IOMA desde una lectura que responsabiliza a la gesti&oacute;n provincial peronista. Apoya el rumbo econ&oacute;mico nacional.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-left:5px solid #27ae60;padding:15px;margin-bottom:20px;background:#f0faf4;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#1e8449">&#128994; 3. Salud federal e IOMA &mdash; El &uacute;nico punto de preocupaci&oacute;n transversal</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#2980b9">Fuerza Patria (Bolis)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>El ajuste del gobierno nacional "mata": recortes en Remediar, PAMI, prestaciones esenciales, con efecto cascada sobre efectores locales.</li>
+          <li>La situaci&oacute;n del IOMA &mdash; suspensi&oacute;n de atenci&oacute;n por la Agremiaci&oacute;n M&eacute;dica Platense &mdash; es s&iacute;ntoma de ese desfinanciamiento.</li>
+          <li>Solicit&oacute; el tratamiento conjunto de los Pts. 75 y 90 para abordar el problema de forma integral.</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#8e44ad">LLA (Bard&oacute;n)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Coincide en la urgencia del problema del IOMA pero responsabiliza a la gesti&oacute;n bonaerense por el desfinanciamiento sostenido de la obra social.</li>
+          <li>Reconoce que el sistema sanitario est&aacute; bajo presi&oacute;n, sin cuestionar el ajuste nacional.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-left:5px solid #e67e22;padding:15px;margin-bottom:20px;background:#fef9f0;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#ca6f1e">&#128992; 4. Violencia en la Facultad de Psicolog&iacute;a de la UNLP &mdash; Repudio com&uacute;n, encuadres distintos</h3>
+    <p style="font-size:.9em;color:#444;line-height:1.7">Ambos proyectos (FP y LLA) repudiaron los hechos del 8 de mayo pero desde lecturas distintas. <strong>Pedernera (LLA)</strong> enfatiz&oacute; que los agredidos son militantes que apoyan al presidente Milei, que son atacados reiteradamente por su identidad pol&iacute;tica, y llam&oacute; a garantizar la convivencia ideol&oacute;gica en la universidad. <strong>Maluendez (FP)</strong> encuadr&oacute; el repudio de forma m&aacute;s general, sin referencia a la filiacici&oacute;n pol&iacute;tica de los afectados, coincidiendo en que ninguna violencia es aceptable. Fue aprobado por despacho de labor conjunto.</p>
+  </div>
+
+  <div style="border-left:5px solid #7f8c8d;padding:15px;background:#f8f8f6;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#555">&#9679; 5. Red de Movilidad Ciclista (REDCI) y alquileres &mdash; Proyectos sin debate de fondo</h3>
+    <p style="font-size:.9em;color:#444;line-height:1.7"><strong>Ganduglia (PROve)</strong> present&oacute; la REDCI como un proyecto para integrar las ciclov&iacute;as existentes en una red coherente con criterios de seguridad vial. No hubo debate de fondo en sesi&oacute;n; fue girado a comisiones. <strong>Parrilli (FP)</strong> present&oacute; la preocupaci&oacute;n por alquileres con datos de la Subsecretar&iacute;a de Atenci&oacute;n de Inquilinos del municipio: menos oferta, precios que superan $500.000 y familias que destinan el 45&ndash;65% de su salario. El proyecto fue girado a la Comisi&oacute;n de Desarrollo Local.</p>
+  </div>
+
+</div>
+
+</div>
+
+<!-- SECCIÓN: CÓMO SE HIZO + DISCLAIMER -->
+<div style="background:var(--negro);padding:5rem 2.5rem;">
+  <div style="max-width:800px;margin:0 auto;">
+
+    <!-- CÓMO SE HIZO -->
+    <div style="margin-bottom:4rem;">
+      <div style="font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acento);margin-bottom:2rem;display:flex;align-items:center;gap:.75rem;">
+        <span style="display:block;width:2rem;height:1px;background:var(--acento);flex-shrink:0"></span>
+        Cómo se hizo este informe
+      </div>
+
+      <p style="font-family:'Fraunces',serif;font-size:clamp(1.1rem,2vw,1.4rem);font-weight:300;font-style:italic;line-height:1.6;color:rgba(245,242,235,.85);margin-bottom:2rem;">
+        Cada sesión del Concejo Deliberante es pública. El desafío es convertirla en información útil.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);margin-bottom:1.2rem;">
+        Las sesiones del HCD de La Plata se transmiten en vivo y quedan grabadas en YouTube. Son la forma más directa de acceso a la deliberación legislativa municipal — pero también son extensas, técnicas y difíciles de seguir para quien no tiene horas disponibles ni formación específica en derecho o política local.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);margin-bottom:1.2rem;">
+        En Capital Data procesamos esas sesiones con <strong style="color:rgba(245,242,235,.6);">modelos de lenguaje de inteligencia artificial</strong> para extraer lo sustancial: quién habló, sobre qué, con qué posición, y qué se votó. El material fuente son las actas y desgrabaciones oficiales, complementadas con el video de la sesión. A partir de eso, construimos el informe que ven acá: concejal por concejal, tema por tema, bloque por bloque.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);margin-bottom:1.2rem;">
+        El objetivo no es reemplazar el seguimiento directo de la sesión — es hacerlo posible para quienes no pueden dedicarle cinco horas. Una ciudad que delibera en público merece que esa deliberación llegue a más personas.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);">
+        La información pública existe. Nosotros la hacemos legible.
+      </p>
+    </div>
+
+    <!-- SEPARADOR -->
+    <div style="height:1px;background:rgba(245,242,235,.08);margin-bottom:4rem;"></div>
+
+    <!-- DISCLAIMER -->
+    <div>
+      <div style="font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,242,235,.3);margin-bottom:2rem;display:flex;align-items:center;gap:.75rem;">
+        <span style="display:block;width:2rem;height:1px;background:rgba(245,242,235,.2);flex-shrink:0"></span>
+        Aviso importante
+      </div>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);margin-bottom:1rem;">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">Capital Data no es un medio de comunicación ni un partido político.</strong> Somos un equipo independiente que usa inteligencia artificial para analizar información pública municipal. No recibimos financiamiento del Estado ni de ninguna fuerza política. Nuestro único interés es que los datos del gobierno local sean accesibles para todos.
+      </p>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);margin-bottom:1rem;">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">Este análisis puede contener errores.</strong> Los procesos de extracción y síntesis automatizada tienen limitaciones. Las posiciones atribuidas a cada concejal reflejan nuestra interpretación del material disponible y pueden no capturar matices o contextos relevantes. Si encontrás una inconsistencia, escribinos: la corregimos y la publicamos.
+      </p>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);margin-bottom:1rem;">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">Todo el material es público.</strong> Las sesiones del Concejo Deliberante están disponibles para cualquier persona. Cualquiera puede acceder a ellas, verificar nuestros análisis y llegar a sus propias conclusiones. Eso es exactamente lo que queremos.
+      </p>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">El objetivo no es el análisis en sí.</strong> Es demostrar que una ciudad mejor gobernada empieza por una ciudad mejor comprendida — y que comprender ya no requiere un equipo de expertos ni un presupuesto de investigación. Requiere voluntad, herramientas abiertas y la convicción de que la información pública le pertenece a la gente.
+      </p>
+    </div>
+
+  </div>
+</div>
+<footer class="informe-footer">
+  <div class="informe-footer-logo" style="display:flex;align-items:center;gap:.5rem"><span style="display:inline-flex;align-items:center;width:20px;height:20px;flex-shrink:0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 48 48" role="img">
+<title>Capital Data</title>
+<!-- centro: 24,24 -->
+<!-- 8 nodos perimetrales en forma cuadrada -->
+<!-- esquinas: 6,6 | 42,6 | 42,42 | 6,42 -->
+<!-- medios: 24,5 | 43,24 | 24,43 | 5,24 -->
+<!-- 4 nodos interiores anillo: 13,13 | 35,13 | 35,35 | 13,35 -->
+
+<!-- Centro → perimetrales -->
+<line x1="24" y1="24" x2="6"  y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="5"  stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="43" y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="43" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="6"  y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="5"  y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+
+<!-- Centro → interiores -->
+<path d="M24,24 Q18,18 13,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,18 35,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,30 35,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q18,30 13,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+
+<!-- Borde perimetral cuadrado -->
+<path d="M6,6   Q15,5  24,5"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M24,5  Q33,5  42,6"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M42,6  Q43,15 43,24" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M43,24 Q43,33 42,42" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M42,42 Q33,43 24,43" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M24,43 Q15,43 6,42"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M6,42  Q5,33  5,24"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M5,24  Q5,15  6,6"   stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+
+<!-- Conexiones interiores entre sí -->
+<path d="M13,13 Q24,12 35,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.20"/>
+<path d="M35,13 Q36,24 35,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.20"/>
+<path d="M35,35 Q24,36 13,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.20"/>
+<path d="M13,35 Q12,24 13,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.20"/>
+
+<!-- Cruzadas interiores → perimetrales -->
+<path d="M13,13 Q9,9   6,6"   stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q38,9  42,6"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,35 Q38,38 42,42" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,35 Q9,38  6,42"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,13 Q9,18  5,24"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q39,18 43,24" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+
+<!-- Nodos perimetrales -->
+<circle cx="6"  cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="5"  r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="43" cy="24" r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="43" r="1.8" fill="#1a3fff"/>
+<circle cx="6"  cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="5"  cy="24" r="1.8" fill="#1a3fff"/>
+
+<!-- Nodos interiores anillo -->
+<circle cx="13" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="35" r="1"   fill="#c8ff00"/>
+<circle cx="13" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="35" r="1"   fill="#c8ff00"/>
+
+<!-- Nodo central -->
+<circle cx="24" cy="24" r="7"   fill="#0a0a0a" stroke="#c8ff00" stroke-width="1.5"/>
+<circle cx="24" cy="24" r="3.5" fill="#1a3fff"/>
+<circle cx="24" cy="24" r="1.5" fill="#c8ff00"/>
+</svg></span>Capital <span>Data</span></div>
+  <div class="informe-footer-info">
+    La Plata &middot; Capital de la Provincia de Buenos Aires<br>
+    Pol&iacute;ticas p&uacute;blicas e inteligencia artificial<br>
+    @capitaldata
+  </div>
+</footer>
+</body>
+</html>

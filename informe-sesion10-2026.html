@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sesi&oacute;n N&deg;10 &middot; 2026 — Capital Data</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+
+:root{--azul:#1a3fff;--negro:#0a0a0a;--crema:#f5f2eb;--gris-claro:#f0ede6;--gris-borde:#e2ddd4;--texto:#1a1a1a;--texto-suave:#6b6b6b;--acento:#c8ff00}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:"Instrument Sans",sans-serif;background:var(--crema);color:var(--texto);max-width:1200px;margin:0 auto;padding:0}
+.informe-nav{background:var(--negro);padding:1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.informe-nav-logo{font-family:"DM Mono",monospace;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--acento);text-decoration:none}
+.informe-nav-back{font-family:"DM Mono",monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,242,235,.4);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .2s}
+.informe-nav-back:hover{color:var(--crema)}
+.informe-header{background:var(--negro);padding:5rem 2.5rem 4rem;position:relative;overflow:hidden}
+.informe-header::after{content:"";position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--azul),transparent)}
+.informe-eyebrow{font-family:"DM Mono",monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acento);margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem}
+.informe-eyebrow::before{content:"";display:block;width:2rem;height:1px;background:var(--acento)}
+.informe-header h1{font-family:"Fraunces",serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:300;color:var(--crema);line-height:1.1;letter-spacing:-.02em;margin-bottom:2rem;max-width:800px}
+.informe-meta-bar{display:flex;gap:2rem;flex-wrap:wrap;align-items:center}
+.informe-meta-item{font-family:"DM Mono",monospace;font-size:.65rem;letter-spacing:.1em;color:rgba(245,242,235,.4);display:flex;align-items:center;gap:.5rem}
+.informe-meta-item a{color:var(--azul);text-decoration:none}.informe-meta-item a:hover{color:var(--acento)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--gris-borde);border-bottom:1px solid var(--gris-borde)}
+.stat{background:white;padding:2rem 1.5rem;text-align:center}
+.stat .n{font-family:"Fraunces",serif;font-size:2.8rem;font-weight:300;color:var(--azul);line-height:1;margin-bottom:.4rem}
+.stat .label{font-family:"DM Mono",monospace;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--texto-suave)}
+.res{background:white;border-left:3px solid var(--azul);padding:2rem 2.5rem;font-family:"Fraunces",serif;font-size:1.05rem;font-weight:300;font-style:italic;line-height:1.7;color:var(--texto)}
+.contenido{padding:3rem 2.5rem}
+h2{font-family:"Fraunces",serif;font-size:1.8rem;font-weight:300;color:var(--negro);margin-top:3.5rem;margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:1px solid var(--gris-borde);display:flex;align-items:center;gap:.6rem}
+h2:first-child{margin-top:0}
+h3{font-family:"Fraunces",serif;font-size:1.2rem;font-weight:400;margin-bottom:.75rem;color:var(--negro)}
+.card{background:white;border:1px solid var(--gris-borde);padding:2rem;margin-bottom:1.5rem}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+th{background:var(--negro);color:var(--crema);padding:.75rem 1rem;text-align:left;font-family:"DM Mono",monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;font-weight:400}
+td{padding:.85rem 1rem;border-bottom:1px solid var(--gris-borde);vertical-align:top;line-height:1.5}
+tr:last-child td{border-bottom:none}tr:hover td{background:var(--gris-claro)}
+.informe-footer{background:var(--negro);padding:2.5rem;display:flex;justify-content:space-between;align-items:center;margin-top:0}
+.informe-footer-logo{font-family:"Fraunces",serif;font-size:1.2rem;font-weight:300;color:var(--crema)}
+.informe-footer-logo span{color:var(--acento);font-style:italic}
+.informe-footer-info{font-family:"DM Mono",monospace;font-size:.58rem;letter-spacing:.1em;color:rgba(245,242,235,.3);text-align:right;line-height:1.8}
+@media(max-width:768px){.informe-header{padding:3.5rem 1.5rem 3rem}.contenido{padding:2rem 1.5rem}.res{padding:1.5rem}.informe-nav{padding:1rem 1.5rem}.informe-footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}.informe-footer-info{text-align:center}}
+
+</style>
+</head>
+<body>
+
+<nav class="informe-nav">
+  <a href="index.html" class="informe-nav-logo" style="display:flex;align-items:center;gap:.6rem"><span style="display:inline-flex;align-items:center;width:28px;height:28px;flex-shrink:0"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 48 48" role="img">
+<title>Capital Data</title>
+<!-- centro: 24,24 -->
+<!-- 8 nodos perimetrales en forma cuadrada -->
+<!-- esquinas: 6,6 | 42,6 | 42,42 | 6,42 -->
+<!-- medios: 24,5 | 43,24 | 24,43 | 5,24 -->
+<!-- 4 nodos interiores anillo: 13,13 | 35,13 | 35,35 | 13,35 -->
+
+<!-- Centro → perimetrales -->
+<line x1="24" y1="24" x2="6"  y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="5"  stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="43" y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="43" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="6"  y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="5"  y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+
+<!-- Centro → interiores -->
+<path d="M24,24 Q18,18 13,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,18 35,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,30 35,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q18,30 13,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+
+<!-- Borde perimetral cuadrado -->
+<path d="M6,6   Q15,5  24,5"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M24,5  Q33,5  42,6"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M42,6  Q43,15 43,24" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M43,24 Q43,33 42,42" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M42,42 Q33,43 24,43" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M24,43 Q15,43 6,42"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M6,42  Q5,33  5,24"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M5,24  Q5,15  6,6"   stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+
+<!-- Conexiones interiores entre sí -->
+<path d="M13,13 Q24,12 35,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+<path d="M35,13 Q36,24 35,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+<path d="M35,35 Q24,36 13,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+<path d="M13,35 Q12,24 13,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+
+<!-- Cruzadas interiores → perimetrales -->
+<path d="M13,13 Q9,9   6,6"   stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q38,9  42,6"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,35 Q38,38 42,42" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,35 Q9,38  6,42"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,13 Q9,18  5,24"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q39,18 43,24" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+
+<!-- Nodos perimetrales -->
+<circle cx="6"  cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="5"  r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="43" cy="24" r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="43" r="1.8" fill="#1a3fff"/>
+<circle cx="6"  cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="5"  cy="24" r="1.8" fill="#1a3fff"/>
+
+<!-- Nodos interiores anillo -->
+<circle cx="13" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="35" r="1"   fill="#c8ff00"/>
+<circle cx="13" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="35" r="1"   fill="#c8ff00"/>
+
+<!-- Nodo central -->
+<circle cx="24" cy="24" r="7"   fill="#0a0a0a" stroke="#c8ff00" stroke-width="1.5"/>
+<circle cx="24" cy="24" r="3.5" fill="#1a3fff"/>
+<circle cx="24" cy="24" r="1.5" fill="#c8ff00"/>
+</svg></span>Capital Data</a>
+  <a href="sesiones.html" class="informe-nav-back">&larr; Sesiones</a>
+</nav>
+
+<div class="informe-header">
+  <div class="informe-eyebrow">Informe N&deg;10 &middot; 2026</div>
+  <h1>Sesi&oacute;n Ordinaria N&deg;10<br>83&deg; Per&iacute;odo Legislativo</h1>
+  <div class="informe-meta-bar">
+    <span class="informe-meta-item">&#128197; 13 de agosto de 2026</span>
+    <span class="informe-meta-item">&#128336; Hasta las 17:00 hs</span>
+    <span class="informe-meta-item">&#128203; 23 concejales presentes</span>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="n">23</div><div class="label">Presentes</div></div>
+  <div class="stat"><div class="n">4</div><div class="label">Debates principales</div></div>
+  <div class="stat"><div class="n">10-9-1</div><div class="label">Votaci&oacute;n nominal IOMA</div></div>
+  <div class="stat"><div class="n">70+</div><div class="label">Intervenciones</div></div>
+</div>
+
+<div class="res">Sesi&oacute;n presidida por Sergio Resa. Poggio arri&oacute; el Pabel&oacute;n al cierre. Cuatro debates de fondo: la ordenanza de capacitaci&oacute;n en derechos humanos para la administraci&oacute;n municipal (Morzone calific&oacute; el nombre como "montonero" y cuestion&oacute; la pertinencia; Bolis respondi&oacute; sobre las desapariciones de Miguel Bru y Jorge Julio L&oacute;pez), la categor&iacute;a "inmundicias humanas" que us&oacute; Morzone para referirse a delincuentes (con pedido de llamamiento al orden de Bolis), la situaci&oacute;n de los acompa&ntilde;antes terap&eacute;uticos de IOMA (votaci&oacute;n nominal: rechazado 10 a 9 con 1 abstenci&oacute;n) y la crisis de salud mental municipal. Tambien: Gustavo Santaolalla declarado Hu&eacute;sped de Honor y pesar por el fallecimiento de Jorge Horacio Messi.</div>
+
+<div class="contenido">
+
+<h2>&#128101; Concejales</h2><div class="card"><table>
+<tr><th>Nombre</th><th>Cargo</th><th>Bloque</th><th>Interv.</th><th>Posici&oacute;n</th><th>Temas principales</th><th>Resumen</th></tr>
+
+<tr><td><strong>Sergio Daniel RESA</strong></td><td>Presidente de la sesi&oacute;n</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center">&mdash;</td><td><span style="background:#7f8c8d;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">presidencia</span></td><td>Conducci&oacute;n de sesi&oacute;n</td><td>Presidi&oacute; la sesi&oacute;n por tercera vez consecutiva. Condujo con firmeza los momentos de mayor tensi&oacute;n, en particular el pedido de llamamiento al orden de Bolis sobre Morzone. Invit&oacute; a Poggio a arriar el Pabel&oacute;n al cierre.</td></tr>
+
+<tr><td><strong>Josefina Mar&iacute;a BOLIS</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~8</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Ordenanza de DDHH, "inmundicias humanas" (pedido de orden), Miguel Bru, Jorge Julio L&oacute;pez, salud mental</td><td>La oradora m&aacute;s activa. Present&oacute; la ordenanza de capacitaci&oacute;n en DDHH para la administraci&oacute;n municipal. Vincul&oacute; el debate al aniversario de la desaparici&oacute;n de Miguel Bru (33 a&ntilde;os) y a los 20 a&ntilde;os de la segunda desaparici&oacute;n de Jorge Julio L&oacute;pez. Solicit&oacute; llamamiento al orden de Morzone por usar el t&eacute;rmino "inmundicias humanas", calific&aacute;ndolo de "categor&iacute;a deshumanizante". Intervino extensamente en salud mental rebatiendo las afirmaciones de Morzone sobre el cuadro de metas municipales.</td></tr>
+
+<tr><td><strong>Nicol&aacute;s Luis MORZONE</strong></td><td>Concejal</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">PRO</span></td><td style="text-align:center;font-weight:bold">~9</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Ordenanza DDHH (cr&iacute;tica), seguridad ("inmundicias"), salud mental, idoneidad de concejales</td><td>El concejal m&aacute;s activo. Cuestion&oacute; la ordenanza de DDHH por llevar el nombre de alguien que calific&oacute; como "montonero" y por ser una capacitaci&oacute;n "obligatoria y permanente" que descarta a los abogados. Invoc&oacute; el 75% de platenses nacidos despu&eacute;s del 83 que "no se interesan en esto". Us&oacute; el t&eacute;rmino "inmundicias humanas" para referirse a imputados por delitos contra la vida, la propiedad, la integridad sexual y la libertad, y lo defendi&oacute; explicitamente cuando Bolis pidi&oacute; que lo retirara. En salud mental cuestion&oacute; el cuadro de metas municipales. Plante&oacute; la cuesti&oacute;n de la "idoneidad" de los concejales.</td></tr>
+
+<tr><td><strong>Guillermo Arcadio BARD&Oacute;N</strong></td><td>Concejal</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~5</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>IOMA/acompa&ntilde;antes terap&eacute;uticos (voto positivo, solicita nominal), desmentida EAAF</td><td>Solicit&oacute; la votaci&oacute;n nominal en el punto de acompa&ntilde;antes terap&eacute;uticos/IOMA. Vot&oacute; positivo (favor de la preocupaci&oacute;n). Sali&oacute; a desmentir a Bolis sobre el financiamiento del Equipo Argentino de Antropolog&iacute;a Forense (EAAF): "no depende del gobierno nacional, no mientas m&aacute;s". Intervino sobre seguridad alineado con Morzone pero sin usar la misma terminolog&iacute;a.</td></tr>
+
+<tr><td><strong>Gast&oacute;n Manuel &Aacute;LVAREZ</strong></td><td>Concejal</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~6</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Ordenanza DDHH (cr&iacute;tica), ex funcionario Hern&aacute;n Pez, idoneidad</td><td>Cuestion&oacute; la ordenanza de DDHH como "escuela de doctrinamiento pol&iacute;tico" m&aacute;s que de formaci&oacute;n genuina. Present&oacute; el caso del ex funcionario Hern&aacute;n Pez (detenido con prisi&oacute;n preventiva por abuso sexual agravado) como argumento para exigir criterios de idoneidad m&aacute;s estrictos en el ingreso a la administraci&oacute;n p&uacute;blica. Intervino en seguridad alineado con Morzone.</td></tr>
+
+<tr><td><strong>Juan Manuel GRANILLO FERN&Aacute;NDEZ</strong></td><td>Vicepresidente 1&deg;</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~3</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Idoneidad y "derecho penal de autor", respuesta a Morzone</td><td>Fue citado por Morzone en el debate sobre idoneidad de los concejales. Morzone invoc&oacute; una reflexi&oacute;n de Granillo sobre "derecho penal de autor" para rebatir a FP. Granillo a su vez respond&iacute;o cuestionando que Morzone nombrara exconcejales ausentes.</td></tr>
+
+<tr><td><strong>Mar&iacute;a Florencia DE FEO</strong></td><td>Concejala</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~3</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Deuda financiera / educaci&oacute;n financiera</td><td>Intervino en el debate sobre endeudamiento y educaci&oacute;n financiera, aportando datos sobre el costo financiero total de las tarjetas de cr&eacute;dito y proponiendo su inclusi&oacute;n como tema de comisi&oacute;n.</td></tr>
+
+<tr><td><strong>Micaela MAGGIO</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~3</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Salud mental &mdash; respuesta a Morzone sobre cuadro de metas</td><td>Interpel&oacute; directamente a Morzone: "para hablar habr&iacute;a que leer primero". Cuestion&oacute; que afirme que las metas de salud mental se cumplieron "cero" cuando hace dos sesiones dijo otra cosa. Defendi&oacute; la inversi&oacute;n municipal en salud mental.</td></tr>
+
+<tr><td><strong>Romina del Carmen SANTANA</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~3</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Salud mental (pandemia y desigualdad), DDHH</td><td>Intervino en el debate de salud mental aportando la perspectiva del impacto de la pandemia en la ampliaci&oacute;n de la brecha de clases sociales entre los j&oacute;venes. Acompa&ntilde;&oacute; la posici&oacute;n de Bolis en el debate de DDHH.</td></tr>
+
+<tr><td><strong>Mar&iacute;a Florencia BARCIA</strong></td><td>Concejala</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>IOMA/acompa&ntilde;antes terap&eacute;uticos (ausente en votaci&oacute;n)</td><td>Figura en la votaci&oacute;n nominal de IOMA sin voto registrado. Intervenci&oacute;n breve en el debate.</td></tr>
+
+<tr><td><strong>Pablo POGGIO</strong></td><td>Concejal</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~1</td><td><span style="background:#7f8c8d;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">ceremonial</span></td><td>Arriar el Pabel&oacute;n Nacional</td><td>Arri&oacute; el Pabel&oacute;n Nacional al cierre de la sesi&oacute;n.</td></tr>
+
+</table></div>
+
+<h2>&#128203; Temas tratados</h2><div class="card"><table>
+<tr><th>#</th><th>T&iacute;tulo</th><th>Tipo</th><th>Concejales que hablaron</th><th>Resultado</th></tr>
+
+<tr><td style="text-align:center">&mdash;</td><td><strong>Comercios familiares &mdash; Programa Municipal de Registro y Promoci&oacute;n</strong></td><td>Proyecto de Ordenanza &mdash; FP (Álvarez)</td><td>ÁLVAREZ, DE FEO</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisi&oacute;n de Desarrollo Local</span></td></tr>
+
+<tr><td style="text-align:center">&mdash;</td><td><strong>Ordenanza de capacitaci&oacute;n obligatoria en Derechos Humanos para la administraci&oacute;n municipal</strong></td><td>Proyecto de Ordenanza &mdash; FP (Bolis)</td><td>BOLIS, MORZONE, &Aacute;LVAREZ, GRANILLO FERN&Aacute;NDEZ</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisi&oacute;n de Legislaci&oacute;n</span></td></tr>
+
+<tr><td style="text-align:center">&mdash;</td><td><strong>Seguridad &mdash; "Inmundicias humanas" (Morzone) y pedido de llamamiento al orden (Bolis)</strong></td><td>Debate en el marco de decretos de seguridad</td><td>MORZONE, BOLIS, BARD&Oacute;N</td><td><span style="background:#e74c3c;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">Sin llamamiento al orden</span></td></tr>
+
+<tr><td style="text-align:center">Pt. 86</td><td><strong>Preocupaci&oacute;n ante la situaci&oacute;n de los acompa&ntilde;antes terap&eacute;uticos, cuidadores y prestadores de IOMA &mdash; VOTACI&Oacute;N NOMINAL</strong></td><td>Decreto &mdash; Comisi&oacute;n</td><td>BARD&Oacute;N (solicita nominal)</td><td><span style="background:#e74c3c;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10007; Rechazado &mdash; 10 positivos / 9 negativos / 1 abstenci&oacute;n</span></td></tr>
+
+<tr><td style="text-align:center">&mdash;</td><td><strong>Salud mental &mdash; Cuadro de metas municipales y financiamiento (debate extenso)</strong></td><td>Debate en el marco de proyectos de salud</td><td>MORZONE, BOLIS, MAGGIO, SANTANA</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">Debate en comisi&oacute;n</span></td></tr>
+
+<tr><td style="text-align:center">&mdash;</td><td><strong>Ex funcionario Hern&aacute;n Pez (prisi&oacute;n preventiva por abuso sexual agravado) &mdash; idoneidad en el ingreso a la administraci&oacute;n p&uacute;blica</strong></td><td>Proyecto &mdash; LLA (&Aacute;lvarez)</td><td>&Aacute;LVAREZ, MORZONE</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisi&oacute;n de Legislaci&oacute;n</span></td></tr>
+
+<tr><td style="text-align:center">&mdash;</td><td><strong>Gustavo Santaolalla &mdash; Hu&eacute;sped de Honor</strong></td><td>Decreto &mdash; FP</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">&mdash;</td><td><strong>N&eacute;stor Oscar P&eacute;rez Lozano &mdash; Ciudadano Ilustre por trayectoria laboral</strong></td><td>Decreto &mdash; FP</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">&mdash;</td><td><strong>Pesar por el fallecimiento de Jorge Horacio Messi</strong></td><td>Decreto &mdash; FP</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">&mdash;</td><td><strong>Repudio por la suspensi&oacute;n del Programa MESA por la Provincia</strong></td><td>Decreto &mdash; FP</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">&mdash;</td><td><strong>Preocupaci&oacute;n por el hecho delictivo en la Escuela N&deg;62 (131 e/ 77 y 78)</strong></td><td>Decreto &mdash; FP</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">&mdash;</td><td><strong>Visita del Papa Le&oacute;n XIV &mdash; Ben&eacute;placito (noviembre 2026)</strong></td><td>Decreto &mdash; FP / LLA</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">&mdash;</td><td><strong>Pesar por el terremoto en Colombia</strong></td><td>Decreto &mdash; varios bloques</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">&mdash;</td><td><strong>Varios aniversarios, intereses municipales y resoluciones de obras p&uacute;blicas (ver listado completo de aprobados)</strong></td><td>Decretos / Resoluciones &mdash; varios bloques</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Todos aprobados</span></td></tr>
+
+</table></div>
+
+<h2>&#128381;&#65039; Votaciones destacadas</h2><div class="card">
+
+<div style="border:1px solid #e2ddd4;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #e74c3c">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0;font-family:'Fraunces',serif;font-weight:400">#1 &mdash; Preocupaci&oacute;n por acompa&ntilde;antes terap&eacute;uticos y prestadores de IOMA (Pt. 86) &mdash; VOTACI&Oacute;N NOMINAL</h4><span style="background:#e74c3c;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">&#10007; Rechazado</span></div>
+<div style="margin-top:8px">&#10003; <b>10 positivos</b> (LLA + PRO + Horomadiuk + Morales) &nbsp; &#10007; <b>9 negativos</b> (FP) &nbsp; &#11036; <b>1 abstenci&oacute;n</b> (Di Dio)</div>
+<p style="color:#6b6b6b;font-style:italic;font-size:.9em;margin-top:6px">
+  <strong>Votos positivos:</strong> Lucero, De Feo, Bard&oacute;n, Horomadiuk, Morales, Morzone, Zanetto y al menos 3 m&aacute;s de LLA.<br>
+  <strong>Votos negativos:</strong> Bolis, Elias, Granillo Fern&aacute;ndez, Maggio, Maluendez, Parrilli, Santana y al menos 2 m&aacute;s de FP.<br>
+  <strong>Abstenci&oacute;n:</strong> Di Dio. Pasa al archivo.
+</p></div>
+
+<div style="border:1px solid #e2ddd4;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #e67e22">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0;font-family:'Fraunces',serif;font-weight:400">#2 &mdash; Pedido de llamamiento al orden a Morzone por "inmundicias humanas"</h4><span style="background:#e67e22;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Sin resoluci&oacute;n</span></div>
+<p style="color:#6b6b6b;font-style:italic;font-size:.9em;margin-top:8px">Bolis solicit&oacute; que Resa llamara al orden a Morzone por usar el t&eacute;rmino "inmundicias humanas". Morzone lo defendi&oacute; expl&iacute;citamente: "inmundicia humana le hace toda persona imputada, procesada o condenada por delitos contra la integridad sexual, la vida, la propiedad y la libertad". El presidente Resa no aplic&oacute; el llamamiento al orden.</p></div>
+
+</div>
+
+<h2>&#128172; Principales puntos de debate</h2>
+<div class="card">
+
+  <div style="border-left:5px solid #2980b9;padding:15px;margin-bottom:20px;background:#eaf3fb;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#2471a3">&#128309; 1. Ordenanza de DDHH &mdash; Formaci&oacute;n o doctrinamiento</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#2980b9">Fuerza Patria (Bolis)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Propone capacitaci&oacute;n obligatoria en derechos humanos para la administraci&oacute;n municipal. La educaci&oacute;n en DDHH es una pol&iacute;tica de Estado, no partidaria.</li>
+          <li>El lunes se cumplen 33 a&ntilde;os de la desaparici&oacute;n de Miguel Bru. Este a&ntilde;o se cumplen 20 a&ntilde;os de la segunda desaparici&oacute;n de Jorge Julio L&oacute;pez. La Plata es "cuna de la resistencia".</li>
+          <li>El a&ntilde;o que viene se cumplen 50 a&ntilde;os desde que las madres y abuelas se constituyen.</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#8e44ad">LLA (&Aacute;lvarez) y PRO (Morzone)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Morzone: "doble contradicci&oacute;n cong&eacute;nita" &mdash; la ordenanza habla de DDHH pero lleva el nombre de alguien que califica de "terrorista y montonero". Una capacitaci&oacute;n "obligatoria y permanente" para toda la administraci&oacute;n es autoritaria.</li>
+          <li>El 75% de los platenses nacieron despu&eacute;s del 83 y quieren seguridad, transporte y empleo, "no hablar de derechos humanos" como si fuera lo &uacute;nico relevante.</li>
+          <li>&Aacute;lvarez: es una "escuela de doctrinamiento pol&iacute;tico" disfrazada de formaci&oacute;n. Plante&oacute; el caso Pez como argumento de que el problema no es la capacitaci&oacute;n sino la selecci&oacute;n de personal.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-left:5px solid #e74c3c;padding:15px;margin-bottom:20px;background:#fdf2f2;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#c0392b">&#128308; 2. Seguridad &mdash; "Inmundicias humanas" y el l&iacute;mite del lenguaje pol&iacute;tico</h3>
+    <p style="font-size:.9em;color:#444;line-height:1.7"><strong>Morzone</strong> defini&oacute; como "inmundicias humanas" a los delincuentes ("son nuestros enemigos y les vamos a declarar la guerra para echarlos de la ciudad"). <strong>Bolis</strong> lo interrumpi&oacute; para pedir al presidente que lo llamara al orden por usar "una categor&iacute;a deshumanizante" y un "agravio a un sector poblacional". <strong>Morzone</strong> respondi&oacute; aclar&aacute;ndose: "'Inmundicia humana' hace a toda persona imputada, procesada o condenada por delitos contra la integridad sexual, la vida, la propiedad y la libertad." <strong>Bard&oacute;n</strong> se aline&oacute; con Morzone desmintiedo a Bolis sobre el financiamiento del Equipo Argentino de Antropolog&iacute;a Forense. El presidente Resa no aplic&oacute; el llamamiento al orden solicitado.</p>
+  </div>
+
+  <div style="border-left:5px solid #8e44ad;padding:15px;margin-bottom:20px;background:#f9f4fd;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#6c3483">&#128995; 3. IOMA / Acompa&ntilde;antes terap&eacute;uticos &mdash; La votaci&oacute;n m&aacute;s rel&iacute;da del a&ntilde;o</h3>
+    <p style="font-size:.9em;color:#444;line-height:1.7">La &uacute;nica votaci&oacute;n nominal de la sesi&oacute;n, solicitada por Bard&oacute;n. El proyecto expresaba la preocupaci&oacute;n del Cuerpo por la situaci&oacute;n de los acompa&ntilde;antes terap&eacute;uticos, cuidadores domiciliarios y dem&aacute;s prestadores de IOMA. FP vot&oacute; en contra en bloque (9 negativos), mientras LLA + PRO + Horomadiuk + Morales votaron a favor (10 positivos). Di Dio se abstuvo. El proyecto qued&oacute; rechazado y pas&oacute; al archivo.</p>
+    <div style="margin-top:10px;padding:10px;background:#f0e6ff;border-radius:5px;font-size:.85em">
+      <strong>Noci&oacute;n de la paradoja:</strong> FP vot&oacute; en contra de expresar "preocupaci&oacute;n" por un sector vinculado a la salud p&uacute;blica, argumentando que la preocupaci&oacute;n ya est&aacute; contemplada en otras iniciativas. LLA y PRO votaron a favor de la preocupaci&oacute;n, posicion&aacute;ndose como defensores de los trabajadores del cuidado que dependen de IOMA.
+    </div>
+  </div>
+
+  <div style="border-left:5px solid #27ae60;padding:15px;background:#f0faf4;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#1e8449">&#128994; 4. Salud mental &mdash; Metas vs. realidad</h3>
+    <p style="font-size:.9em;color:#444;line-height:1.7"><strong>Morzone</strong> cuestion&oacute; el cuadro de metas municipales en salud mental, afirmando que el cumplimiento fue "cero". <strong>Maggio</strong> le respondi&oacute; en t&eacute;rminos directos: "para hablar habr&iacute;a que leer primero" y lo invit&oacute; a revisar lo que dijo en sesiones anteriores. <strong>Bolis</strong> defendi&oacute; la inversi&oacute;n municipal sostenida en salud mental en el contexto del desfinanciamiento nacional. <strong>Morzone</strong> mantuvo su posici&oacute;n. No hubo acuerdo sobre los datos.</p>
+  </div>
+
+</div>
+
+</div>
+
+<!-- SECCIÓN: CÓMO SE HIZO + DISCLAIMER -->
+<div style="background:var(--negro);padding:5rem 2.5rem;">
+  <div style="max-width:800px;margin:0 auto;">
+
+    <!-- CÓMO SE HIZO -->
+    <div style="margin-bottom:4rem;">
+      <div style="font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acento);margin-bottom:2rem;display:flex;align-items:center;gap:.75rem;">
+        <span style="display:block;width:2rem;height:1px;background:var(--acento);flex-shrink:0"></span>
+        Cómo se hizo este informe
+      </div>
+
+      <p style="font-family:'Fraunces',serif;font-size:clamp(1.1rem,2vw,1.4rem);font-weight:300;font-style:italic;line-height:1.6;color:rgba(245,242,235,.85);margin-bottom:2rem;">
+        Cada sesión del Concejo Deliberante es pública. El desafío es convertirla en información útil.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);margin-bottom:1.2rem;">
+        Las sesiones del HCD de La Plata se transmiten en vivo y quedan grabadas en YouTube. Son la forma más directa de acceso a la deliberación legislativa municipal — pero también son extensas, técnicas y difíciles de seguir para quien no tiene horas disponibles ni formación específica en derecho o política local.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);margin-bottom:1.2rem;">
+        En Capital Data procesamos esas sesiones con <strong style="color:rgba(245,242,235,.6);">modelos de lenguaje de inteligencia artificial</strong> para extraer lo sustancial: quién habló, sobre qué, con qué posición, y qué se votó. El material fuente son las actas y desgrabaciones oficiales, complementadas con el video de la sesión. A partir de eso, construimos el informe que ven acá: concejal por concejal, tema por tema, bloque por bloque.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);margin-bottom:1.2rem;">
+        El objetivo no es reemplazar el seguimiento directo de la sesión — es hacerlo posible para quienes no pueden dedicarle cinco horas. Una ciudad que delibera en público merece que esa deliberación llegue a más personas.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);">
+        La información pública existe. Nosotros la hacemos legible.
+      </p>
+    </div>
+
+    <!-- SEPARADOR -->
+    <div style="height:1px;background:rgba(245,242,235,.08);margin-bottom:4rem;"></div>
+
+    <!-- DISCLAIMER -->
+    <div>
+      <div style="font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,242,235,.3);margin-bottom:2rem;display:flex;align-items:center;gap:.75rem;">
+        <span style="display:block;width:2rem;height:1px;background:rgba(245,242,235,.2);flex-shrink:0"></span>
+        Aviso importante
+      </div>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);margin-bottom:1rem;">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">Capital Data no es un medio de comunicación ni un partido político.</strong> Somos un equipo independiente que usa inteligencia artificial para analizar información pública municipal. No recibimos financiamiento del Estado ni de ninguna fuerza política. Nuestro único interés es que los datos del gobierno local sean accesibles para todos.
+      </p>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);margin-bottom:1rem;">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">Este análisis puede contener errores.</strong> Los procesos de extracción y síntesis automatizada tienen limitaciones. Las posiciones atribuidas a cada concejal reflejan nuestra interpretación del material disponible y pueden no capturar matices o contextos relevantes. Si encontrás una inconsistencia, escribinos: la corregimos y la publicamos.
+      </p>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);margin-bottom:1rem;">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">Todo el material es público.</strong> Las sesiones del Concejo Deliberante están disponibles para cualquier persona. Cualquiera puede acceder a ellas, verificar nuestros análisis y llegar a sus propias conclusiones. Eso es exactamente lo que queremos.
+      </p>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">El objetivo no es el análisis en sí.</strong> Es demostrar que una ciudad mejor gobernada empieza por una ciudad mejor comprendida — y que comprender ya no requiere un equipo de expertos ni un presupuesto de investigación. Requiere voluntad, herramientas abiertas y la convicción de que la información pública le pertenece a la gente.
+      </p>
+    </div>
+
+  </div>
+</div>
+<footer class="informe-footer">
+  <div class="informe-footer-logo" style="display:flex;align-items:center;gap:.5rem"><span style="display:inline-flex;align-items:center;width:20px;height:20px;flex-shrink:0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 48 48" role="img">
+<title>Capital Data</title>
+<!-- centro: 24,24 -->
+<!-- 8 nodos perimetrales en forma cuadrada -->
+<!-- esquinas: 6,6 | 42,6 | 42,42 | 6,42 -->
+<!-- medios: 24,5 | 43,24 | 24,43 | 5,24 -->
+<!-- 4 nodos interiores anillo: 13,13 | 35,13 | 35,35 | 13,35 -->
+
+<!-- Centro → perimetrales -->
+<line x1="24" y1="24" x2="6"  y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="5"  stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="43" y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="43" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="6"  y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="5"  y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+
+<!-- Centro → interiores -->
+<path d="M24,24 Q18,18 13,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,18 35,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,30 35,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q18,30 13,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+
+<!-- Borde perimetral cuadrado -->
+<path d="M6,6   Q15,5  24,5"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M24,5  Q33,5  42,6"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M42,6  Q43,15 43,24" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M43,24 Q43,33 42,42" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M42,42 Q33,43 24,43" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M24,43 Q15,43 6,42"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M6,42  Q5,33  5,24"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M5,24  Q5,15  6,6"   stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+
+<!-- Conexiones interiores entre sí -->
+<path d="M13,13 Q24,12 35,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.20"/>
+<path d="M35,13 Q36,24 35,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.20"/>
+<path d="M35,35 Q24,36 13,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.20"/>
+<path d="M13,35 Q12,24 13,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.20"/>
+
+<!-- Cruzadas interiores → perimetrales -->
+<path d="M13,13 Q9,9   6,6"   stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q38,9  42,6"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,35 Q38,38 42,42" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,35 Q9,38  6,42"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,13 Q9,18  5,24"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q39,18 43,24" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+
+<!-- Nodos perimetrales -->
+<circle cx="6"  cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="5"  r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="43" cy="24" r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="43" r="1.8" fill="#1a3fff"/>
+<circle cx="6"  cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="5"  cy="24" r="1.8" fill="#1a3fff"/>
+
+<!-- Nodos interiores anillo -->
+<circle cx="13" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="35" r="1"   fill="#c8ff00"/>
+<circle cx="13" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="35" r="1"   fill="#c8ff00"/>
+
+<!-- Nodo central -->
+<circle cx="24" cy="24" r="7"   fill="#0a0a0a" stroke="#c8ff00" stroke-width="1.5"/>
+<circle cx="24" cy="24" r="3.5" fill="#1a3fff"/>
+<circle cx="24" cy="24" r="1.5" fill="#c8ff00"/>
+</svg></span>Capital <span>Data</span></div>
+  <div class="informe-footer-info">
+    La Plata &middot; Capital de la Provincia de Buenos Aires<br>
+    Pol&iacute;ticas p&uacute;blicas e inteligencia artificial<br>
+    @capitaldata
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sesi&oacute;n N&deg;7 &middot; 2026 — Capital Data</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+
+:root{--azul:#1a3fff;--negro:#0a0a0a;--crema:#f5f2eb;--gris-claro:#f0ede6;--gris-borde:#e2ddd4;--texto:#1a1a1a;--texto-suave:#6b6b6b;--acento:#c8ff00}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:"Instrument Sans",sans-serif;background:var(--crema);color:var(--texto);max-width:1200px;margin:0 auto;padding:0}
+.informe-nav{background:var(--negro);padding:1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.informe-nav-logo{font-family:"DM Mono",monospace;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--acento);text-decoration:none}
+.informe-nav-back{font-family:"DM Mono",monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,242,235,.4);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .2s}
+.informe-nav-back:hover{color:var(--crema)}
+.informe-header{background:var(--negro);padding:5rem 2.5rem 4rem;position:relative;overflow:hidden}
+.informe-header::after{content:"";position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--azul),transparent)}
+.informe-eyebrow{font-family:"DM Mono",monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acento);margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem}
+.informe-eyebrow::before{content:"";display:block;width:2rem;height:1px;background:var(--acento)}
+.informe-header h1{font-family:"Fraunces",serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:300;color:var(--crema);line-height:1.1;letter-spacing:-.02em;margin-bottom:2rem;max-width:800px}
+.informe-meta-bar{display:flex;gap:2rem;flex-wrap:wrap;align-items:center}
+.informe-meta-item{font-family:"DM Mono",monospace;font-size:.65rem;letter-spacing:.1em;color:rgba(245,242,235,.4);display:flex;align-items:center;gap:.5rem}
+.informe-meta-item a{color:var(--azul);text-decoration:none}.informe-meta-item a:hover{color:var(--acento)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--gris-borde);border-bottom:1px solid var(--gris-borde)}
+.stat{background:white;padding:2rem 1.5rem;text-align:center}
+.stat .n{font-family:"Fraunces",serif;font-size:2.8rem;font-weight:300;color:var(--azul);line-height:1;margin-bottom:.4rem}
+.stat .label{font-family:"DM Mono",monospace;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--texto-suave)}
+.res{background:white;border-left:3px solid var(--azul);padding:2rem 2.5rem;font-family:"Fraunces",serif;font-size:1.05rem;font-weight:300;font-style:italic;line-height:1.7;color:var(--texto)}
+.contenido{padding:3rem 2.5rem}
+h2{font-family:"Fraunces",serif;font-size:1.8rem;font-weight:300;color:var(--negro);margin-top:3.5rem;margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:1px solid var(--gris-borde);display:flex;align-items:center;gap:.6rem}
+h2:first-child{margin-top:0}
+h3{font-family:"Fraunces",serif;font-size:1.2rem;font-weight:400;margin-bottom:.75rem;color:var(--negro)}
+.card{background:white;border:1px solid var(--gris-borde);padding:2rem;margin-bottom:1.5rem}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+th{background:var(--negro);color:var(--crema);padding:.75rem 1rem;text-align:left;font-family:"DM Mono",monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;font-weight:400}
+td{padding:.85rem 1rem;border-bottom:1px solid var(--gris-borde);vertical-align:top;line-height:1.5}
+tr:last-child td{border-bottom:none}tr:hover td{background:var(--gris-claro)}
+.informe-footer{background:var(--negro);padding:2.5rem;display:flex;justify-content:space-between;align-items:center;margin-top:0}
+.informe-footer-logo{font-family:"Fraunces",serif;font-size:1.2rem;font-weight:300;color:var(--crema)}
+.informe-footer-logo span{color:var(--acento);font-style:italic}
+.informe-footer-info{font-family:"DM Mono",monospace;font-size:.58rem;letter-spacing:.1em;color:rgba(245,242,235,.3);text-align:right;line-height:1.8}
+@media(max-width:768px){.informe-header{padding:3.5rem 1.5rem 3rem}.contenido{padding:2rem 1.5rem}.res{padding:1.5rem}.informe-nav{padding:1rem 1.5rem}.informe-footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}.informe-footer-info{text-align:center}}
+
+</style>
+</head>
+<body>
+
+<nav class="informe-nav">
+  <a href="index.html" class="informe-nav-logo" style="display:flex;align-items:center;gap:.6rem"><span style="display:inline-flex;align-items:center;width:28px;height:28px;flex-shrink:0"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 48 48" role="img">
+<title>Capital Data</title>
+<!-- centro: 24,24 -->
+<!-- 8 nodos perimetrales en forma cuadrada -->
+<!-- esquinas: 6,6 | 42,6 | 42,42 | 6,42 -->
+<!-- medios: 24,5 | 43,24 | 24,43 | 5,24 -->
+<!-- 4 nodos interiores anillo: 13,13 | 35,13 | 35,35 | 13,35 -->
+
+<!-- Centro → perimetrales -->
+<line x1="24" y1="24" x2="6"  y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="5"  stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="43" y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="43" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="6"  y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="5"  y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+
+<!-- Centro → interiores -->
+<path d="M24,24 Q18,18 13,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,18 35,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,30 35,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q18,30 13,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+
+<!-- Borde perimetral cuadrado -->
+<path d="M6,6   Q15,5  24,5"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M24,5  Q33,5  42,6"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M42,6  Q43,15 43,24" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M43,24 Q43,33 42,42" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M42,42 Q33,43 24,43" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M24,43 Q15,43 6,42"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M6,42  Q5,33  5,24"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M5,24  Q5,15  6,6"   stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+
+<!-- Conexiones interiores entre sí -->
+<path d="M13,13 Q24,12 35,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+<path d="M35,13 Q36,24 35,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+<path d="M35,35 Q24,36 13,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+<path d="M13,35 Q12,24 13,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+
+<!-- Cruzadas interiores → perimetrales -->
+<path d="M13,13 Q9,9   6,6"   stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q38,9  42,6"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,35 Q38,38 42,42" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,35 Q9,38  6,42"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,13 Q9,18  5,24"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q39,18 43,24" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+
+<!-- Nodos perimetrales -->
+<circle cx="6"  cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="5"  r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="43" cy="24" r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="43" r="1.8" fill="#1a3fff"/>
+<circle cx="6"  cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="5"  cy="24" r="1.8" fill="#1a3fff"/>
+
+<!-- Nodos interiores anillo -->
+<circle cx="13" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="35" r="1"   fill="#c8ff00"/>
+<circle cx="13" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="35" r="1"   fill="#c8ff00"/>
+
+<!-- Nodo central -->
+<circle cx="24" cy="24" r="7"   fill="#0a0a0a" stroke="#c8ff00" stroke-width="1.5"/>
+<circle cx="24" cy="24" r="3.5" fill="#1a3fff"/>
+<circle cx="24" cy="24" r="1.5" fill="#c8ff00"/>
+</svg></span>Capital Data</a>
+  <a href="sesiones.html" class="informe-nav-back">&larr; Sesiones</a>
+</nav>
+
+<div class="informe-header">
+  <div class="informe-eyebrow">Informe N&deg;7 &middot; 2026</div>
+  <h1>Sesi&oacute;n Ordinaria N&deg;7<br>83&deg; Per&iacute;odo Legislativo</h1>
+  <div class="informe-meta-bar">
+    <span class="informe-meta-item">&#128197; 11 de junio de 2026</span>
+    <span class="informe-meta-item">&#128336; 10:57 &mdash; 16:38 hs</span>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="n">22</div><div class="label">Presentes</div></div>
+  <div class="stat"><div class="n">3</div><div class="label">Debates principales</div></div>
+  <div class="stat"><div class="n">70+</div><div class="label">Intervenciones</div></div>
+  <div class="stat"><div class="n">5h 41m</div><div class="label">Duraci&oacute;n</div></div>
+</div>
+
+<div class="res">Sesi&oacute;n presidida por Marcelo Galland. Abri&oacute; con un minuto de silencio a pedido de Bolis por el fallecimiento del Indio Solari. Los tres debates principales: la propuesta de LLA de disolver el Ente Municipal (con c&aacute;lculos de lo que podr&iacute;a hacerse con esos recursos en seguridad), la ordenanza de Morzone para prohibir el uso pol&iacute;tico-partidario del Pasaje Dardo Rocha (con fuerte respuesta de FP), y la ordenanza de Barcia para prohibir el cigarrillo en la terminal de &oacute;mnibus. Morzone fue el concejal m&aacute;s activo.</div>
+
+<div class="contenido">
+
+<h2>&#128101; Concejales</h2><div class="card"><table>
+<tr><th>Nombre</th><th>Cargo</th><th>Bloque</th><th>Interv.</th><th>Posici&oacute;n</th><th>Temas principales</th><th>Resumen</th></tr>
+
+<tr><td><strong>Marcelo Gustavo GALLAND</strong></td><td>Presidente</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center">&mdash;</td><td><span style="background:#7f8c8d;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">presidencia</span></td><td>Conducci&oacute;n de sesi&oacute;n</td><td>Presidi&oacute; la sesi&oacute;n. Administr&oacute; el uso de la palabra e invit&oacute; a Horomadiuk a izar el Pabel&oacute;n al inicio y a arriar al cierre.</td></tr>
+
+<tr><td><strong>Josefina Mar&iacute;a BOLIS</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~8</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Minuto de silencio por el Indio Solari, debate ambiental, Pasaje Dardo Rocha, seguridad</td><td>Solicit&oacute; el minuto de silencio por el fallecimiento de Carlos Alberto el Indio Solari al inicio de la sesi&oacute;n. En el debate del Pasaje Dardo Rocha le record&oacute; a Morzone que &eacute;l mismo vot&oacute; una ordenanza que transfiri&oacute; la potestad de autorizaci&oacute;n de actividades del pasaje al Ematur, lo que contradice su proyecto actual. Present&oacute; un proyecto vinculado al D&iacute;a del Ambiente. Intervino en el debate de seguridad cuestionando las "buenas intenciones" del proyecto de Morzone.</td></tr>
+
+<tr><td><strong>Juan Manuel GRANILLO FERN&Aacute;NDEZ</strong></td><td>Vicepresidente 1&deg;</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~6</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Ente Municipal, seguridad</td><td>Intervino en el debate del Ente Municipal defend&iacute;endo su existencia y cuestionando las cifras de LLA. En el debate de seguridad fue citado directamente por Morzone como corresponsable junto al intendente Alak de la situaci&oacute;n de inseguridad: "son los responsables ejecutivo y deliberativo". Granillo Fern&aacute;ndez replic&oacute; con datos alternativos sobre patrulleros recuperados.</td></tr>
+
+<tr><td><strong>Guillermo Arcadio BARD&Oacute;N</strong></td><td>Concejal</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~6</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Ente Municipal (disolución), seguridad (tasas vs. inversión)</td><td>Junto a &Aacute;lvarez present&oacute; el proyecto de disoluci&oacute;n del Ente Municipal. Argument&oacute; con n&uacute;meros concretos: con el presupuesto del ente se podr&iacute;an comprar 80&ndash;100 patrulleros, 10.000 c&aacute;maras y contratar 300 agentes de seguridad. Los n&uacute;meros surgen de las licitaciones del propio municipio, no son "antojadizos". Cuestion&oacute; al gobierno local por priorizar un ente deficitario sobre la seguridad p&uacute;blica.</td></tr>
+
+<tr><td><strong>Gast&oacute;n Manuel &Aacute;LVAREZ</strong></td><td>Concejal</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~7</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Ente Municipal (disolución), eficiencia del gasto p&uacute;blico</td><td>Fue el orador principal del proyecto de disolución del Ente Municipal. Detail&oacute; que el ente tiene un presupuesto de 2.300 millones pero genera recursos propios de apenas el 1% de ese total. El 99% restante lo financian los vecinos con sus tasas. En 2026 el presupuesto es de 2.700 millones sin el Parque Industrial 2. Plante&oacute; la disoluci&oacute;n como una cuesti&oacute;n de eficiencia, no ideol&oacute;gica.</td></tr>
+
+<tr><td><strong>Nicol&aacute;s Luis MORZONE</strong></td><td>Concejal</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">PRO</span></td><td style="text-align:center;font-weight:bold">~12</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Pasaje Dardo Rocha (uso pol&iacute;tico-partidario), seguridad, patrimonio hist&oacute;rico</td><td>El concejal m&aacute;s activo de la sesi&oacute;n. Present&oacute; una ordenanza para prohibir el uso pol&iacute;tico-partidario del Pasaje Dardo Rocha con multas millonarias e inhabilitaci&oacute;n perpetua para ejercer cargos p&uacute;blicos. Vincul&oacute; el acto de Kicillof con la apropiaci&oacute;n del patrimonio colectivo y cit&oacute; a Lewis Mumford y Manuel Castells. Responsabiliz&oacute; p&uacute;blicamente a la secretaria de cultura de La C&aacute;mpora. En seguridad nombr&oacute; directamente a Granillo Fern&aacute;ndez y al intendente Alak como responsables de la situaci&oacute;n. Intervino tambi&eacute;n en el debate del Ente Municipal.</td></tr>
+
+<tr><td><strong>Mar&iacute;a Florencia BARCIA</strong></td><td>Concejala</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~3</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Ordenanza de prohibici&oacute;n de cigarrillo en terminal de &oacute;mnibus, interrupci&oacute;n en debate universitario</td><td>Present&oacute; la ordenanza reglamentando la prohibici&oacute;n de fumar, usar cigarrillos electr&oacute;nicos y vapeadores en la terminal de &oacute;mnibus, en continuidad con una iniciativa previa sobre escuelas y cl&iacute;nicas. Fund&oacute; el proyecto en la Ley Nacional 26.687 y la Ley Provincial 13.894. Solicit&oacute; una interrupci&oacute;n a De Feo para responder sobre la situaci&oacute;n universitaria.</td></tr>
+
+<tr><td><strong>Mar&iacute;a Florencia DE FEO</strong></td><td>Concejala</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~4</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Situaci&oacute;n universitaria, paros docentes</td><td>Intervino para recordarle a Parrilli la situaci&oacute;n de los estudiantes universitarios con clases suspendidas por paros. Cuestion&oacute; que quienes tienen "deseos de estudiar" no puedan hacerlo por la conflictividad gremial universitaria.</td></tr>
+
+<tr><td><strong>Mar&iacute;a Ona PARRILLI</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~4</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Pasaje Dardo Rocha (defensa), Ente Municipal</td><td>Respondi&oacute; a Morzone sobre el Pasaje Dardo Rocha recordando que el PRO gobern&oacute; 8 a&ntilde;os La Plata y no cuid&oacute; el edificio. Defendi&oacute; que el acto de Kicillof fue "en el marco de una actividad de salud". Intervino tambi&eacute;n en el debate del Ente Municipal.</td></tr>
+
+<tr><td><strong>Romina del Carmen SANTANA</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~3</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Ente Municipal (defensa), gesti&oacute;n del intendente</td><td>Intervino en el debate del Ente Municipal cuestionando las cifras de LLA: "pongámonos de acuerdo en las cifras". Record&oacute; que el intendente Alak gobern&oacute; 18 a&ntilde;os La Plata, es el intendente que m&aacute;s tiempo gobern&oacute; la ciudad y el primero no nacido en La Plata.</td></tr>
+
+<tr><td><strong>Pablo Emanuel ELIAS</strong></td><td>Concejal</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~3</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Ente Municipal, seguridad</td><td>Intervino en el debate del Ente Municipal aportando datos de la gesti&oacute;n. Rebati&oacute; las cifras de patrulleros y c&aacute;maras propuestas por LLA. Sum&oacute; informaci&oacute;n sobre lo heredado en 2023.</td></tr>
+
+<tr><td><strong>Melany HOROMADIUK</strong></td><td>Concejala</td><td><span style="background:#16a085;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">ASAP Nueva Generaci&oacute;n</span></td><td style="text-align:center;font-weight:bold">~1</td><td><span style="background:#3498db;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">moderado</span></td><td>Pabel&oacute;n Nacional</td><td>Ize&oacute; el Pabel&oacute;n Nacional al inicio de la sesi&oacute;n y lo arri&oacute; al cierre. Sin intervenciones en los debates de fondo.</td></tr>
+
+</table></div>
+
+<h2>&#128203; Temas tratados</h2><div class="card"><table>
+<tr><th>#</th><th>T&iacute;tulo</th><th>Tipo</th><th>Concejales que hablaron</th><th>Resultado</th></tr>
+
+<tr><td style="text-align:center">&mdash;</td><td><strong>Minuto de silencio por el fallecimiento de Carlos Alberto "el Indio Solari"</strong></td><td>Solicitud de Bolis (FP)</td><td>BOLIS</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado por unanimidad</span></td></tr>
+
+<tr><td style="text-align:center">Pts. 1&ndash;3</td><td><strong>Mensajes del DE &mdash; Donaciones de obras de arte al Mumart (Rapsodia Azul, La Memoria, Asuntos que Desenredar)</strong></td><td>Mensajes del DE</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Todos aprobados</span></td></tr>
+
+<tr><td style="text-align:center">&mdash;</td><td><strong>Proyecto de Ordenanza &mdash; Disolución del Ente Municipal</strong></td><td>Proyecto de Ordenanza &mdash; LLA (&Aacute;lvarez + Bard&oacute;n)</td><td>&Aacute;LVAREZ, BARD&Oacute;N, GRANILLO FERN&Aacute;NDEZ, ELIAS, SANTANA</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisi&oacute;n de Hacienda</span></td></tr>
+
+<tr><td style="text-align:center">&mdash;</td><td><strong>Proyecto de Ordenanza &mdash; Prohibici&oacute;n de uso pol&iacute;tico-partidario del Pasaje Dardo Rocha (multas millonarias + inhabilitaci&oacute;n perpetua)</strong></td><td>Proyecto de Ordenanza &mdash; PRO (Morzone)</td><td>MORZONE, BOLIS, PARRILLI, GRANILLO FERN&Aacute;NDEZ</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisi&oacute;n de Legislaci&oacute;n y Cultura</span></td></tr>
+
+<tr><td style="text-align:center">74</td><td><strong>Ordenanza &mdash; Prohibici&oacute;n de fumar, cigarrillos electr&oacute;nicos y vapeadores en la terminal de &oacute;mnibus</strong></td><td>Proyecto de Ordenanza &mdash; LLA (Barcia)</td><td>BARCIA</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisi&oacute;n de Salud</span></td></tr>
+
+<tr><td style="text-align:center">75</td><td><strong>Derogaci&oacute;n de ordenanzas 8.409 y 10.264</strong></td><td>Proyecto &mdash; LLA (Bard&oacute;n)</td><td>BARD&Oacute;N</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisi&oacute;n de Legislaci&oacute;n</span></td></tr>
+
+<tr><td style="text-align:center">&mdash;</td><td><strong>Proyecto vinculado al D&iacute;a del Ambiente</strong></td><td>Decreto &mdash; FP (Bolis)</td><td>BOLIS</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">OD &mdash; Pts. 7&ndash;41</td><td><strong>Orden del D&iacute;a &mdash; Resoluciones de obras p&uacute;blicas, luminarias, bacheo, poda y ambiente</strong></td><td>Varios &mdash; Comisiones varias</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Todos aprobados</span></td></tr>
+
+</table></div>
+
+<h2>&#128381;&#65039; Votaciones</h2><div class="card">
+
+<div style="border:1px solid #e2ddd4;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0;font-family:'Fraunces',serif;font-weight:400">#1 &mdash; Minuto de silencio por el Indio Solari</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Unanimidad</span></div>
+<p style="color:#6b6b6b;font-style:italic;font-size:.9em;margin-top:8px">Bolis solicit&oacute; el minuto de silencio como primer punto de la sesi&oacute;n. Fue el momento m&aacute;s emotivo y el &uacute;nico con consenso instant&aacute;neo de todos los bloques.</p></div>
+
+<div style="border:1px solid #e2ddd4;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0;font-family:'Fraunces',serif;font-weight:400">#2 &mdash; Orden del D&iacute;a N&deg;3 (Pts. 7&ndash;41): estacionamientos, obras, luminarias</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Todos aprobados</span></div>
+<p style="color:#6b6b6b;font-style:italic;font-size:.9em;margin-top:8px">Sin debate. Aprobados en bloque al cierre de la sesi&oacute;n.</p></div>
+
+</div>
+
+<h2>&#128172; Principales puntos de debate</h2>
+<div class="card">
+
+  <div style="border-left:5px solid #e74c3c;padding:15px;margin-bottom:20px;background:#fdf2f2;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#c0392b">&#128308; 1. Pasaje Dardo Rocha &mdash; Patrimonio p&uacute;blico vs. uso pol&iacute;tico</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#f39c12">PRO (Morzone)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>El Pasaje Dardo Rocha fue la primera estaci&oacute;n ferroviaria de La Plata (1882) y es "la expresi&oacute;n material de una idea de ciudad". No le pertenece a ning&uacute;n partido: les pertenece a los platenses.</li>
+          <li>Kicillof utiliz&oacute; el edificio para lanzar una agrupaci&oacute;n interna del PJ con la complicidad de la secretaria de cultura de La C&aacute;mpora. Eso es confundir partido pol&iacute;tico con Estado.</li>
+          <li>Propone: contravenci&oacute;n con multas millonarias e inhabilitaci&oacute;n perpetua para ejercer cargos p&uacute;blicos en La Plata.</li>
+          <li>Cita a Lewis Mumford y Manuel Castells: cuando los s&iacute;mbolos colectivos son apropiados por una fracci&oacute;n pol&iacute;tica, se produce "la disgregaci&oacute;n de la identidad urbana compartida".</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#2980b9">Fuerza Patria (Parrilli, Bolis)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Parrilli: el PRO gobern&oacute; 8 a&ntilde;os La Plata y no cuid&oacute; ese edificio. "Cuando llegamos en 2023, perd&oacute;nen la palabra, estaba hecho." El acto de Kicillof fue en el marco de una actividad de salud.</li>
+          <li>Bolis: Morzone vot&oacute; hace poco una ordenanza que transfiri&oacute; la potestad de autorizaci&oacute;n de actividades del pasaje al Ematur &mdash; contradicci&oacute;n interna con su nuevo proyecto. "De buenas intenciones est&aacute; empedrado el camino del infierno."</li>
+          <li>El pasaje est&aacute; "tan lindo y tan habitable hoy" gracias a la inversi&oacute;n de la gesti&oacute;n Alak.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-left:5px solid #8e44ad;padding:15px;margin-bottom:20px;background:#f9f4fd;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#6c3483">&#128995; 2. Ente Municipal &mdash; &iquest;Disoluci&oacute;n o reforma?</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#8e44ad">LLA (&Aacute;lvarez, Bard&oacute;n)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>El Ente Municipal es hiperd&eacute;ficitario: presupuesto 2.300M en 2025, recursos propios generados: 1% del total. El 99% lo pagan los vecinos con sus tasas.</li>
+          <li>En 2026: 2.700M de presupuesto (sin Parque Industrial 2). Con ese dinero se podr&iacute;an instalar 10.000 c&aacute;maras, comprar 80&ndash;100 patrulleros y contratar 300 agentes de seguridad.</li>
+          <li>Los n&uacute;meros no son antojadizos: surgen de las licitaciones del propio municipio para c&aacute;maras y patrulleros.</li>
+          <li>No es ideolog&iacute;a: el ente debe disolverse porque es ineficiente.</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#2980b9">Fuerza Patria (Granillo Fern&aacute;ndez, Elias, Santana)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Las cifras de LLA no son exactas. "Pong&aacute;monos de acuerdo en los n&uacute;meros."</li>
+          <li>El ente tiene funciones que van m&aacute;s all&aacute; del balance: gesti&oacute;n de espacios, pol&iacute;ticas de desarrollo local, vinculaci&oacute;n con el sector productivo.</li>
+          <li>Granillo Fern&aacute;ndez: el expediente fue girado a comisi&oacute;n para analizarlo en profundidad.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-left:5px solid #27ae60;padding:15px;margin-bottom:20px;background:#f0faf4;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#1e8449">&#128994; 3. Seguridad &mdash; Responsabilidades nominales</h3>
+    <p style="font-size:.9em;color:#444;line-height:1.7">Morzone nombr&oacute; directamente a Granillo Fern&aacute;ndez y al intendente Alak como corresponsables de la situaci&oacute;n de inseguridad en La Plata: <em>"son los responsables ejecutivo y deliberativo. Hay que decirlo de una vez por todas."</em> Plante&oacute; que el &uacute;nico camino posible es "orden, seguridad y que se aplique todo el peso de la ley a los criminales". Granillo Fern&aacute;ndez rebati&oacute; con datos sobre patrulleros recuperados y cuestion&oacute; la trazabilidad de los n&uacute;meros de LLA.</p>
+  </div>
+
+  <div style="border-left:5px solid #3498db;padding:15px;background:#f0f7fd;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#2471a3">&#9679; 4. Tabaco en la terminal &mdash; Continuidad de pol&iacute;tica de salud p&uacute;blica</h3>
+    <p style="font-size:.9em;color:#444;line-height:1.7">Barcia present&oacute; la tercera ordenanza consecutiva de su bloque sobre restricci&oacute;n del tabaco: ya hab&iacute;an aprobado prohibiciones en escuelas y cl&iacute;nicas; ahora la terminal de &oacute;mnibus. Fund&oacute; el proyecto en la Ley Nacional 26.687 y la Ley Provincial 13.894. La prohibici&oacute;n alcanza boleterías, hall central y locales comerciales. No hubo debate de fondo; fue girado a la Comisi&oacute;n de Salud.</p>
+  </div>
+
+</div>
+
+</div>
+
+<!-- SECCIÓN: CÓMO SE HIZO + DISCLAIMER -->
+<div style="background:var(--negro);padding:5rem 2.5rem;">
+  <div style="max-width:800px;margin:0 auto;">
+
+    <!-- CÓMO SE HIZO -->
+    <div style="margin-bottom:4rem;">
+      <div style="font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acento);margin-bottom:2rem;display:flex;align-items:center;gap:.75rem;">
+        <span style="display:block;width:2rem;height:1px;background:var(--acento);flex-shrink:0"></span>
+        Cómo se hizo este informe
+      </div>
+
+      <p style="font-family:'Fraunces',serif;font-size:clamp(1.1rem,2vw,1.4rem);font-weight:300;font-style:italic;line-height:1.6;color:rgba(245,242,235,.85);margin-bottom:2rem;">
+        Cada sesión del Concejo Deliberante es pública. El desafío es convertirla en información útil.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);margin-bottom:1.2rem;">
+        Las sesiones del HCD de La Plata se transmiten en vivo y quedan grabadas en YouTube. Son la forma más directa de acceso a la deliberación legislativa municipal — pero también son extensas, técnicas y difíciles de seguir para quien no tiene horas disponibles ni formación específica en derecho o política local.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);margin-bottom:1.2rem;">
+        En Capital Data procesamos esas sesiones con <strong style="color:rgba(245,242,235,.6);">modelos de lenguaje de inteligencia artificial</strong> para extraer lo sustancial: quién habló, sobre qué, con qué posición, y qué se votó. El material fuente son las actas y desgrabaciones oficiales, complementadas con el video de la sesión. A partir de eso, construimos el informe que ven acá: concejal por concejal, tema por tema, bloque por bloque.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);margin-bottom:1.2rem;">
+        El objetivo no es reemplazar el seguimiento directo de la sesión — es hacerlo posible para quienes no pueden dedicarle cinco horas. Una ciudad que delibera en público merece que esa deliberación llegue a más personas.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);">
+        La información pública existe. Nosotros la hacemos legible.
+      </p>
+    </div>
+
+    <!-- SEPARADOR -->
+    <div style="height:1px;background:rgba(245,242,235,.08);margin-bottom:4rem;"></div>
+
+    <!-- DISCLAIMER -->
+    <div>
+      <div style="font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,242,235,.3);margin-bottom:2rem;display:flex;align-items:center;gap:.75rem;">
+        <span style="display:block;width:2rem;height:1px;background:rgba(245,242,235,.2);flex-shrink:0"></span>
+        Aviso importante
+      </div>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);margin-bottom:1rem;">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">Capital Data no es un medio de comunicación ni un partido político.</strong> Somos un equipo independiente que usa inteligencia artificial para analizar información pública municipal. No recibimos financiamiento del Estado ni de ninguna fuerza política. Nuestro único interés es que los datos del gobierno local sean accesibles para todos.
+      </p>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);margin-bottom:1rem;">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">Este análisis puede contener errores.</strong> Los procesos de extracción y síntesis automatizada tienen limitaciones. Las posiciones atribuidas a cada concejal reflejan nuestra interpretación del material disponible y pueden no capturar matices o contextos relevantes. Si encontrás una inconsistencia, escribinos: la corregimos y la publicamos.
+      </p>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);margin-bottom:1rem;">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">Todo el material es público.</strong> Las sesiones del Concejo Deliberante están disponibles para cualquier persona. Cualquiera puede acceder a ellas, verificar nuestros análisis y llegar a sus propias conclusiones. Eso es exactamente lo que queremos.
+      </p>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">El objetivo no es el análisis en sí.</strong> Es demostrar que una ciudad mejor gobernada empieza por una ciudad mejor comprendida — y que comprender ya no requiere un equipo de expertos ni un presupuesto de investigación. Requiere voluntad, herramientas abiertas y la convicción de que la información pública le pertenece a la gente.
+      </p>
+    </div>
+
+  </div>
+</div>
+<footer class="informe-footer">
+  <div class="informe-footer-logo" style="display:flex;align-items:center;gap:.5rem"><span style="display:inline-flex;align-items:center;width:20px;height:20px;flex-shrink:0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 48 48" role="img">
+<title>Capital Data</title>
+<!-- centro: 24,24 -->
+<!-- 8 nodos perimetrales en forma cuadrada -->
+<!-- esquinas: 6,6 | 42,6 | 42,42 | 6,42 -->
+<!-- medios: 24,5 | 43,24 | 24,43 | 5,24 -->
+<!-- 4 nodos interiores anillo: 13,13 | 35,13 | 35,35 | 13,35 -->
+
+<!-- Centro → perimetrales -->
+<line x1="24" y1="24" x2="6"  y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="5"  stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="43" y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="43" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="6"  y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="5"  y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+
+<!-- Centro → interiores -->
+<path d="M24,24 Q18,18 13,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,18 35,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,30 35,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q18,30 13,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+
+<!-- Borde perimetral cuadrado -->
+<path d="M6,6   Q15,5  24,5"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M24,5  Q33,5  42,6"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M42,6  Q43,15 43,24" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M43,24 Q43,33 42,42" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M42,42 Q33,43 24,43" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M24,43 Q15,43 6,42"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M6,42  Q5,33  5,24"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M5,24  Q5,15  6,6"   stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+
+<!-- Conexiones interiores entre sí -->
+<path d="M13,13 Q24,12 35,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.20"/>
+<path d="M35,13 Q36,24 35,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.20"/>
+<path d="M35,35 Q24,36 13,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.20"/>
+<path d="M13,35 Q12,24 13,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.20"/>
+
+<!-- Cruzadas interiores → perimetrales -->
+<path d="M13,13 Q9,9   6,6"   stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q38,9  42,6"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,35 Q38,38 42,42" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,35 Q9,38  6,42"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,13 Q9,18  5,24"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q39,18 43,24" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+
+<!-- Nodos perimetrales -->
+<circle cx="6"  cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="5"  r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="43" cy="24" r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="43" r="1.8" fill="#1a3fff"/>
+<circle cx="6"  cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="5"  cy="24" r="1.8" fill="#1a3fff"/>
+
+<!-- Nodos interiores anillo -->
+<circle cx="13" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="35" r="1"   fill="#c8ff00"/>
+<circle cx="13" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="35" r="1"   fill="#c8ff00"/>
+
+<!-- Nodo central -->
+<circle cx="24" cy="24" r="7"   fill="#0a0a0a" stroke="#c8ff00" stroke-width="1.5"/>
+<circle cx="24" cy="24" r="3.5" fill="#1a3fff"/>
+<circle cx="24" cy="24" r="1.5" fill="#c8ff00"/>
+</svg></span>Capital <span>Data</span></div>
+  <div class="informe-footer-info">
+    La Plata &middot; Capital de la Provincia de Buenos Aires<br>
+    Pol&iacute;ticas p&uacute;blicas e inteligencia artificial<br>
+    @capitaldata
+  </div>
+</footer>
+</body>
+</html>

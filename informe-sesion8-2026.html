@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sesi&oacute;n N&deg;8 &middot; 2026 — Capital Data</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+
+:root{--azul:#1a3fff;--negro:#0a0a0a;--crema:#f5f2eb;--gris-claro:#f0ede6;--gris-borde:#e2ddd4;--texto:#1a1a1a;--texto-suave:#6b6b6b;--acento:#c8ff00}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:"Instrument Sans",sans-serif;background:var(--crema);color:var(--texto);max-width:1200px;margin:0 auto;padding:0}
+.informe-nav{background:var(--negro);padding:1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.informe-nav-logo{font-family:"DM Mono",monospace;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--acento);text-decoration:none}
+.informe-nav-back{font-family:"DM Mono",monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,242,235,.4);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .2s}
+.informe-nav-back:hover{color:var(--crema)}
+.informe-header{background:var(--negro);padding:5rem 2.5rem 4rem;position:relative;overflow:hidden}
+.informe-header::after{content:"";position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--azul),transparent)}
+.informe-eyebrow{font-family:"DM Mono",monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acento);margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem}
+.informe-eyebrow::before{content:"";display:block;width:2rem;height:1px;background:var(--acento)}
+.informe-header h1{font-family:"Fraunces",serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:300;color:var(--crema);line-height:1.1;letter-spacing:-.02em;margin-bottom:2rem;max-width:800px}
+.informe-meta-bar{display:flex;gap:2rem;flex-wrap:wrap;align-items:center}
+.informe-meta-item{font-family:"DM Mono",monospace;font-size:.65rem;letter-spacing:.1em;color:rgba(245,242,235,.4);display:flex;align-items:center;gap:.5rem}
+.informe-meta-item a{color:var(--azul);text-decoration:none}.informe-meta-item a:hover{color:var(--acento)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--gris-borde);border-bottom:1px solid var(--gris-borde)}
+.stat{background:white;padding:2rem 1.5rem;text-align:center}
+.stat .n{font-family:"Fraunces",serif;font-size:2.8rem;font-weight:300;color:var(--azul);line-height:1;margin-bottom:.4rem}
+.stat .label{font-family:"DM Mono",monospace;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--texto-suave)}
+.res{background:white;border-left:3px solid var(--azul);padding:2rem 2.5rem;font-family:"Fraunces",serif;font-size:1.05rem;font-weight:300;font-style:italic;line-height:1.7;color:var(--texto)}
+.contenido{padding:3rem 2.5rem}
+h2{font-family:"Fraunces",serif;font-size:1.8rem;font-weight:300;color:var(--negro);margin-top:3.5rem;margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:1px solid var(--gris-borde);display:flex;align-items:center;gap:.6rem}
+h2:first-child{margin-top:0}
+h3{font-family:"Fraunces",serif;font-size:1.2rem;font-weight:400;margin-bottom:.75rem;color:var(--negro)}
+.card{background:white;border:1px solid var(--gris-borde);padding:2rem;margin-bottom:1.5rem}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+th{background:var(--negro);color:var(--crema);padding:.75rem 1rem;text-align:left;font-family:"DM Mono",monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;font-weight:400}
+td{padding:.85rem 1rem;border-bottom:1px solid var(--gris-borde);vertical-align:top;line-height:1.5}
+tr:last-child td{border-bottom:none}tr:hover td{background:var(--gris-claro)}
+.informe-footer{background:var(--negro);padding:2.5rem;display:flex;justify-content:space-between;align-items:center;margin-top:0}
+.informe-footer-logo{font-family:"Fraunces",serif;font-size:1.2rem;font-weight:300;color:var(--crema)}
+.informe-footer-logo span{color:var(--acento);font-style:italic}
+.informe-footer-info{font-family:"DM Mono",monospace;font-size:.58rem;letter-spacing:.1em;color:rgba(245,242,235,.3);text-align:right;line-height:1.8}
+@media(max-width:768px){.informe-header{padding:3.5rem 1.5rem 3rem}.contenido{padding:2rem 1.5rem}.res{padding:1.5rem}.informe-nav{padding:1rem 1.5rem}.informe-footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}.informe-footer-info{text-align:center}}
+
+</style>
+</head>
+<body>
+
+<nav class="informe-nav">
+  <a href="index.html" class="informe-nav-logo" style="display:flex;align-items:center;gap:.6rem"><span style="display:inline-flex;align-items:center;width:28px;height:28px;flex-shrink:0"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 48 48" role="img">
+<title>Capital Data</title>
+<!-- centro: 24,24 -->
+<!-- 8 nodos perimetrales en forma cuadrada -->
+<!-- esquinas: 6,6 | 42,6 | 42,42 | 6,42 -->
+<!-- medios: 24,5 | 43,24 | 24,43 | 5,24 -->
+<!-- 4 nodos interiores anillo: 13,13 | 35,13 | 35,35 | 13,35 -->
+
+<!-- Centro → perimetrales -->
+<line x1="24" y1="24" x2="6"  y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="5"  stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="43" y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="43" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="6"  y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="5"  y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+
+<!-- Centro → interiores -->
+<path d="M24,24 Q18,18 13,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,18 35,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,30 35,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q18,30 13,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+
+<!-- Borde perimetral cuadrado -->
+<path d="M6,6   Q15,5  24,5"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M24,5  Q33,5  42,6"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M42,6  Q43,15 43,24" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M43,24 Q43,33 42,42" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M42,42 Q33,43 24,43" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M24,43 Q15,43 6,42"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M6,42  Q5,33  5,24"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M5,24  Q5,15  6,6"   stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+
+<!-- Conexiones interiores entre sí -->
+<path d="M13,13 Q24,12 35,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+<path d="M35,13 Q36,24 35,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+<path d="M35,35 Q24,36 13,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+<path d="M13,35 Q12,24 13,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+
+<!-- Cruzadas interiores → perimetrales -->
+<path d="M13,13 Q9,9   6,6"   stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q38,9  42,6"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,35 Q38,38 42,42" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,35 Q9,38  6,42"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,13 Q9,18  5,24"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q39,18 43,24" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+
+<!-- Nodos perimetrales -->
+<circle cx="6"  cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="5"  r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="43" cy="24" r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="43" r="1.8" fill="#1a3fff"/>
+<circle cx="6"  cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="5"  cy="24" r="1.8" fill="#1a3fff"/>
+
+<!-- Nodos interiores anillo -->
+<circle cx="13" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="35" r="1"   fill="#c8ff00"/>
+<circle cx="13" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="35" r="1"   fill="#c8ff00"/>
+
+<!-- Nodo central -->
+<circle cx="24" cy="24" r="7"   fill="#0a0a0a" stroke="#c8ff00" stroke-width="1.5"/>
+<circle cx="24" cy="24" r="3.5" fill="#1a3fff"/>
+<circle cx="24" cy="24" r="1.5" fill="#c8ff00"/>
+</svg></span>Capital Data</a>
+  <a href="sesiones.html" class="informe-nav-back">&larr; Sesiones</a>
+</nav>
+
+<div class="informe-header">
+  <div class="informe-eyebrow">Informe N&deg;8 &middot; 2026</div>
+  <h1>Sesi&oacute;n Ordinaria N&deg;8<br>83&deg; Per&iacute;odo Legislativo</h1>
+  <div class="informe-meta-bar">
+    <span class="informe-meta-item">&#128197; 25 de junio de 2026</span>
+    <span class="informe-meta-item">&#128336; 11:23 &mdash; 15:00 hs</span>
+    <span class="informe-meta-item">&#128203; D&iacute;a de la Bandera</span>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="n">23</div><div class="label">Presentes</div></div>
+  <div class="stat"><div class="n">3h 37m</div><div class="label">La m&aacute;s corta del a&ntilde;o</div></div>
+  <div class="stat"><div class="n">4</div><div class="label">Debates principales</div></div>
+  <div class="stat"><div class="n">60+</div><div class="label">Intervenciones</div></div>
+</div>
+
+<div class="res">La sesi&oacute;n m&aacute;s corta del a&ntilde;o, con apertura especial por el D&iacute;a de la Bandera: los abanderados y escoltas del Colegio Normal N&deg;1 acompa&ntilde;aron el inicio y se entonaron las estrofas del Himno. Sabrina Morales arri&oacute; el Pabel&oacute;n al cierre. Los debates de fondo giraron en torno a cuatro ejes: la Ley de Inviolabilidad de la Propiedad Privada (con despacho de mayor&iacute;a y de minor&iacute;a en programas sociales), el ajuste presupuestario nacional medido en "pendrives de Adorni", la crisis del suministro de GNC en la ciudad y el decreto de solidaridad con Venezuela firmado por todos los bloques.</div>
+
+<div class="contenido">
+
+<h2>&#128101; Concejales</h2><div class="card"><table>
+<tr><th>Nombre</th><th>Cargo</th><th>Bloque</th><th>Interv.</th><th>Posici&oacute;n</th><th>Temas principales</th><th>Resumen</th></tr>
+
+<tr><td><strong>Marcelo Gustavo GALLAND</strong></td><td>Presidente</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center">&mdash;</td><td><span style="background:#7f8c8d;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">presidencia</span></td><td>Conducci&oacute;n, apertura especial D&iacute;a de la Bandera</td><td>Condujo la sesi&oacute;n. Abri&oacute; con un discurso sobre el v&iacute;nculo entre el Concejo y las nuevas generaciones, y recibi&oacute; a los abanderados y escoltas del Colegio Normal N&deg;1. Invit&oacute; a Sabrina Morales a arriar el Pabel&oacute;n al cierre.</td></tr>
+
+<tr><td><strong>Josefina Mar&iacute;a BOLIS</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~6</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Ajuste nacional, Propiedad Privada, Venezuela, programas sociales</td><td>La oradora m&aacute;s activa de la sesi&oacute;n en los debates de fondo. Utiliz&oacute; los "pendrives de Adorni" ($500.000 c/u) como unidad de medida del ajuste: el recorte en salud equivale a 84 pendrives, en educaci&oacute;n a 105, y la deuda de coparticipaci&oacute;n a la Provincia a 24.000 pendrives. Llam&oacute; a "poner rostro al ajuste" y cuestion&oacute; el cierre de cuentas como objetivo cuando implica "hambre y miseria". En Venezuela intervino para agradecer el esp&iacute;ritu del decreto. En programas sociales defendi&oacute; el despacho de mayor&iacute;a (preocupaci&oacute;n) frente al de minor&iacute;a (ben&eacute;placito).</td></tr>
+
+<tr><td><strong>Guillermo Arcadio BARD&Oacute;N</strong></td><td>Concejal</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~7</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>GNC, Propiedad Privada, programas sociales (despacho de minor&iacute;a), Adorni</td><td>Present&oacute; la resoluci&oacute;n sobre la crisis del GNC en La Plata: de las 45 estaciones de servicio solo 6 tienen contrato de suministro ininterrumpible. Discrepaci&oacute;n con el concejal Resa (FP) sobre la responsabilidad: Bard&oacute;n la asigna al Ejecutivo Municipal por no anticiparse. En Propiedad Privada fund&oacute; el voto negativo de LLA con el argumento de que hay "un amplio consenso" nacional y que la minor&iacute;a intensa que se opone "se est&aacute; matando entre s&iacute;". Impuls&oacute; el despacho de minor&iacute;a (ben&eacute;placito) en programas sociales.</td></tr>
+
+<tr><td><strong>Nicol&aacute;s Luis MORZONE</strong></td><td>Concejal</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">PRO</span></td><td style="text-align:center;font-weight:bold">~8</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Propiedad Privada (defensa hist&oacute;rica), GNC (incumplimiento ordenanza 12584), Venezuela (firma conjunta), Adorni</td><td>Intervenci&oacute;n m&aacute;s extensa del debate. Fund&oacute; el voto negativo del PRO a la preocupaci&oacute;n sobre la Ley de Propiedad Privada con un recorrido hist&oacute;rico: Maquiavelo (1518), John Locke (segundo ensayo sobre gobierno civil) y Alberdi (Art.17 de la CN de 1853). Argument&oacute; que la inviolabilidad de la propiedad privada protege hist&oacute;ricamente a los m&aacute;s vulnerables frente al poder. Solicit&oacute; que el decreto de Venezuela fuera refirmado por todos los bloques (no solo LLA) tal como se acord&oacute; en labor. Present&oacute; el decreto de preocupaci&oacute;n por el incumplimiento de la Ordenanza 12584 de GNC.</td></tr>
+
+<tr><td><strong>Juan Manuel GRANILLO FERN&Aacute;NDEZ</strong></td><td>Vicepresidente 1&deg;</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~5</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Propiedad Privada, ajuste nacional, programas sociales</td><td>Intervino en el debate de Propiedad Privada defend&iacute;endo la posici&oacute;n de FP y cuestionando el argumento hist&oacute;rico de Morzone: "acaban de votar en contra de proteger la propiedad de los que menos tienen". En ajuste nacional rebati&oacute; el uso de los "pendrives" como unidad de medida, aunque coincidi&oacute; en los efectos del recorte sobre salud y educaci&oacute;n.</td></tr>
+
+<tr><td><strong>Sergio Daniel RESA</strong></td><td>Concejal</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~5</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>GNC, obras p&uacute;blicas</td><td>Debati&oacute; con Bard&oacute;n sobre el GNC: discrepa en la asignaci&oacute;n de responsabilidades. Desde su perspectiva, el problema es estructural y de pol&iacute;tica energ&eacute;tica nacional, no de gesti&oacute;n municipal. Intervino tambi&eacute;n en temas de obras p&uacute;blicas del Orden del D&iacute;a.</td></tr>
+
+<tr><td><strong>Gast&oacute;n Manuel &Aacute;LVAREZ</strong></td><td>Concejal</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~4</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Propiedad Privada, programas sociales (despacho de minor&iacute;a), ajuste nacional</td><td>Intervino en la defensa del despacho de minor&iacute;a sobre programas sociales, argumentando que la auditor&iacute;a y el ordenamiento de los planes es una pol&iacute;tica transparente. En Propiedad Privada apoy&oacute; el voto negativo de LLA con argumentos similares a Bard&oacute;n.</td></tr>
+
+<tr><td><strong>Mar&iacute;a Florencia DE FEO</strong></td><td>Concejala</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~3</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Programas sociales, ajuste nacional</td><td>Intervino en el debate de programas sociales defendiendo el despacho de minor&iacute;a. Cuestion&oacute; que se llame "vaciamiento" a una auditor&iacute;a que busca garantizar que los planes lleguen a quienes los necesitan.</td></tr>
+
+<tr><td><strong>Sabrina Luz MORALES</strong></td><td>Concejala</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Arriar el Pabel&oacute;n Nacional</td><td>Arri&oacute; el Pabel&oacute;n Nacional al cierre de la sesi&oacute;n, conforme a la invitaci&oacute;n del presidente Galland. Intervenci&oacute;n en los debates de GNC y obras p&uacute;blicas.</td></tr>
+
+<tr><td><strong>Romina del Carmen SANTANA</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~3</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Personalidad Destacada &mdash; &Oacute;scar Pedrosa (sindicalismo UTA)</td><td>Present&oacute; emocionada el decreto de Personalidad Destacada p&oacute;stuma para &Oacute;scar Pedrosa, secretario general de la UTA seccional La Plata durante 30 a&ntilde;os y secretario de las 62 Organizaciones desde 2019. Su familia estuvo presente en el recinto. Lo describi&oacute; como un dirigente que "dej&oacute; el alma" en la militancia sindical.</td></tr>
+
+<tr><td><strong>Dar&iacute;o GANDUGLIA</strong></td><td>Concejal</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Propuesta Vecinal (PROve)</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#3498db;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">moderado</span></td><td>Tejido comercial y pymes, VTV provincial, cr&eacute;ditos Banco Provincia</td><td>Present&oacute; tres resoluciones: preservaci&oacute;n del tejido comercial platense, adherencia provincial al R&eacute;gimen Nacional de Revisi&oacute;n T&eacute;cnica Obligatoria (VTV), y gesti&oacute;n ante el Banco Provincia de l&iacute;neas de cr&eacute;dito para refinanciaci&oacute;n de deudas de vecinos.</td></tr>
+
+<tr><td><strong>Melany HOROMADIUK</strong></td><td>Concejala</td><td><span style="background:#16a085;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">ASAP Nueva Generaci&oacute;n</span></td><td style="text-align:center;font-weight:bold">~1</td><td><span style="background:#3498db;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">moderado</span></td><td>Intervenciones breves en Orden del D&iacute;a</td><td>Intervenci&oacute;n breve durante el tratamiento del Orden del D&iacute;a. Sin participaci&oacute;n en los debates de fondo.</td></tr>
+
+<tr><td><strong>Gustavo Alberto STAFFOLANI</strong></td><td>Concejal</td><td><span style="background:#e74c3c;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">UCR</span></td><td style="text-align:center;font-weight:bold">~1</td><td><span style="background:#3498db;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">moderado</span></td><td>Remoción de vehículo abandonado</td><td>Present&oacute; la resoluci&oacute;n de remoción de vehículo abandonado en calle 8 entre 59 y 60. Sin intervenciones en los debates de fondo.</td></tr>
+
+</table></div>
+
+<h2>&#128203; Temas tratados</h2><div class="card"><table>
+<tr><th>#</th><th>T&iacute;tulo</th><th>Tipo</th><th>Concejales que hablaron</th><th>Resultado</th></tr>
+
+<tr><td style="text-align:center">&mdash;</td><td><strong>Apertura especial D&iacute;a de la Bandera &mdash; abanderados y escoltas del Colegio Normal N&deg;1 + Himno Nacional</strong></td><td>Acto institucional</td><td>GALLAND</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Acto especial</span></td></tr>
+
+<tr><td style="text-align:center">OD N&deg;4, Pt.1</td><td><strong>Preocupaci&oacute;n del Cuerpo ante los hechos que involucran al Jefe de Gabinete Manuel Adorni</strong></td><td>Decreto &mdash; Comisi&oacute;n de Legislaci&oacute;n</td><td>BOLIS, GRANILLO FERN&Aacute;NDEZ, MORZONE</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">OD N&deg;4, Pt.2</td><td><strong>Preocupaci&oacute;n ante el avance de la Ley de Inviolabilidad de la Propiedad Privada &mdash; despacho de mayor&iacute;a</strong> <em>(despacho de minor&iacute;a LLA+PRO: voto negativo)</em></td><td>Decreto &mdash; Comisi&oacute;n de Legislaci&oacute;n</td><td>MORZONE, BARD&Oacute;N, BOLIS, GRANILLO FERN&Aacute;NDEZ, &Aacute;LVAREZ</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado (mayor&iacute;a)</span></td></tr>
+
+<tr><td style="text-align:center">OD N&deg;5 &mdash; programas sociales</td><td><strong>Preocupaci&oacute;n por la eliminaci&oacute;n de los programas "Volver a Trabajar" y "Acompa&ntilde;amiento Social" &mdash; despacho de mayor&iacute;a / Benep&aacute;cito por auditor&iacute;a &mdash; despacho de minor&iacute;a (LLA)</strong></td><td>Decreto &mdash; Comisi&oacute;n de Desarrollo Local</td><td>BOLIS, BARD&Oacute;N, DE FEO, &Aacute;LVAREZ</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado mayor&iacute;a / &#10007; Rechazado minor&iacute;a</span></td></tr>
+
+<tr><td style="text-align:center">Labor &mdash; Pt. incorporado</td><td><strong>Preocupaci&oacute;n por el incumplimiento de la Ordenanza 12.584 (carriles exclusivos de GNC para transporte de pasajeros)</strong></td><td>Decreto &mdash; PRO (Morzone)</td><td>MORZONE, BARD&Oacute;N, RESA</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisi&oacute;n de Legislaci&oacute;n</span></td></tr>
+
+<tr><td style="text-align:center">Labor &mdash; Pt. incorporado</td><td><strong>Solidaridad con Venezuela ante los terremotos &mdash; firmado por todos los bloques</strong></td><td>Decreto &mdash; LLA (Bard&oacute;n) + todos los bloques</td><td>MORZONE, BOLIS</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado por unanimidad</span></td></tr>
+
+<tr><td style="text-align:center">Labor &mdash; Pt. incorporado</td><td><strong>Restricciones y cortes en el suministro de GNC en La Plata</strong></td><td>Resoluci&oacute;n &mdash; LLA (Bard&oacute;n)</td><td>BARD&Oacute;N, RESA, MORZONE</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisi&oacute;n de Desarrollo Local</span></td></tr>
+
+<tr><td style="text-align:center">OD N&deg;4, Pts. 17&ndash;22</td><td><strong>Personalidad Destacada p&oacute;stuma &mdash; &Oacute;scar Pedrosa (UTA) + muestra "Construir Memorias Activas" + Personalidad Destacada Vanina Villalba + teatro "Historias H&uacute;medas Platenses" + libro "Historia Constitucional Argentina" + Escuela Primaria N&deg;21</strong></td><td>Decretos / Resoluci&oacute;n &mdash; Comisi&oacute;n de Cultura</td><td>SANTANA (Pedrosa)</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Todos aprobados</span></td></tr>
+
+<tr><td style="text-align:center">OD N&deg;4, Pts. 23&ndash;24</td><td><strong>Benep&aacute;cito "Ley Ema" + Benep&aacute;cito D&iacute;a Nacional de Acci&oacute;n por la Ni&ntilde;ez</strong></td><td>Decretos &mdash; Comisi&oacute;n de Ni&ntilde;eces</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobados</span></td></tr>
+
+<tr><td style="text-align:center">OD N&deg;4, Pts. 26&ndash;28</td><td><strong>Lixiviados ESUR en Arroyo Regimiento + frecuencia de recolección ESUR en casco urbano + periferia (calle 513 y 134)</strong></td><td>Resoluciones &mdash; Comisi&oacute;n de Medio Ambiente</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobados</span></td></tr>
+
+<tr><td style="text-align:center">OD N&deg;5 (completo)</td><td><strong>Orden del D&iacute;a N&deg;5: estacionamientos, obras p&uacute;blicas, BTS Hu&eacute;sped de Honor, salud (Remediar, obras sociales), Ley Ema, Saavedra sentidos de circulaci&oacute;n</strong></td><td>Varios &mdash; Comisiones varias</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Todos aprobados</span></td></tr>
+
+</table></div>
+
+<h2>&#128381;&#65039; Votaciones destacadas</h2><div class="card">
+
+<div style="border:1px solid #e2ddd4;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #e74c3c">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0;font-family:'Fraunces',serif;font-weight:400">#1 &mdash; Ley de Inviolabilidad de la Propiedad Privada (OD N&deg;4, Pt.2)</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Aprobado en mayor&iacute;a</span></div>
+<div style="margin-top:8px">&#10003; <b>FP + UCR</b> (despacho de preocupaci&oacute;n) &nbsp; &#10007; <b>LLA + PRO</b> (voto negativo)</div>
+<p style="color:#6b6b6b;font-style:italic;font-size:.9em;margin-top:6px">Primera vez en el a&ntilde;o que LLA y PRO votan juntos en contra de un decreto de FP. Morzone fund&oacute; el voto con Maquiavelo, Locke y Alberdi. Bard&oacute;n argument&oacute; que hay "un amplio consenso popular" a favor de la ley.</p></div>
+
+<div style="border:1px solid #e2ddd4;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #e74c3c">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0;font-family:'Fraunces',serif;font-weight:400">#2 &mdash; Programas "Volver a Trabajar" y "Acompa&ntilde;amiento Social" (OD N&deg;5)</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Mayor&iacute;a aprobada / Minor&iacute;a rechazada</span></div>
+<div style="margin-top:8px">&#10003; <b>FP + UCR</b> votan preocupaci&oacute;n &nbsp; &#10007; <b>LLA</b> vota ben&eacute;placito (despacho de minor&iacute;a rechazado)</div>
+<p style="color:#6b6b6b;font-style:italic;font-size:.9em;margin-top:6px">Primer despacho con texto dividido (mayor&iacute;a vs. minor&iacute;a) de la sesi&oacute;n. LLA defiende la auditor&iacute;a como pol&iacute;tica de transparencia; FP la califica de vaciamiento social.</p></div>
+
+<div style="border:1px solid #e2ddd4;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0;font-family:'Fraunces',serif;font-weight:400">#3 &mdash; Solidaridad con Venezuela por los terremotos</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Aprobado por unanimidad</span></div>
+<div style="margin-top:8px">&#10003; <b>Todos los bloques</b></div>
+<p style="color:#6b6b6b;font-style:italic;font-size:.9em;margin-top:6px">Morzone solicit&oacute; que el decreto se firmara por todos los bloques (como se acord&oacute; en labor) y no solo por LLA. Fue corregido y aprobado por unanimidad.</p></div>
+
+</div>
+
+<h2>&#128172; Principales puntos de debate</h2>
+<div class="card">
+
+  <div style="border-left:5px solid #e74c3c;padding:15px;margin-bottom:20px;background:#fdf2f2;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#c0392b">&#128308; 1. Ley de Inviolabilidad de la Propiedad Privada &mdash; LLA y PRO votan juntos por primera vez</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#f39c12">PRO (Morzone) y LLA (Bard&oacute;n, &Aacute;lvarez) &mdash; voto negativo</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Morzone: "es una profunda pena que este consejo est&eacute; aprobando esto hoy, teniendo tantas cosas relevantes locales para tratar." Fund&oacute; el voto con un recorrido hist&oacute;rico: Maquiavelo (1518, "El Pr&iacute;ncipe"), Locke (segundo ensayo sobre gobierno civil) y Alberdi (Art. 17 CN, 1853). Argument&oacute; que la tutela constitucional naci&oacute; hist&oacute;ricamente para proteger a los vulnerables del poder.</li>
+          <li>Bard&oacute;n: hay un "amplis&iacute;mo consenso" nacional que eligi&oacute; otro rumbo; la minor&iacute;a intensa que se opone "se est&aacute; matando entre s&iacute;". El cambio en el r&eacute;gimen de propiedad es necesario para dar "m&aacute;s certeza y seguridad jur&iacute;dica" a las inversiones.</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#2980b9">Fuerza Patria (Bolis, Granillo Fern&aacute;ndez) &mdash; voto afirmativo</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Granillo Fern&aacute;ndez: "acaban de votar en contra de proteger la propiedad de los que menos tienen". La ley elimina herramientas de regularizaci&oacute;n de barrios populares y protecci&oacute;n de inquilinos.</li>
+          <li>Bolis: la Propiedad Privada como valor absoluto choca con la funci&oacute;n social reconocida en los tratados constitucionales de 1994. El debate es pol&iacute;tico e ideol&oacute;gico, no jur&iacute;dico.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-left:5px solid #e67e22;padding:15px;margin-bottom:20px;background:#fef9f0;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#ca6f1e">&#128992; 2. Ajuste nacional medido en "pendrives de Adorni"</h3>
+    <p style="font-size:.9em;color:#444;line-height:1.7"><strong>Bolis (FP)</strong> us&oacute; los pendrives de Manuel Adorni (jefe de Gabinete, $ 500.000 c/u) como unidad de medida para cuantificar el ajuste nacional: el recorte en salud equivale a 84 pendrives, en educaci&oacute;n a 105 pendrives, la deuda de coparticipaci&oacute;n a la Provincia a 24.000 pendrives. El objetivo declarado fue "ponerle rostro al ajuste". Reconoci&oacute; que no es "solo responsabilidad de Milei" pero que tambi&eacute;n lo es. Llam&oacute; al "extractivismo presupuestario" como quiebre del orden social. <strong>Granillo Fern&aacute;ndez</strong> rebati&oacute; la unidad de medida pero coincidi&oacute; en el impacto concreto sobre salud y educaci&oacute;n.</p>
+  </div>
+
+  <div style="border-left:5px solid #8e44ad;padding:15px;margin-bottom:20px;background:#f9f4fd;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#6c3483">&#128995; 3. GNC &mdash; Crisis estructural y responsabilidades</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#8e44ad">LLA (Bard&oacute;n)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>De las 45 estaciones de servicio en La Plata, solo 6 tienen contrato ininterrumpible. Ante las olas de fr&iacute;o, las 39 restantes cortan el suministro.</li>
+          <li>El municipio debi&oacute; anticiparse: &iquest;conoc&iacute;a las restricciones previstas? &iquest;Qu&eacute; medidas tom&oacute;? La responsabilidad es del Ejecutivo local.</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#2980b9">Fuerza Patria (Resa)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>El problema es estructural y de pol&iacute;tica energ&eacute;tica nacional, no de gesti&oacute;n municipal.</li>
+          <li>Discrepa con Bard&oacute;n en la asignaci&oacute;n de responsabilidades: el municipio no controla las distribuidoras ni los contratos de transporte de gas.</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top:12px;background:#eaf4ff;padding:10px;border-radius:5px;font-size:.9em">
+      <strong>PRO (Morzone):</strong> present&oacute; un decreto separado de preocupaci&oacute;n por el incumplimiento de la Ordenanza Municipal 12.584, que establece carriles exclusivos de expendio de GNC para el transporte de pasajeros. Girado a comisi&oacute;n.
+    </div>
+  </div>
+
+  <div style="border-left:5px solid #27ae60;padding:15px;background:#f0faf4;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#1e8449">&#128994; 4. Venezuela y programas sociales &mdash; Los dos consensos</h3>
+    <p style="font-size:.9em;color:#444;line-height:1.7"><strong>Venezuela:</strong> el decreto de solidaridad ante los terremotos se firm&oacute; por todos los bloques tras la correcci&oacute;n solicitada por Morzone (el texto hab&iacute;a quedado con autor&iacute;a solo de LLA, contrario a lo acordado en labor). Fue el &uacute;nico punto de unanimidad de la sesi&oacute;n.</p>
+    <p style="font-size:.9em;color:#444;line-height:1.7;margin-top:8px"><strong>Programas "Volver a Trabajar" y "Acompa&ntilde;amiento Social":</strong> primera vez que un expediente llega al recinto con despacho de mayor&iacute;a (FP: preocupaci&oacute;n) y minor&iacute;a (LLA: ben&eacute;placito). El despacho de mayor&iacute;a fue aprobado; el de minor&iacute;a rechazado. El debate fue breve pero marc&oacute; una l&iacute;nea clara: para FP es vaciamiento social, para LLA es auditor&iacute;a y transparencia.</p>
+  </div>
+
+</div>
+
+</div>
+
+<!-- SECCIÓN: CÓMO SE HIZO + DISCLAIMER -->
+<div style="background:var(--negro);padding:5rem 2.5rem;">
+  <div style="max-width:800px;margin:0 auto;">
+
+    <!-- CÓMO SE HIZO -->
+    <div style="margin-bottom:4rem;">
+      <div style="font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acento);margin-bottom:2rem;display:flex;align-items:center;gap:.75rem;">
+        <span style="display:block;width:2rem;height:1px;background:var(--acento);flex-shrink:0"></span>
+        Cómo se hizo este informe
+      </div>
+
+      <p style="font-family:'Fraunces',serif;font-size:clamp(1.1rem,2vw,1.4rem);font-weight:300;font-style:italic;line-height:1.6;color:rgba(245,242,235,.85);margin-bottom:2rem;">
+        Cada sesión del Concejo Deliberante es pública. El desafío es convertirla en información útil.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);margin-bottom:1.2rem;">
+        Las sesiones del HCD de La Plata se transmiten en vivo y quedan grabadas en YouTube. Son la forma más directa de acceso a la deliberación legislativa municipal — pero también son extensas, técnicas y difíciles de seguir para quien no tiene horas disponibles ni formación específica en derecho o política local.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);margin-bottom:1.2rem;">
+        En Capital Data procesamos esas sesiones con <strong style="color:rgba(245,242,235,.6);">modelos de lenguaje de inteligencia artificial</strong> para extraer lo sustancial: quién habló, sobre qué, con qué posición, y qué se votó. El material fuente son las actas y desgrabaciones oficiales, complementadas con el video de la sesión. A partir de eso, construimos el informe que ven acá: concejal por concejal, tema por tema, bloque por bloque.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);margin-bottom:1.2rem;">
+        El objetivo no es reemplazar el seguimiento directo de la sesión — es hacerlo posible para quienes no pueden dedicarle cinco horas. Una ciudad que delibera en público merece que esa deliberación llegue a más personas.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);">
+        La información pública existe. Nosotros la hacemos legible.
+      </p>
+    </div>
+
+    <!-- SEPARADOR -->
+    <div style="height:1px;background:rgba(245,242,235,.08);margin-bottom:4rem;"></div>
+
+    <!-- DISCLAIMER -->
+    <div>
+      <div style="font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,242,235,.3);margin-bottom:2rem;display:flex;align-items:center;gap:.75rem;">
+        <span style="display:block;width:2rem;height:1px;background:rgba(245,242,235,.2);flex-shrink:0"></span>
+        Aviso importante
+      </div>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);margin-bottom:1rem;">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">Capital Data no es un medio de comunicación ni un partido político.</strong> Somos un equipo independiente que usa inteligencia artificial para analizar información pública municipal. No recibimos financiamiento del Estado ni de ninguna fuerza política. Nuestro único interés es que los datos del gobierno local sean accesibles para todos.
+      </p>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);margin-bottom:1rem;">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">Este análisis puede contener errores.</strong> Los procesos de extracción y síntesis automatizada tienen limitaciones. Las posiciones atribuidas a cada concejal reflejan nuestra interpretación del material disponible y pueden no capturar matices o contextos relevantes. Si encontrás una inconsistencia, escribinos: la corregimos y la publicamos.
+      </p>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);margin-bottom:1rem;">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">Todo el material es público.</strong> Las sesiones del Concejo Deliberante están disponibles para cualquier persona. Cualquiera puede acceder a ellas, verificar nuestros análisis y llegar a sus propias conclusiones. Eso es exactamente lo que queremos.
+      </p>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">El objetivo no es el análisis en sí.</strong> Es demostrar que una ciudad mejor gobernada empieza por una ciudad mejor comprendida — y que comprender ya no requiere un equipo de expertos ni un presupuesto de investigación. Requiere voluntad, herramientas abiertas y la convicción de que la información pública le pertenece a la gente.
+      </p>
+    </div>
+
+  </div>
+</div>
+<footer class="informe-footer">
+  <div class="informe-footer-logo" style="display:flex;align-items:center;gap:.5rem"><span style="display:inline-flex;align-items:center;width:20px;height:20px;flex-shrink:0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 48 48" role="img">
+<title>Capital Data</title>
+<!-- centro: 24,24 -->
+<!-- 8 nodos perimetrales en forma cuadrada -->
+<!-- esquinas: 6,6 | 42,6 | 42,42 | 6,42 -->
+<!-- medios: 24,5 | 43,24 | 24,43 | 5,24 -->
+<!-- 4 nodos interiores anillo: 13,13 | 35,13 | 35,35 | 13,35 -->
+
+<!-- Centro → perimetrales -->
+<line x1="24" y1="24" x2="6"  y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="5"  stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="43" y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="43" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="6"  y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="5"  y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+
+<!-- Centro → interiores -->
+<path d="M24,24 Q18,18 13,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,18 35,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,30 35,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q18,30 13,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+
+<!-- Borde perimetral cuadrado -->
+<path d="M6,6   Q15,5  24,5"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M24,5  Q33,5  42,6"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M42,6  Q43,15 43,24" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M43,24 Q43,33 42,42" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M42,42 Q33,43 24,43" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M24,43 Q15,43 6,42"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M6,42  Q5,33  5,24"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M5,24  Q5,15  6,6"   stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+
+<!-- Conexiones interiores entre sí -->
+<path d="M13,13 Q24,12 35,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.20"/>
+<path d="M35,13 Q36,24 35,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.20"/>
+<path d="M35,35 Q24,36 13,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.20"/>
+<path d="M13,35 Q12,24 13,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.20"/>
+
+<!-- Cruzadas interiores → perimetrales -->
+<path d="M13,13 Q9,9   6,6"   stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q38,9  42,6"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,35 Q38,38 42,42" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,35 Q9,38  6,42"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,13 Q9,18  5,24"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q39,18 43,24" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+
+<!-- Nodos perimetrales -->
+<circle cx="6"  cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="5"  r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="43" cy="24" r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="43" r="1.8" fill="#1a3fff"/>
+<circle cx="6"  cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="5"  cy="24" r="1.8" fill="#1a3fff"/>
+
+<!-- Nodos interiores anillo -->
+<circle cx="13" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="35" r="1"   fill="#c8ff00"/>
+<circle cx="13" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="35" r="1"   fill="#c8ff00"/>
+
+<!-- Nodo central -->
+<circle cx="24" cy="24" r="7"   fill="#0a0a0a" stroke="#c8ff00" stroke-width="1.5"/>
+<circle cx="24" cy="24" r="3.5" fill="#1a3fff"/>
+<circle cx="24" cy="24" r="1.5" fill="#c8ff00"/>
+</svg></span>Capital <span>Data</span></div>
+  <div class="informe-footer-info">
+    La Plata &middot; Capital de la Provincia de Buenos Aires<br>
+    Pol&iacute;ticas p&uacute;blicas e inteligencia artificial<br>
+    @capitaldata
+  </div>
+</footer>
+</body>
+</html>

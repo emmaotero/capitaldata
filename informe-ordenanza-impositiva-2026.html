@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Las tasas de La Plata — Capital Data</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --azul:#1a3fff;
+  --negro:#0a0a0a;
+  --crema:#f5f2eb;
+  --gris-claro:#f0ede6;
+  --gris-borde:#e2ddd4;
+  --texto:#1a1a1a;
+  --texto-suave:#6b6b6b;
+  --acento:#c8ff00;
+  --rojo:#ff3b30;
+  --naranja:#ff9500;
+  --verde:#2ecc71;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Instrument Sans',sans-serif;background:var(--crema);color:var(--texto);max-width:1200px;margin:0 auto;padding:0}
+
+.nav{background:var(--negro);padding:1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.nav-logo{font-family:'DM Mono',monospace;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--acento);text-decoration:none}
+.nav-back{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,242,235,.4);text-decoration:none;transition:color .2s}
+.nav-back:hover{color:var(--crema)}
+
+.header{background:var(--negro);padding:5rem 2.5rem 4rem;position:relative;overflow:hidden}
+.header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--azul),transparent)}
+.header-eyebrow{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acento);margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem}
+.header-eyebrow::before{content:'';display:block;width:2rem;height:1px;background:var(--acento)}
+.header h1{font-family:'Fraunces',serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:300;color:var(--crema);line-height:1.05;letter-spacing:-.02em;margin-bottom:1.5rem;max-width:750px}
+.header h1 em{font-style:italic;color:var(--acento)}
+.header-meta{display:flex;gap:2rem;flex-wrap:wrap;margin-top:2rem}
+.header-meta-item{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.1em;color:rgba(245,242,235,.35);border-left:1px solid rgba(245,242,235,.1);padding-left:1rem}
+
+.stats-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--gris-borde);border-bottom:1px solid var(--gris-borde)}
+.stat-box{background:white;padding:2rem 1.5rem;text-align:center}
+.stat-num{font-family:'Fraunces',serif;font-size:2.4rem;font-weight:300;line-height:1;margin-bottom:.4rem}
+.stat-num.azul{color:var(--azul)}
+.stat-num.rojo{color:var(--rojo)}
+.stat-num.naranja{color:var(--naranja)}
+.stat-etiq{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.15em;text-transform:uppercase;color:var(--texto-suave)}
+
+.contenido{padding:3rem 2.5rem}
+.seccion{margin-bottom:4rem}
+.seccion-label{font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acento);margin-bottom:2rem;display:flex;align-items:center;gap:.75rem}
+.seccion-label::after{content:'';flex:1;height:1px;background:var(--gris-borde)}
+.seccion h2{font-family:'Fraunces',serif;font-size:clamp(1.6rem,3vw,2.4rem);font-weight:300;margin-bottom:1.5rem;line-height:1.1}
+.seccion p{font-size:.9rem;line-height:1.9;color:var(--texto-suave);margin-bottom:1rem;max-width:720px}
+.seccion p strong{color:var(--texto);font-weight:600}
+
+/* TREEMAP VISUAL */
+.treemap{display:grid;gap:3px;margin:2rem 0}
+.treemap-row{display:flex;gap:3px;height:60px}
+.treemap-cell{display:flex;align-items:center;justify-content:center;flex-direction:column;cursor:default;transition:opacity .2s;position:relative;overflow:hidden}
+.treemap-cell:hover{opacity:.85}
+.treemap-cell.grande{background:var(--azul)}
+.treemap-cell.medio{background:#4060ff}
+.treemap-cell.chico{background:#8090e0}
+.treemap-cell.micro{background:var(--gris-borde)}
+.treemap-label{font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.06em;text-transform:uppercase;color:white;text-align:center;padding:0 .4rem;line-height:1.3}
+.treemap-val{font-family:'Fraunces',serif;font-size:.9rem;font-weight:300;color:white}
+.treemap-cell.micro .treemap-label{color:var(--texto-suave)}
+.treemap-cell.micro .treemap-val{color:var(--texto-suave)}
+
+/* BARRAS DE CONCENTRACIÓN */
+.concentracion{margin:2rem 0}
+.conc-item{margin-bottom:1.2rem}
+.conc-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.4rem}
+.conc-nombre{font-size:.82rem;color:var(--texto)}
+.conc-monto{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--texto-suave)}
+.conc-track{height:8px;background:var(--gris-borde);position:relative}
+.conc-fill{height:100%;transition:width .6s ease}
+.conc-pct{font-family:'DM Mono',monospace;font-size:.58rem;color:var(--texto-suave);margin-top:.2rem}
+
+/* TABLA COMPLETA */
+.tabla-wrap{overflow-x:auto;margin:2rem 0}
+table{width:100%;border-collapse:collapse;font-size:.82rem}
+thead th{background:var(--negro);color:var(--crema);padding:.75rem 1rem;text-align:left;font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;font-weight:400}
+thead th.num{text-align:right}
+tbody td{padding:.8rem 1rem;border-bottom:1px solid var(--gris-borde);vertical-align:middle}
+tbody td.num{text-align:right;font-family:'DM Mono',monospace;font-size:.78rem}
+tbody tr:hover td{background:var(--gris-claro)}
+tbody tr.subtotal td{background:var(--gris-claro);font-weight:600}
+tbody tr.total-row td{background:var(--negro);color:var(--crema)}
+tbody tr.total-row td.num{font-family:'DM Mono',monospace}
+.badge{display:inline-block;padding:.15rem .5rem;font-family:'DM Mono',monospace;font-size:.58rem;border-radius:2px}
+.badge-alta{background:var(--azul);color:white}
+.badge-media{background:#4060ff22;color:var(--azul)}
+.badge-baja{background:var(--gris-borde);color:var(--texto-suave)}
+.badge-micro{background:#ff950022;color:var(--naranja)}
+
+/* DESTACADO */
+.destacado{background:var(--azul);color:white;padding:2.5rem;margin:2rem 0;position:relative;overflow:hidden}
+.destacado::before{content:'';position:absolute;top:-2rem;right:-2rem;width:10rem;height:10rem;border:1px solid rgba(255,255,255,.1);border-radius:50%}
+.destacado-label{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;opacity:.6;margin-bottom:.75rem}
+.destacado p{font-family:'Fraunces',serif;font-size:clamp(1.1rem,2vw,1.5rem);font-weight:300;font-style:italic;line-height:1.5;color:rgba(255,255,255,.92)}
+.destacado p strong{font-style:normal;font-weight:700;color:var(--acento)}
+
+/* CALLOUT */
+.callout{border-left:3px solid var(--azul);padding:1.2rem 1.5rem;background:white;margin:1.5rem 0}
+.callout.naranja{border-color:var(--naranja)}
+.callout.verde{border-color:var(--verde)}
+.callout-label{font-family:'DM Mono',monospace;font-size:.56rem;letter-spacing:.15em;text-transform:uppercase;color:var(--texto-suave);margin-bottom:.4rem}
+.callout p{font-size:.85rem;line-height:1.7;color:var(--texto)}
+.callout p strong{font-weight:600}
+
+/* GRID HALLAZGOS */
+.hallazgos-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--gris-borde);margin:2rem 0}
+.hallazgo{background:white;padding:2rem}
+.hallazgo-num{font-family:'Fraunces',serif;font-size:3rem;font-weight:300;line-height:1;color:var(--gris-borde);margin-bottom:.75rem}
+.hallazgo h3{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:400;margin-bottom:.5rem}
+.hallazgo p{font-size:.8rem;color:var(--texto-suave);line-height:1.7}
+
+/* SECCION NEGRA */
+.seccion-negra{background:var(--negro);padding:5rem 2.5rem}
+.seccion-negra .seccion-label{color:var(--acento)}
+.seccion-negra .seccion-label::after{background:rgba(245,242,235,.08)}
+.seccion-negra h2{color:var(--crema)}
+.seccion-negra p{color:rgba(245,242,235,.5)}
+.seccion-negra p strong{color:rgba(245,242,235,.8);font-weight:500}
+
+/* METODOLOGÍA */
+.nota-metodologica{background:var(--gris-claro);border:1px solid var(--gris-borde);padding:1.5rem 2rem;margin-top:3rem;font-size:.78rem;line-height:1.8;color:var(--texto-suave)}
+.nota-metodologica strong{color:var(--texto);display:block;margin-bottom:.5rem;font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase}
+
+.footer{background:var(--negro);padding:2.5rem;display:flex;justify-content:space-between;align-items:center;margin-top:0}
+.footer-logo{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:300;color:var(--crema)}
+.footer-logo span{color:var(--acento);font-style:italic}
+.footer-info{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.1em;color:rgba(245,242,235,.3);text-align:right;line-height:1.8}
+
+@media(max-width:768px){
+  .stats-strip{grid-template-columns:repeat(2,1fr)}
+  .hallazgos-grid{grid-template-columns:1fr}
+  .contenido{padding:2rem 1.5rem}
+  .header{padding:4rem 1.5rem 3rem}
+  .nav{padding:1rem 1.5rem}
+  .seccion-negra{padding:4rem 1.5rem}
+  .footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
+  .footer-info{text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo" style="display:flex;align-items:center;gap:.6rem"><span style="display:inline-flex;align-items:center;width:28px;height:28px;flex-shrink:0"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 48 48" role="img">
+<title>Capital Data</title>
+<!-- centro: 24,24 -->
+<!-- 8 nodos perimetrales en forma cuadrada -->
+<!-- esquinas: 6,6 | 42,6 | 42,42 | 6,42 -->
+<!-- medios: 24,5 | 43,24 | 24,43 | 5,24 -->
+<!-- 4 nodos interiores anillo: 13,13 | 35,13 | 35,35 | 13,35 -->
+
+<!-- Centro → perimetrales -->
+<line x1="24" y1="24" x2="6"  y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="5"  stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="43" y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="43" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="6"  y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="5"  y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+
+<!-- Centro → interiores -->
+<path d="M24,24 Q18,18 13,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,18 35,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,30 35,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q18,30 13,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+
+<!-- Borde perimetral cuadrado -->
+<path d="M6,6   Q15,5  24,5"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M24,5  Q33,5  42,6"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M42,6  Q43,15 43,24" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M43,24 Q43,33 42,42" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M42,42 Q33,43 24,43" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M24,43 Q15,43 6,42"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M6,42  Q5,33  5,24"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M5,24  Q5,15  6,6"   stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+
+<!-- Conexiones interiores entre sí -->
+<path d="M13,13 Q24,12 35,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+<path d="M35,13 Q36,24 35,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+<path d="M35,35 Q24,36 13,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+<path d="M13,35 Q12,24 13,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+
+<!-- Cruzadas interiores → perimetrales -->
+<path d="M13,13 Q9,9   6,6"   stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q38,9  42,6"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,35 Q38,38 42,42" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,35 Q9,38  6,42"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,13 Q9,18  5,24"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q39,18 43,24" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+
+<!-- Nodos perimetrales -->
+<circle cx="6"  cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="5"  r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="43" cy="24" r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="43" r="1.8" fill="#1a3fff"/>
+<circle cx="6"  cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="5"  cy="24" r="1.8" fill="#1a3fff"/>
+
+<!-- Nodos interiores anillo -->
+<circle cx="13" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="35" r="1"   fill="#c8ff00"/>
+<circle cx="13" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="35" r="1"   fill="#c8ff00"/>
+
+<!-- Nodo central -->
+<circle cx="24" cy="24" r="7"   fill="#0a0a0a" stroke="#c8ff00" stroke-width="1.5"/>
+<circle cx="24" cy="24" r="3.5" fill="#1a3fff"/>
+<circle cx="24" cy="24" r="1.5" fill="#c8ff00"/>
+</svg></span>Capital Data</a>
+  <a href="index.html" class="nav-back">← Volver</a>
+</nav>
+
+<div class="header">
+  <div class="header-eyebrow">Análisis Tributario · 2026</div>
+  <h1>La Plata cobra <em>23 tasas.</em><br>¿Cuántas hacen falta?</h1>
+  <div class="header-meta">
+    <div class="header-meta-item">Ordenanza Impositiva 12.682</div>
+    <div class="header-meta-item">Ejercicio 2026</div>
+    <div class="header-meta-item">Fuente: HCD La Plata</div>
+    <div class="header-meta-item">Análisis: Capital Data · Marzo 2026</div>
+  </div>
+</div>
+
+<div class="stats-strip">
+  <div class="stat-box">
+    <div class="stat-num azul">23</div>
+    <div class="stat-etiq">Títulos en la ordenanza impositiva</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-num azul">3</div>
+    <div class="stat-etiq">Tributos que generan el 83% de lo recaudado</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-num rojo">7</div>
+    <div class="stat-etiq">Tributos que recaudan menos de $1.000M c/u</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-num naranja">1,4%</div>
+    <div class="stat-etiq">Lo que aportan esos 7 tributos al total</div>
+  </div>
+</div>
+
+<div class="contenido">
+
+  <div class="seccion">
+    <div class="seccion-label">Resumen</div>
+    <h2>Un sistema pensado para recaudar, no para ser entendido</h2>
+    <p>La Ordenanza Impositiva 2026 del Municipio de La Plata tiene <strong>23 títulos</strong>, cada uno con su propia lógica, sus alícuotas, sus mínimos y sus condiciones. Suma además un anexo de varias páginas con cientos de actividades para la Tasa de Inspección de Seguridad e Higiene. Es un documento técnico, riguroso y completo — y prácticamente ilegible para el vecino que simplemente quiere entender qué está pagando y por qué.</p>
+    <p>El análisis de los datos de recaudación proyectados para 2026 revela algo que no aparece en el texto de la ordenanza: <strong>el sistema tributario platense está concentrado en muy pocos tributos</strong>. Solo tres tasas explican el 83% de todo lo que recauda el municipio por vía propia. Los otros veinte títulos existen, generan trámites, requieren fiscalización y demandan recursos administrativos — pero su impacto en las arcas municipales es marginal.</p>
+    <p>Esto no es necesariamente un problema de gestión. Es, en gran medida, el resultado de décadas de incorporación gradual de tributos que respondieron a necesidades puntuales, sin una revisión sistemática del conjunto. El resultado es un sistema que cobra muchas cosas y recauda de pocas.</p>
+
+    <div class="destacado">
+      <div class="destacado-label">El dato clave</div>
+      <p>Con solo <strong>3 tributos</strong> el Municipio recauda el <strong>83%</strong> de sus ingresos propios. Los otros 20 títulos generan el 17% restante — y cada uno implica normativa propia, fiscalización, trámites y costos de administración.</p>
+    </div>
+  </div>
+
+  <div class="seccion">
+    <div class="seccion-label">Dónde está la plata</div>
+    <h2>La concentración de la recaudación</h2>
+    <p>La siguiente tabla muestra los tributos ordenados por recaudación proyectada para 2026, con su participación en el total de ingresos propios municipales.</p>
+
+    <div class="concentracion">
+      <!-- Top tributos con barras -->
+      <div class="conc-item">
+        <div class="conc-header">
+          <span class="conc-nombre"><strong>Inspección de Seguridad e Higiene</strong></span>
+          <span class="conc-monto">$101.326M · 50,4%</span>
+        </div>
+        <div class="conc-track"><div class="conc-fill" style="width:100%;background:var(--azul)"></div></div>
+      </div>
+      <div class="conc-item">
+        <div class="conc-header">
+          <span class="conc-nombre"><strong>Tasa por Servicios Urbanos Municipales (SUM)</strong></span>
+          <span class="conc-monto">$40.564M · 20,2%</span>
+        </div>
+        <div class="conc-track"><div class="conc-fill" style="width:40%;background:var(--azul)"></div></div>
+      </div>
+      <div class="conc-item">
+        <div class="conc-header">
+          <span class="conc-nombre"><strong>Tasa por Alumbrado y Señalización Luminosa</strong></span>
+          <span class="conc-monto">$24.839M · 12,4%</span>
+        </div>
+        <div class="conc-track"><div class="conc-fill" style="width:24.5%;background:#4060ff"></div></div>
+      </div>
+      <div class="conc-item">
+        <div class="conc-header">
+          <span class="conc-nombre">Descentralización Tributaria Automotor</span>
+          <span class="conc-monto">$9.166M · 3,8%</span>
+        </div>
+        <div class="conc-track"><div class="conc-fill" style="width:9%;background:#4060ff"></div></div>
+      </div>
+      <div class="conc-item">
+        <div class="conc-header">
+          <span class="conc-nombre">Contribución Especial por Acciones de Seguridad</span>
+          <span class="conc-monto">$6.263M · 3,1%</span>
+        </div>
+        <div class="conc-track"><div class="conc-fill" style="width:6.2%;background:#4060ff"></div></div>
+      </div>
+      <div class="conc-item">
+        <div class="conc-header">
+          <span class="conc-nombre">Contribución Especial Pavimentos y Veredas</span>
+          <span class="conc-monto">$5.741M · 2,9%</span>
+        </div>
+        <div class="conc-track"><div class="conc-fill" style="width:5.7%;background:#8090e0"></div></div>
+      </div>
+      <div class="conc-item">
+        <div class="conc-header">
+          <span class="conc-nombre">Multas Ejido Urbano</span>
+          <span class="conc-monto">$4.341M · 1,8%</span>
+        </div>
+        <div class="conc-track"><div class="conc-fill" style="width:4.3%;background:#8090e0"></div></div>
+      </div>
+      <div class="conc-item">
+        <div class="conc-header">
+          <span class="conc-nombre">Derecho de Ocupación de Espacios Públicos</span>
+          <span class="conc-monto">$4.098M · 1,7%</span>
+        </div>
+        <div class="conc-track"><div class="conc-fill" style="width:4%;background:#8090e0"></div></div>
+      </div>
+      <div class="conc-item">
+        <div class="conc-header">
+          <span class="conc-nombre">Derechos de Publicidad y Propaganda</span>
+          <span class="conc-monto">$3.744M · 1,6%</span>
+        </div>
+        <div class="conc-track"><div class="conc-fill" style="width:3.7%;background:#8090e0"></div></div>
+      </div>
+      <div class="conc-item">
+        <div class="conc-header">
+          <span class="conc-nombre">Derechos de Construcción</span>
+          <span class="conc-monto">$3.406M · 1,4%</span>
+        </div>
+        <div class="conc-track"><div class="conc-fill" style="width:3.4%;background:#8090e0"></div></div>
+      </div>
+      <div class="conc-item">
+        <div class="conc-header">
+          <span class="conc-nombre" style="color:var(--texto-suave);font-size:.78rem">14 tributos restantes</span>
+          <span class="conc-monto" style="color:var(--naranja)">$4.100M · 1,7%</span>
+        </div>
+        <div class="conc-track"><div class="conc-fill" style="width:4.1%;background:var(--naranja);opacity:.5"></div></div>
+        <div class="conc-pct" style="color:var(--naranja)">Cada uno recauda menos de $1.000M/año</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="seccion">
+    <div class="seccion-label">El catálogo completo</div>
+    <h2>Los 23 títulos de la ordenanza</h2>
+    <p>La tabla muestra todos los tributos de la ordenanza, su recaudación proyectada para 2026 y su peso relativo en el sistema. Los marcados como <span class="badge badge-micro">marginal</span> son aquellos cuya recaudación no supera los $1.000M anuales.</p>
+
+    <div class="tabla-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Tributo</th>
+            <th class="num">Proyectado 2026 ($M)</th>
+            <th class="num">% del total</th>
+            <th>Peso</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>V</td><td><strong>Tasa por Inspección de Seguridad e Higiene</strong></td><td class="num">101.326</td><td class="num">50,4%</td><td><span class="badge badge-alta">Principal</span></td></tr>
+          <tr><td>I</td><td><strong>Tasa por Servicios Urbanos Municipales (SUM)</strong></td><td class="num">40.564</td><td class="num">20,2%</td><td><span class="badge badge-alta">Principal</span></td></tr>
+          <tr><td>II</td><td><strong>Tasa por Alumbrado y Señalización Luminosa</strong></td><td class="num">24.839</td><td class="num">12,4%</td><td><span class="badge badge-alta">Principal</span></td></tr>
+          <tr><td>XVI</td><td>Contribución Especial por Acciones de Seguridad</td><td class="num">6.263</td><td class="num">3,1%</td><td><span class="badge badge-media">Relevante</span></td></tr>
+          <tr><td>XIV</td><td>Contribución Especial por Pavimentos y Veredas</td><td class="num">5.741</td><td class="num">2,9%</td><td><span class="badge badge-media">Relevante</span></td></tr>
+          <tr><td>IX</td><td>Derechos de Ocupación o Uso de Espacios Públicos</td><td class="num">4.098</td><td class="num">2,0%</td><td><span class="badge badge-media">Relevante</span></td></tr>
+          <tr><td>VI</td><td>Derechos de Publicidad y Propaganda</td><td class="num">3.744</td><td class="num">1,9%</td><td><span class="badge badge-media">Relevante</span></td></tr>
+          <tr><td>VIII</td><td>Derechos de Construcción y Obra</td><td class="num">3.406</td><td class="num">1,7%</td><td><span class="badge badge-media">Relevante</span></td></tr>
+          <tr><td>VII</td><td>Derechos de Oficina</td><td class="num">2.927</td><td class="num">1,5%</td><td><span class="badge badge-media">Relevante</span></td></tr>
+          <tr><td>XXII</td><td>Tasa por Servicios Varios</td><td class="num">2.530</td><td class="num">1,3%</td><td><span class="badge badge-media">Relevante</span></td></tr>
+          <tr><td>XI</td><td>Patente de Rodados</td><td class="num">1.386</td><td class="num">0,7%</td><td><span class="badge badge-baja">Menor</span></td></tr>
+          <tr><td>XIII</td><td>Derechos de Cementerio</td><td class="num">1.280</td><td class="num">0,6%</td><td><span class="badge badge-baja">Menor</span></td></tr>
+          <tr><td>XXI</td><td>Régimen Simplificado para Pequeños Comercios (Monotasa)</td><td class="num">908</td><td class="num">0,5%</td><td><span class="badge badge-micro">Marginal</span></td></tr>
+          <tr><td>X</td><td>Derechos de Espectáculos Públicos</td><td class="num">602</td><td class="num">0,3%</td><td><span class="badge badge-micro">Marginal</span></td></tr>
+          <tr><td>XIX</td><td>Tasa por Verificación de Estructuras Soporte de Antenas</td><td class="num">443</td><td class="num">0,2%</td><td><span class="badge badge-micro">Marginal</span></td></tr>
+          <tr><td>III</td><td>Tasa por Servicios Especiales de Limpieza e Higiene</td><td class="num">405</td><td class="num">0,2%</td><td><span class="badge badge-micro">Marginal</span></td></tr>
+          <tr><td>XII</td><td>Tasa por Control de Marcas y Señales</td><td class="num">229</td><td class="num">0,1%</td><td><span class="badge badge-micro">Marginal</span></td></tr>
+          <tr><td>XX</td><td>Contribución Obligatoria por Valorización Inmobiliaria</td><td class="num">151</td><td class="num">0,1%</td><td><span class="badge badge-micro">Marginal</span></td></tr>
+          <tr><td>IV</td><td>Tasa por Control de Calidad de Obra en la Vía Pública</td><td class="num">41</td><td class="num">0,0%</td><td><span class="badge badge-micro">Marginal</span></td></tr>
+          <tr><td>XV</td><td>Contribución de la Provincia de Buenos Aires</td><td class="num" style="color:var(--texto-suave);font-style:italic">sin dato</td><td class="num">—</td><td><span class="badge badge-baja">Sin dato</span></td></tr>
+          <tr><td>XVII</td><td>Contribución de Mejora por Obras Especiales</td><td class="num" style="color:var(--texto-suave);font-style:italic">sin dato</td><td class="num">—</td><td><span class="badge badge-baja">Sin dato</span></td></tr>
+          <tr><td>XVIII</td><td>Tasa por Habilitación de Estructuras Soporte de Antenas</td><td class="num" style="color:var(--texto-suave);font-style:italic">sin dato</td><td class="num">—</td><td><span class="badge badge-baja">Sin dato</span></td></tr>
+          <tr><td>XXIII</td><td>Otras Disposiciones</td><td class="num" style="color:var(--texto-suave)">—</td><td class="num">—</td><td><span class="badge badge-baja">Normativo</span></td></tr>
+          <tr class="total-row"><td></td><td><strong>TOTAL (sobre tributos con dato)</strong></td><td class="num">200.883</td><td class="num">100%</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="seccion">
+    <div class="seccion-label">Para dimensionarlo</div>
+    <h2>¿Cuánto son $2.800M en la práctica?</h2>
+    <p>Los siete tributos marginales de la ordenanza — los que juntos representan el 1,4% de la recaudación — proyectan recaudar <strong>$2.800 millones</strong> en 2026. Un número que parece grande hasta que lo traducimos a cosas concretas.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--gris-borde);margin:2rem 0">
+      <div style="background:white;padding:2rem 1.5rem;text-align:center">
+        <div style="font-family:'Fraunces',serif;font-size:2.8rem;font-weight:300;color:var(--azul);line-height:1;margin-bottom:.5rem">~35</div>
+        <div style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--texto-suave);margin-bottom:.75rem">Cuadras asfaltadas</div>
+        <div style="font-size:.78rem;color:var(--texto-suave);line-height:1.6">A un costo estimado de $80M por cuadra (referencia 2026 para municipios del GBA), los $2.800M alcanzarían para asfaltar unas 35 cuadras.</div>
+      </div>
+      <div style="background:white;padding:2rem 1.5rem;text-align:center">
+        <div style="font-family:'Fraunces',serif;font-size:2.8rem;font-weight:300;color:var(--azul);line-height:1;margin-bottom:.5rem">~u$s2M</div>
+        <div style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--texto-suave);margin-bottom:.75rem">En dólares al tipo oficial</div>
+        <div style="font-size:.78rem;color:var(--texto-suave);line-height:1.6">Al dólar oficial de $1.420 (31/3/2026), los $2.800M representan aproximadamente 1,97 millones de dólares.</div>
+      </div>
+      <div style="background:white;padding:2rem 1.5rem;text-align:center">
+        <div style="font-family:'Fraunces',serif;font-size:2.8rem;font-weight:300;color:var(--azul);line-height:1;margin-bottom:.5rem">0,06%</div>
+        <div style="font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--texto-suave);margin-bottom:.75rem">Del presupuesto total 2026</div>
+        <div style="font-size:.78rem;color:var(--texto-suave);line-height:1.6">El municipio presupuestó $462.290M en gastos para 2026. Los $2.800M marginales representan menos de un décimo de punto porcentual.</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-label">La pregunta que los datos no pueden responder solos</div>
+      <p>Para saber si tiene sentido mantener estos 7 tributos, falta un dato que el municipio no publica: <strong>cuánto cuesta administrarlos</strong>. Si el costo de personal, sistemas, fiscalización y trámites asociados a cada tributo supera lo que recauda, el Estado estaría perdiendo plata para cobrarlos. Sin esa información, solo podemos señalar la desproporción — no cuantificarla.</p>
+    </div>
+  </div>
+
+  <div class="seccion">
+    <div class="seccion-label">Hallazgos</div>
+    <h2>Lo que los números plantean</h2>
+
+    <div class="hallazgos-grid">
+      <div class="hallazgo">
+        <div class="hallazgo-num">01</div>
+        <h3>Cinco tributos sostienen todo</h3>
+        <p>Inspección de Seguridad e Higiene, SUM, Alumbrado, Automotor y Seguridad concentran el 78% de la recaudación propia. Son los pilares del sistema. El resto funciona como satélites con impacto fiscal secundario.</p>
+      </div>
+      <div class="hallazgo">
+        <div class="hallazgo-num">02</div>
+        <h3>7 tributos que recaudan poco y cuestan administrar</h3>
+        <p>Siete tributos de la ordenanza recaudan menos de $1.000M cada uno — en conjunto representan apenas el 1,4% del total. Cada uno requiere normativa específica, sistemas de registro, personal de control y procesos de cobro. La pregunta es si ese costo administrativo es proporcional al beneficio.</p>
+      </div>
+      <div class="hallazgo">
+        <div class="hallazgo-num">03</div>
+        <h3>Alumbrado aparece dos veces</h3>
+        <p>La Tasa por Alumbrado y Señalización Luminosa se cobra de dos formas: directamente en la boleta municipal y a través de EDELAP en la boleta de luz eléctrica. Son dos líneas presupuestarias, dos sistemas de cobro y dos procesos administrativos para un mismo servicio.</p>
+      </div>
+      <div class="hallazgo">
+        <div class="hallazgo-num">04</div>
+        <h3>La Inspección de Seguridad e Higiene es el sistema en sí</h3>
+        <p>Con el 42% de la recaudación propia, esta tasa es la columna vertebral del sistema tributario municipal. Su anexo clasifica cientos de actividades económicas con alícuotas diferenciadas. Concentra la mayor parte de la fiscalización comercial de la ciudad.</p>
+      </div>
+    </div>
+
+    <div class="callout naranja">
+      <div class="callout-label">Para pensar</div>
+      <p><strong>¿Qué pasaría si se unificaran o eliminaran los tributos de menor impacto?</strong> Un sistema con menos tributos pero mejor administrados podría recaudar lo mismo con menos fricción para el contribuyente y menor costo operativo para el Estado. No es una propuesta política — es una pregunta de eficiencia que cualquier revisión tributaria debería responder con datos.</p>
+    </div>
+
+    <div class="callout verde">
+      <div class="callout-label">Potencial de simplificación</div>
+      <p>Los tributos marcados como "Marginal" en la tabla recaudan en conjunto <strong>$2.800M</strong> — menos del 1,5% del total. Si su costo de administración y fiscalización supera ese monto, el sistema estaría perdiendo dinero para cobrarlos. Este es el tipo de análisis que requiere datos de ejecución que el municipio no publica de forma desagregada.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- CÓMO SE HIZO + DISCLAIMER -->
+<div style="background:var(--negro);padding:5rem 2.5rem;">
+  <div style="max-width:800px;margin:0 auto;">
+
+    <div style="margin-bottom:4rem;">
+      <div style="font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acento);margin-bottom:2rem;display:flex;align-items:center;gap:.75rem;">
+        <span style="display:block;width:2rem;height:1px;background:var(--acento);flex-shrink:0"></span>
+        Cómo se hizo este informe
+      </div>
+
+      <p style="font-family:'Fraunces',serif;font-size:clamp(1.1rem,2vw,1.4rem);font-weight:300;font-style:italic;line-height:1.6;color:rgba(245,242,235,.85);margin-bottom:2rem;">
+        La Ordenanza Impositiva es pública. La Programación de Recursos también. Nadie las lee juntas.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);margin-bottom:1.2rem;">
+        Este informe cruza dos documentos públicos del Municipio de La Plata: la Ordenanza Impositiva 12.682 (que fija qué se cobra y cómo) y la Programación de Recursos del ejercicio 2026 (que estima cuánto se va a recaudar por cada concepto). Ambos están disponibles para cualquier persona — pero leerlos por separado no permite ver la relación entre la complejidad del sistema y su rendimiento real.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);margin-bottom:1.2rem;">
+        Procesamos los datos con <strong style="color:rgba(245,242,235,.6);">Python</strong> para estructurar y cruzar la información de recaudación, y usamos <strong style="color:rgba(245,242,235,.6);">modelos de lenguaje</strong> para identificar patrones y formular las preguntas que emergen de los datos. El análisis no requirió ninguna fuente reservada ni contacto con funcionarios — solo los documentos que el Estado publica.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);">
+        La información pública existe. Nosotros la hacemos legible.
+      </p>
+    </div>
+
+    <div style="height:1px;background:rgba(245,242,235,.08);margin-bottom:4rem;"></div>
+
+    <div>
+      <div style="font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,242,235,.3);margin-bottom:2rem;display:flex;align-items:center;gap:.75rem;">
+        <span style="display:block;width:2rem;height:1px;background:rgba(245,242,235,.2);flex-shrink:0"></span>
+        Aviso importante
+      </div>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);margin-bottom:1rem;">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">Capital Data no es un medio de comunicación ni un partido político.</strong> Somos un equipo independiente que usa inteligencia artificial para analizar información pública municipal. No recibimos financiamiento del Estado ni de ninguna fuerza política. Nuestro único interés es que los datos del gobierno local sean accesibles para todos.
+      </p>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);margin-bottom:1rem;">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">Este análisis puede contener errores.</strong> Los datos de recaudación son proyecciones presupuestarias, no valores ejecutados. La ausencia de datos de costo administrativo por tributo limita el análisis de eficiencia — señalamos esa limitación explícitamente. Si encontrás una inconsistencia, escribinos: la corregimos y la publicamos.
+      </p>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);margin-bottom:1rem;">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">Todo el material es público.</strong> La Ordenanza Impositiva y la Programación de Recursos son documentos oficiales del Municipio de La Plata. Cualquier persona puede acceder a ellos, verificar nuestros números y llegar a sus propias conclusiones.
+      </p>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">El objetivo no es el análisis en sí.</strong> Es demostrar que una ciudad mejor gobernada empieza por una ciudad mejor comprendida — y que comprender ya no requiere un equipo de expertos ni un presupuesto de investigación. Requiere voluntad, herramientas abiertas y la convicción de que la información pública le pertenece a la gente.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-logo">Capital <span>Data</span></div>
+  <div class="footer-info">
+    La Plata · Capital de la Provincia de Buenos Aires<br>
+    Políticas públicas e inteligencia artificial<br>
+    @capitaldata
+  </div>
+</footer>
+
+</body>
+</html>

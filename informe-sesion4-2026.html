@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sesión N°4 · 2026 — Capital Data</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+
+:root{--azul:#1a3fff;--negro:#0a0a0a;--crema:#f5f2eb;--gris-claro:#f0ede6;--gris-borde:#e2ddd4;--texto:#1a1a1a;--texto-suave:#6b6b6b;--acento:#c8ff00}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:"Instrument Sans",sans-serif;background:var(--crema);color:var(--texto);max-width:1200px;margin:0 auto;padding:0}
+.informe-nav{background:var(--negro);padding:1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.informe-nav-logo{font-family:"DM Mono",monospace;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--acento);text-decoration:none}
+.informe-nav-back{font-family:"DM Mono",monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,242,235,.4);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .2s}
+.informe-nav-back:hover{color:var(--crema)}
+.informe-header{background:var(--negro);padding:5rem 2.5rem 4rem;position:relative;overflow:hidden}
+.informe-header::after{content:"";position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--azul),transparent)}
+.informe-eyebrow{font-family:"DM Mono",monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acento);margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem}
+.informe-eyebrow::before{content:"";display:block;width:2rem;height:1px;background:var(--acento)}
+.informe-header h1{font-family:"Fraunces",serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:300;color:var(--crema);line-height:1.1;letter-spacing:-.02em;margin-bottom:2rem;max-width:800px}
+.informe-meta-bar{display:flex;gap:2rem;flex-wrap:wrap;align-items:center}
+.informe-meta-item{font-family:"DM Mono",monospace;font-size:.65rem;letter-spacing:.1em;color:rgba(245,242,235,.4);display:flex;align-items:center;gap:.5rem}
+.informe-meta-item a{color:var(--azul);text-decoration:none}.informe-meta-item a:hover{color:var(--acento)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--gris-borde);border-bottom:1px solid var(--gris-borde)}
+.stat{background:white;padding:2rem 1.5rem;text-align:center}
+.stat .n{font-family:"Fraunces",serif;font-size:2.8rem;font-weight:300;color:var(--azul);line-height:1;margin-bottom:.4rem}
+.stat .label{font-family:"DM Mono",monospace;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--texto-suave)}
+.res{background:white;border-left:3px solid var(--azul);padding:2rem 2.5rem;font-family:"Fraunces",serif;font-size:1.05rem;font-weight:300;font-style:italic;line-height:1.7;color:var(--texto)}
+.contenido{padding:3rem 2.5rem}
+h2{font-family:"Fraunces",serif;font-size:1.8rem;font-weight:300;color:var(--negro);margin-top:3.5rem;margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:1px solid var(--gris-borde);display:flex;align-items:center;gap:.6rem}
+h2:first-child{margin-top:0}
+h3{font-family:"Fraunces",serif;font-size:1.2rem;font-weight:400;margin-bottom:.75rem;color:var(--negro)}
+.card{background:white;border:1px solid var(--gris-borde);padding:2rem;margin-bottom:1.5rem}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+th{background:var(--negro);color:var(--crema);padding:.75rem 1rem;text-align:left;font-family:"DM Mono",monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;font-weight:400}
+td{padding:.85rem 1rem;border-bottom:1px solid var(--gris-borde);vertical-align:top;line-height:1.5}
+tr:last-child td{border-bottom:none}tr:hover td{background:var(--gris-claro)}
+.informe-footer{background:var(--negro);padding:2.5rem;display:flex;justify-content:space-between;align-items:center;margin-top:0}
+.informe-footer-logo{font-family:"Fraunces",serif;font-size:1.2rem;font-weight:300;color:var(--crema)}
+.informe-footer-logo span{color:var(--acento);font-style:italic}
+.informe-footer-info{font-family:"DM Mono",monospace;font-size:.58rem;letter-spacing:.1em;color:rgba(245,242,235,.3);text-align:right;line-height:1.8}
+@media(max-width:768px){.informe-header{padding:3.5rem 1.5rem 3rem}.contenido{padding:2rem 1.5rem}.res{padding:1.5rem}.informe-nav{padding:1rem 1.5rem}.informe-footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}.informe-footer-info{text-align:center}}
+
+</style>
+</head>
+<body>
+
+<nav class="informe-nav">
+  <a href="index.html" class="informe-nav-logo" style="display:flex;align-items:center;gap:.6rem"><span style="display:inline-flex;align-items:center;width:28px;height:28px;flex-shrink:0"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 48 48" role="img">
+<title>Capital Data</title>
+<!-- centro: 24,24 -->
+<!-- 8 nodos perimetrales en forma cuadrada -->
+<!-- esquinas: 6,6 | 42,6 | 42,42 | 6,42 -->
+<!-- medios: 24,5 | 43,24 | 24,43 | 5,24 -->
+<!-- 4 nodos interiores anillo: 13,13 | 35,13 | 35,35 | 13,35 -->
+
+<!-- Centro → perimetrales -->
+<line x1="24" y1="24" x2="6"  y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="5"  stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="43" y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="43" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="6"  y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="5"  y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+
+<!-- Centro → interiores -->
+<path d="M24,24 Q18,18 13,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,18 35,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,30 35,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q18,30 13,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+
+<!-- Borde perimetral cuadrado -->
+<path d="M6,6   Q15,5  24,5"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M24,5  Q33,5  42,6"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M42,6  Q43,15 43,24" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M43,24 Q43,33 42,42" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M42,42 Q33,43 24,43" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M24,43 Q15,43 6,42"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M6,42  Q5,33  5,24"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M5,24  Q5,15  6,6"   stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+
+<!-- Conexiones interiores entre sí -->
+<path d="M13,13 Q24,12 35,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+<path d="M35,13 Q36,24 35,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+<path d="M35,35 Q24,36 13,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+<path d="M13,35 Q12,24 13,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+
+<!-- Cruzadas interiores → perimetrales -->
+<path d="M13,13 Q9,9   6,6"   stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q38,9  42,6"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,35 Q38,38 42,42" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,35 Q9,38  6,42"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,13 Q9,18  5,24"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q39,18 43,24" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+
+<!-- Nodos perimetrales -->
+<circle cx="6"  cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="5"  r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="43" cy="24" r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="43" r="1.8" fill="#1a3fff"/>
+<circle cx="6"  cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="5"  cy="24" r="1.8" fill="#1a3fff"/>
+
+<!-- Nodos interiores anillo -->
+<circle cx="13" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="35" r="1"   fill="#c8ff00"/>
+<circle cx="13" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="35" r="1"   fill="#c8ff00"/>
+
+<!-- Nodo central -->
+<circle cx="24" cy="24" r="7"   fill="#0a0a0a" stroke="#c8ff00" stroke-width="1.5"/>
+<circle cx="24" cy="24" r="3.5" fill="#1a3fff"/>
+<circle cx="24" cy="24" r="1.5" fill="#c8ff00"/>
+</svg></span>Capital Data</a>
+  <a href="sesiones.html" class="informe-nav-back">&larr; Sesiones</a>
+</nav>
+
+<div class="informe-header">
+  <div class="informe-eyebrow">Informe N&deg;4 &middot; 2026</div>
+  <h1>Sesi&oacute;n Ordinaria N&deg;4<br>83&deg; Per&iacute;odo Legislativo</h1>
+  <div class="informe-meta-bar">
+    <span class="informe-meta-item">&#128197; 23 de abril de 2026</span>
+    <span class="informe-meta-item">&#128336; 11:04 &mdash; 17:25 hs</span>
+    <span class="informe-meta-item">&#128203; 289 puntos en el sumario</span>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="n">21</div><div class="label">Presentes</div></div>
+  <div class="stat"><div class="n">289</div><div class="label">Puntos</div></div>
+  <div class="stat"><div class="n">10+</div><div class="label">Votaciones</div></div>
+  <div class="stat"><div class="n">90+</div><div class="label">Intervenciones</div></div>
+</div>
+
+<div class="res">Sesi&oacute;n con cinco grandes ejes: amenazas de tiroteos en escuelas platenses; parada militar del 13 de abril en la Plaza Islas Malvinas y el escrache del CECIM; interpelaci&oacute;n al Secretario de Seguridad Diego Pepe; cr&eacute;ditos hipotecarios a tasa preferencial del Jefe de Gabinete Francos; y crisis de las obras sociales sindicales. Tambi&eacute;n: pesar por Luis "Beto" Brandoni y m&aacute;s de 50 resoluciones de obra p&uacute;blica.</div>
+
+<div class="contenido">
+Presentes</div>
+<div class="stat"><div class="n">289</div>Puntos</div>
+<div class="stat"><div class="n">10+</div>Votaciones</div>
+<div class="stat"><div class="n">90+</div>Intervenciones</div>
+</div>
+
+
+<h2>👥 Concejales</h2><div class="card"><table>
+<tr><th>Nombre</th><th>Cargo</th><th>Bloque</th><th>Intervenciones</th><th>Posición</th><th>Temas</th><th>Resumen</th></tr>
+
+<tr><td><strong>Marcelo Gustavo GALLAND</strong></td><td>Presidente</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">—</td><td><span style="background:#7f8c8d;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">presidencia</span></td><td>Conducción</td><td>Condujo la sesión. Invitó al inicio a Bardón a izar el pabellón y al cierre también a Bardón a arriarlo.</td></tr>
+
+<tr><td><strong>Juan Manuel GRANILLO FERNÁNDEZ</strong></td><td>Vicepresidente 1°</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~10</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gestión</span></td><td>Parada militar y escrache Plaza Malvinas, interpelación secretario de seguridad, créditos hipotecarios Francos, amenazas en escuelas</td><td>Presentó el proyecto de repudio a la parada militar del 13 de abril, argumentando que fue una provocación en un espacio de memoria donde el CECIM y excombatientes sintieron un agravio. Aclaró que no avaló el escrache pero sí el sentimiento de los veteranos. Respondió extensamente a Morzone sobre la interpelación al secretario Pepe, señalando que el mecanismo propuesto equivale al juicio político y requiere quórum especial. Fue el más interpelado por Morzone durante toda la sesión.</td></tr>
+
+<tr><td><strong>Juan Pablo ALLAN</strong></td><td>Vicepresidente 2°</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~4</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposición</span></td><td>Interpelación secretario de seguridad, asbesto en Escuela N°3, interpelaciones al ejecutivo</td><td>Apoyó el proyecto de interpelación al secretario Pepe señalando que la falta de secretarios con designación formal es un problema de fondo. Intervino sobre el asbesto en la Escuela N°3, presentando el pedido de informe con todos los bloques. Presentó el beneplácito por Antonio Strejilevich Badenes (IMO 2026) y el repudio al acto del Instituto Patria en el Colegio Nacional.</td></tr>
+
+<tr><td><strong>Gastón Manuel ÁLVAREZ</strong></td><td>Concejal</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~4</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposición</span></td><td>Obras sociales sindicales, paradas de colectivos, basurales, semáforos</td><td>Respondió en el debate de obras sociales sindicales señalando que la crisis es estructural y previa al gobierno de Milei, originada en décadas de mala gestión de las conducciones sindicales. Presentó varios proyectos de resolución sobre paradas de colectivos, basurales, bacheos y semáforos en distintos barrios.</td></tr>
+
+<tr><td><strong>María Florencia BARCIA</strong></td><td>Concejala</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposición</span></td><td>Iluminación Palacio Municipal, prohibición de fumar en hospitales</td><td>Presentó el proyecto de cronograma de iluminación del Palacio Municipal para fechas conmemorativas y el de prohibición de fumar en veredas y entradas de hospitales y centros de salud. Sin intervenciones orales en los debates de fondo.</td></tr>
+
+<tr><td><strong>Guillermo Arcadio BARDÓN</strong></td><td>Concejal</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~8</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposición</span></td><td>Créditos hipotecarios Francos, vandalismo Escuela Técnica N°6, asbesto Escuela N°3, aeropuerto, calefacción escuelas, convenio Facultad Agrarias</td><td>Protagonizó el debate más técnico de la sesión: confrontó con Granillo Fernández sobre los créditos hipotecarios preferenciales del Jefe de Gabinete Francos, señalando que el problema no es el crédito en sí sino la falta de declaración jurada y la ocupación simultánea del cargo. Intervino sobre el vandalismo en la Escuela Técnica N°6, el asbesto en la Escuela N°3, y presentó múltiples pedidos de informes sobre el aeropuerto, calefacción en escuelas y el convenio con la Facultad de Ciencias Agrarias. Izó y arrió el pabellón nacional.</td></tr>
+
+<tr><td><strong>Josefina María BOLIS</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~6</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gestión</span></td><td>Amenazas en escuelas, obras sociales sindicales, crisis energética, PAMI, Plan Remediar, personalidades destacadas</td><td>Respondió a Morzone en el debate de amenazas escolares señalando que la violencia no puede atribuirse solo a la gestión provincial y que el enfoque punitivo no resuelve el problema de fondo. Intervino sobre obras sociales sindicales, la crisis energética, el vaciamiento del PAMI y el Plan Remediar. Presentó varios proyectos de interés cultural y la preocupación por el PAMI.</td></tr>
+
+<tr><td><strong>María Florencia DE FEO</strong></td><td>Concejala</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~3</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposición</span></td><td>Parada militar/escrache Malvinas, asbesto Escuela N°3, servicios ABSA y ESUR</td><td>Intervino en el debate de la parada militar señalando que el escrache fue organizado desde el CECIM con apoyo de la Subsecretaría de Derechos Humanos provincial para "arruinar" el acto. Argumentó que la marcha de las antorchas se realiza todos los años con respeto y que no debe ser politizada. Presentó decenas de resoluciones sobre ABSA, bacheos y mantenimiento de espacios públicos.</td></tr>
+
+<tr><td><strong>Gisella Yiuliana DI DIO</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~1</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gestión</span></td><td>Breve intervención de gestión</td><td>Sin intervenciones orales de fondo registradas en los debates principales de la sesión.</td></tr>
+
+<tr><td><strong>Pablo Emanuel ELIAS</strong></td><td>Concejal</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~7</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gestión</span></td><td>Parada militar/escrache Malvinas, interpelación secretario de seguridad, amenazas en escuelas, gestión municipal</td><td>Fue el concejal que más veces interrumpió a Morzone durante la sesión, solicitando la palabra para rebatir sus argumentos. En el debate de la parada militar, le recordó que el CECIM son excombatientes que fueron torturados en las islas y merecen respeto más allá de su signo político. En el debate de amenazas, cuestionó la lectura "causal-política" de Morzone. Defendió la gestión municipal de seguridad con datos concretos.</td></tr>
+
+<tr><td><strong>Darío GANDUGLIA</strong></td><td>Concejal</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Propuesta Vecinal (PROve)</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#3498db;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">moderado</span></td><td>Asbesto Escuela N°3, semaforización inteligente, tránsito City Bell, pavimentación</td><td>Intervino sobre el asbesto en la Escuela N°3, sumándose al pedido de informe conjunto de todos los bloques. Presentó proyectos de semaforización inteligente, sistema de denuncias de infracciones de tránsito, pavimentación en City Bell y otros temas de infraestructura.</td></tr>
+
+<tr><td><strong>Melany HOROMADIUK</strong></td><td>Concejala</td><td><span style="background:#16a085;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">ASAP Nueva Generación</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#3498db;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">moderado</span></td><td>Asbesto Escuela N°3, City Bell, arbolado</td><td>Se sumó al pedido de informe conjunto sobre el asbesto en la Escuela N°3. Presentó el interés municipal por el 101° aniversario de la Unión Vecinal Etcheverry y resoluciones sobre seguridad en City Bell y arbolado.</td></tr>
+
+<tr><td><strong>Micaela MAGGIO</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~3</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gestión</span></td><td>Parada militar/escrache Malvinas, ópera independiente, Plan Remediar</td><td>Intervino en el debate de la parada militar defendiendo la postura del oficialismo. Presentó el interés cultural por la Compañía de Ópera Independiente "Lírica en Diagonal" y el repudio al vaciamiento del Plan Nacional Remediar.</td></tr>
+
+<tr><td><strong>Sol María MALUENDEZ</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~4</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gestión</span></td><td>Amenazas en escuelas, financiamiento universitario, Papa Francisco, gestión de jardines</td><td>Respondió a Morzone en el debate de amenazas señalando que la situación es compleja y no puede atribuirse a una sola fuerza política. Presentó la preocupación por el incumplimiento de la Ley de Financiamiento Universitario y el beneplácito por el primer aniversario del fallecimiento del Papa Francisco. Protagonizó el episodio procedimental más controvertido de la sesión: solicitó la votación sobre tablas del Pt.92 aprovechando la ausencia de varios concejales, logrando su aprobación y rompiendo el acuerdo de Labor Parlamentaria.</td></tr>
+
+<tr><td><strong>Sabrina Luz MORALES</strong></td><td>Concejala</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposición</span></td><td>Adopción responsable de animales, apertura de calles, bacheos y luminarias</td><td>Presentó el proyecto de programa municipal de adopción responsable de animales de compañía y la apertura de la calle 158 desde 531 a Avenida 32. Sin intervenciones orales en los debates principales.</td></tr>
+
+<tr><td><strong>Nicolás Luis MORZONE</strong></td><td>Concejal</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">PRO</span></td><td style="text-align:center;font-weight:bold">~15</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposición</span></td><td>Amenazas en escuelas (causas políticas), parada militar/escrache Plaza Malvinas, interpelación al secretario de seguridad Pepe, responsabilidad política de secretarios, campaña "Baja un cambio", seguridad pública, Beto Brandoni</td><td>El concejal más activo de la sesión y el más mencionado. Abrió el debate sobre amenazas en escuelas con un extenso discurso atribuyendo la crisis al "populismo educativo" de Kicillof (eliminación de sanciones, repitencias y autoridad docente). En la parada militar, calificó el proyecto de Granillo Fernández de "aberración jurídica" y "apología del delito", acusando al CECIM de haber agredido a fuerzas constitucionales. Presentó el proyecto de interpelación al secretario de seguridad Diego Pepe y el de responsabilidad política de los secretarios. Fue interrumpido varias veces por Elias y Granillo Fernández. Propuso minuto de silencio por Beto Brandoni.</td></tr>
+
+<tr><td><strong>María Ona PARRILLI</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~4</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gestión</span></td><td>Parada militar/escrache Malvinas, obras sociales sindicales, gestión municipal</td><td>Intervino en el debate de la parada militar defendiendo la postura del oficialismo y respaldando los sentimientos de los excombatientes del CECIM. También intervino sobre obras sociales sindicales señalando el impacto del ajuste nacional en las prestaciones de salud de los trabajadores.</td></tr>
+
+<tr><td><strong>Nadia Soledad PEDERNERA</strong></td><td>Concejala</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposición</span></td><td>Escrache Plaza Malvinas, amenazas en establecimientos educativos</td><td>Presentó el proyecto de repudio ante el escrache en la Plaza Islas Malvinas durante el homenaje organizado por el Regimiento 7 (tratado conjuntamente con el de Granillo Fernández). También presentó el proyecto de preocupación por la violencia e intimidación en establecimientos educativos (tratado con el de Bolis).</td></tr>
+
+<tr><td><strong>Pablo Darío POGGIO</strong></td><td>Concejal</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">0</td><td><span style="background:#95a5a6;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">sin intervenciones</span></td><td></td><td>Sin intervenciones orales registradas en esta sesión.</td></tr>
+
+<tr><td><strong>Raúl Omar RECAVARREN</strong></td><td>Concejal</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">0</td><td><span style="background:#95a5a6;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">sin intervenciones</span></td><td></td><td>Sin intervenciones orales registradas.</td></tr>
+
+<tr><td><strong>Sergio Daniel RESA</strong></td><td>Concejal</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~5</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gestión</span></td><td>Interpelación secretario de seguridad, créditos hipotecarios, gestión municipal</td><td>Intervino en el debate de la interpelación al secretario de seguridad, aclarando los alcances jurídicos del instituto propuesto por Morzone y sus diferencias con el juicio político. También respondió sobre los créditos hipotecarios del Jefe de Gabinete Francos y defendió la gestión municipal.</td></tr>
+
+<tr><td><strong>Romina del Carmen SANTANA</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~4</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gestión</span></td><td>Obras sociales sindicales, crisis energética, mural Papa Francisco</td><td>Presentó y fundamentó extensamente la preocupación por la crisis de las obras sociales sindicales, señalando el impacto en las prestaciones de salud de los trabajadores. También presentó la preocupación por la crisis energética actual y la declaración de interés del mural del Papa Francisco en calle 54 y 14.</td></tr>
+
+<tr><td><strong>Gustavo Alberto STAFFOLANI</strong></td><td>Concejal</td><td><span style="background:#e74c3c;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">UCR</span></td><td style="text-align:center;font-weight:bold">~3</td><td><span style="background:#3498db;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">moderado</span></td><td>Pesar por Beto Brandoni, centro de elaboración de alimentos cordón frutihortícola, poda arbolado</td><td>Solicitó el adelantamiento de los puntos 288 y 289 por el fallecimiento de Beto Brandoni. Presentó el proyecto de creación del Centro Municipal de Elaboración de Alimentos del Cordón Frutihortícola Platense. Sin intervenciones en los debates políticos principales.</td></tr>
+
+<tr><td><strong>Iván Gabriel ZANETTO</strong></td><td>Concejal</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">PRO</span></td><td style="text-align:center;font-weight:bold">~3</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposición</span></td><td>Fondo anticíclico para catástrofes, COEM, seguridad barrial, bacheos y luminarias</td><td>Presentó el proyecto de creación del Fondo Anticíclico para asistir al municipio ante catástrofes y emergencias ambientales, y el Comité Operativo Municipal de Emergencias (COEM). Presentó múltiples resoluciones de obras públicas y seguridad en distintos barrios.</td></tr>
+
+</table></div>
+
+<h2>📋 Temas tratados</h2><div class="card"><table>
+<tr><th>#</th><th>Título</th><th>Tipo</th><th>Expediente</th><th>Descripción</th><th>Concejales que hablaron</th><th>Resultado</th></tr>
+
+<tr><td style="text-align:center">288–289</td><td><strong>Pesar por el fallecimiento de Luis "Beto" Brandoni</strong></td><td>Proyectos de Decreto</td><td style="font-family:monospace">80.356 / 80.355</td><td>Presentados conjuntamente por UCR (Staffolani) y PRO (Morzone). Morzone solicitó además un minuto de silencio por el artista. Aprobados en primer lugar de la sesión a pedido de Staffolani</td><td>STAFFOLANI, MORZONE</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobado (unanimidad)</span></td></tr>
+
+<tr><td style="text-align:center">1–13</td><td><strong>Mensajes del Departamento Ejecutivo</strong></td><td>Ordenanzas</td><td style="font-family:monospace">80.163–80.337</td><td>Comodato Banco Provincia (Los Hornos), 6 transacciones extrajudiciales, 3 reservas de estacionamiento, donación de semovientes a ECAS, convenio Ticketera Argentina S.A., aceptación de pala cargadora de la Provincia</td><td>—</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Todos aprobados</span></td></tr>
+
+<tr><td style="text-align:center">14–64</td><td><strong>Despachos de comisión — Planeamiento, Transporte, Obras Públicas, Cultura, Turismo, Ambiente</strong></td><td>Órdenes del Día N°1</td><td style="font-family:monospace">Varios</td><td>Desafectación de excedente fiscal, evaluaciones técnicas (calle 37, barrio San Carlos, Villa Elisa, Etcheverry), 8 reservas de estacionamiento (con y sin cargo), resoluciones ESUR, luminarias LED, bacheos, interés municipal streaming "El Club de tu Barrio", Semana de la Endometriosis, y 18 resoluciones de arbolado urbano (podas, extracciones). La mayoría aprobados sin debate</td><td>—</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Mayoría aprobados</span></td></tr>
+
+<tr><td style="text-align:center">65</td><td><strong>Tarifas de taxis — Nota del sindicato solicitando aumento</strong></td><td>Asunto particular</td><td style="font-family:monospace">80.105</td><td>Unión de Propietarios de Autos Taxis. Morzone aprovechó el punto para denunciar que llevan más de un año sin actualización tarifaria y acusó al oficialismo de someter a presiones a la concejala Barcia (presidenta de la Comisión de Transporte) para bloquear el tratamiento. Staffolani señaló la contradicción de Morzone al presionar a una aliada política. Elias exigió disculpas formales por la acusación de presiones. Bardón señaló que el tema no había sido convocado a comisión pese a las solicitudes. Parrilli le acusó de faltar a la verdad sobre el diálogo del municipio con el sector. Granillo Fernández aclaró que la demora es de un año y cinco meses, no de cinco meses como dijo Morzone, y que el municipio busca que el aumento no sea un golpe muy fuerte al usuario. Álvarez apoyó la desregulación tarifaria y la legalización de Uber</td><td>MORZONE, STAFFOLANI, ELIAS, BARDÓN, PARRILLI, GRANILLO FERNÁNDEZ, ÁLVAREZ, ALLAN</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Transporte y Tránsito)</span></td></tr>
+
+<tr><td style="text-align:center">75</td><td><strong>Estado de alerta preventiva en el ámbito educativo ante amenazas de tiroteos</strong></td><td>Proyecto de Ordenanza</td><td style="font-family:monospace">80.312</td><td>PRO (Morzone). Declara estado de alerta preventiva por la reiteración de amenazas y situaciones de riesgo en establecimientos educativos. Morzone atribuyó el fenómeno al "populismo educativo" de Kicillof: eliminación de sanciones, repitencias y autoridad docente. Bolis rechazó la lectura político-partidaria. Maluendez señaló la complejidad del fenómeno. Tratado conjuntamente con el Punto 96 y 106</td><td>MORZONE, BOLIS, MALUENDEZ, ELIAS</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Niñeces y Seguridad)</span></td></tr>
+
+<tr><td style="text-align:center">76</td><td><strong>Responsabilidad política y contralor de los Secretarios del Departamento Ejecutivo ante el Concejo</strong></td><td>Proyecto de Ordenanza</td><td style="font-family:monospace">80.313</td><td>PRO (Morzone). Establece que los secretarios municipales estarán sujetos a la responsabilidad política de contralor ante el Concejo Deliberante, incorporando el instituto del "juicio político municipal". Granillo Fernández respondió que el mecanismo equivale al juicio político y requiere quórum especial que la norma no contempla. Allan apoyó señalando la falta de secretarios con designación formal</td><td>MORZONE, GRANILLO FERNÁNDEZ, ALLAN, RESA</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Legislación)</span></td></tr>
+
+<tr><td style="text-align:center">77</td><td><strong>Fondo anticíclico para catástrofes, emergencias y desastres ambientales</strong></td><td>Proyecto de Ordenanza</td><td style="font-family:monospace">80.314</td><td>PRO (Zanetto). Crea un fondo de reserva financiero para que el municipio pueda responder a catástrofes sin depender del presupuesto ordinario</td><td>ZANETTO</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Ambiente y Hacienda)</span></td></tr>
+
+<tr><td style="text-align:center">78</td><td><strong>Comité Operativo Municipal de Emergencias (COEM)</strong></td><td>Proyecto de Ordenanza</td><td style="font-family:monospace">80.332</td><td>PRO (Zanetto). Crea el COEM para la ejecución de políticas públicas de gestión y reducción del riesgo ante emergencias urbanas</td><td>ZANETTO</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Seguridad y Hacienda)</span></td></tr>
+
+<tr><td style="text-align:center">79</td><td><strong>Centro Municipal de Elaboración de Alimentos del Cordón Frutihortícola Platense</strong></td><td>Proyecto de Ordenanza</td><td style="font-family:monospace">80.244</td><td>UCR (Staffolani). Crea el centro municipal para agregado de valor a la producción frutihortícola local, articulando con productores del cinturón verde platense</td><td>STAFFOLANI</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Desarrollo Local y Hacienda)</span></td></tr>
+
+<tr><td style="text-align:center">83</td><td><strong>Interés municipal — Jornadas sobre "Ludopatía y Apuestas Online"</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">80.173</td><td>Fuerza Patria (Galland). Declara de interés las jornadas sobre ludopatía y apuestas online de los días 15 y 29 de abril</td><td>—</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">84</td><td><strong>Beneplácito — 1° aniversario del fallecimiento del Papa Francisco</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">80.290</td><td>Fuerza Patria (Maluendez). Declara el beneplácito del cuerpo en conmemoración del primer aniversario del fallecimiento del Sumo Pontífice</td><td>MALUENDEZ</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">85</td><td><strong>Preocupación por la crisis económica de las obras sociales sindicales</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">80.304</td><td>Fuerza Patria (Santana). Debate extenso: Santana describió el impacto del ajuste en las prestaciones de salud de los afiliados. Bolis sumó datos sobre reducción de cobertura. Álvarez respondió que la crisis es estructural y previa al gobierno de Milei, originada en la mala gestión de las conducciones sindicales durante décadas</td><td>SANTANA, BOLIS, ÁLVAREZ</td><td><span style="background:#3498db;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">En debate — A comisión (Salud)</span></td></tr>
+
+<tr><td style="text-align:center">86</td><td><strong>Interés cultural — Mural del Papa Francisco (54 y 14)</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">80.305</td><td>Fuerza Patria (Santana). Declara de interés el mural en conmemoración del fallecimiento del Sumo Pontífice el 21 de abril de 2025</td><td>—</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">87</td><td><strong>Huéspeda de Honor — Linda Peretz</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">80.306</td><td>Fuerza Patria (Galland). Declara huéspeda de honor a la Sra. Linda Peretz en reconocimiento a su trayectoria</td><td>—</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">88 + 103</td><td><strong>Repudio a la parada militar del 13 de abril de 1982 y al escrache en la Plaza Islas Malvinas</strong></td><td>Proyectos de Decreto</td><td style="font-family:monospace">80.307 / 80.226</td><td>FP (Granillo Fernández) + LLA (Pedernera). Tratados conjuntamente. Granillo Fernández repudió la parada militar del 13/4 como provocación a los excombatientes; Pedernera repudió el escrache del CECIM al Regimiento 7. De Feo acusó al CECIM y a la Subsecretaría de DDHH provincial de haber organizado el escrache. Morzone calificó el proyecto de Granillo Fernández de "aberración jurídica" y señaló que agredir a una fuerza constitucional es delito penal. Elias le recordó que eran excombatientes torturados. El debate más tenso de la sesión</td><td>BARDÓN (adelantamiento), GRANILLO FERNÁNDEZ, DE FEO, MORZONE, ELIAS, PARRILLI, MAGGIO</td><td><span style="background:#3498db;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">En debate — A comisión (Legislación)</span></td></tr>
+
+<tr><td style="text-align:center">89–91</td><td><strong>Preocupación por el Jefe de Gabinete, inflación y créditos hipotecarios preferenciales</strong></td><td>Proyectos de Decreto</td><td style="font-family:monospace">80.308–80.310</td><td>Fuerza Patria (Granillo Fernández). Tres proyectos: hechos que involucran al Jefe de Gabinete, inflación del primer trimestre, y funcionarios con créditos hipotecarios a tasa preferencial del Banco Nación. Bardón confrontó técnicamente: señaló que el crédito no es el problema sino la falta de declaración jurada y la ocupación simultánea del cargo. Granillo Fernández y Bardón sostuvieron un debate ordenado sobre los límites del control republicano</td><td>GRANILLO FERNÁNDEZ, BARDÓN, RESA</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Legislación)</span></td></tr>
+
+<tr><td style="text-align:center">92</td><td><strong>Preocupación por incumplimiento de la Ley de Financiamiento Universitario</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">80.331</td><td>Fuerza Patria (Maluendez). El plazo de implementación judicial venció el 17 de abril sin que el Ejecutivo Nacional lo cumpliera. Según el sumario de Labor Parlamentaria, debía ser remitido a la Comisión de Legislación. Sin embargo, Maluendez solicitó la votación sobre tablas en el recinto, aprovechando la ausencia de varios concejales que ya se habían retirado, y el proyecto fue aprobado en ese momento — rompiendo el acuerdo de labor. El bloque opositor señaló que la aprobación se realizó sin el quórum pleno acordado en la instancia previa de labor parlamentaria</td><td>MALUENDEZ</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">⚠️ Aprobado sobre tablas — rompiendo acuerdo de labor</span></td></tr>
+
+<tr><td style="text-align:center">93</td><td><strong>Preocupación por la crisis energética actual</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">80.333</td><td>Fuerza Patria (Bolis). Señala el aumento de tarifas y los cortes como impacto directo sobre familias y pymes platenses</td><td>BOLIS</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Legislación)</span></td></tr>
+
+<tr><td style="text-align:center">94</td><td><strong>Preocupación por la situación actual del PAMI</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">80.334</td><td>Fuerza Patria (Bolis). Señala el deterioro de las prestaciones, la demora en los reintegros a farmacias y la reducción de cobertura a adultos mayores</td><td>BOLIS</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Salud)</span></td></tr>
+
+<tr><td style="text-align:center">96 + 106</td><td><strong>Preocupación por hechos de violencia e intimidación en establecimientos educativos</strong></td><td>Proyectos de Decreto</td><td style="font-family:monospace">80.338 / 80.280</td><td>Fuerza Patria (Bolis) + La Libertad Avanza (Pedernera). Tratados conjuntamente con el Punto 75 (Morzone). Bolis señaló que la situación es compleja y no puede reducirse a una única causa política. Pedernera acompañó desde LLA con su propio proyecto. El debate combinó las tres perspectivas</td><td>MORZONE, BOLIS, MALUENDEZ, PEDERNERA</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Niñeces y Seguridad)</span></td></tr>
+
+<tr><td style="text-align:center">98</td><td><strong>Repudio al vaciamiento del Plan Nacional Remediar</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">80.341</td><td>Fuerza Patria (Maggio). Señala el impacto en el acceso a medicamentos esenciales para sectores vulnerables</td><td>MAGGIO</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Salud)</span></td></tr>
+
+<tr><td style="text-align:center">99</td><td><strong>Preocupación por vandalismo en la Escuela Técnica N°6 "Albert Thomas"</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">80.176</td><td>La Libertad Avanza (Bardón). Señala los daños ocurridos en la escuela y la falta de respuesta municipal</td><td>BARDÓN</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Seguridad)</span></td></tr>
+
+<tr><td style="text-align:center">100–101</td><td><strong>Beneplácito y Joven Protagonista — Antonio Strejilevich Badenes (IMO 2026)</strong></td><td>Proyectos de Decreto</td><td style="font-family:monospace">80.187 / 80.188</td><td>La Libertad Avanza (Allan). Reconoce al joven platense que integrará el equipo nacional en la 67° Olimpiada Internacional de Matemática, IMO 2026</td><td>ALLAN</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">109</td><td><strong>Rechazo al acto del Instituto Patria en el Colegio Nacional de La Plata</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">80.330</td><td>La Libertad Avanza (Allan). Rechaza la realización del acto político convocado bajo la consigna "Cristina libre" en las instalaciones del Colegio Nacional de La Plata</td><td>ALLAN</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Legislación)</span></td></tr>
+
+<tr><td style="text-align:center">110</td><td><strong>Preocupación por la deuda del IOMA con centros terapéuticos de TEA</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">80.339</td><td>La Libertad Avanza (Bardón). La deuda acumulada por el IOMA con los centros que brindan prestaciones a personas con TEA en la Provincia de Buenos Aires pone en riesgo la continuidad del servicio</td><td>BARDÓN</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Salud)</span></td></tr>
+
+<tr><td style="text-align:center">111</td><td><strong>Interpelación al Secretario de Seguridad Municipal Diego Pepe</strong></td><td>Proyecto de Resolución</td><td style="font-family:monospace">80.315</td><td>PRO (Morzone). Solicita la interpelación al secretario de seguridad Diego Pepe. Granillo Fernández respondió que el mecanismo propuesto requiere quórum especial y equivale a un juicio político no previsto en la norma municipal. Allan apoyó señalando que hay secretarios sin designación formal. Debate técnico-jurídico extenso</td><td>MORZONE, GRANILLO FERNÁNDEZ, ALLAN, RESA</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Legislación)</span></td></tr>
+
+<tr><td style="text-align:center">112</td><td><strong>Beneplácito por la campaña "Baja un cambio"</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">80.316</td><td>PRO (Morzone). Manifiesta beneplácito por la campaña de educación vial "Baja un cambio" vinculada a la reducción de velocidad en zonas escolares</td><td>—</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Transporte)</span></td></tr>
+
+<tr><td style="text-align:center">128+172+263+276+280</td><td><strong>Pedido de informes conjunto — Asbesto en la Escuela Secundaria N°3</strong></td><td>Resoluciones</td><td style="font-family:monospace">80.116 / 80.186 / 80.317 / 80.249 / 80.297</td><td>Cinco expedientes de todos los bloques (De Feo/LLA, Allan/LLA, Zanetto/PRO, Horomadiuk/ASAP, Ganduglia/PROve) tratados conjuntamente. El único punto de consenso transversal absoluto de la sesión: todos los bloques solicitaron informes sobre la situación edilicia, ambiental y sanitaria ante la presencia de asbesto en la escuela</td><td>ALLAN, BARDÓN, HOROMADIUK, GANDUGLIA</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobado (todos los bloques)</span></td></tr>
+
+<tr><td style="text-align:center">287</td><td><strong>Renuncia de Uriel Charne y designación de Gustavo Javier Princi como presidente del EMATUR</strong></td><td>Labor Legislativa</td><td style="font-family:monospace">80.158</td><td>Comisión de Turismo. Acepta la renuncia del Mg. Uriel Charne y designa al Lic. Gustavo Javier Princi como nuevo presidente del Ente Municipal de Turismo</td><td>—</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">225–273</td><td><strong>Resoluciones PRO — Seguridad, tránsito y obra pública</strong></td><td>Resoluciones</td><td style="font-family:monospace">80.140–80.327</td><td>Morzone presentó 11 pedidos de informes sobre hechos delictivos (calles 524/36/22/140/24/520/185/8/13A/479/16 y otros), 3 informes sobre accidentes de tránsito, y múltiples resoluciones de bacheos, luminarias y servicios. Zanetto presentó pedidos de informes sobre asbesto, corte en Camino Belgrano, bacheos y luminarias en su zona</td><td>—</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Seguridad / Obras / Transporte)</span></td></tr>
+
+</table></div>
+
+<h2>🗳️ Votaciones</h2><div class="card">
+
+<div style="border:1px solid #ddd;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0">#1 — Adelantamiento Puntos 288 y 289 (Pesar por Beto Brandoni)</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Aprobado</span></div>
+<div style="margin-top:8px">✅ <b>Unanimidad</b></div>
+<p style="color:#777;font-style:italic">Moción de Staffolani aprobada en el inicio de la sesión. Morzone sumó el pedido de minuto de silencio.</p></div>
+
+<div style="border:1px solid #ddd;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0">#2 — Pesar por el fallecimiento de Luis "Beto" Brandoni (Pts. 288 y 289)</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Aprobado por unanimidad</span></div>
+<div style="margin-top:8px">✅ <b>Todos los bloques</b></div>
+<p style="color:#777;font-style:italic">Primer expediente aprobado de la sesión. Tanto UCR (Staffolani) como PRO (Morzone) presentaron proyectos que se trataron conjuntamente.</p></div>
+
+<div style="border:1px solid #ddd;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0">#3 — Adelantamiento Punto 103 (Escrache Plaza Malvinas) para tratar con Pt.88</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Aprobado</span></div>
+<div style="margin-top:8px">✅ <b>Sin disidencias</b></div>
+<p style="color:#777;font-style:italic">Moción de Bardón. Todos los bloques aceptaron tratar conjuntamente ambos proyectos vinculados a Malvinas.</p></div>
+
+<div style="border:1px solid #ddd;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #e67e22">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0">#4 — Punto 92: Preocupación por incumplimiento Ley de Financiamiento Universitario (votación sobre tablas)</h4><span style="background:#e67e22;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">⚠️ Aprobado — rompiendo acuerdo de labor</span></div>
+<div style="margin-top:8px">✅ <b>FP + aliados presentes</b> &nbsp; ❌ <b>Oposición presente</b> &nbsp; ⬜ <b>Ausentes (varios)</b></div>
+<p style="color:#777;font-style:italic">Según el sumario de Labor Parlamentaria, el expediente 80.331 debía remitirse a la Comisión de Legislación. Maluendez solicitó la votación sobre tablas en el recinto aprovechando la ausencia de varios concejales que ya se habían retirado, logrando su aprobación. La oposición señaló que se rompió el acuerdo de labor al forzar la votación sin el quórum completo acordado en la instancia previa. Es la votación más controvertida desde el plano procedimental de la sesión.</p></div>
+
+<div style="border:1px solid #ddd;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60"><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Aprobado</span></div>
+<div style="margin-top:8px">✅ <b>Unanimidad — todos los bloques</b></div>
+<p style="color:#777;font-style:italic">El único punto de consenso transversal de la sesión. Los cinco expedientes de todos los bloques se tratan y aprueban conjuntamente.</p></div>
+
+<div style="border:1px solid #ddd;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0">#5 — Mensajes del Ejecutivo (Pts. 1–13) y Órdenes del Día de Comisiones (Pts. 14–64)</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Todos Aprobados</span></div>
+<div style="margin-top:8px">✅ <b>Sin disidencias registradas</b></div>
+<p style="color:#777;font-style:italic">Incluye comodato Banco Provincia, transacciones extrajudiciales, reservas de estacionamiento, donación ECAS, convenio Ticketera, pala cargadora Provincia, y todos los despachos de Planeamiento, Transporte, Obras, Cultura y Ambiente.</p></div>
+
+<div style="border:1px solid #ddd;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0">#6 — Beneplácitos, pesares e intereses municipales aprobados directamente en el recinto</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Todos Aprobados</span></div>
+<div style="margin-top:8px">✅ <b>Sin disidencias</b></div>
+<p style="color:#777;font-style:italic">Jornadas ludopatía (Pt.83), Papa Francisco (Pt.84), Mural Papa (Pt.86), Huéspeda Peretz (Pt.87), Strejilevich IMO (Pts.100-101), Etcheverry aniversario (Pt.104), designación EMATUR Princi (Pt.287).</p></div>
+
+</div>
+
+<h2>💬 Principales puntos de debate</h2>
+<div class="card">
+
+  <div style="border-left:5px solid #e74c3c;padding:15px;margin-bottom:20px;background:#fdf2f2;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#c0392b">🔴 1. Parada Militar del 13 de abril y Escrache en la Plaza Malvinas — El debate más tenso</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#2980b9">Fuerza Patria</strong><br>
+        <small style="color:#666">Granillo Fernández, Elias, Parrilli, Maggio</small>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>El acto militar fue una provocación en un espacio de memoria donde excombatientes del CECIM sintieron un agravio legítimo en el contexto de declaraciones del ministro Presti y del presidente Milei</li>
+          <li>No avalan el escrache ni las agresiones verbales, pero sí entienden el sentimiento de los veteranos que fueron a las islas bajo condiciones deplorables durante la dictadura</li>
+          <li>Elias a Morzone: son excombatientes que fueron torturados en las propias islas; hay que tener respeto independientemente de su signo político</li>
+          <li>El Subsecretario de DDHH de la Provincia fue al acto por invitación, no para organizar el escrache</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#f39c12">PRO (Morzone)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>El proyecto de Granillo Fernández es "una aberración jurídica y profundamente antidemocrático" que roza la apología del delito</li>
+          <li>Agredir con palos a una fuerza constitucional (el Regimiento 7) está tipificado en el artículo 237 del Código Penal: de 6 meses a 2 años de prisión</li>
+          <li>El CECIM no tiene el monopolio de la Plaza Malvinas; el acto estaba autorizado por la Dirección de Uso del Espacio Público</li>
+          <li>Los únicos derechos humanos que se vulneran en la Plaza Malvinas son los de los vecinos que sufren el desorden nocturno</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#8e44ad">La Libertad Avanza (De Feo, Pedernera)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>El escrache fue organizado desde el CECIM con apoyo de la Subsecretaría de DDHH provincial para arruinar la marcha de las antorchas</li>
+          <li>La marcha se realiza todos los años con respeto; este año fue perturbada por un grupo que la politizó</li>
+          <li>No se debe permitir que estos hechos dividan lo que debe unirnos en torno a Malvinas</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top:12px;background:#fff3f3;padding:10px;border-radius:5px;font-size:.9em">
+      <strong>⚡ Punto de máxima tensión:</strong> Morzone calificó el proyecto de Granillo Fernández de "aberración jurídica" por defenderlo. Elias lo interrumpió para recordarle que estaba hablando de excombatientes torturados en las Islas. Morzone respondió que "a 42 años de democracia hay límites que no se pueden romper" y que el artículo 237 del Código Penal no hace excepciones por ser excombatiente. El intercambio fue el de mayor carga emocional de la sesión.
+    </div>
+  </div>
+
+  <div style="border-left:5px solid #e74c3c;padding:15px;margin-bottom:20px;background:#fdf2f2;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#c0392b">🔴 2. Amenazas de Tiroteos en Escuelas — Causas políticas vs. fenómeno complejo</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#f39c12">PRO (Morzone)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Más de 50 denuncias penales por amenazas de tiroteos en escuelas platenses: hecho sin precedentes en la historia de la capital bonaerense</li>
+          <li>Es una consecuencia directa del "populismo educativo" de Kicillof: eliminación de sanciones, repitencias y autoridad docente, reemplazados por militantes en la DGE</li>
+          <li>Un estudiante que amenaza con un tiroteo para no rendir un examen está cuestionando el concepto de disciplina, autoridad y reglas claras</li>
+          <li>El Concejo no puede actuar con tibieza ante una situación de conmoción pública</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#2980b9">Fuerza Patria</strong><br>
+        <small style="color:#666">Bolis, Maluendez, Elias</small>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>La situación es sumamente grave pero no puede reducirse a una única causa política</li>
+          <li>El fenómeno tiene dimensiones de salud mental, socioeconómica y tecnológica que exceden la gestión provincial</li>
+          <li>Bolis: el enfoque punitivo propuesto por Morzone no resuelve el problema de fondo y estigmatiza a los jóvenes</li>
+          <li>Maluendez: el municipio tiene herramientas de acompañamiento y prevención que está utilizando</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-left:5px solid #e67e22;padding:15px;margin-bottom:20px;background:#fef9f0;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#ca6f1e">🟠 3. Interpelación al Secretario de Seguridad Diego Pepe — Debate institucional</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#f39c12">PRO (Morzone)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>El proyecto busca incorporar el instituto del "juicio político municipal" para que los secretarios tengan responsabilidad política ante el Concejo</li>
+          <li>La inseguridad en La Plata es un problema concreto y el secretario de seguridad debe dar explicaciones en el recinto</li>
+          <li>La Ley Orgánica Municipal recepta el concepto del "Recal" (juicio político local) que este proyecto busca activar</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#2980b9">Fuerza Patria (Granillo Fernández, Resa)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>El mecanismo propuesto equivale a un juicio político y requiere un quórum especial de dos tercios que la norma no contempla</li>
+          <li>La interpelación existe como mecanismo informal y siempre ha estado disponible; lo que se propone va más allá</li>
+          <li>El intendente define el timing de cuándo presentar secretarios: siempre fue así históricamente</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-left:5px solid #3498db;padding:15px;margin-bottom:20px;background:#f0f7fd;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#2471a3">🔵 4. Créditos Hipotecarios del Jefe de Gabinete Francos — Debate técnico Granillo Fernández–Bardón</h3>
+    <p style="font-size:.95em">Granillo Fernández presentó la preocupación por los hechos que involucran al Jefe de Gabinete. Bardón respondió con precisión técnica: el problema no es el crédito hipotecario en sí —que es legítimo y accesible para funcionarios como para cualquier ciudadano— sino la falta de declaración jurada y la ocupación simultánea de un cargo de alta responsabilidad sin transparencia patrimonial. Granillo Fernández aclaró que precisamente ese era el punto, no el crédito. Resa intervino para sintetizar. Fue el debate más ordenado y técnico de la sesión, con posiciones más cercanas de lo habitual entre bloques.</p>
+  </div>
+
+  <div style="border-left:5px solid #8e44ad;padding:15px;margin-bottom:20px;background:#f8f4fb;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#6c3483">🟣 5. Crisis de las Obras Sociales Sindicales — IOMA y contexto del ajuste</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#2980b9">Fuerza Patria (Santana, Bolis)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>El ajuste del gobierno de Milei agravó una crisis de financiamiento que pone en riesgo las prestaciones de salud de miles de trabajadores afiliados</li>
+          <li>IOMA acumula deuda con los centros de TEA, afectando a personas con discapacidad</li>
+          <li>La reducción de aportes y el aumento de costos médicos generan un círculo vicioso que deteriora la cobertura</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#8e44ad">La Libertad Avanza (Álvarez)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>La crisis de las obras sociales es estructural y viene de décadas de mala gestión de las conducciones sindicales, no del gobierno de Milei</li>
+          <li>Los sindicatos que hoy denuncian la crisis fueron los que administraron los fondos durante 20 años sin transparencia ni rendición</li>
+          <li>La solución requiere reformas de fondo en la gestión interna, no solo más financiamiento</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-left:5px solid #27ae60;padding:15px;background:#f0faf4;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#1e8449">🟢 6. Consensos transversales</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong>Pesar por Beto Brandoni</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>UCR (Staffolani) y PRO (Morzone) presentaron proyectos conjuntos, aprobados en el primer punto de la sesión</li>
+          <li>Morzone pidió minuto de silencio, acompañado por todo el cuerpo</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong>Asbesto en Escuela N°3</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Cinco expedientes de todos los bloques (LLA, PRO, ASAP, PROve) tratados y aprobados conjuntamente</li>
+          <li>El único punto con unanimidad sin debate en los temas políticos de la sesión</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong>Reconocimiento Antonio Strejilevich (IMO 2026)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Allan presentó el beneplácito y el Joven Protagonista por el joven platense que representará al país en la Olimpíada Internacional de Matemática</li>
+          <li>Aprobado sin debate ni disidencias</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body></html>
+</div>
+
+<!-- SECCIÓN: CÓMO SE HIZO + DISCLAIMER -->
+<div style="background:var(--negro);padding:5rem 2.5rem;">
+  <div style="max-width:800px;margin:0 auto;">
+
+    <!-- CÓMO SE HIZO -->
+    <div style="margin-bottom:4rem;">
+      <div style="font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acento);margin-bottom:2rem;display:flex;align-items:center;gap:.75rem;">
+        <span style="display:block;width:2rem;height:1px;background:var(--acento);flex-shrink:0"></span>
+        Cómo se hizo este informe
+      </div>
+
+      <p style="font-family:'Fraunces',serif;font-size:clamp(1.1rem,2vw,1.4rem);font-weight:300;font-style:italic;line-height:1.6;color:rgba(245,242,235,.85);margin-bottom:2rem;">
+        Cada sesión del Concejo Deliberante es pública. El desafío es convertirla en información útil.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);margin-bottom:1.2rem;">
+        Las sesiones del HCD de La Plata se transmiten en vivo y quedan grabadas en YouTube. Son la forma más directa de acceso a la deliberación legislativa municipal — pero también son extensas, técnicas y difíciles de seguir para quien no tiene horas disponibles ni formación específica en derecho o política local.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);margin-bottom:1.2rem;">
+        En Capital Data procesamos esas sesiones con <strong style="color:rgba(245,242,235,.6);">modelos de lenguaje de inteligencia artificial</strong> para extraer lo sustancial: quién habló, sobre qué, con qué posición, y qué se votó. El material fuente son las actas y desgrabaciones oficiales, complementadas con el video de la sesión. A partir de eso, construimos el informe que ven acá: concejal por concejal, tema por tema, bloque por bloque.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);margin-bottom:1.2rem;">
+        El objetivo no es reemplazar el seguimiento directo de la sesión — es hacerlo posible para quienes no pueden dedicarle cinco horas. Una ciudad que delibera en público merece que esa deliberación llegue a más personas.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);">
+        La información pública existe. Nosotros la hacemos legible.
+      </p>
+    </div>
+
+    <!-- SEPARADOR -->
+    <div style="height:1px;background:rgba(245,242,235,.08);margin-bottom:4rem;"></div>
+
+    <!-- DISCLAIMER -->
+    <div>
+      <div style="font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,242,235,.3);margin-bottom:2rem;display:flex;align-items:center;gap:.75rem;">
+        <span style="display:block;width:2rem;height:1px;background:rgba(245,242,235,.2);flex-shrink:0"></span>
+        Aviso importante
+      </div>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);margin-bottom:1rem;">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">Capital Data no es un medio de comunicación ni un partido político.</strong> Somos un equipo independiente que usa inteligencia artificial para analizar información pública municipal. No recibimos financiamiento del Estado ni de ninguna fuerza política. Nuestro único interés es que los datos del gobierno local sean accesibles para todos.
+      </p>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);margin-bottom:1rem;">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">Este análisis puede contener errores.</strong> Los procesos de extracción y síntesis automatizada tienen limitaciones. Las posiciones atribuidas a cada concejal reflejan nuestra interpretación del material disponible y pueden no capturar matices o contextos relevantes. Si encontrás una inconsistencia, escribinos: la corregimos y la publicamos.
+      </p>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);margin-bottom:1rem;">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">Todo el material es público.</strong> Las sesiones del Concejo Deliberante están disponibles para cualquier persona. Cualquiera puede acceder a ellas, verificar nuestros análisis y llegar a sus propias conclusiones. Eso es exactamente lo que queremos.
+      </p>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">El objetivo no es el análisis en sí.</strong> Es demostrar que una ciudad mejor gobernada empieza por una ciudad mejor comprendida — y que comprender ya no requiere un equipo de expertos ni un presupuesto de investigación. Requiere voluntad, herramientas abiertas y la convicción de que la información pública le pertenece a la gente.
+      </p>
+    </div>
+
+  </div>
+</div>
+<footer class="informe-footer">
+  <div class="informe-footer-logo" style="display:flex;align-items:center;gap:.5rem"><span style="display:inline-flex;align-items:center;width:20px;height:20px;flex-shrink:0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 48 48" role="img">
+<title>Capital Data</title>
+<!-- centro: 24,24 -->
+<!-- 8 nodos perimetrales en forma cuadrada -->
+<!-- esquinas: 6,6 | 42,6 | 42,42 | 6,42 -->
+<!-- medios: 24,5 | 43,24 | 24,43 | 5,24 -->
+<!-- 4 nodos interiores anillo: 13,13 | 35,13 | 35,35 | 13,35 -->
+
+<!-- Centro → perimetrales -->
+<line x1="24" y1="24" x2="6"  y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="5"  stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="43" y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="43" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="6"  y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="5"  y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+
+<!-- Centro → interiores -->
+<path d="M24,24 Q18,18 13,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,18 35,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,30 35,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q18,30 13,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+
+<!-- Borde perimetral cuadrado -->
+<path d="M6,6   Q15,5  24,5"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M24,5  Q33,5  42,6"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M42,6  Q43,15 43,24" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M43,24 Q43,33 42,42" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M42,42 Q33,43 24,43" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M24,43 Q15,43 6,42"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M6,42  Q5,33  5,24"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M5,24  Q5,15  6,6"   stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+
+<!-- Conexiones interiores entre sí -->
+<path d="M13,13 Q24,12 35,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.20"/>
+<path d="M35,13 Q36,24 35,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.20"/>
+<path d="M35,35 Q24,36 13,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.20"/>
+<path d="M13,35 Q12,24 13,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.20"/>
+
+<!-- Cruzadas interiores → perimetrales -->
+<path d="M13,13 Q9,9   6,6"   stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q38,9  42,6"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,35 Q38,38 42,42" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,35 Q9,38  6,42"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,13 Q9,18  5,24"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q39,18 43,24" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+
+<!-- Nodos perimetrales -->
+<circle cx="6"  cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="5"  r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="43" cy="24" r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="43" r="1.8" fill="#1a3fff"/>
+<circle cx="6"  cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="5"  cy="24" r="1.8" fill="#1a3fff"/>
+
+<!-- Nodos interiores anillo -->
+<circle cx="13" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="35" r="1"   fill="#c8ff00"/>
+<circle cx="13" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="35" r="1"   fill="#c8ff00"/>
+
+<!-- Nodo central -->
+<circle cx="24" cy="24" r="7"   fill="#0a0a0a" stroke="#c8ff00" stroke-width="1.5"/>
+<circle cx="24" cy="24" r="3.5" fill="#1a3fff"/>
+<circle cx="24" cy="24" r="1.5" fill="#c8ff00"/>
+</svg></span>Capital <span>Data</span></div>
+  <div class="informe-footer-info">
+    La Plata &middot; Capital de la Provincia de Buenos Aires<br>
+    Pol&iacute;ticas p&uacute;blicas e inteligencia artificial<br>
+    @capitaldata
+  </div>
+</footer>
+</body></html>
+</body>
+</html>

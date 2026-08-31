@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Capital Data — Política pública, economía y sociedad</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --negro: #0a0a0a;
+      --blanco: #f5f2eb;
+      --acento: #c8ff00;
+      --acento2: #1a3fff;
+      --gris: #2a2a2a;
+      --gris-claro: #4a4a4a;
+      --texto-suave: #8a8a8a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--negro);
+      color: var(--blanco);
+      font-family: 'Instrument Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* GRAIN OVERLAY */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.3;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      border-bottom: 1px solid rgba(245,242,235,0.08);
+      backdrop-filter: blur(12px);
+      background: rgba(10,10,10,0.7);
+    }
+
+    .nav-logo {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      color: var(--acento);
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--texto-suave);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--blanco); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 8rem 3rem 4rem 3rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--acento);
+      margin-bottom: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-tag::before {
+      content: '';
+      display: block;
+      width: 2rem;
+      height: 1px;
+      background: var(--acento);
+    }
+
+    .hero-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(4rem, 7vw, 7rem);
+      font-weight: 300;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title .ia {
+      color: var(--acento);
+      font-style: italic;
+    }
+
+    .hero-subtitle {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: var(--texto-suave);
+      text-transform: uppercase;
+      margin-bottom: 3.5rem;
+      line-height: 1.8;
+      border-left: 1px solid var(--acento2);
+      padding-left: 1.2rem;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--acento);
+      color: var(--negro);
+      padding: 0.85rem 2rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: var(--blanco);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(245,242,235,0.2);
+      color: var(--blanco);
+      padding: 0.85rem 2rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-block;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--blanco);
+    }
+
+    /* HERO RIGHT — mapa/visual */
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-visual {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .grid-map {
+      width: 100%;
+      height: 100%;
+      opacity: 0.15;
+      background-image:
+        linear-gradient(rgba(200,255,0,0.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200,255,0,0.3) 1px, transparent 1px);
+      background-size: 40px 40px;
+      animation: gridMove 20s linear infinite;
+    }
+
+    @keyframes gridMove {
+      0% { background-position: 0 0; }
+      100% { background-position: 40px 40px; }
+    }
+
+    .lp-badge {
+      position: absolute;
+      right: 3rem;
+      top: 50%;
+      transform: translateY(-50%);
+      text-align: right;
+    }
+
+    .lp-badge-city {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(245,242,235,0.25);
+      display: block;
+    }
+
+    .lp-badge-sub {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--acento2);
+      opacity: 0.7;
+    }
+
+    /* TICKER */
+    .ticker {
+      background: var(--acento);
+      color: var(--negro);
+      padding: 0.6rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .ticker-inner {
+      display: inline-flex;
+      animation: ticker 30s linear infinite;
+    }
+
+    .ticker-item {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0 3rem;
+      font-weight: 500;
+    }
+
+    .ticker-sep {
+      opacity: 0.4;
+    }
+
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* SECCIÓN QUÉ HACEMOS */
+    .section {
+      padding: 6rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--acento);
+      margin-bottom: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(245,242,235,0.1);
+    }
+
+    .informe-eje-label {
+      margin-top: 5rem;
+    }
+
+    .informe-eje-label:first-of-type {
+      margin-top: 0;
+    }
+
+    /* TÍTULOS DE EJE — más grandes, para que se destaquen */
+    .eje-block {
+      margin-top: 5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .eje-block:first-of-type {
+      margin-top: 0;
+    }
+
+    .eje-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--acento2);
+      margin-bottom: 0.8rem;
+    }
+
+    .eje-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300;
+      line-height: 1.1;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .eje-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(245,242,235,0.12);
+    }
+
+    .section-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: 4rem;
+      max-width: 600px;
+    }
+
+    /* CARDS */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: rgba(245,242,235,0.08);
+    }
+
+    .card {
+      background: var(--negro);
+      padding: 2.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+
+    .card:hover {
+      background: var(--gris);
+    }
+
+    .card-number {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      color: var(--acento);
+      margin-bottom: 1.5rem;
+    }
+
+    .card-icon {
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+
+    .card-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin-bottom: 0.8rem;
+      line-height: 1.2;
+    }
+
+    .card-desc {
+      font-size: 0.82rem;
+      color: var(--texto-suave);
+      line-height: 1.7;
+    }
+
+    /* SEPARADOR */
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(245,242,235,0.08);
+      margin: 0;
+    }
+
+    /* SECCIÓN MANIFIESTO */
+    .manifiesto {
+      background: var(--acento);
+      color: var(--negro);
+      padding: 6rem 3rem;
+    }
+
+    .manifiesto-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .manifiesto-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.5;
+      margin-bottom: 2rem;
+    }
+
+    .manifiesto-text {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      font-weight: 300;
+      line-height: 1.4;
+      font-style: italic;
+    }
+
+    .manifiesto-text strong {
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    /* INFORME DESTACADO */
+    .informe-section {
+      padding: 6rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .informe-card {
+      border: 1px solid rgba(245,242,235,0.12);
+      display: grid;
+      grid-template-columns: 200px 1fr 2fr;
+      overflow: hidden;
+    }
+
+    .informe-thumb {
+      background: var(--negro);
+      border-right: 1px solid rgba(245,242,235,0.1);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .informe-thumb svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .informe-thumb-tag {
+      position: absolute;
+      bottom: 0.6rem;
+      left: 0.6rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.5rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(245,242,235,0.35);
+    }
+
+    .informe-meta {
+      background: var(--gris);
+      padding: 3rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .informe-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--acento);
+    }
+
+    .informe-num {
+      font-family: 'Fraunces', serif;
+      font-size: 5rem;
+      font-weight: 300;
+      line-height: 1;
+      color: rgba(245,242,235,0.12);
+    }
+
+    .informe-fecha {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--texto-suave);
+      letter-spacing: 0.1em;
+    }
+
+    .informe-content {
+      padding: 3rem;
+    }
+
+    .informe-titulo {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.3rem, 2.5vw, 2rem);
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+    }
+
+    .informe-desc {
+      font-size: 0.85rem;
+      color: var(--texto-suave);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      max-width: 500px;
+    }
+
+    .informe-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--acento);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: gap 0.2s;
+    }
+
+    .informe-link:hover { gap: 1rem; }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(245,242,235,0.08);
+      padding: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-family: 'Fraunces', serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+    }
+
+    .footer-logo span { color: var(--acento); font-style: italic; }
+
+    .footer-info {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      color: var(--texto-suave);
+      text-align: right;
+      line-height: 1.8;
+    }
+
+    /* SECCIÓN NOSOTROS */
+    .nosotros {
+      padding: 7rem 3rem;
+      background: var(--gris);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nosotros::before {
+      content: 'NOSOTROS';
+      position: absolute;
+      top: -1rem;
+      right: -1rem;
+      font-family: 'Fraunces', serif;
+      font-size: clamp(6rem, 12vw, 14rem);
+      font-weight: 700;
+      font-style: italic;
+      color: rgba(200,255,0,0.03);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .nosotros-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .nosotros-left {
+      position: sticky;
+      top: 8rem;
+    }
+
+    .nosotros-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--acento);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .nosotros-eyebrow::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(245,242,235,0.1);
+    }
+
+    .nosotros-heading {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    .nosotros-heading em {
+      font-style: italic;
+      color: var(--acento);
+    }
+
+    .nosotros-accent-line {
+      width: 3rem;
+      height: 2px;
+      background: var(--acento2);
+      margin-top: 2.5rem;
+    }
+
+    .nosotros-right {
+      padding-top: 0.5rem;
+    }
+
+    .nosotros-intro {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.55;
+      color: rgba(245,242,235,0.85);
+      margin-bottom: 2.5rem;
+      border-left: 2px solid var(--acento2);
+      padding-left: 1.5rem;
+    }
+
+    .nosotros-body {
+      font-size: 0.9rem;
+      line-height: 1.9;
+      color: var(--texto-suave);
+      margin-bottom: 1.8rem;
+    }
+
+    .nosotros-body strong {
+      color: var(--blanco);
+      font-weight: 500;
+    }
+
+    .nosotros-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 3rem;
+    }
+
+    .nosotros-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 1px solid rgba(245,242,235,0.12);
+      padding: 0.4rem 0.9rem;
+      color: var(--texto-suave);
+      transition: all 0.2s;
+    }
+
+    .nosotros-tag:hover {
+      border-color: var(--acento);
+      color: var(--acento);
+    }
+
+    /* HERO mejorado — línea decorativa */
+    .hero-deco-line {
+      position: absolute;
+      bottom: 3rem;
+      left: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      z-index: 2;
+    }
+
+    .hero-deco-line span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(245,242,235,0.2);
+    }
+
+    .hero-deco-line::before {
+      content: '';
+      display: block;
+      width: 3rem;
+      height: 1px;
+      background: rgba(245,242,235,0.15);
+    }
+
+    /* STAT STRIP */
+    .stat-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid rgba(245,242,235,0.08);
+      border-bottom: 1px solid rgba(245,242,235,0.08);
+    }
+
+    .stat-item {
+      padding: 2.5rem 3rem;
+      border-right: 1px solid rgba(245,242,235,0.08);
+      transition: background 0.3s;
+    }
+
+    .stat-item:last-child { border-right: none; }
+    .stat-item:hover { background: rgba(245,242,235,0.02); }
+
+    .stat-num {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 300;
+      line-height: 1;
+      color: var(--acento);
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--texto-suave);
+    }
+
+    /* ANIMACIONES ENTRADA */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    .fade-in:nth-child(1) { animation-delay: 0.1s; }
+    .fade-in:nth-child(2) { animation-delay: 0.25s; }
+    .fade-in:nth-child(3) { animation-delay: 0.4s; }
+    .fade-in:nth-child(4) { animation-delay: 0.55s; }
+
+    @keyframes fadeIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 7rem 1.5rem 3rem; }
+      .hero-right { display: none; }
+      .section { padding: 4rem 1.5rem; }
+      .cards { grid-template-columns: 1fr; }
+      .manifiesto { padding: 4rem 1.5rem; }
+      .informe-card { grid-template-columns: 1fr; }
+      .informe-thumb { height: 180px; }
+      .informe-meta { padding: 2rem 1.5rem; flex-direction: row; align-items: center; }
+      .informe-num { display: none; }
+      .informe-content { padding: 2rem 1.5rem; }
+      footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+      .footer-info { text-align: center; }
+      .nosotros { padding: 4rem 1.5rem; }
+      .nosotros-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .nosotros-left { position: static; }
+      .stat-strip { grid-template-columns: 1fr; }
+      .stat-item { border-right: none; border-bottom: 1px solid rgba(245,242,235,0.08); padding: 2rem 1.5rem; }
+      .stat-item:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Capital Data</div>
+    <ul class="nav-links">
+      <li><a href="#que-hacemos">Qué hacemos</a></li>
+      <li><a href="#informes">Informes</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#">Instagram</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-tag fade-in">La Plata · Capital de Buenos Aires</div>
+      <h1 class="hero-title fade-in">
+        Capital<br><span class="ia">Data</span>
+      </h1>
+      <p class="hero-subtitle fade-in">
+        Política pública,<br>economía y sociedad
+      </p>
+      <div class="hero-cta fade-in">
+        <a href="#informes" class="btn-primary">Ver informes</a>
+        <a href="#nosotros" class="btn-secondary">Quiénes somos</a>
+      </div>
+      <div class="hero-deco-line"><span>La Plata · 2025</span></div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-visual">
+        <div class="grid-map"></div>
+      </div>
+      <div class="lp-badge">
+        <span class="lp-badge-city">La Plata</span>
+        <span class="lp-badge-sub">Capital · Prov. Buenos Aires</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <div class="ticker-inner">
+      <span class="ticker-item">Concejo Deliberante</span>
+      <span class="ticker-item ticker-sep">·</span>
+      <span class="ticker-item">Análisis de ordenanzas</span>
+      <span class="ticker-item ticker-sep">·</span>
+      <span class="ticker-item">Sesiones legislativas</span>
+      <span class="ticker-item ticker-sep">·</span>
+      <span class="ticker-item">Economía y sociedad</span>
+      <span class="ticker-item ticker-sep">·</span>
+      <span class="ticker-item">Seguridad</span>
+      <span class="ticker-item ticker-sep">·</span>
+      <span class="ticker-item">Ciudad inteligente</span>
+      <span class="ticker-item ticker-sep">·</span>
+      <span class="ticker-item">Inteligencia artificial</span>
+      <span class="ticker-item ticker-sep">·</span>
+      <span class="ticker-item">Gobierno abierto</span>
+      <span class="ticker-item ticker-sep">·</span>
+      <span class="ticker-item">Transparencia</span>
+      <span class="ticker-item ticker-sep">·</span>
+      <!-- repetir para loop -->
+      <span class="ticker-item">Concejo Deliberante</span>
+      <span class="ticker-item ticker-sep">·</span>
+      <span class="ticker-item">Análisis de ordenanzas</span>
+      <span class="ticker-item ticker-sep">·</span>
+      <span class="ticker-item">Sesiones legislativas</span>
+      <span class="ticker-item ticker-sep">·</span>
+      <span class="ticker-item">Economía y sociedad</span>
+      <span class="ticker-item ticker-sep">·</span>
+      <span class="ticker-item">Seguridad</span>
+      <span class="ticker-item ticker-sep">·</span>
+      <span class="ticker-item">Ciudad inteligente</span>
+      <span class="ticker-item ticker-sep">·</span>
+      <span class="ticker-item">Inteligencia artificial</span>
+      <span class="ticker-item ticker-sep">·</span>
+      <span class="ticker-item">Gobierno abierto</span>
+      <span class="ticker-item ticker-sep">·</span>
+      <span class="ticker-item">Transparencia</span>
+      <span class="ticker-item ticker-sep">·</span>
+    </div>
+  </div>
+
+  <!-- STAT STRIP -->
+  <div class="stat-strip">
+    <div class="stat-item">
+      <div class="stat-num">Local</div>
+      <div class="stat-label">Foco en La Plata</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Fuentes públicas</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">IA</div>
+      <div class="stat-label">Procesamiento automatizado</div>
+    </div>
+  </div>
+
+  <!-- QUÉ HACEMOS -->
+  <div class="section" id="que-hacemos">
+    <div class="section-label">Qué hacemos</div>
+    <h2 class="section-title">Analizamos el gobierno local y cómo eso se traduce en la vida de la ciudad</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="card-number">01</div>
+        <span class="card-icon">🏛️</span>
+        <h3 class="card-title">Sesiones del Concejo</h3>
+        <p class="card-desc">Procesamos y analizamos cada sesión del Concejo Deliberante de La Plata: temas, votaciones, bloques y tendencias.</p>
+      </div>
+      <div class="card">
+        <div class="card-number">02</div>
+        <span class="card-icon">📋</span>
+        <h3 class="card-title">Ordenanzas y presupuesto</h3>
+        <p class="card-desc">Evaluamos ordenanzas, presupuesto y rendición de cuentas con IA para entender en qué se gastan sus impuestos.</p>
+      </div>
+      <div class="card">
+        <div class="card-number">03</div>
+        <span class="card-icon">📈</span>
+        <h3 class="card-title">Economía y sociedad</h3>
+        <p class="card-desc">Relevamos indicadores que hacen a la vida cotidiana de la ciudad — mercado inmobiliario, actividad comercial, seguridad — sin evaluar gestiones puntuales.</p>
+      </div>
+      <div class="card">
+        <div class="card-number">04</div>
+        <span class="card-icon">📊</span>
+        <h3 class="card-title">Informes periódicos</h3>
+        <p class="card-desc">Generamos reportes sobre el estado de las políticas públicas y los indicadores locales, comparados en el tiempo y con otros municipios.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MANIFIESTO -->
+  <div class="manifiesto">
+    <div class="manifiesto-inner">
+      <div class="manifiesto-label">Por qué existimos</div>
+      <p class="manifiesto-text">
+        La información pública <strong>existe</strong>, pero es difícil de leer, cruzar y entender. La inteligencia artificial cambia eso. <strong>Capital Data</strong> usa esas herramientas para hacer el gobierno local más legible para todos.
+      </p>
+    </div>
+  </div>
+
+  <!-- INFORMES -->
+  <div class="informe-section" id="informes">
+    <div class="section-label">Informes</div>
+
+    <div class="eje-block" id="informes-institucional">
+      <div class="eje-eyebrow">Eje 01 · Fiscalización</div>
+      <h3 class="eje-title">Concejo &amp; Presupuesto</h3>
+    </div>
+
+    <div class="informe-card" style="margin-top:1px">
+      <div class="informe-thumb">
+        <img src="thumb-sesiones.jpg" alt="Recinto del Concejo Deliberante de La Plata en sesión" style="width:100%;height:100%;object-fit:cover;" />
+      </div>
+      <div class="informe-meta">
+        <div class="informe-tag">HCD La Plata &middot; 83° Período</div>
+        <div class="informe-num">10</div>
+        <div class="informe-fecha">Sesiones Ordinarias 2026</div>
+      </div>
+      <div class="informe-content">
+        <h3 class="informe-titulo">Sesiones del Concejo Deliberante</h3>
+        <p class="informe-desc">
+          10 sesiones ordinarias analizadas. Debates, votaciones e intervenciones de los 24 concejales, procesadas con inteligencia artificial a partir de las actas y grabaciones oficiales del 83° Período Legislativo.
+        </p>
+        <a href="sesiones.html" class="informe-link">Ver todas las sesiones →</a>
+      </div>
+    </div>
+
+    <div class="informe-card">
+      <div class="informe-thumb">
+        <img src="thumb-ordenanza.jpg" alt="Palacio Municipal de La Plata" style="width:100%;height:100%;object-fit:cover;" />
+      </div>
+      <div class="informe-meta">
+        <div class="informe-tag">Análisis tributario · 2026</div>
+        <div class="informe-num" style="font-size:2.8rem;opacity:.15">23</div>
+        <div class="informe-fecha">Ordenanza Impositiva 12.682</div>
+      </div>
+      <div class="informe-content">
+        <h3 class="informe-titulo">La Plata cobra 23 tasas. ¿Cuántas hacen falta?</h3>
+        <p class="informe-desc">
+          Análisis de la Ordenanza Impositiva 2026: 23 títulos, pero solo 3 tributos explican el 83% de la recaudación propia. Los otros 20 generan normativa, trámites y fiscalización — con impacto marginal en las arcas municipales. ¿Cuánto costaría simplificar?
+        </p>
+        <a href="informe-ordenanza-impositiva-2026.html" class="informe-link">Leer informe completo →</a>
+      </div>
+    </div>
+
+    <div class="eje-block" id="informes-economia-sociedad">
+      <div class="eje-eyebrow">Eje 02 · Indicadores locales</div>
+      <h3 class="eje-title">Economía y Sociedad</h3>
+    </div>
+
+    <div class="informe-card" style="margin-top:1px">
+      <div class="informe-thumb">
+        <img src="thumb-mapa-comercios.jpg" alt="Mapa de comercios habilitados en La Plata" style="width:100%;height:100%;object-fit:cover;" />
+      </div>
+      <div class="informe-meta">
+        <div class="informe-tag">Ciudad Productiva · Agosto 2026</div>
+        <div class="informe-num" style="font-size:2rem;opacity:.2">🏪</div>
+        <div class="informe-fecha">9.707 establecimientos habilitados</div>
+      </div>
+      <div class="informe-content">
+        <h3 class="informe-titulo">Mapa de comercios habilitados</h3>
+        <p class="informe-desc">
+          Los 9.707 establecimientos comerciales habilitados en La Plata, georreferenciados por rubro y actividad. Un panorama de dónde y cómo se despliega la actividad económica de la ciudad, a partir de datos del Observatorio de Datos Productivos municipal.
+        </p>
+        <a href="mapa_comercios_capital_data.html" class="informe-link">Abrir mapa interactivo →</a>
+      </div>
+    </div>
+
+    <div class="informe-card" style="margin-top:1px">
+      <div class="informe-thumb">
+        <img src="thumb-mapa-delito.jpg" alt="Mapa del delito por partido, Provincia de Buenos Aires" style="width:100%;height:100%;object-fit:cover;" />
+      </div>
+      <div class="informe-meta">
+        <div class="informe-tag">Herramienta · Datos PBA</div>
+        <div class="informe-num" style="font-size:2rem;opacity:.2">&#x1F5FA;</div>
+        <div class="informe-fecha">Delitos 2010&ndash;2023 &middot; 135 municipios</div>
+      </div>
+      <div class="informe-content">
+        <h3 class="informe-titulo">Mapa del delito — Provincia de Buenos Aires</h3>
+        <p class="informe-desc">
+          Visualización interactiva de estadísticas delictivas por municipio y año para toda la Provincia de Buenos Aires. Filtrá por tipo de delito, navegá por año con el slider y comparé la evolución histórica en el mapa.
+        </p>
+        <a href="mapa-delito-pba.html" class="informe-link">Abrir mapa interactivo →</a>
+      </div>
+    </div>
+
+  <!-- QUIÉNES SOMOS -->
+  <section class="nosotros" id="nosotros">
+    <div class="nosotros-inner">
+      <div class="nosotros-left">
+        <div class="nosotros-eyebrow">Quiénes somos</div>
+        <h2 class="nosotros-heading">Un equipo<br>con una<br><em>convicción.</em></h2>
+        <div class="nosotros-accent-line"></div>
+      </div>
+      <div class="nosotros-right">
+        <p class="nosotros-intro">
+          Somos un equipo multidisciplinario de profesionales, investigadores y analistas con una convicción compartida: que el análisis riguroso de las políticas públicas locales es una herramienta de transformación concreta.
+        </p>
+        <p class="nosotros-body">
+          Combinamos formación en <strong>ciencias sociales, derecho, economía y tecnología</strong> con el uso de inteligencia artificial para hacer algo que antes era inviable a esta escala: procesar sistemáticamente sesiones legislativas, ordenanzas, presupuestos y contrataciones públicas, y convertir esa información en análisis útil y accesible.
+        </p>
+        <p class="nosotros-body">
+          Trabajamos desde <strong>La Plata, capital de la provincia de Buenos Aires</strong>, convencidos de que una ciudad mejor gobernada empieza por una ciudad mejor comprendida.
+        </p>
+        <div class="nosotros-tags">
+          <span class="nosotros-tag">Ciencias sociales</span>
+          <span class="nosotros-tag">Derecho</span>
+          <span class="nosotros-tag">Economía</span>
+          <span class="nosotros-tag">Tecnología</span>
+          <span class="nosotros-tag">Inteligencia artificial</span>
+          <span class="nosotros-tag">Gobierno abierto</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Capital <span>Data</span></div>
+    <div class="footer-info">
+      La Plata · Capital de la Provincia de Buenos Aires<br>
+      Política pública, economía y sociedad<br>
+      <span style="color: var(--acento); font-size: 0.55rem;">@capitaldata</span>
+    </div>
+  </footer>
+
+</body>
+</html>

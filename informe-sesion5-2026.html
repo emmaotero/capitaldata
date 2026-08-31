@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sesi&oacute;n N&deg;5 &middot; 2026 — Capital Data</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+
+:root{--azul:#1a3fff;--negro:#0a0a0a;--crema:#f5f2eb;--gris-claro:#f0ede6;--gris-borde:#e2ddd4;--texto:#1a1a1a;--texto-suave:#6b6b6b;--acento:#c8ff00}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:"Instrument Sans",sans-serif;background:var(--crema);color:var(--texto);max-width:1200px;margin:0 auto;padding:0}
+.informe-nav{background:var(--negro);padding:1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.informe-nav-logo{font-family:"DM Mono",monospace;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--acento);text-decoration:none}
+.informe-nav-back{font-family:"DM Mono",monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,242,235,.4);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .2s}
+.informe-nav-back:hover{color:var(--crema)}
+.informe-header{background:var(--negro);padding:5rem 2.5rem 4rem;position:relative;overflow:hidden}
+.informe-header::after{content:"";position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--azul),transparent)}
+.informe-eyebrow{font-family:"DM Mono",monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acento);margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem}
+.informe-eyebrow::before{content:"";display:block;width:2rem;height:1px;background:var(--acento)}
+.informe-header h1{font-family:"Fraunces",serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:300;color:var(--crema);line-height:1.1;letter-spacing:-.02em;margin-bottom:2rem;max-width:800px}
+.informe-meta-bar{display:flex;gap:2rem;flex-wrap:wrap;align-items:center}
+.informe-meta-item{font-family:"DM Mono",monospace;font-size:.65rem;letter-spacing:.1em;color:rgba(245,242,235,.4);display:flex;align-items:center;gap:.5rem}
+.informe-meta-item a{color:var(--azul);text-decoration:none}.informe-meta-item a:hover{color:var(--acento)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--gris-borde);border-bottom:1px solid var(--gris-borde)}
+.stat{background:white;padding:2rem 1.5rem;text-align:center}
+.stat .n{font-family:"Fraunces",serif;font-size:2.8rem;font-weight:300;color:var(--azul);line-height:1;margin-bottom:.4rem}
+.stat .label{font-family:"DM Mono",monospace;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--texto-suave)}
+.res{background:white;border-left:3px solid var(--azul);padding:2rem 2.5rem;font-family:"Fraunces",serif;font-size:1.05rem;font-weight:300;font-style:italic;line-height:1.7;color:var(--texto)}
+.contenido{padding:3rem 2.5rem}
+h2{font-family:"Fraunces",serif;font-size:1.8rem;font-weight:300;color:var(--negro);margin-top:3.5rem;margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:1px solid var(--gris-borde);display:flex;align-items:center;gap:.6rem}
+h2:first-child{margin-top:0}
+h3{font-family:"Fraunces",serif;font-size:1.2rem;font-weight:400;margin-bottom:.75rem;color:var(--negro)}
+.card{background:white;border:1px solid var(--gris-borde);padding:2rem;margin-bottom:1.5rem}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+th{background:var(--negro);color:var(--crema);padding:.75rem 1rem;text-align:left;font-family:"DM Mono",monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;font-weight:400}
+td{padding:.85rem 1rem;border-bottom:1px solid var(--gris-borde);vertical-align:top;line-height:1.5}
+tr:last-child td{border-bottom:none}tr:hover td{background:var(--gris-claro)}
+.informe-footer{background:var(--negro);padding:2.5rem;display:flex;justify-content:space-between;align-items:center;margin-top:0}
+.informe-footer-logo{font-family:"Fraunces",serif;font-size:1.2rem;font-weight:300;color:var(--crema)}
+.informe-footer-logo span{color:var(--acento);font-style:italic}
+.informe-footer-info{font-family:"DM Mono",monospace;font-size:.58rem;letter-spacing:.1em;color:rgba(245,242,235,.3);text-align:right;line-height:1.8}
+@media(max-width:768px){.informe-header{padding:3.5rem 1.5rem 3rem}.contenido{padding:2rem 1.5rem}.res{padding:1.5rem}.informe-nav{padding:1rem 1.5rem}.informe-footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}.informe-footer-info{text-align:center}}
+
+</style>
+</head>
+<body>
+
+<nav class="informe-nav">
+  <a href="index.html" class="informe-nav-logo" style="display:flex;align-items:center;gap:.6rem"><span style="display:inline-flex;align-items:center;width:28px;height:28px;flex-shrink:0"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 48 48" role="img">
+<title>Capital Data</title>
+<!-- centro: 24,24 -->
+<!-- 8 nodos perimetrales en forma cuadrada -->
+<!-- esquinas: 6,6 | 42,6 | 42,42 | 6,42 -->
+<!-- medios: 24,5 | 43,24 | 24,43 | 5,24 -->
+<!-- 4 nodos interiores anillo: 13,13 | 35,13 | 35,35 | 13,35 -->
+
+<!-- Centro → perimetrales -->
+<line x1="24" y1="24" x2="6"  y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="5"  stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="43" y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="43" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="6"  y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="5"  y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+
+<!-- Centro → interiores -->
+<path d="M24,24 Q18,18 13,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,18 35,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,30 35,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q18,30 13,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+
+<!-- Borde perimetral cuadrado -->
+<path d="M6,6   Q15,5  24,5"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M24,5  Q33,5  42,6"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M42,6  Q43,15 43,24" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M43,24 Q43,33 42,42" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M42,42 Q33,43 24,43" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M24,43 Q15,43 6,42"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M6,42  Q5,33  5,24"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M5,24  Q5,15  6,6"   stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+
+<!-- Conexiones interiores entre sí -->
+<path d="M13,13 Q24,12 35,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+<path d="M35,13 Q36,24 35,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+<path d="M35,35 Q24,36 13,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+<path d="M13,35 Q12,24 13,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+
+<!-- Cruzadas interiores → perimetrales -->
+<path d="M13,13 Q9,9   6,6"   stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q38,9  42,6"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,35 Q38,38 42,42" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,35 Q9,38  6,42"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,13 Q9,18  5,24"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q39,18 43,24" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+
+<!-- Nodos perimetrales -->
+<circle cx="6"  cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="5"  r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="43" cy="24" r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="43" r="1.8" fill="#1a3fff"/>
+<circle cx="6"  cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="5"  cy="24" r="1.8" fill="#1a3fff"/>
+
+<!-- Nodos interiores anillo -->
+<circle cx="13" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="35" r="1"   fill="#c8ff00"/>
+<circle cx="13" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="35" r="1"   fill="#c8ff00"/>
+
+<!-- Nodo central -->
+<circle cx="24" cy="24" r="7"   fill="#0a0a0a" stroke="#c8ff00" stroke-width="1.5"/>
+<circle cx="24" cy="24" r="3.5" fill="#1a3fff"/>
+<circle cx="24" cy="24" r="1.5" fill="#c8ff00"/>
+</svg></span>Capital Data</a>
+  <a href="sesiones.html" class="informe-nav-back">&larr; Sesiones</a>
+</nav>
+
+<div class="informe-header">
+  <div class="informe-eyebrow">Informe N&deg;5 &middot; 2026</div>
+  <h1>Sesi&oacute;n Ordinaria N&deg;5<br>83&deg; Per&iacute;odo Legislativo</h1>
+  <div class="informe-meta-bar">
+    <span class="informe-meta-item">&#128197; 7 de mayo de 2026</span>
+    <span class="informe-meta-item">&#128336; 11:07 &mdash; 16:23 hs</span>
+    <span class="informe-meta-item">&#128203; 367 puntos en el sumario</span>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="n">21</div><div class="label">Presentes</div></div>
+  <div class="stat"><div class="n">367</div><div class="label">Puntos</div></div>
+  <div class="stat"><div class="n">10+</div><div class="label">Votaciones</div></div>
+  <div class="stat"><div class="n">90+</div><div class="label">Intervenciones</div></div>
+</div>
+
+<div class="res">Sesi&oacute;n con siete grandes ejes: seguridad urbana y el rol municipal (armas no letales para la Guardia Urbana, mapa del delito, vandalismo deportivo); arbolado p&uacute;blico y pol&iacute;tica ambiental; la Ley de Inviolabilidad de la Propiedad Privada; la suspensi&oacute;n del programa MESA por la Provincia; el ataque al Centro Literario Israelita Max Nordau; el operativo judicial en la Unidad Penitenciaria N&deg;9; y la agresi&oacute;n a la concejal del PRO de Villa Gesell. Votaci&oacute;n nominal clave: MESA desaprobado 10 a 12, tras la ruptura del acuerdo de labor.</div>
+
+<div class="contenido">
+
+<h2>&#128101; Concejales</h2><div class="card"><table>
+<tr><th>Nombre</th><th>Cargo</th><th>Bloque</th><th>Interv.</th><th>Posici&oacute;n</th><th>Temas principales</th><th>Resumen</th></tr>
+
+<tr><td><strong>Marcelo Gustavo GALLAND</strong></td><td>Presidente</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">&mdash;</td><td><span style="background:#7f8c8d;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">presidencia</span></td><td>Conducci&oacute;n de sesi&oacute;n</td><td>Condujo la sesi&oacute;n. Al inicio invit&oacute; al concejal Ganduglia a izar el Pabel&oacute;n Nacional. Intervino en varias oportunidades para ordenar el debate y pedir que las alusiones se dirigieran a la presidencia.</td></tr>
+
+<tr><td><strong>Juan Manuel GRANILLO FERN&Aacute;NDEZ</strong></td><td>Vicepresidente 1&deg;</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~8</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Seguridad (competencias legales), arbolado p&uacute;blico, violencia deportiva, propiedad privada, MESA</td><td>Sostuvo que la seguridad es competencia exclusiva de la Provincia seg&uacute;n la Ley 12.154 y que el municipio act&uacute;a como colaborador. Acus&oacute; a Morzone de "populismo normativo" en el proyecto de violencia deportiva. Defendi&oacute; el convenio con la Facultad de Agronom&iacute;a para el censo del arbolado. Sostuvo que hubo "confusi&oacute;n", no incumplimiento, en el episodio del acuerdo de labor sobre MESA.</td></tr>
+
+<tr><td><strong>Juan Pablo ALLAN</strong></td><td>Vicepresidente 2&deg;</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~5</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Armas no letales (birnas), modelo de seguridad municipal, propiedad privada</td><td>Present&oacute; el proyecto de dotaci&oacute;n de "birnas" a la Guardia Urbana. Enumer&oacute; los municipios que ya las usan: Avellaneda, Escobar, San Miguel, Vicente L&oacute;pez y Mar del Plata. La discusi&oacute;n de fondo es cu&aacute;nto se involucra el municipio en seguridad. Celebr&oacute; que el gobierno municipal est&eacute; estudiando el tema. Defendi&oacute; el respeto a los contratos como principio en el debate de propiedad privada.</td></tr>
+
+<tr><td><strong>Gast&oacute;n Manuel &Aacute;LVAREZ</strong></td><td>Concejal</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~4</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Propiedad privada, programa MESA, Servicio Meteorol&oacute;gico Nacional, UP N&deg;9</td><td>Diferenci&oacute; "dominio p&uacute;blico" de "dominio privado" en el debate sobre la Ley de Inviolabilidad. Sobre MESA, argument&oacute; que la suspensi&oacute;n es responsabilidad de Kicillof y la Provincia: siete a&ntilde;os de mandato, emergencia econ&oacute;mica permanente declarada, y a&uacute;n as&iacute; decide suspender un plan alimentario; aclar&oacute; que durante los 90 d&iacute;as los chicos igualmente recibir&aacute;n el SAE. Defendi&oacute; la reorganizaci&oacute;n del Servicio Meteorol&oacute;gico como modernizaci&oacute;n tecnol&oacute;gica.</td></tr>
+
+<tr><td><strong>Mar&iacute;a Florencia BARCIA</strong></td><td>Concejala</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Propiedad privada, Comisi&oacute;n de Transporte</td><td>Sus dos intervenciones fueron breves: en el debate de propiedad privada solicit&oacute; una interrupci&oacute;n para aclarar que cualquier profesi&oacute;n habilita a ejercer la banca y que no hace falta ser abogado para representar al pueblo. Al final de la sesi&oacute;n, durante el Orden del D&iacute;a N&deg;1, destac&oacute; el trabajo realizado en la Comisi&oacute;n de Transporte para que vecinos con discapacidad cuenten con sus reservas de estacionamiento.</td></tr>
+
+<tr><td><strong>Guillermo Arcadio BARD&Oacute;N</strong></td><td>Concejal</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~6</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Mapa del delito, acuerdo de labor MESA</td><td>Present&oacute; el proyecto de "Sistema de Transparencia y Publicidad del Delito". Argument&oacute; que el Secretario de Seguridad se equivoca al decir que publicar datos estigmatiza zonas. En el incidente del programa MESA sostuvo que en labor se acord&oacute; expl&iacute;citamente la aprobaci&oacute;n a cambio de eliminar los fundamentos, y que FP falt&oacute; a la palabra.</td></tr>
+
+<tr><td><strong>Josefina Mar&iacute;a BOLIS</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~6</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Arte urbano y muralismo, propiedad privada (funci&oacute;n social), violencia deportiva, MESA</td><td>Present&oacute; el Registro &Uacute;nico de Obras de Arte Urbano. En violencia deportiva se&ntilde;al&oacute; las contradicciones entre los planteos de Morzone y Zanetto dentro del PRO. Defendi&oacute; la funci&oacute;n social de la propiedad con argumentos constitucionales. Reconoci&oacute; la "confusi&oacute;n" del bloque en el episodio de labor sobre MESA y pidi&oacute; disculpas a los presidentes de los otros bloques.</td></tr>
+
+<tr><td><strong>Mar&iacute;a Florencia DE FEO</strong></td><td>Concejala</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~4</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Blockchain/transparencia municipal, bullying y ciberbullying, ataque Max Nordau</td><td>Present&oacute; el proyecto de Programa de Trazabilidad e Integridad Digital (Blockchain). Present&oacute; el Mes Municipal de Prevenci&oacute;n del Bullying con estad&iacute;sticas de la UNESCO: 1 de cada 3 j&oacute;venes en el mundo sufre bullying o ciberbullying; 111 muertes vinculadas en Argentina. Se sum&oacute; al rep&uadio del ataque al Max Nordau desde la defensa de la libertad religiosa.</td></tr>
+
+<tr><td><strong>Gisella Yiuliana DI DIO</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Propiedad privada, MESA</td><td>Intervino en el debate de propiedad preguntando "&iquest;a d&oacute;nde metemos los 5 millones de personas que viven en villas?" frente a la eliminaci&oacute;n del FISU. Presente en el debate de MESA.</td></tr>
+
+<tr><td><strong>Pablo Emanuel ELIAS</strong></td><td>Concejal</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~5</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Seguridad (defensa de gesti&oacute;n), arbolado, espacio p&uacute;blico</td><td>Defendi&oacute; la gesti&oacute;n municipal en seguridad: recibieron el Centro de Monitoreo "destrozado" y lo reconstruyeron. En arbolado, defendi&oacute; la pol&iacute;tica de plantaci&oacute;n de &aacute;rboles nativos de la gesti&oacute;n y el convenio con el Ministerio de Ambiente provincial. Reivindisc&oacute; el programa Ciudad Limpia y las obras en plazas. Aclar&oacute; que el municipio ya est&aacute; trabajando en la implementaci&oacute;n de dispositivos no letales sin necesidad de una ordenanza.</td></tr>
+
+<tr><td><strong>Dar&iacute;o GANDUGLIA</strong></td><td>Concejal</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Propuesta Vecinal (PROve)</span></td><td style="text-align:center;font-weight:bold">~3</td><td><span style="background:#3498db;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">moderado</span></td><td>Postes y cables, video-multa, c&aacute;maras en centros de salud</td><td>Present&oacute; el proyecto de regulaci&oacute;n de postes y cables de servicios p&uacute;blicos. Present&oacute; el sistema de "Video-multa" que usar&iacute;a las c&aacute;maras del COM existentes. Comunic&oacute; la respuesta del Secretario de Seguridad sobre la instalaci&oacute;n de c&aacute;maras en los 47 CAPS, tras el robo en el CAHPS N&deg;33 del barrio La Granja.</td></tr>
+
+<tr><td><strong>Melany HOROMADIUK</strong></td><td>Concejala</td><td><span style="background:#16a085;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">ASAP Nueva Generaci&oacute;n</span></td><td style="text-align:center;font-weight:bold">~1</td><td><span style="background:#3498db;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">moderado</span></td><td>Repudio al ataque al Jabad Lubavitch</td><td>Present&oacute; el decreto de repudio al ataque sufrido por la instituci&oacute;n jud&iacute;a Jabad Lubavitch, aprobado en la sesi&oacute;n. Sin intervenciones en los debates de fondo.</td></tr>
+
+<tr><td><strong>Micaela MAGGIO</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Ataque al Max Nordau</td><td>Present&oacute; el decreto de repudio al ataque sufrido por el Centro Literario Israelita Max Nordau (bomba molotov en calle 11 entre 58 y 59). Destac&oacute; que el Max Nordau respondi&oacute; "renovando su compromiso con el humanismo y los derechos humanos".</td></tr>
+
+<tr><td><strong>Sol Mar&iacute;a MALUENDEZ</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~3</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Programa MESA (contexto presupuestario)</td><td>Explic&oacute; que el MESA es un m&oacute;dulo extraordinario creado en pandemia para complementar el SAE hist&oacute;rico (40 a&ntilde;os). En 2026, la Provincia solicit&oacute; 177 mil millones al gobierno nacional y recibi&oacute; 81 mil millones. Denunci&oacute; que cuando fueron a entregar una nota al Ministerio de Capital Humano, la Polic&iacute;a Federal no dej&oacute; entrar al gobernador y los intendentes.</td></tr>
+
+<tr><td><strong>Sabrina Luz MORALES</strong></td><td>Concejala</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Arbolado p&uacute;blico (poda vecinal), rambla Camino Centenario</td><td>Present&oacute; el proyecto de Capacitaci&oacute;n Domiciliaria del Arbolado P&uacute;blico para que los frentistas puedan podar responsablemente. Solicit&oacute; tratamiento urgente del Pt.222 sobre la rambla del Camino Centenario, relatando un accidente fatal reciente en la esquina 496.</td></tr>
+
+<tr><td><strong>Nicol&aacute;s Luis MORZONE</strong></td><td>Concejal</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">PRO</span></td><td style="text-align:center;font-weight:bold">~14</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Seguridad (birnas, mapa del delito, vandalismo deportivo, UP9, electrificaci&oacute;n alambrados), arbolado, propiedad privada, Max Nordau, tarifa de taxis, agresi&oacute;n concejal Villa Gesell</td><td>El concejal m&aacute;s activo de la sesi&oacute;n. En birnas precis&oacute; que Allan omiti&oacute; que los dos primeros municipios en aplicarlas fueron del PRO: La NUS (intendente Néstor Grindetti con Diego Kravitz como secretario de Seguridad) y Vicente L&oacute;pez (Soledad Mart&iacute;nez, gesti&oacute;n Jorge Macri). El tercer municipio que cit&oacute; fue Escobar (Ariel Sujarchuk, peronismo). Present&oacute; el proyecto de violencia deportiva con un agravante y un registro de infractores sin acceso a estadios. En arbolado se&ntilde;al&oacute; que el municipio no tiene hidrogrúa de 30 metros y que lleva tres a&ntilde;os sin plan regulador. En propiedad privada defendi&oacute; la inviolabilidad como base del Estado de Derecho. Vincul&oacute; el ataque al Max Nordau al contexto geopol&iacute;tico y al memor&aacute;ndum con Ir&aacute;n. Acompa&ntilde;&oacute; el aumento de tarifa de taxis e inst&oacute; a regularizar las plataformas de transporte. Agradeci&oacute; la unanimidad del repudio a la agresi&oacute;n en Villa Gesell.</td></tr>
+
+
+<tr><td><strong>Ra&uacute;l Omar RECAVARREN</strong></td><td>Concejal</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Conducci&oacute;n ceremonial</td><td>Solicit&oacute; el adelantamiento del Pt.362 (pesar por el fallecimiento del ex concejal Juan Carlos Arias) y pidi&oacute; un minuto de silencio. Tambi&eacute;n present&oacute; proyectos de carteleria sobre violencia de g&eacute;nero.</td></tr>
+
+<tr><td><strong>Sergio Daniel RESA</strong></td><td>Concejal</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~6</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Arbolado p&uacute;blico (plan regulador, convenio UNLP), propiedad privada, violencia deportiva</td><td>Segundo m&aacute;s activo. Detall&oacute; el plan de arbolado: el censo de 2005 estaba desactualizado; el convenio con la Facultad de Agronom&iacute;a est&aacute; terminando el relevamiento del casco. Hay tres categor&iacute;as de poda que no siempre requieren hidrogrua. En propiedad privada aport&oacute; el concepto de "funci&oacute;n social" desde la Constituci&oacute;n Alemana de 1919 y los tratados incorporados en 1994. En violencia deportiva reflexion&oacute; sobre la apropiaci&oacute;n del espacio p&uacute;blico como base real de la seguridad.</td></tr>
+
+<tr><td><strong>Romina del Carmen SANTANA</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Benep&aacute;cito nacimiento de Evita</td><td>Present&oacute; el benep&aacute;cito por el nacimiento de Mar&iacute;a Eva Duarte de Per&oacute;n con una extensa reivindicaci&oacute;n del legado peronista: la ley de voto femenino, la obra social de la Fundaci&oacute;n, el dec&aacute;logo de la ancianidad, el Aguinaldo y las licencias laborales.</td></tr>
+
+<tr><td><strong>Gustavo Alberto STAFFOLANI</strong></td><td>Concejal</td><td><span style="background:#e74c3c;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">UCR</span></td><td style="text-align:center;font-weight:bold">~3</td><td><span style="background:#3498db;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">moderado</span></td><td>Programa MESA (impacto educativo), bacheo Avenida 38, se&ntilde;al&eacute;tica hist&oacute;rica</td><td>Intervino sobre el programa MESA desde la experiencia concreta de la Secundaria N&deg;68: "los chicos no pueden estudiar porque les duele la panza". Aclar&oacute; que el bacheo de la Av.38 se debe a una falla de compactaci&oacute;n de un conducto subterr&aacute;neo y que la empresa sigue en per&iacute;odo de garant&iacute;a.</td></tr>
+
+<tr><td><strong>Iv&aacute;n Gabriel ZANETTO</strong></td><td>Concejal</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">PRO</span></td><td style="text-align:center;font-weight:bold">~4</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Armas no letales, violencia deportiva, siniestralidad vial, UP N&deg;9</td><td>Apoy&oacute; los proyectos de Morzone. Intervino sobre la v&iacute;ctima N&deg;20 de siniestralidad vial reclamando prevenci&oacute;n activa y no solo campa&ntilde;as digitales. Fundamentó el decreto sobre la UP9 como s&iacute;ntoma del colapso del sistema penitenciario bonaerense.</td></tr>
+
+</table></div>
+
+<h2>&#128203; Temas tratados</h2><div class="card"><table>
+<tr><th>#</th><th>T&iacute;tulo</th><th>Tipo</th><th>Expediente</th><th>Concejales que hablaron</th><th>Resultado</th></tr>
+
+<tr><td style="text-align:center">362</td><td><strong>Pesar por el fallecimiento del ex concejal Juan Carlos Arias</strong></td><td>Decreto — FP (Recavarren)</td><td style="font-family:monospace">80.669</td><td>RECAVARREN</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">1&ndash;5</td><td><strong>Mensajes del Departamento Ejecutivo</strong></td><td>Ordenanzas / Autorizaciones</td><td style="font-family:monospace">80.559&ndash;80.563</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Todos aprobados</span></td></tr>
+
+<tr><td style="text-align:center">104</td><td><strong>Sistema de Transparencia y Publicidad del Delito ("Mapa del Delito")</strong></td><td>Proyecto de Ordenanza &mdash; LLA (Bard&oacute;n)</td><td style="font-family:monospace">80.524</td><td>BARD&Oacute;N, GRANILLO FERN&Aacute;NDEZ, ELIAS, MORZONE</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisi&oacute;n de Seguridad</span></td></tr>
+
+<tr><td style="text-align:center">105</td><td><strong>Dotaci&oacute;n de lanzadoras de pu&ntilde;o no letales ("birnas") a la Guardia Urbana</strong></td><td>Proyecto de Ordenanza &mdash; LLA (Allan)</td><td style="font-family:monospace">80.592</td><td>ALLAN, MORZONE, ELIAS, GRANILLO FERN&Aacute;NDEZ, BARD&Oacute;N, ZANETTO</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisiones de Seguridad, Legislaci&oacute;n y Hacienda</span></td></tr>
+
+<tr><td style="text-align:center">106</td><td><strong>Motos secuestradas m&aacute;s de 180 d&iacute;as consideradas abandonadas</strong></td><td>Proyecto de Ordenanza &mdash; LLA (Allan)</td><td style="font-family:monospace">80.593</td><td>ALLAN</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisi&oacute;n de Legislaci&oacute;n</span></td></tr>
+
+<tr><td style="text-align:center">107</td><td><strong>Programa de Trazabilidad e Integridad Digital &mdash; Blockchain municipal</strong></td><td>Proyecto de Ordenanza &mdash; LLA (De Feo)</td><td style="font-family:monospace">80.601</td><td>DE FEO</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisi&oacute;n de Hacienda</span></td></tr>
+
+<tr><td style="text-align:center">108</td><td><strong>Mes Municipal de Prevenci&oacute;n del Bullying y Ciberbullying</strong></td><td>Proyecto de Ordenanza &mdash; LLA (De Feo)</td><td style="font-family:monospace">80.602</td><td>DE FEO</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisi&oacute;n de Seguridad</span></td></tr>
+
+<tr><td style="text-align:center">109 + 114 + 304</td><td><strong>Capacitaci&oacute;n Domiciliaria del Arbolado P&uacute;blico + Registro &Uacute;nico de Podadores + Informe Plan de Poda 2026</strong></td><td>Proyectos de Ordenanza &mdash; LLA (Morales) / PROve (Ganduglia) / PRO (Zanetto)</td><td style="font-family:monospace">80.609 / 80.590 / 80.570</td><td>MORALES, MORZONE, ELIAS, RESA, GRANILLO FERN&Aacute;NDEZ</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisiones de Ambiente y Hacienda</span></td></tr>
+
+<tr><td style="text-align:center">110</td><td><strong>"Violencia Urbana con Motivaci&oacute;n Deportiva" &mdash; agravante y registro de infractores sin acceso a estadios</strong></td><td>Proyecto de Ordenanza &mdash; PRO (Morzone)</td><td style="font-family:monospace">80.568</td><td>MORZONE, GRANILLO FERN&Aacute;NDEZ, ZANETTO, ELIAS, BOLIS, BARD&Oacute;N, RESA</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisiones de Seguridad y Legislaci&oacute;n</span></td></tr>
+
+<tr><td style="text-align:center">112</td><td><strong>Regulaci&oacute;n de postes y cables de servicios p&uacute;blicos en el espacio p&uacute;blico</strong></td><td>Proyecto de Ordenanza &mdash; PROve (Ganduglia)</td><td style="font-family:monospace">80.587</td><td>GANDUGLIA</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisi&oacute;n de Planeamiento</span></td></tr>
+
+<tr><td style="text-align:center">113</td><td><strong>Sistema Municipal de Actuaciones Digitales &mdash; Video-multa mediante videovigilancia</strong></td><td>Proyecto de Ordenanza &mdash; PROve (Ganduglia)</td><td style="font-family:monospace">80.588</td><td>GANDUGLIA</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisiones de Seguridad y Legislaci&oacute;n</span></td></tr>
+
+<tr><td style="text-align:center">119 + 137</td><td><strong>112&deg; Aniversario de City Bell</strong></td><td>Decreto &mdash; FP (Poggio) / LLA (Bard&oacute;n)</td><td style="font-family:monospace">80.421 / 80.441</td><td>POGGIO</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">120 + 138</td><td><strong>138&deg; Aniversario de Villa Elisa</strong></td><td>Decreto &mdash; FP (Poggio) / LLA (Bard&oacute;n)</td><td style="font-family:monospace">80.431 / 80.442</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">123</td><td><strong>Preocupaci&oacute;n por el proyecto de Ley de Inviolabilidad de la Propiedad Privada</strong></td><td>Decreto &mdash; FP (Bolis)</td><td style="font-family:monospace">80.495</td><td>BOLIS, MORZONE, &Aacute;LVAREZ, GRANILLO FERN&Aacute;NDEZ, DI DIO, RESA, ALLAN, BARD&Oacute;N, DE FEO</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisi&oacute;n de Legislaci&oacute;n</span></td></tr>
+
+<tr><td style="text-align:center">127</td><td><strong>Inter&eacute;s Municipal &mdash; III Congreso de Soci&oacute;logos/as de la PBA</strong></td><td>Decreto &mdash; FP (Granillo Fern&aacute;ndez)</td><td style="font-family:monospace">80.550</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">130</td><td><strong>Benep&aacute;cito por el nacimiento de Mar&iacute;a Eva Duarte de Per&oacute;n &mdash; 7 de mayo</strong></td><td>Decreto &mdash; FP (Santana)</td><td style="font-family:monospace">80.567</td><td>SANTANA</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">134 + 147 + 151 + 154 + 276</td><td><strong>Repudio al ataque sufrido por el Centro Literario Israelita Max Nordau (bomba molotov)</strong></td><td>Decretos &mdash; FP/PRO/UCR/ASAP/LLA (todos los bloques)</td><td style="font-family:monospace">80.610 / 80.574 / 80.605 / 80.565 / 80.603</td><td>MAGGIO, MORZONE, DE FEO, GRANILLO FERN&Aacute;NDEZ</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado por unanimidad</span></td></tr>
+
+<tr><td style="text-align:center">136</td><td><strong>Benep&aacute;cito por el 139&deg; Aniversario de Arana</strong></td><td>Decreto &mdash; LLA (Bard&oacute;n)</td><td style="font-family:monospace">80.440</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">139</td><td><strong>Preocupaci&oacute;n por la suspensi&oacute;n del programa MESA por la Provincia de Buenos Aires</strong></td><td>Decreto &mdash; LLA (&Aacute;lvarez)</td><td style="font-family:monospace">80.496</td><td>BARD&Oacute;N, MORZONE, BOLIS, MALUENDEZ, &Aacute;LVAREZ, STAFFOLANI, DI DIO</td><td><span style="background:#e74c3c;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10007; Desaprobado &mdash; Votaci&oacute;n nominal: 10 / 12</span></td></tr>
+
+<tr><td style="text-align:center">142</td><td><strong>Inter&eacute;s Municipal &mdash; libro "Democracia Algor&iacute;tmica"</strong></td><td>Decreto &mdash; PRO (Morzone)</td><td style="font-family:monospace">80.527</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">145</td><td><strong>Preocupaci&oacute;n por los hechos de gravedad institucional en la Unidad Penitenciaria N&deg;9</strong></td><td>Decreto &mdash; PRO (Zanetto)</td><td style="font-family:monospace">80.572</td><td>MORZONE, ZANETTO</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado (con modificaciones)</span></td></tr>
+
+<tr><td style="text-align:center">150</td><td><strong>Inter&eacute;s Municipal &mdash; 8&deg; Congreso Nacional de Estudiantes de Arquitectura La Plata 2026</strong></td><td>Decreto &mdash; UCR (Staffolani)</td><td style="font-family:monospace">80.522</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">Varios (167, 185, 217, 223, 224, 253, 274, 309)</td><td><strong>Resoluciones aprobadas directamente en el recinto (ABSA, EDELAP, remoción de vehículos)</strong></td><td>Resoluciones &mdash; varios bloques</td><td style="font-family:monospace">Varios</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Todos aprobados</span></td></tr>
+
+<tr><td style="text-align:center">360</td><td><strong>Aumento de la tarifa de taxis</strong></td><td>Ordenanza &mdash; Comisi&oacute;n de Transporte</td><td style="font-family:monospace">80.105</td><td>MORZONE</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">364</td><td><strong>Repudio al ataque sufrido por la instituci&oacute;n jud&iacute;a Jabad Lubavitch</strong></td><td>Decreto &mdash; ASAP (Horomadiuk)</td><td style="font-family:monospace">80.614</td><td>HOROMADIUK</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">367</td><td><strong>Repudio por la agresi&oacute;n a la concejal del PRO de Villa Gesell, Clarisa Armando</strong></td><td>Decreto &mdash; PRO (Morzone)</td><td style="font-family:monospace">80.663</td><td>MORZONE, BARD&Oacute;N, BOLIS</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado por unanimidad</span></td></tr>
+
+<tr><td style="text-align:center">OD&Iacute; N&deg;1 &mdash; Pts. 1&ndash;44</td><td><strong>Orden del D&iacute;a N&deg;1: estacionamientos, obras p&uacute;blicas, arbolado (podas y extracciones)</strong></td><td>Varios &mdash; Comisiones varias</td><td style="font-family:monospace">Varios</td><td>BARCIA, STAFFOLANI, RESA</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Todos aprobados</span></td></tr>
+
+</table></div>
+
+<h2>&#128381;&#65039; Votaciones</h2><div class="card">
+
+<div style="border:1px solid #e2ddd4;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0;font-family:'Fraunces',serif;font-weight:400">#1 &mdash; Pesar por el fallecimiento del ex concejal Juan Carlos Arias (Pt. 362)</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Aprobado</span></div>
+<div style="margin-top:8px">&#10003; <b>Unanimidad</b></div>
+<p style="color:#6b6b6b;font-style:italic;font-size:.9em;margin-top:6px">Tratado como primer punto de la sesi&oacute;n por pedido de Recavarren. Arias fue concejal por el justicialismo entre 1993 y 1997 y secretario de la Direcci&oacute;n de Defensa Civil.</p></div>
+
+<div style="border:1px solid #e2ddd4;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0;font-family:'Fraunces',serif;font-weight:400">#2 &mdash; Repudio al ataque al Max Nordau y al Jabad Lubavitch (Pts. 134/147/151/154/276 y 364)</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Aprobado por unanimidad</span></div>
+<div style="margin-top:8px">&#10003; <b>Todos los bloques</b></div>
+<p style="color:#6b6b6b;font-style:italic;font-size:.9em;margin-top:6px">Los cinco bloques (FP, LLA, PRO, UCR, ASAP) presentaron proyectos propios sobre el Max Nordau. &Uacute;nica disidencia discursiva: Morzone extendi&oacute; el debate al contexto geopol&iacute;tico y el memor&aacute;ndum con Ir&aacute;n, lo que Granillo Fern&aacute;ndez consider&oacute; "chimichurri" ajeno al expediente.</p></div>
+
+<div style="border:1px solid #e2ddd4;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #e74c3c">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0;font-family:'Fraunces',serif;font-weight:400">#3 &mdash; Programa MESA &mdash; suspensi&oacute;n por la Provincia (Pt. 139) &mdash; VOTACI&Oacute;N NOMINAL</h4><span style="background:#e74c3c;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">&#10007; Desaprobado (requer&iacute;a 2/3)</span></div>
+<div style="margin-top:8px">&#10003; <b>10 afirmativos</b> (LLA + PRO) &nbsp; &#10007; <b>12 negativos</b> (FP + UCR) &nbsp; &#11036; <b>2 ausentes</b></div>
+<p style="color:#6b6b6b;font-style:italic;font-size:.9em;margin-top:6px"><b>LLA/PRO</b> alegaron que en Labor se acord&oacute; eliminar los fundamentos del proyecto a cambio de que FP lo aprobara. <b>FP</b> sostuvo que hubo una "confusi&oacute;n", no un acuerdo expl&iacute;cito. Tras un cuarto intermedio fallido, se procedi&oacute; a la votaci&oacute;n nominal a pedido de LLA/PRO. Bolis pidi&oacute; disculpas a los presidentes de los otros bloques por el malentendido.</p></div>
+
+<div style="border:1px solid #e2ddd4;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0;font-family:'Fraunces',serif;font-weight:400">#4 &mdash; Reprudio a la agresi&oacute;n a la concejal de Villa Gesell (Pt. 367)</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Aprobado por unanimidad</span></div>
+<div style="margin-top:8px">&#10003; <b>Todos los bloques</b></div>
+<p style="color:#6b6b6b;font-style:italic;font-size:.9em;margin-top:6px">La concejal PRO Clarisa Armando fue agredida f&iacute;sicamente durante el tratamiento del presupuesto 2026 en Villa Gesell. Bolis (FP) subray&oacute; que "ning&uacute;n m&eacute;todo violento puede ser el modo elegido de resoluci&oacute;n de conflictos".</p></div>
+
+<div style="border:1px solid #e2ddd4;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0;font-family:'Fraunces',serif;font-weight:400">#5 &mdash; Ordenanzas de estacionamiento (OD&Iacute; N&deg;1, Pts. 6&ndash;13)</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Aprobadas</span></div>
+<div style="margin-top:8px">&#10003; <b>Mayor&iacute;a</b> &nbsp; &#10007; <b>PRO (Pts. 8, 9 y 11)</b></div>
+<p style="color:#6b6b6b;font-style:italic;font-size:.9em;margin-top:6px">Morzone y Zanetto (PRO) votaron en contra de las reservas del Banco Provincia (Pts. 8, 9 y 11). Barcia (LLA) destac&oacute; que detras de cada expediente hay personas con discapacidad que llevan meses esperando su lugar de estacionamiento.</p></div>
+
+<div style="border:1px solid #e2ddd4;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0;font-family:'Fraunces',serif;font-weight:400">#6 &mdash; Aumento de tarifa de taxis (Pt. 360)</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Aprobado</span></div>
+<div style="margin-top:8px">&#10003; <b>Sin disidencias registradas</b></div>
+<p style="color:#6b6b6b;font-style:italic;font-size:.9em;margin-top:6px">Morzone intervino para valorar la aprobaci&oacute;n e inst&oacute; a dar el siguiente paso: regularizar Uber, Cabify y DiDi para que los taxis compitan en igualdad de condiciones.</p></div>
+
+<div style="border:1px solid #e2ddd4;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0;font-family:'Fraunces',serif;font-weight:400">#7 &mdash; Benep&aacute;cito aniversarios City Bell y Villa Elisa, Congreso Soci&oacute;logos, nacimiento Evita, Congreso Arquitectura, etc.</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Todos aprobados</span></div>
+<div style="margin-top:8px">&#10003; <b>Sin disidencias</b></div>
+<p style="color:#6b6b6b;font-style:italic;font-size:.9em;margin-top:6px">Tambi&eacute;n: Interés Municipal "Democracia Algor&iacute;tmica" (Morzone), Jornada pugilística Club Gimnasia, Cena del Dirigente FICDRLP, todos los decretos de aniversarios locales.</p></div>
+
+</div>
+
+<h2>&#128172; Principales puntos de debate</h2>
+<div class="card">
+
+  <div style="border-left:5px solid #e74c3c;padding:15px;margin-bottom:20px;background:#fdf2f2;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#c0392b">&#128308; 1. Seguridad urbana &mdash; Armas no letales, mapa del delito y el rol municipal</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#f39c12">PRO (Morzone) / LLA (Allan, Bard&oacute;n)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li><strong>Allan</strong> enumer&oacute; municipios que ya usan birnas: Avellaneda, Escobar, San Miguel, Vicente L&oacute;pez y Mar del Plata. <strong>Morzone</strong> precis&oacute; que los dos primeros en aplicarlas fueron del PRO: La NUS (intendente Néstor Grindetti, secretario de Seguridad Diego Kravitz) y Vicente L&oacute;pez (Soledad Mart&iacute;nez, gesti&oacute;n Jorge Macri); y que Escobar corresponde a Ariel Sujarchuk (peronismo).</li>
+          <li>Bard&oacute;n: publicar el mapa del delito no estigmatiza &mdash; la ciudad de Buenos Aires lo tiene en mapa.seguridad.bsas.gob.ar actualizado a diciembre 2024.</li>
+          <li>Los vecinos est&aacute;n electrificando alambrados, poniendo alarmas comunitarias y carteles de "vecinos armados": eso no es seguridad, es descomposici&oacute;n social.</li>
+          <li>Morzone: "los platenses comunican que est&aacute;n armados, el delito avanz&oacute; porque son pro-delincuentes. En el gobierno de Garro hab&iacute;a Guardia Urbana, hab&iacute;a casetas en las plazas. Las desmantelaron."</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#2980b9">Fuerza Patria (Granillo Fern&aacute;ndez, Elias)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>La Ley 12.154 establece que la seguridad es competencia exclusiva de la Provincia. El municipio coordina y colabora, no puede reemplazar a la Polic&iacute;a.</li>
+          <li>Elias: el municipio ya estudia la implementaci&oacute;n de dispositivos no letales; no hace falta una ordenanza para algo que ya se est&aacute; trabajando.</li>
+          <li>Los datos de homicidios: 71 en 2020, 60 en 2021, 55 en 2022, 50 en 2023, 46 en 2024. "Lo que dice Morzone es falso, fals&iacute;simo de falsedad absoluta."</li>
+          <li>El Centro de Monitoreo fue reconstruido desde cero: recibieron 1.200 c&aacute;maras integradas con el sistema Ma&iuml;ston, m&aacute;s patrulleros y presupuesto de seguridad.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-left:5px solid #e67e22;padding:15px;margin-bottom:20px;background:#fef9f0;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#ca6f1e">&#128992; 2. Violencia urbana con motivaci&oacute;n deportiva &mdash; Populismo normativo vs. apropiaci&oacute;n del espacio p&uacute;blico</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#f39c12">PRO (Morzone, Zanetto)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>El proyecto crea un agravante contravencional para da&ntilde;os y pintadas motivadas por identidad deportiva, y un registro de infractores a quienes se les proh&iacute;be el acceso a estadios.</li>
+          <li>Cita a Durkheim (anomia) y Wilson-Kelling (ventanas rotas): "Si el que rompe sabe que no hay consecuencias, el desorden se propaga. El que vandaliza la plata, que sepa que a la cancha no va m&aacute;s."</li>
+          <li>El programa Ciudad Limpia pinta paredes que "dos semanas despu&eacute;s vuelven a vandalizar" porque no hay sanci&oacute;n atr&aacute;s.</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#2980b9">Fuerza Patria (Granillo Fern&aacute;ndez, Elias, Resa, Bolis)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Granillo Fern&aacute;ndez: "populismo normativo" &mdash; el municipio no puede imponer restricciones de acceso a estadios de clubes afiliados a la AFA sin orden judicial. El proyecto es inaplicable.</li>
+          <li>Bolis se&ntilde;al&oacute; las contradicciones entre Morzone (sanci&oacute;n) y Zanetto (convocar a los clubes) dentro del mismo bloque.</li>
+          <li>Resa: la apropiaci&oacute;n del espacio p&uacute;blico es la verdadera base de la seguridad &mdash; calidad urbana, iluminaci&oacute;n, vegetaci&oacute;n, accesibilidad. "Una ciudad que siente como propia su espacio p&uacute;blico lo cuida."</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-left:5px solid #27ae60;padding:15px;margin-bottom:20px;background:#f0faf4;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#1e8449">&#128994; 3. Arbolado p&uacute;blico &mdash; Tres a&ntilde;os sin hidrogrúa ni plan regulador</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#f39c12">PRO (Morzone)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>"Se termin&oacute; el tiempo de las excusas." Tres a&ntilde;os anunciando el plan integral del arbolado, cero resultados.</li>
+          <li>En Par&iacute;s, Nueva York y Chicago el arbolado es "infraestructura esencial y estrat&eacute;gica para la resiliencia clim&aacute;tica". El municipio todav&iacute;a no tiene ni una hidrogrúa de 30 metros.</li>
+          <li>La Ley 12.276 exige un plan regulador anual: se incumple sistem&aacute;ticamente. Las veredas est&aacute;n en "arquitectura de posguerra" por d&eacute;cadas de abandono, no por dos a&ntilde;os.</li>
+          <li>En 1882 Pedro Benoit inaugur&oacute; el criterio de "un &aacute;rbol por casa y una plaza cada seis cuadras". Un siglo despu&eacute;s ese criterio fundacional se abandon&oacute;.</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#2980b9">Fuerza Patria (Resa, Elias)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Resa: el primer paso es un diagn&oacute;stico actualizado. El &uacute;ltimo censo fue en 2005 (tambi&eacute;n gesti&oacute;n Alak). Se firm&oacute; convenio con la Facultad de Agronom&iacute;a: relevamiento del casco fundacional casi terminado.</li>
+          <li>Hay tres categor&iacute;as de poda (hasta 12m, 12m+, trepa especializada) que no siempre requieren una hidrogrúa. El municipio tiene gru&uacute;as convencionales y cooperativas de trepa.</li>
+          <li>Elias: la gesti&oacute;n trabaja con el Ministerio de Ambiente provincial en una pol&iacute;tica de &aacute;rboles nativos que cuiden el suelo y ayuden en los arroyos.</li>
+          <li>Hay adem&aacute;s una causa contenciosa-administrativa por podas clandestinas del 2022, previa a la gesti&oacute;n actual.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-left:5px solid #3498db;padding:15px;margin-bottom:20px;background:#f0f7fd;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#2471a3">&#128997; 4. Ley de Inviolabilidad de la Propiedad Privada &mdash; Dos modelos irreconciliables</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#8e44ad">LLA (Allan, &Aacute;lvarez) y PRO (Morzone)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Art&iacute;culo 17 de la Constituci&oacute;n: "la propiedad privada es inviolable". No requiere reglamentaci&oacute;n adicional si el kirchnerismo no la hubiera atacado sistem&aacute;ticamente.</li>
+          <li>La Ley de Alquileres kirchnerista fue el ejemplo paradigm&aacute;tico: regulaciones que solo lograron reducir la oferta y aumentar los precios.</li>
+          <li>Allan: "No hay un solo pa&iacute;s exitoso que aplique las pol&iacute;ticas que ustedes aplicaron, que termin&oacute; como termin&oacute;."</li>
+          <li>Morzone: poner en discusi&oacute;n la inviolabilidad de la propiedad privada es una "posici&oacute;n ideol&oacute;gica peligrosa y virulenta" que da el mismo mensaje que Venezuela, Cuba, Ir&aacute;n.</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#2980b9">Fuerza Patria (Bolis, Resa, Granillo Fern&aacute;ndez, Di Dio)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Bolis: la propiedad no es un valor absoluto. Los tratados de 1994 (Convenci&oacute;n Americana de DDHH) reconocen la "funci&oacute;n social de la propiedad". La justicia ya le dio la raz&oacute;n al CECIM contra el DNU 70 sobre la ley de tierras.</li>
+          <li>La ley elimina art&iacute;culos de la Ley de Tierras, la Ley de Manejo del Fuego, el r&eacute;gimen de los 160 barrios populares platenses, la Ley de Expropiaciones y la Ley de Desalojos.</li>
+          <li>Di Dio: "&iquest;A d&oacute;nde metemos los 5 millones de personas que viven en villas?" si se cerr&oacute; el FISU.</li>
+          <li>Resa: la Constituci&oacute;n Alemana de 1919 ya establec&iacute;a la funci&oacute;n social. No es un concepto kirchnerista ni nuevo.</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top:12px;background:#eaf4ff;padding:10px;border-radius:5px;font-size:.9em">
+      <strong>Posici&oacute;n disidente dentro de LLA &mdash; De Feo:</strong> La usurpaci&oacute;n es un delito tipificado en el C&oacute;digo Penal. Expres&oacute; su desacuerdo con que el Concejo debata beneplácitos o preocupaciones sobre proyectos del Congreso Nacional.
+    </div>
+  </div>
+
+  <div style="border-left:5px solid #e67e22;padding:15px;margin-bottom:20px;background:#fef9f0;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#ca6f1e">&#128992; 5. Programa MESA &mdash; La ruptura del acuerdo de labor</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#8e44ad">LLA (Bard&oacute;n, &Aacute;lvarez, Morzone)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>En Labor se acord&oacute; expl&iacute;citamente: LLA eliminaba los fundamentos dejando un solo art&iacute;culo, y FP lo aprobaba. FP incumpli&oacute;.</li>
+          <li>La suspensi&oacute;n del MESA es una decisi&oacute;n pol&iacute;tica injustificable de Kicillof: 7 a&ntilde;os de gobierno bonaerense, emergencia econ&oacute;mica permanente y recorta alimentos a 2 millones de chicos.</li>
+          <li>&Aacute;lvarez: "La Provincia de Buenos Aires totalmente destruida, endeudada, sin inversi&oacute;n &mdash; el mismo espejo pol&iacute;tico del municipio."</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#2980b9">Fuerza Patria (Bolis, Maluendez) / UCR (Staffolani)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Bolis: hubo una "confusi&oacute;n", no una traici&oacute;n. Pidi&oacute; disculpas a los presidentes de los otros bloques.</li>
+          <li>Maluendez: la Provincia solicit&oacute; 177 mil millones al gobierno nacional para el SAE 2026; recibi&oacute; 81 mil millones. La deuda nacional con la Provincia asciende a 220 mil millones. La suspensi&oacute;n del MESA (m&oacute;dulo pandemia) viene con un aumento del 30% del SAE hist&oacute;rico.</li>
+          <li>Staffolani: en la Secundaria N&deg;68 los chicos no pueden estudiar porque les duele la panza. "Seamos un poco m&aacute;s humanos al tratar estos temas."</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-left:5px solid #27ae60;padding:15px;background:#f0faf4;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#1e8449">&#128994; 6. Consensos transversales de la sesi&oacute;n</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:240px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong>Ataque al Max Nordau y al Jabad Lubavitch</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Los cinco bloques presentaron proyectos propios. Aprobado sin disidencias en la votaci&oacute;n final.</li>
+          <li>Maggio destac&oacute; que el Max Nordau (fundado en 1912) renov&oacute; su compromiso con el humanismo frente al ataque.</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:240px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong>Agresi&oacute;n a la concejal de Villa Gesell</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Aprobado por unanimidad. Bolis (FP): "hoy es Villa Gesell, ma&ntilde;ana puede ser La Plata o cualquier municipio."</li>
+          <li>El &uacute;nico punto donde todos los bloques coincidieron sin ninguna discrepancia discursiva.</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:240px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong>Aumento de tarifa de taxis</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Aprobado sin disidencias despu&eacute;s de m&aacute;s de un a&ntilde;o de demora en el tratamiento en comisi&oacute;n.</li>
+          <li>Morzone lo celebr&oacute; e inst&oacute; a regularizar las plataformas de transporte para dar un marco jur&iacute;dico claro.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+<!-- SECCIÓN: CÓMO SE HIZO + DISCLAIMER -->
+<div style="background:var(--negro);padding:5rem 2.5rem;">
+  <div style="max-width:800px;margin:0 auto;">
+
+    <!-- CÓMO SE HIZO -->
+    <div style="margin-bottom:4rem;">
+      <div style="font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acento);margin-bottom:2rem;display:flex;align-items:center;gap:.75rem;">
+        <span style="display:block;width:2rem;height:1px;background:var(--acento);flex-shrink:0"></span>
+        Cómo se hizo este informe
+      </div>
+
+      <p style="font-family:'Fraunces',serif;font-size:clamp(1.1rem,2vw,1.4rem);font-weight:300;font-style:italic;line-height:1.6;color:rgba(245,242,235,.85);margin-bottom:2rem;">
+        Cada sesión del Concejo Deliberante es pública. El desafío es convertirla en información útil.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);margin-bottom:1.2rem;">
+        Las sesiones del HCD de La Plata se transmiten en vivo y quedan grabadas en YouTube. Son la forma más directa de acceso a la deliberación legislativa municipal — pero también son extensas, técnicas y difíciles de seguir para quien no tiene horas disponibles ni formación específica en derecho o política local.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);margin-bottom:1.2rem;">
+        En Capital Data procesamos esas sesiones con <strong style="color:rgba(245,242,235,.6);">modelos de lenguaje de inteligencia artificial</strong> para extraer lo sustancial: quién habló, sobre qué, con qué posición, y qué se votó. El material fuente son las actas y desgrabaciones oficiales, complementadas con el video de la sesión. A partir de eso, construimos el informe que ven acá: concejal por concejal, tema por tema, bloque por bloque.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);margin-bottom:1.2rem;">
+        El objetivo no es reemplazar el seguimiento directo de la sesión — es hacerlo posible para quienes no pueden dedicarle cinco horas. Una ciudad que delibera en público merece que esa deliberación llegue a más personas.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);">
+        La información pública existe. Nosotros la hacemos legible.
+      </p>
+    </div>
+
+    <!-- SEPARADOR -->
+    <div style="height:1px;background:rgba(245,242,235,.08);margin-bottom:4rem;"></div>
+
+    <!-- DISCLAIMER -->
+    <div>
+      <div style="font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,242,235,.3);margin-bottom:2rem;display:flex;align-items:center;gap:.75rem;">
+        <span style="display:block;width:2rem;height:1px;background:rgba(245,242,235,.2);flex-shrink:0"></span>
+        Aviso importante
+      </div>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);margin-bottom:1rem;">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">Capital Data no es un medio de comunicación ni un partido político.</strong> Somos un equipo independiente que usa inteligencia artificial para analizar información pública municipal. No recibimos financiamiento del Estado ni de ninguna fuerza política. Nuestro único interés es que los datos del gobierno local sean accesibles para todos.
+      </p>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);margin-bottom:1rem;">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">Este análisis puede contener errores.</strong> Los procesos de extracción y síntesis automatizada tienen limitaciones. Las posiciones atribuidas a cada concejal reflejan nuestra interpretación del material disponible y pueden no capturar matices o contextos relevantes. Si encontrás una inconsistencia, escribinos: la corregimos y la publicamos.
+      </p>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);margin-bottom:1rem;">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">Todo el material es público.</strong> Las sesiones del Concejo Deliberante están disponibles para cualquier persona. Cualquiera puede acceder a ellas, verificar nuestros análisis y llegar a sus propias conclusiones. Eso es exactamente lo que queremos.
+      </p>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">El objetivo no es el análisis en sí.</strong> Es demostrar que una ciudad mejor gobernada empieza por una ciudad mejor comprendida — y que comprender ya no requiere un equipo de expertos ni un presupuesto de investigación. Requiere voluntad, herramientas abiertas y la convicción de que la información pública le pertenece a la gente.
+      </p>
+    </div>
+
+  </div>
+</div>
+<footer class="informe-footer">
+  <div class="informe-footer-logo" style="display:flex;align-items:center;gap:.5rem"><span style="display:inline-flex;align-items:center;width:20px;height:20px;flex-shrink:0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 48 48" role="img">
+<title>Capital Data</title>
+<!-- centro: 24,24 -->
+<!-- 8 nodos perimetrales en forma cuadrada -->
+<!-- esquinas: 6,6 | 42,6 | 42,42 | 6,42 -->
+<!-- medios: 24,5 | 43,24 | 24,43 | 5,24 -->
+<!-- 4 nodos interiores anillo: 13,13 | 35,13 | 35,35 | 13,35 -->
+
+<!-- Centro → perimetrales -->
+<line x1="24" y1="24" x2="6"  y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="5"  stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="43" y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="43" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="6"  y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="5"  y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+
+<!-- Centro → interiores -->
+<path d="M24,24 Q18,18 13,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,18 35,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,30 35,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q18,30 13,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+
+<!-- Borde perimetral cuadrado -->
+<path d="M6,6   Q15,5  24,5"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M24,5  Q33,5  42,6"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M42,6  Q43,15 43,24" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M43,24 Q43,33 42,42" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M42,42 Q33,43 24,43" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M24,43 Q15,43 6,42"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M6,42  Q5,33  5,24"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M5,24  Q5,15  6,6"   stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+
+<!-- Conexiones interiores entre sí -->
+<path d="M13,13 Q24,12 35,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.20"/>
+<path d="M35,13 Q36,24 35,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.20"/>
+<path d="M35,35 Q24,36 13,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.20"/>
+<path d="M13,35 Q12,24 13,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.20"/>
+
+<!-- Cruzadas interiores → perimetrales -->
+<path d="M13,13 Q9,9   6,6"   stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q38,9  42,6"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,35 Q38,38 42,42" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,35 Q9,38  6,42"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,13 Q9,18  5,24"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q39,18 43,24" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+
+<!-- Nodos perimetrales -->
+<circle cx="6"  cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="5"  r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="43" cy="24" r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="43" r="1.8" fill="#1a3fff"/>
+<circle cx="6"  cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="5"  cy="24" r="1.8" fill="#1a3fff"/>
+
+<!-- Nodos interiores anillo -->
+<circle cx="13" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="35" r="1"   fill="#c8ff00"/>
+<circle cx="13" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="35" r="1"   fill="#c8ff00"/>
+
+<!-- Nodo central -->
+<circle cx="24" cy="24" r="7"   fill="#0a0a0a" stroke="#c8ff00" stroke-width="1.5"/>
+<circle cx="24" cy="24" r="3.5" fill="#1a3fff"/>
+<circle cx="24" cy="24" r="1.5" fill="#c8ff00"/>
+</svg></span>Capital <span>Data</span></div>
+  <div class="informe-footer-info">
+    La Plata &middot; Capital de la Provincia de Buenos Aires<br>
+    Pol&iacute;ticas p&uacute;blicas e inteligencia artificial<br>
+    @capitaldata
+  </div>
+</footer>
+</body>
+</html>

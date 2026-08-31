@@ -1,0 +1,613 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sesión N°3 · 2026 — Capital Data</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{--azul:#1a3fff;--negro:#0a0a0a;--crema:#f5f2eb;--gris-claro:#f0ede6;--gris-borde:#e2ddd4;--texto:#1a1a1a;--texto-suave:#6b6b6b;--acento:#c8ff00}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:"Instrument Sans",sans-serif;background:var(--crema);color:var(--texto);max-width:1200px;margin:0 auto;padding:0}
+.informe-nav{background:var(--negro);padding:1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.informe-nav-logo{font-family:"DM Mono",monospace;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--acento);text-decoration:none}
+.informe-nav-back{font-family:"DM Mono",monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,242,235,.4);text-decoration:none;display:flex;align-items:center;gap:.5rem;transition:color .2s}
+.informe-nav-back:hover{color:var(--crema)}
+.informe-header{background:var(--negro);padding:5rem 2.5rem 4rem;position:relative;overflow:hidden}
+.informe-header::after{content:"";position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--azul),transparent)}
+.informe-eyebrow{font-family:"DM Mono",monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acento);margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem}
+.informe-eyebrow::before{content:"";display:block;width:2rem;height:1px;background:var(--acento)}
+.informe-header h1{font-family:"Fraunces",serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:300;color:var(--crema);line-height:1.1;letter-spacing:-.02em;margin-bottom:2rem;max-width:800px}
+.informe-meta-bar{display:flex;gap:2rem;flex-wrap:wrap;align-items:center}
+.informe-meta-item{font-family:"DM Mono",monospace;font-size:.65rem;letter-spacing:.1em;color:rgba(245,242,235,.4);display:flex;align-items:center;gap:.5rem}
+.informe-meta-item a{color:var(--azul);text-decoration:none}.informe-meta-item a:hover{color:var(--acento)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--gris-borde);border-bottom:1px solid var(--gris-borde)}
+.stat{background:white;padding:2rem 1.5rem;text-align:center}
+.stat .n{font-family:"Fraunces",serif;font-size:2.8rem;font-weight:300;color:var(--azul);line-height:1;margin-bottom:.4rem}
+.stat .label{font-family:"DM Mono",monospace;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--texto-suave)}
+.res{background:white;border-left:3px solid var(--azul);padding:2rem 2.5rem;font-family:"Fraunces",serif;font-size:1.05rem;font-weight:300;font-style:italic;line-height:1.7;color:var(--texto)}
+.contenido{padding:3rem 2.5rem}
+h2{font-family:"Fraunces",serif;font-size:1.8rem;font-weight:300;color:var(--negro);margin-top:3.5rem;margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:1px solid var(--gris-borde);display:flex;align-items:center;gap:.6rem}
+h2:first-child{margin-top:0}
+h3{font-family:"Fraunces",serif;font-size:1.2rem;font-weight:400;margin-bottom:.75rem;color:var(--negro)}
+.card{background:white;border:1px solid var(--gris-borde);padding:2rem;margin-bottom:1.5rem}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+th{background:var(--negro);color:var(--crema);padding:.75rem 1rem;text-align:left;font-family:"DM Mono",monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;font-weight:400}
+td{padding:.85rem 1rem;border-bottom:1px solid var(--gris-borde);vertical-align:top;line-height:1.5}
+tr:last-child td{border-bottom:none}tr:hover td{background:var(--gris-claro)}
+.informe-footer{background:var(--negro);padding:2.5rem;display:flex;justify-content:space-between;align-items:center;margin-top:0}
+.informe-footer-logo{font-family:"Fraunces",serif;font-size:1.2rem;font-weight:300;color:var(--crema)}
+.informe-footer-logo span{color:var(--acento);font-style:italic}
+.informe-footer-info{font-family:"DM Mono",monospace;font-size:.58rem;letter-spacing:.1em;color:rgba(245,242,235,.3);text-align:right;line-height:1.8}
+@media(max-width:768px){.informe-header{padding:3.5rem 1.5rem 3rem}.contenido{padding:2rem 1.5rem}.res{padding:1.5rem}.informe-nav{padding:1rem 1.5rem}.informe-footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}.informe-footer-info{text-align:center}}
+</style></head><body>
+
+<nav class="informe-nav">
+  <a href="index.html" class="informe-nav-logo" style="display:flex;align-items:center;gap:.6rem"><span style="display:inline-flex;align-items:center;width:28px;height:28px;flex-shrink:0"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 48 48" role="img">
+<title>Capital Data</title>
+<!-- centro: 24,24 -->
+<!-- 8 nodos perimetrales en forma cuadrada -->
+<!-- esquinas: 6,6 | 42,6 | 42,42 | 6,42 -->
+<!-- medios: 24,5 | 43,24 | 24,43 | 5,24 -->
+<!-- 4 nodos interiores anillo: 13,13 | 35,13 | 35,35 | 13,35 -->
+
+<!-- Centro → perimetrales -->
+<line x1="24" y1="24" x2="6"  y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="5"  stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="43" y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="43" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="6"  y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="5"  y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+
+<!-- Centro → interiores -->
+<path d="M24,24 Q18,18 13,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,18 35,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,30 35,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q18,30 13,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+
+<!-- Borde perimetral cuadrado -->
+<path d="M6,6   Q15,5  24,5"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M24,5  Q33,5  42,6"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M42,6  Q43,15 43,24" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M43,24 Q43,33 42,42" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M42,42 Q33,43 24,43" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M24,43 Q15,43 6,42"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M6,42  Q5,33  5,24"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+<path d="M5,24  Q5,15  6,6"   stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.28"/>
+
+<!-- Conexiones interiores entre sí -->
+<path d="M13,13 Q24,12 35,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+<path d="M35,13 Q36,24 35,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+<path d="M35,35 Q24,36 13,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+<path d="M13,35 Q12,24 13,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.28"/>
+
+<!-- Cruzadas interiores → perimetrales -->
+<path d="M13,13 Q9,9   6,6"   stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q38,9  42,6"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,35 Q38,38 42,42" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,35 Q9,38  6,42"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,13 Q9,18  5,24"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q39,18 43,24" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+
+<!-- Nodos perimetrales -->
+<circle cx="6"  cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="5"  r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="43" cy="24" r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="43" r="1.8" fill="#1a3fff"/>
+<circle cx="6"  cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="5"  cy="24" r="1.8" fill="#1a3fff"/>
+
+<!-- Nodos interiores anillo -->
+<circle cx="13" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="35" r="1"   fill="#c8ff00"/>
+<circle cx="13" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="35" r="1"   fill="#c8ff00"/>
+
+<!-- Nodo central -->
+<circle cx="24" cy="24" r="7"   fill="#0a0a0a" stroke="#c8ff00" stroke-width="1.5"/>
+<circle cx="24" cy="24" r="3.5" fill="#1a3fff"/>
+<circle cx="24" cy="24" r="1.5" fill="#c8ff00"/>
+</svg></span>Capital Data</a>
+  <a href="sesiones.html" class="informe-nav-back">&larr; Sesiones</a>
+</nav>
+
+<div class="informe-header">
+  <div class="informe-eyebrow">Informe N&deg;3 &middot; 2026</div>
+  <h1>Sesi&oacute;n Ordinaria N&deg;3<br>83&deg; Per&iacute;odo Legislativo</h1>
+  <div class="informe-meta-bar">
+    <span class="informe-meta-item">&#128197; 9 de abril de 2026</span>
+    <span class="informe-meta-item">&#128336; Cierre: 17:42 hs</span>
+    <span class="informe-meta-item">&#127909; <a href="https://www.youtube.com/watch?v=ZvDADdmDiF8" target="_blank">Ver sesi&oacute;n en YouTube</a></span>
+  </div>
+</div>
+
+<div class="contenido">
+
+<div class="stats">
+<div class="stat"><div class="n">23</div><div class="label">Concejales</div></div>
+<div class="stat"><div class="n">272</div><div class="label">Puntos</div></div>
+<div class="stat"><div class="n">8+</div><div class="label">Votaciones</div></div>
+<div class="stat"><div class="n">80+</div><div class="label">Intervenciones</div></div>
+</div>
+
+<div class="res">Sesi&oacute;n extensa marcada por cinco grandes ejes de debate: la adjudicaci&oacute;n del transporte p&uacute;blico a las mismas empresas que bajaron frecuencias, el enrejado de la Plaza Islas Malvinas (con la tribuna llena), la protecci&oacute;n del patrimonio hist&oacute;rico-cultural y las baldosas de la Plaza San Mart&iacute;n, la cautelar judicial que suspende art&iacute;culos de la reforma laboral, y el impacto del ajuste nacional en los programas sociales (Potenciar Trabajo / Volver al Trabajo). Tambi&eacute;n se trat&oacute; el pesar por las v&iacute;ctimas de la inundaci&oacute;n del 2 de abril de 2013, el reconocimiento a excombatientes de Malvinas, y la denuncia sobre el servicio de recolecci&oacute;n de residuos de la empresa ESUR. Se aprobaron m&aacute;s de 30 expedientes directamente en el recinto.</div>
+
+Concejales</div>
+<div class="stat"><div class="n">272</div>Puntos</div>
+<div class="stat"><div class="n">8+</div>Votaciones</div>
+<div class="stat"><div class="n">80+</div>Intervenciones</div>
+</div>
+
+
+<h2>👥 Concejales</h2><div class="card"><table>
+<tr><th>Nombre</th><th>Cargo</th><th>Bloque</th><th>Intervenciones</th><th>Posición</th><th>Temas</th><th>Resumen</th></tr>
+
+<tr><td><strong>Marcelo Gustavo GALLAND</strong></td><td>Presidente</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">—</td><td><span style="background:#7f8c8d;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">presidencia</span></td><td>Conducción de sesión</td><td>Condujo la sesión, ordenó el uso de la palabra e invitó a María Florencia De Feo a arriar el pabellón nacional al cierre.</td></tr>
+
+<tr><td><strong>Juan Manuel GRANILLO FERNÁNDEZ</strong></td><td>Vicepresidente 1°</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~8</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gestión</span></td><td>Transporte público, obra pública y plazas, programas sociales, deuda provincia-nación</td><td>Defendió el proceso de adjudicación del transporte señalando las responsabilidades compartidas entre nación y provincia. Destacó la obra pública municipal en plazas y patrimonio como uno de los logros más visibles de la gestión. Respondió sobre la deuda de coparticipación provincial. Intervino en los debates sobre programas sociales nacionales y contexto económico.</td></tr>
+
+<tr><td><strong>Juan Pablo ALLAN</strong></td><td>Vicepresidente 2°</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~4</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposición</span></td><td>Transporte público (adjudicación), programas sociales nacionales, reducción de la pobreza</td><td>Intervino sobre la adjudicación del transporte destacando la necesidad de control del proceso licitatorio. Defendió la política nacional sobre programas sociales argumentando que el Potenciar Trabajo generaba dependencia, y citó datos de reducción de la pobreza como logro del gobierno nacional. Cuestionó la gestión del kirchnerismo en materia social.</td></tr>
+
+<tr><td><strong>Gastón Manuel ÁLVAREZ</strong></td><td>Concejal</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~3</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposición</span></td><td>Olimpíadas Matemáticas Argentinas, reforma laboral, transporte</td><td>Fundamentó el interés municipal por las Olimpíadas Matemáticas Argentinas destacando su valor académico apartidario y solicitó que el municipio facilite instalaciones para el torneo regional. Respondió sobre la reforma laboral argumentando que la informalidad laboral es responsabilidad de la dirigencia sindical, no del gobierno nacional.</td></tr>
+
+<tr><td><strong>María Florencia BARCIA</strong></td><td>Concejala</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">0</td><td><span style="background:#95a5a6;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">sin intervenciones</span></td><td>Arrió el pabellón nacional al cierre de la sesión</td><td>Sin intervenciones orales registradas. Fue invitada por el presidente a arriar el pabellón al cierre.</td></tr>
+
+<tr><td><strong>Guillermo Arcadio BARDÓN</strong></td><td>Concejal</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~5</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposición</span></td><td>Rendición de cuentas / coparticipación, transporte público, enrejado Plaza Malvinas, ESUR</td><td>Aclaró que el problema de coparticipación con la provincia es estructural e histórico, no atribuible al gobierno de Milei. Intervino en el debate del transporte con observaciones técnicas. Presentó el pedido de informes sobre el recorte al servicio de ESUR, cuestionando si el ahorro se trasladaría a los vecinos o a las cooperativas. Apoyó el enrejado de la Plaza Malvinas.</td></tr>
+
+<tr><td><strong>Josefina María BOLIS</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~4</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gestión</span></td><td>Patrimonio histórico (Pt.33), edificio Periodismo/Néstor Kirchner, soberanía y geopolítica, programas sociales</td><td>Defendió la decisión de la Facultad de Periodismo de la UNLP de nombrar su edificio "Néstor Kirchner" como ejercicio legítimo de la autonomía universitaria. Intervino en el debate de patrimonio histórico aclarando que los dos espacios mencionados (sala Pino Solanas y hall Moneo Sanz) son arquitectónicamente distintos, por lo que no existe contradicción legal. Ligó el debate a cuestiones de soberanía, la Ley de Glaciares y la política exterior nacional.</td></tr>
+
+<tr><td><strong>María Florencia DE FEO</strong></td><td>Concejala</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~1</td><td><span style="background:#95a5a6;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">sin intervenciones orales</span></td><td>Arrió el pabellón nacional</td><td>Fue invitada por el presidente a arriar el pabellón al cierre. Sin intervenciones orales registradas en los debates.</td></tr>
+
+<tr><td><strong>Gisella Yiuliana DI DIO</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~2</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gestión</span></td><td>Programas sociales (Potenciar Trabajo / Volver al Trabajo), inundación 2/4/2013</td><td>Intervino sobre la discontinuación de los programas Volver al Trabajo argumentando que generaron dependencia y clientelismo político, contrastando con la inserción laboral que ofrece el esquema actual. Dio su pesar por las víctimas de la inundación del 2 de abril de 2013, agradeciendo el acompañamiento de todos los bloques.</td></tr>
+
+<tr><td><strong>Pablo Emanuel ELIAS</strong></td><td>Concejal</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~5</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gestión</span></td><td>Programas sociales, ajuste nacional, obra pública municipal, edificio Periodismo</td><td>Intervino sobre el impacto del ajuste nacional en los sectores populares, señalando que en dos años se generó un daño excesivo. Defendió la obra pública municipal y cuestionó que las críticas a la Secretaría de Cultura vengan de quienes gobernaron la ciudad ocho años sin invertir en patrimonio. También respondió sobre el edificio de Periodismo.</td></tr>
+
+<tr><td><strong>Darío GANDUGLIA</strong></td><td>Concejal</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Propuesta Vecinal (PROve)</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">0</td><td><span style="background:#95a5a6;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">sin intervenciones</span></td><td></td><td>Sin intervenciones registradas en esta sesión.</td></tr>
+
+<tr><td><strong>Melany HOROMADIUK</strong></td><td>Concejala</td><td><span style="background:#16a085;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">ASAP Nueva Generación</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~3</td><td><span style="background:#3498db;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">moderado</span></td><td>Transporte público (adjudicación), programas sociales, obra pública</td><td>Aclaró la distinción técnica entre el pliego de transporte (debatido el año anterior) y la licitación actual que debe ratificarse o rechazarse, advirtiendo sobre los límites del rol del Concejo en esa instancia. Intervino brevemente sobre obra pública y programas sociales.</td></tr>
+
+<tr><td><strong>Micaela MAGGIO</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~1</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gestión</span></td><td>Programas sociales</td><td>Intervino brevemente sobre los programas sociales nacionales y el impacto del ajuste en beneficiarios de La Plata.</td></tr>
+
+<tr><td><strong>Sol María MALUENDEZ</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~3</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gestión</span></td><td>Olimpíadas Matemáticas (articulación con ejecutivo), inundación 2/4/2013, localidad Villaliza</td><td>Informó que la Dirección de Juventud ya venía articulando con las Olimpíadas Matemáticas para ceder espacios municipales, anunciando la continuidad del diálogo. Intervino sobre la inundación del 2 de abril de 2013 y sobre obras para la localidad de Villaliza.</td></tr>
+
+<tr><td><strong>Sabrina Luz MORALES</strong></td><td>Concejala</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~1</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposición</span></td><td>Enrejado Plaza Islas Malvinas</td><td>Intervino en el debate del proyecto de enrejado de la Plaza Islas Malvinas, apoyando la propuesta de Morzone sobre orden en el espacio público.</td></tr>
+
+<tr><td><strong>Nicolás Luis MORZONE</strong></td><td>Concejal</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">PRO</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~12</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposición</span></td><td>Transporte público (adjudicación y extorsión empresarial), patrimonio histórico (Pt.33 y baldosas), enrejado Plaza Islas Malvinas, edificio Periodismo/Kirchner, programas sociales, reforma laboral, ESUR</td><td>El concejal más activo de la sesión. Abrió el debate sobre transporte público denunciando que el municipio pone en estado parlamentario una adjudicación millonaria a las mismas empresas que bajaron frecuencias. Presentó el proyecto de protección del patrimonio histórico (Pt.33) citando urbanistas como Aldo Rossi, Kevin Lynch y David Harvey. Presentó el enrejado de la Plaza Islas Malvinas con la tribuna llena, describiendo la plaza como un espacio "secuestrado por fisuras y delincuentes". Cuestionó el renombramiento del edificio de Periodismo como "Néstor Kirchner" acusando a La Cámpora de "colonizar el espacio público". En el debate de programas sociales intervino con reflexiones sobre urbanismo y estigmatización territorial. Sus intervenciones fueron las más largas y las que generaron más réplicas.</td></tr>
+
+<tr><td><strong>María Ona PARRILLI</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~5</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gestión</span></td><td>Cautelar reforma laboral, programas sociales, patrimonio (exabrupto), malvinización de plataformas digitales</td><td>Presentó el beneplácito por la cautelar judicial que suspende más de 80 artículos de la reforma laboral, impulsada por la CGT. Intervino en el debate de programas sociales señalando la "precarización laboral" del gobierno nacional y el crecimiento de choferes de Uber. En el debate de patrimonio admitió un "exabrupto" al irritarse ante las críticas de Morzone, recordando el estado del Palacio Municipal durante la gestión anterior. También presentó el proyecto de malvinización de plataformas digitales municipales.</td></tr>
+
+<tr><td><strong>Nadia Soledad PEDERNERA</strong></td><td>Concejala</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">0</td><td><span style="background:#95a5a6;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">sin intervenciones</span></td><td></td><td>Sin intervenciones registradas.</td></tr>
+
+<tr><td><strong>Pablo Darío POGGIO</strong></td><td>Concejal</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~2</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gestión</span></td><td>Educación y concientización en seguridad vial (Pt.20), excombatientes Malvinas</td><td>Presentó el proyecto de programa de educación y concientización en seguridad vial. También intervino sobre el reconocimiento a excombatientes veteranos y caídos en la guerra de Malvinas.</td></tr>
+
+<tr><td><strong>Raúl Omar RECAVARREN</strong></td><td>Concejal</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~2</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gestión</span></td><td>Ciclismo/Asociación Ciclista Regional La Plata, inundación 2/4/2013</td><td>Agradeció el acompañamiento de todos los bloques al interés municipal por la Asociación Ciclista Regional La Plata. También intervino sobre la inundación del 2 de abril de 2013, destacando el trabajo de las asociaciones civiles y los bomberos voluntarios.</td></tr>
+
+<tr><td><strong>Sergio Daniel RESA</strong></td><td>Concejal</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~10</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gestión</span></td><td>Transporte público (estructura de subsidios), patrimonio histórico (Pt.33), obra pública/plazas, ESUR/residuos, coparticipación provincial</td><td>Segundo más activo de la sesión. En transporte, desmenuzó la estructura del subsidio (nación, provincia, pasajero) y aclaró que no son "las empresas de La Plata" las que toman la decisión sino las cámaras empresariales nacionales. Respondió extensamente en el debate de patrimonio histórico defendiendo los estudios de evaluación integral de las plazas y el proceso participativo del POT. También intervino sobre ESUR, coparticipación y la deuda provincial con el municipio.</td></tr>
+
+<tr><td><strong>Romina del Carmen SANTANA</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~4</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gestión</span></td><td>Cautelar reforma laboral, "uberización" del trabajo, malvinización plataformas digitales, programas sociales</td><td>Presentó el beneplácito por la cautelar a la reforma laboral junto a Parrilli, describiendo la ley como "esclavista" por permitir jornadas laborales variables según el empleador. Cuestionó la "uberización" del trabajo como modelo de precarización. Presentó el proyecto de malvinización de plataformas digitales del municipio (logo con las islas en todas las redes municipales).</td></tr>
+
+<tr><td><strong>Gustavo Alberto STAFFOLANI</strong></td><td>Concejal</td><td><span style="background:#e74c3c;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">UCR</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~4</td><td><span style="background:#3498db;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">moderado</span></td><td>Transporte público (contexto de subsidios), enrejado Plaza Malvinas (aclaración histórica), seguridad vial</td><td>En transporte, señaló que la quita de subsidios es un contexto estructural que hay que considerar. En el debate del enrejado, aportó un dato histórico crucial: el predio tuvo cerco perimetral originalmente porque allí funcionaba el Regimiento 7 de Infantería, no porque la plaza fuera cerrada por naturaleza (fue inaugurada como plaza abierta en 1993). Intervino también sobre seguridad vial.</td></tr>
+
+<tr><td><strong>Iván Gabriel ZANETTO</strong></td><td>Concejal</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">PRO</span></td><td style="text-align:center;font-size:1.3em;font-weight:bold">~3</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposición</span></td><td>Seguridad vial, accidentes fatales, basural a cielo abierto ESUR</td><td>Intervino sobre la alta siniestralidad vial en La Plata, señalando la falta de acciones municipales concretas. También denunció un basural a cielo abierto en 143 y 526, en la rambla, presuntamente originado por la propia empresa ESUR al tirar residuos desde sus camiones. Cuestionó que el municipio gaste casi $6.700 millones mensuales en el servicio sin resultados visibles.</td></tr>
+
+</table></div>
+
+<h2>📋 Temas tratados</h2><div class="card"><table>
+<tr><th>#</th><th>Título</th><th>Tipo</th><th>Expediente</th><th>Descripción</th><th>Concejales que hablaron</th><th>Resultado</th></tr>
+
+<tr><td style="text-align:center">1</td><td><strong>Transacción extrajudicial — Fernández Muncheler Analía</strong></td><td>Ordenanza</td><td style="font-family:monospace">—</td><td>Autoriza al Ejecutivo a realizar una transacción extrajudicial</td><td>—</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">2</td><td><strong>Adjudicación de la Concesión del Servicio de Transporte Público de pasajeros en el Partido de La Plata</strong></td><td>Ordenanza</td><td style="font-family:monospace">—</td><td>Mensaje del Ejecutivo adjudicando el servicio de transporte. Las mismas empresas que bajaron frecuencias recibirían la concesión. Debate extenso sobre subsidios, responsabilidades y control municipal</td><td>MORZONE, RESA, STAFFOLANI, HOROMADIUK, BARDÓN, ALLAN, GRANILLO FERNÁNDEZ</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Transporte y Tránsito)</span></td></tr>
+
+<tr><td style="text-align:center">3</td><td><strong>Rendición de cuentas ejercicio 2025</strong></td><td>Mensaje Ejecutivo</td><td style="font-family:monospace">—</td><td>Elevación de la rendición de cuentas del año 2025</td><td>BARDÓN</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Hacienda)</span></td></tr>
+
+<tr><td style="text-align:center">4</td><td><strong>Primer Informe de Gestión 2025 — Defensoría Ciudadana</strong></td><td>Comunicación</td><td style="font-family:monospace">—</td><td>Primer informe de gestión 2025 de la Defensoría Ciudadana</td><td>—</td><td><span style="background:#95a5a6;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">Pasa al archivo</span></td></tr>
+
+<tr><td style="text-align:center">17</td><td><strong>Centro de Ayuda al Taxista — habilitación de unidades híbridas</strong></td><td>Asunto particular</td><td style="font-family:monospace">—</td><td>El Centro de Ayuda al Taxista presenta solicitud para habilitar unidades de origen híbrido</td><td>—</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Transporte)</span></td></tr>
+
+<tr><td style="text-align:center">20</td><td><strong>Programa de Educación y Concientización en Seguridad Vial</strong></td><td>Proyecto de Ordenanza</td><td style="font-family:monospace">—</td><td>Fuerza Patria (Poggio). Crea un programa municipal de educación vial para reducir la siniestralidad en La Plata</td><td>POGGIO</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Transporte y Tránsito)</span></td></tr>
+
+<tr><td style="text-align:center">21</td><td><strong>Obligatoriedad de indicador gráfico de Malvinas en plataformas digitales municipales</strong></td><td>Proyecto de Ordenanza</td><td style="font-family:monospace">—</td><td>Fuerza Patria (Santana). Establece que todas las plataformas digitales del municipio lleven un logo de las Islas Malvinas con la fecha del 2 de abril y los nombres de caídos y veteranos</td><td>SANTANA</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión</span></td></tr>
+
+<tr><td style="text-align:center">26</td><td><strong>Modificación ordenanza 11.424 — Sistema de seguridad (Malvinas)</strong></td><td>Proyecto de Ordenanza</td><td style="font-family:monospace">—</td><td>Derogación y modificación de artículos vinculados a la ordenanza 11.424 de seguridad relacionada con Malvinas</td><td>—</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Seguridad y Legislación)</span></td></tr>
+
+<tr><td style="text-align:center">27</td><td><strong>Participación igualitaria de todos los centros y agrupaciones en eventos conmemorativos oficiales</strong></td><td>Proyecto de Ordenanza</td><td style="font-family:monospace">—</td><td>Garantiza la participación activa e igualitaria de todos los centros y agrupaciones de veteranos en los actos oficiales</td><td>—</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Legislación)</span></td></tr>
+
+<tr><td style="text-align:center">29</td><td><strong>Capacitación permanente en derechos y buen trato a niños, niñas y adolescentes</strong></td><td>Proyecto de Ordenanza</td><td style="font-family:monospace">—</td><td>Establece la obligatoriedad de capacitación permanente en materia de derechos y buen trato de NNyA para funcionarios y empleados municipales</td><td>—</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión</span></td></tr>
+
+<tr><td style="text-align:center">32</td><td><strong>Incorporación de faltas contravencionales de funcionarios públicos al Código de Convivencia (Ord. 12.170)</strong></td><td>Proyecto de Ordenanza</td><td style="font-family:monospace">—</td><td>PRO (Zanetto). Incorpora al Código de Convivencia el libro segundo sobre faltas contravencionales de funcionarios públicos municipales</td><td>ZANETTO</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Legislación)</span></td></tr>
+
+<tr><td style="text-align:center">33</td><td><strong>Modificación ordenanza 12.137 — Protección del patrimonio histórico-cultural</strong></td><td>Proyecto de Ordenanza</td><td style="font-family:monospace">—</td><td>PRO (Morzone). Incorpora artículos a la ordenanza de patrimonio histórico-cultural: transparencia, concurso de proyectos para intervenciones en espacio público, rol del Concejo en decisiones sobre patrimonio monumental, y denuncia la remoción de baldosas fundacionales de la Plaza San Martín sin aprobación del cuerpo</td><td>MORZONE, RESA, BOLIS, PARRILLI, GRANILLO FERNÁNDEZ</td><td><span style="background:#3498db;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">En debate — A comisión (Planeamiento)</span></td></tr>
+
+<tr><td style="text-align:center">34</td><td><strong>Cierre perimetral mediante enrejado de la Plaza Islas Malvinas</strong></td><td>Proyecto de Ordenanza</td><td style="font-family:monospace">—</td><td>PRO (Morzone). Establece el cierre perimetral con reja de la Plaza Islas Malvinas y acceso restringido nocturno para recuperar el espacio del desorden y el tráfico de drogas. Staffolani aclaró que el predio tuvo cerco originalmente por el Regimiento 7, no por ser una plaza cerrada desde su origen</td><td>MORZONE, STAFFOLANI, MORALES</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Planeamiento y Hacienda)</span></td></tr>
+
+<tr><td style="text-align:center">35–36</td><td><strong>Estacionamiento preferencial para trabajadores y residentes del área de estacionamiento medido</strong></td><td>Proyectos de Ordenanza</td><td style="font-family:monospace">—</td><td>UCR (Staffolani). Dos proyectos complementarios: estacionamiento preferencial para trabajadores que desarrollan actividad en el área del medido, y estacionamiento preferencial para residentes alcanzados por el sistema</td><td>—</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Transporte y Hacienda)</span></td></tr>
+
+<tr><td style="text-align:center">37</td><td><strong>Sistema inteligente de seguridad urbana colaborativa</strong></td><td>Proyecto de Ordenanza</td><td style="font-family:monospace">—</td><td>Crea el sistema inteligente de seguridad urbana colaborativa en el partido de La Plata</td><td>—</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión</span></td></tr>
+
+<tr><td style="text-align:center">38</td><td><strong>Declaración de La Plata como Ciudad Universitaria</strong></td><td>Proyecto de Ordenanza</td><td style="font-family:monospace">—</td><td>ASAP (Horomadiuk). Declara al Partido de La Plata como Ciudad Universitaria. Incluye sello "Comercios amigos de estudiantes" y políticas de articulación entre el municipio, las universidades y el comercio local</td><td>HOROMADIUK, MALUENDEZ</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Desarrollo Local y Hacienda)</span></td></tr>
+
+<tr><td style="text-align:center">39</td><td><strong>Interés municipal — Obra de teatro "Muerte y Resurrección de Jesús"</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">—</td><td>Declara de interés municipal la obra de teatro</td><td>—</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Cultura)</span></td></tr>
+
+<tr><td style="text-align:center">40</td><td><strong>Personalidad destacada — Boxeador platense Luis Patry</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">—</td><td>Declara personalidad destacada en el ámbito del deporte al boxeador platense</td><td>—</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Cultura)</span></td></tr>
+
+<tr><td style="text-align:center">41</td><td><strong>Visitante ilustre — Embajador de la Confederación Suiza Andrea Semadeni</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">—</td><td>Declara visitante ilustre al embajador suizo</td><td>—</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">42</td><td><strong>Preocupación por la limitación de los programas "Volver al Trabajo" y "Acompañamiento Social / Potenciar Trabajo"</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">—</td><td>Fuerza Patria (Di Dio / Parrilli). Manifiesta preocupación por la decisión del Gobierno Nacional de limitar a partir de abril 2026 los programas sociales. Debate extenso entre FP (impacto en los sectores vulnerables) y LLA/PRO (el Potenciar Trabajo generaba dependencia y clientelismo)</td><td>DI DIO, PARRILLI, ELIAS, BOLIS, ALLAN, MORZONE, SANTANA, MAGGIO</td><td><span style="background:#3498db;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">En debate — A comisión (Legislación)</span></td></tr>
+
+<tr><td style="text-align:center">43</td><td><strong>Interés municipal — Evento ciclístico 80° aniversario Asociación Ciclista Regional La Plata</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">—</td><td>Reconoce la carrera ciclística del 29 de marzo que conmemoró los 80 años de la Asociación</td><td>RECAVARREN</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">44</td><td><strong>Preocupación por discontinuación del programa nacional de viviendas sociales</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">—</td><td>Fuerza Patria. Manifiesta preocupación por la decisión del Gobierno Nacional de discontinuar el programa de construcción de viviendas sociales. Tratado conjuntamente con Pt.42</td><td>—</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Legislación)</span></td></tr>
+
+<tr><td style="text-align:center">45</td><td><strong>Pesar por las víctimas fatales de la inundación del 2 de abril de 2013</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">—</td><td>Fuerza Patria (Di Dio). En conmemoración del aniversario de la inundación que causó decenas de víctimas. Aprobado con acompañamiento de todos los bloques</td><td>DI DIO</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">46</td><td><strong>Beneplácito por trayectoria deportiva — Catalina Jauregui</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">—</td><td>Reconoce la trayectoria deportiva de la deportista platense</td><td>—</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">47–48</td><td><strong>Interés municipal — Libro "Nunca digas nunca" / Muestra "Construir memorias activas"</strong></td><td>Proyectos de Decreto</td><td style="font-family:monospace">—</td><td>Fuerza Patria. Declaraciones de interés cultural e institucional</td><td>—</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Cultura)</span></td></tr>
+
+<tr><td style="text-align:center">50</td><td><strong>Beneplácito por revocación de sentencia en caso judicial</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">—</td><td>Manifiesta beneplácito por el fallo de la Cámara que revocó una sentencia de primera instancia</td><td>—</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Legislación)</span></td></tr>
+
+<tr><td style="text-align:center">52</td><td><strong>Beneplácito por cautelar judicial que suspende artículos de la reforma laboral</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">—</td><td>Fuerza Patria (Parrilli / Santana). Expresa beneplácito por la medida cautelar de la justicia que suspende más de 80 artículos de la reforma laboral, impulsada por la CGT. Debate entre FP (reforma laboral inconstitucional y "esclavista") y LLA/PRO (informalidad es responsabilidad histórica del sindicalismo)</td><td>PARRILLI, SANTANA, ÁLVAREZ, MORZONE</td><td><span style="background:#3498db;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">En debate — A comisión (Legislación)</span></td></tr>
+
+<tr><td style="text-align:center">53</td><td><strong>Pesar por el fallecimiento del señor Marcos Norberto Conigliaro</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">—</td><td>Expresa el pesar del cuerpo ante el fallecimiento</td><td>—</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">56 y 64</td><td><strong>Beneplácito por el fallo de la Cámara de Apelaciones de Nueva York — caso YPF/Burford</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">—</td><td>Fuerza Patria (Bolis) + Granillo Fernández + Bardón. La Cámara de Apelaciones de Nueva York revocó la condena contra Argentina en el juicio por la expropiación de YPF impulsada por Burford Capital. FP celebró el fallo como reivindicación de la decisión soberana de Cristina Kirchner. Granillo Fernández, durante su intervención, mostró físicamente la Constitución del 49 diciendo que ese libro "es como un crucifijo para Drácula, para Morzones". Bardón señaló la continuidad del Estado en la defensa jurídica a través de distintos gobiernos</td><td>BOLIS, GRANILLO FERNÁNDEZ, BARDÓN</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobado (a comisión Legislación)</span></td></tr>
+
+<tr><td style="text-align:center">55</td><td><strong>Repudio ante hechos en la Universidad Nacional de Lanús</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">—</td><td>Manifiesta el repudio por hechos acaecidos en la Universidad Nacional de Lanús</td><td>—</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión</span></td></tr>
+
+<tr><td style="text-align:center">57</td><td><strong>Iluminación Palacio Municipal de Rojo — 11 de abril (Día del Veterano de Malvinas)</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">—</td><td>Establece la iluminación roja de la fachada del Palacio Municipal el 11 de abril en conmemoración del Día del Veterano</td><td>—</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión</span></td></tr>
+
+<tr><td style="text-align:center">58</td><td><strong>Beneplácito por resultados de la Encuesta Permanente de Hogares 2025</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">—</td><td>La Libertad Avanza. Expresa beneplácito por los resultados de la EPH 2025 (reducción de pobreza)</td><td>—</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A comisión (Legislación)</span></td></tr>
+
+<tr><td style="text-align:center">59</td><td><strong>Reconocimiento a excombatientes veteranos y caídos en la Guerra de Malvinas — 2 de abril</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">—</td><td>Declara el reconocimiento del cuerpo a los excombatientes, veteranos y caídos en conmemoración del 2 de abril. Aprobado por unanimidad sin debate</td><td>—</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">61</td><td><strong>Interés municipal — Olimpíada Matemática Argentina</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">—</td><td>La Libertad Avanza (Álvarez). Declara de interés municipal las Olimpíadas Matemáticas Argentinas, un evento académico de casi 50 años de historia. Álvarez solicitó que el municipio facilite instalaciones para el torneo regional de septiembre. Maluendez informó que el ejecutivo ya articula con la organización</td><td>ÁLVAREZ, MALUENDEZ</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">64</td><td><strong>Beneplácito por fallo de la Cámara de Apelaciones del 2° circuito</strong></td><td>Proyecto de Decreto</td><td style="font-family:monospace">—</td><td>Expresa beneplácito por el fallo dictado por la Cámara de Apelaciones del segundo circuito</td><td>—</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">✅ Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">Varios (65–140)</td><td><strong>Resoluciones de servicios, seguridad, tránsito, obras y pedidos de informes</strong></td><td>Resoluciones</td><td style="font-family:monospace">—</td><td>Múltiples resoluciones sobre luminarias, bacheos, reparaciones de agua, hechos delictivos, accidentes viales, basurales, informe sobre servicio ESUR (Bardón), informe sobre cumplimiento de la Ordenanza 10.260. Varios aprobados directamente; resto a comisiones</td><td>BARDÓN, ZANETTO</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">Varios ✅ aprobados / Resto a comisión</span></td></tr>
+
+<tr><td style="text-align:center">267–272 (labor)</td><td><strong>Expedientes incorporados en labor legislativa</strong></td><td>Varios</td><td style="font-family:monospace">—</td><td>Pt.267: designación de Gustavo Prinsi como presidente del ente municipal turístico (Comisión de Turismo). Pt.268: interés municipal libro "Son nuestros" (PRO, Comisión Cultura). Pt.269: exhortación al ejecutivo sobre vehículos abandonados (PRO, Seguridad). Pt.270: situación de tránsito en calle 511 Bis (PRO, Transporte). Pt.271: beneplácito por documento del Consejo Federal de Intendentes (Comisión de Hacienda). Pt.272: interés municipal Festival de la Cerveza Capital (FP, aprobado)</td><td>—</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">Pt.272 ✅ aprobado / Resto a comisión</span></td></tr>
+
+</table></div>
+
+<h2>🗳️ Votaciones</h2><div class="card">
+
+<div style="border:1px solid #ddd;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0">#1 — Expedientes del Departamento Ejecutivo (Puntos 1 y siguientes aprobados directamente)</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Aprobados</span></div>
+<div style="margin-top:8px">✅ <b>Sin disidencias</b> &nbsp; ❌ <b>—</b> &nbsp; ⬜ <b>—</b></div>
+<p style="color:#777;font-style:italic">Transacción extrajudicial (Pt.1), y demás mensajes del Ejecutivo puestos en consideración durante el recinto. Aprobados sin debate ni disidencias.</p></div>
+
+<div style="border:1px solid #ddd;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0">#2 — Reconocimiento a excombatientes veteranos y caídos en Malvinas (Punto 59)</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Aprobado por unanimidad</span></div>
+<div style="margin-top:8px">✅ <b>Unanimidad</b> &nbsp; ❌ <b>0</b> &nbsp; ⬜ <b>0</b></div>
+<p style="color:#777;font-style:italic">El único expediente con unanimidad explícita registrada. Todos los bloques acompañaron sin debate en el marco del 2 de abril.</p></div>
+
+<div style="border:1px solid #ddd;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0">#3 — Pesar por víctimas de la inundación del 2 de abril de 2013 (Punto 45)</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Aprobado</span></div>
+<div style="margin-top:8px">✅ <b>Todos los bloques</b> &nbsp; ❌ <b>—</b> &nbsp; ⬜ <b>—</b></div>
+<p style="color:#777;font-style:italic">Aprobado con acompañamiento de todos los bloques. Di Dio agradeció el apoyo transversal.</p></div>
+
+<div style="border:1px solid #ddd;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0">#4 — Interés municipal Olimpíadas Matemáticas Argentinas (Punto 61)</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Aprobado</span></div>
+<div style="margin-top:8px">✅ <b>Sin disidencias</b> &nbsp; ❌ <b>—</b> &nbsp; ⬜ <b>—</b></div>
+<p style="color:#777;font-style:italic">Aprobado luego de la fundamentación de Álvarez y el aporte de Maluendez informando la articulación ya existente con el ejecutivo.</p></div>
+
+<div style="border:1px solid #ddd;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0">#5 al #8 — Beneplácitos, intereses municipales y decretos aprobados en el recinto</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Todos Aprobados</span></div>
+<div style="margin-top:8px">✅ <b>Sin disidencias en todos</b> &nbsp; ❌ <b>—</b> &nbsp; ⬜ <b>—</b></div>
+<p style="color:#777;font-style:italic">Incluye: Visitante ilustre embajador Suiza (Pt.41), ciclismo 80° aniversario (Pt.43), pesar Conigliaro (Pt.53), beneplácito Cámara de Apelaciones (Pt.64), Festival de la Cerveza Capital (Pt.272), y múltiples resoluciones de obras y servicios (reparaciones ABSA, tapas cloacales, bacheos). Votos individuales no registrados.</p></div>
+
+</div>
+
+<h2>💬 Principales puntos de debate</h2>
+<div class="card">
+
+  <div style="border-left:5px solid #e74c3c;padding:15px;margin-bottom:20px;background:#fdf2f2;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#c0392b">🔴 1. Transporte Público — La adjudicación a las empresas que bajaron frecuencias</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#f39c12">PRO (Morzone)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Las empresas que bajaron frecuencias e incumplieron el contrato vigente son las mismas que ahora recibirían la adjudicación millonaria</li>
+          <li>El municipio es absolutamente "inerte" ante la crisis: lluvias, paradas desbordadas, vecinos que no pueden ir a trabajar ni a la escuela</li>
+          <li>La quita de subsidios nacional no es excusa: el intendente tiene la obligación de controlar, sancionar y en caso de incumplimiento rescindirles el contrato</li>
+          <li>No es un fenómeno técnico aislado: es el resultado de décadas de un sistema que fue "un negocio para pocos y un calvario para cientos de miles"</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#2980b9">Fuerza Patria + ASAP</strong><br>
+        <small style="color:#666">Resa, Granillo Fernández, Horomadiuk</small>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>La estructura del subsidio es compleja: nación, provincia (~55%), pasajero, y un 20% sin reconocimiento actual. No son "las empresas de La Plata" las que toman la decisión sino las cámaras empresariales nacionales</li>
+          <li>El pliego ya se debatió el año anterior; ahora el Concejo debe ratificar o rechazar la licitación, con límites claros sobre lo que puede hacer</li>
+          <li>La ciudad de La Plata tiene 2,8 pasajeros por km², comparativamente no es el peor servicio del contexto</li>
+          <li>Hay responsabilidades compartidas que hay que reconocer, pero el problema es de escala provincial y nacional</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-left:5px solid #e74c3c;padding:15px;margin-bottom:20px;background:#fdf2f2;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#c0392b">🔴 2. Enrejado Plaza Islas Malvinas — El debate con la tribuna llena</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#f39c12">PRO (Morzone) + LLA (Morales)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>La plaza es un "espacio sagrado para los platenses", el símbolo de los héroes de Malvinas, y está "secuestrado" por el desorden y el tráfico de drogas cada noche</li>
+          <li>El enrejado perimetral con acceso nocturno restringido es una práctica habitual en las ciudades modernas del mundo en sus principales parques</li>
+          <li>El municipio "no manda": mandan los que rompen todo, las caravanas de motos, los que consumen drogas en el espacio público</li>
+          <li>Es necesario devolver la confianza a los vecinos de las 8 manzanas periféricas que viven con miedo</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#e74c3c">UCR (Staffolani) — aclaración histórica</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>El predio tuvo cerco perimetral originalmente porque funcionaba allí el Regimiento 7 de Infantería, no porque la plaza en sí fuera diseñada como cerrada</li>
+          <li>La plaza fue creada en 1985 (gestión Alberti) y recién inaugurada como espacio abierto en 1993</li>
+          <li>Es un dato histórico relevante para el debate: enrejar no es "volver al origen" de la plaza sino cambiar su naturaleza actual</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top:12px;background:#fff3f3;padding:10px;border-radius:5px;font-size:.9em">
+      <strong>🎭 Contexto:</strong> Morzone destacó que la tribuna estaba llena durante el debate, señalando que era la demostración de que el proyecto había logrado poner en agenda pública un problema real de los vecinos. Fue el debate que más atención generó de la sesión.
+    </div>
+  </div>
+
+  <div style="border-left:5px solid #e67e22;padding:15px;margin-bottom:20px;background:#fef9f0;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#ca6f1e">🟠 3. Patrimonio Histórico — Baldosas de la Plaza San Martín y el edificio de Periodismo</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#f39c12">PRO (Morzone)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Las baldosas fundacionales de la Plaza San Martín fueron reemplazadas sin aprobación del Concejo y ahora se reparten como "premio político" a dirigentes</li>
+          <li>La Facultad de Periodismo nombró su edificio "Néstor Kirchner" sin pasar por el Concejo — acusa a La Cámpora de "colonizar el espacio público"</li>
+          <li>Propone: transparencia, concurso de proyectos para intervenciones en patrimonio público, y recuperar el rol del Concejo en estas decisiones</li>
+          <li>Citó urbanistas como Aldo Rossi ("los monumentos son intangibles e intocables"), Kevin Lynch y David Harvey para fundamentar el proyecto</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#2980b9">Fuerza Patria</strong><br>
+        <small style="color:#666">Resa, Bolis, Parrilli</small>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Resa: las plazas tuvieron estudios de evaluación integral (patrimonial, efectos de burbuja de calor, texturas) que el proyecto de Morzone desconoce; el POT ya prevé las etapas de inventario patrimonial</li>
+          <li>Bolis: la sala Pino Solanas y el hall Moneo Sanz son espacios arquitectónicamente distintos en el Dardo Rocha, no hay contradicción legal; la decisión de la Facultad de Periodismo es un ejercicio legítimo de la autonomía universitaria</li>
+          <li>Parrilli (exabrupto): quien gobernó la ciudad 8 años la dejó con el Palacio Municipal goteando y el Pasaje Rocha destruido; no puede venir ahora a criticar quién protege el patrimonio</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-left:5px solid #e67e22;padding:15px;margin-bottom:20px;background:#fef9f0;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#ca6f1e">🟠 4. Cautelar a la Reforma Laboral — Dos modelos irreconciliables</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#2980b9">Fuerza Patria</strong><br>
+        <small style="color:#666">Parrilli, Santana, Elias</small>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>La cautelar de la justicia suspende más de 80 artículos inconstitucionales, tal como el Movimiento Obrero advirtió desde el principio</li>
+          <li>La reforma es "esclavista": permite jornadas variables según el empleador, sin garantía de horas extras, vulnerando el convenio colectivo</li>
+          <li>No ataca la informalidad: en dos años el modelo generó 21.900 empresas cerradas y 300.000 empleos perdidos</li>
+          <li>Los últimos tres meses 100.000 personas se sumaron como choferes de Uber: eso es precarización, no flexibilización positiva</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#8e44ad">La Libertad Avanza (Álvarez) + PRO (Morzone)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>La constitucionalidad de la cautelar está apelada: no es definitiva</li>
+          <li>El 41-42% de informalidad no es responsabilidad del gobierno de Milei sino de décadas de dirigencia sindical que no incorporó trabajadores al sistema formal</li>
+          <li>Morzone: "qué impactante que los trabajadores de la bancaria se autoperciban obreros; deben ser los obreros más ricos de la Argentina"</li>
+          <li>Acusó a Parrilli de defender un modelo que solo sostuvo la informalidad bajo pretexto de "derechos"</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-left:5px solid #3498db;padding:15px;margin-bottom:20px;background:#f0f7fd;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#2471a3">🔵 5. Programas Sociales — Potenciar Trabajo vs. Volver al Trabajo</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#2980b9">Fuerza Patria</strong><br>
+        <small style="color:#666">Parrilli, Elias, Bolis, Maggio</small>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>El Potenciar Trabajo y el Volver al Trabajo son una red de contención para sectores que no tienen trabajo formal ni ningún respaldo</li>
+          <li>El IFE en la pandemia expuso que 9 millones de personas no tenían ningún ingreso formal ni beneficio previo</li>
+          <li>Discontinuarlos sin un plan productivo real es "atacar a los sectores populares"; la inflación sigue superando los salarios</li>
+          <li>Elias: "en dos años se ha hecho demasiado daño, presidente, para nuestro pueblo"</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#8e44ad">La Libertad Avanza (Allan + Di Dio)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>El Potenciar Trabajo generaba dependencia y estaba atado al clientelismo político de organizaciones sociales</li>
+          <li>El Volver al Trabajo fue diseñado para la transición al empleo formal, con cursos de oficios y capacitación laboral: no es una discontinuación sino una activación</li>
+          <li>En La Plata hay 29.000 beneficiarios y se recorrieron todos los barrios para acompañar el proceso de inserción</li>
+          <li>Los datos de reducción de pobreza del INDEC muestran un cambio estructural real</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-left:5px solid #f39c12;padding:15px;margin-bottom:20px;background:#fef9f0;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#d35400">🟡 6. ESUR — Empresa de recolección que cobra $4,5M/mes y no cumple</h3>
+    <p style="font-size:.95em">Bardón presentó el pedido de informes sobre el recorte al servicio de ESUR, empresa que concentra el 25% del presupuesto municipal (~$5M de dólares por mes). La pregunta central: si el municipio recorta parte del servicio, ¿el ahorro queda en el municipio o se redistribuye a las cooperativas que cubren el servicio? Zanetto agregó el caso concreto de un basural a cielo abierto en 143 y 526 generado presuntamente por la propia empresa. El oficialismo no respondió directamente a estos señalamientos.</p>
+  </div>
+
+  <div style="border-left:5px solid #27ae60;padding:15px;background:#f0faf4;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#1e8449">🟢 7. Momentos de consenso transversal</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong>Reconocimiento a Excombatientes de Malvinas</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Aprobado por unanimidad sin debate, con el 2 de abril como contexto inmediato</li>
+          <li>Fue el único punto donde todos los bloques actuaron en el mismo sentido sin fisuras</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong>Pesar por la inundación del 2 de abril de 2013</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Di Dio agradeció el acompañamiento de todos los bloques al expediente</li>
+          <li>Aún está "a flor de piel" para muchos platenses, como señaló la concejala propinante</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong>Olimpíadas Matemáticas Argentinas</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Álvarez (LLA) presentó el proyecto destacando su carácter "apartidario"</li>
+          <li>Maluendez (FP) informó que el ejecutivo ya articulaba con la organización, generando un punto de acercamiento inusual entre bloques opositores</li>
+          <li>Aprobado sin disidencias</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- SECCIÓN: CÓMO SE HIZO + DISCLAIMER -->
+<div style="background:var(--negro);padding:5rem 2.5rem;">
+  <div style="max-width:800px;margin:0 auto;">
+
+    <!-- CÓMO SE HIZO -->
+    <div style="margin-bottom:4rem;">
+      <div style="font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acento);margin-bottom:2rem;display:flex;align-items:center;gap:.75rem;">
+        <span style="display:block;width:2rem;height:1px;background:var(--acento);flex-shrink:0"></span>
+        Cómo se hizo este informe
+      </div>
+
+      <p style="font-family:'Fraunces',serif;font-size:clamp(1.1rem,2vw,1.4rem);font-weight:300;font-style:italic;line-height:1.6;color:rgba(245,242,235,.85);margin-bottom:2rem;">
+        Cada sesión del Concejo Deliberante es pública. El desafío es convertirla en información útil.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);margin-bottom:1.2rem;">
+        Las sesiones del HCD de La Plata se transmiten en vivo y quedan grabadas en YouTube. Son la forma más directa de acceso a la deliberación legislativa municipal — pero también son extensas, técnicas y difíciles de seguir para quien no tiene horas disponibles ni formación específica en derecho o política local.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);margin-bottom:1.2rem;">
+        En Capital Data procesamos esas sesiones con <strong style="color:rgba(245,242,235,.6);">modelos de lenguaje de inteligencia artificial</strong> para extraer lo sustancial: quién habló, sobre qué, con qué posición, y qué se votó. El material fuente son las actas y desgrabaciones oficiales, complementadas con el video de la sesión. A partir de eso, construimos el informe que ven acá: concejal por concejal, tema por tema, bloque por bloque.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);margin-bottom:1.2rem;">
+        El objetivo no es reemplazar el seguimiento directo de la sesión — es hacerlo posible para quienes no pueden dedicarle cinco horas. Una ciudad que delibera en público merece que esa deliberación llegue a más personas.
+      </p>
+
+      <p style="font-size:.88rem;line-height:1.9;color:rgba(245,242,235,.45);">
+        La información pública existe. Nosotros la hacemos legible.
+      </p>
+    </div>
+
+    <!-- SEPARADOR -->
+    <div style="height:1px;background:rgba(245,242,235,.08);margin-bottom:4rem;"></div>
+
+    <!-- DISCLAIMER -->
+    <div>
+      <div style="font-family:'DM Mono',monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,242,235,.3);margin-bottom:2rem;display:flex;align-items:center;gap:.75rem;">
+        <span style="display:block;width:2rem;height:1px;background:rgba(245,242,235,.2);flex-shrink:0"></span>
+        Aviso importante
+      </div>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);margin-bottom:1rem;">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">Capital Data no es un medio de comunicación ni un partido político.</strong> Somos un equipo independiente que usa inteligencia artificial para analizar información pública municipal. No recibimos financiamiento del Estado ni de ninguna fuerza política. Nuestro único interés es que los datos del gobierno local sean accesibles para todos.
+      </p>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);margin-bottom:1rem;">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">Este análisis puede contener errores.</strong> Los procesos de extracción y síntesis automatizada tienen limitaciones. Las posiciones atribuidas a cada concejal reflejan nuestra interpretación del material disponible y pueden no capturar matices o contextos relevantes. Si encontrás una inconsistencia, escribinos: la corregimos y la publicamos.
+      </p>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);margin-bottom:1rem;">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">Todo el material es público.</strong> Las sesiones del Concejo Deliberante están disponibles para cualquier persona. Cualquiera puede acceder a ellas, verificar nuestros análisis y llegar a sus propias conclusiones. Eso es exactamente lo que queremos.
+      </p>
+
+      <p style="font-size:.82rem;line-height:1.9;color:rgba(245,242,235,.35);">
+        <strong style="color:rgba(245,242,235,.55);font-weight:500;">El objetivo no es el análisis en sí.</strong> Es demostrar que una ciudad mejor gobernada empieza por una ciudad mejor comprendida — y que comprender ya no requiere un equipo de expertos ni un presupuesto de investigación. Requiere voluntad, herramientas abiertas y la convicción de que la información pública le pertenece a la gente.
+      </p>
+    </div>
+
+  </div>
+</div>
+<footer class="informe-footer">
+  <div class="informe-footer-logo" style="display:flex;align-items:center;gap:.5rem"><span style="display:inline-flex;align-items:center;width:20px;height:20px;flex-shrink:0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 48 48" role="img">
+<title>Capital Data</title>
+<!-- centro: 24,24 -->
+<!-- 8 nodos perimetrales en forma cuadrada -->
+<!-- esquinas: 6,6 | 42,6 | 42,42 | 6,42 -->
+<!-- medios: 24,5 | 43,24 | 24,43 | 5,24 -->
+<!-- 4 nodos interiores anillo: 13,13 | 35,13 | 35,35 | 13,35 -->
+
+<!-- Centro → perimetrales -->
+<line x1="24" y1="24" x2="6"  y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="5"  stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="6"  stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="43" y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="42" y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="24" y2="43" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+<line x1="24" y1="24" x2="6"  y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/>
+<line x1="24" y1="24" x2="5"  y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/>
+
+<!-- Centro → interiores -->
+<path d="M24,24 Q18,18 13,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,18 35,13" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q30,30 35,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+<path d="M24,24 Q18,30 13,35" stroke="#c8ff00" stroke-width="0.8" fill="none" opacity="0.6"/>
+
+<!-- Borde perimetral cuadrado -->
+<path d="M6,6   Q15,5  24,5"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M24,5  Q33,5  42,6"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M42,6  Q43,15 43,24" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M43,24 Q43,33 42,42" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M42,42 Q33,43 24,43" stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M24,43 Q15,43 6,42"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M6,42  Q5,33  5,24"  stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+<path d="M5,24  Q5,15  6,6"   stroke="#1a3fff" stroke-width="0.6" fill="none" opacity="0.20"/>
+
+<!-- Conexiones interiores entre sí -->
+<path d="M13,13 Q24,12 35,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.20"/>
+<path d="M35,13 Q36,24 35,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.20"/>
+<path d="M35,35 Q24,36 13,35" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.20"/>
+<path d="M13,35 Q12,24 13,13" stroke="#1a3fff" stroke-width="0.5" fill="none" opacity="0.20"/>
+
+<!-- Cruzadas interiores → perimetrales -->
+<path d="M13,13 Q9,9   6,6"   stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q38,9  42,6"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,35 Q38,38 42,42" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,35 Q9,38  6,42"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M13,13 Q9,18  5,24"  stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+<path d="M35,13 Q39,18 43,24" stroke="#c8ff00" stroke-width="0.45" fill="none" opacity="0.22"/>
+
+<!-- Nodos perimetrales -->
+<circle cx="6"  cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="5"  r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="6"  r="2.5" fill="#c8ff00"/>
+<circle cx="43" cy="24" r="1.8" fill="#1a3fff"/>
+<circle cx="42" cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="24" cy="43" r="1.8" fill="#1a3fff"/>
+<circle cx="6"  cy="42" r="2.5" fill="#c8ff00"/>
+<circle cx="5"  cy="24" r="1.8" fill="#1a3fff"/>
+
+<!-- Nodos interiores anillo -->
+<circle cx="13" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="13" r="1"   fill="#c8ff00"/>
+<circle cx="35" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="35" cy="35" r="1"   fill="#c8ff00"/>
+<circle cx="13" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/>
+<circle cx="13" cy="35" r="1"   fill="#c8ff00"/>
+
+<!-- Nodo central -->
+<circle cx="24" cy="24" r="7"   fill="#0a0a0a" stroke="#c8ff00" stroke-width="1.5"/>
+<circle cx="24" cy="24" r="3.5" fill="#1a3fff"/>
+<circle cx="24" cy="24" r="1.5" fill="#c8ff00"/>
+</svg></span>Capital <span>Data</span></div>
+  <div class="informe-footer-info">
+    La Plata &middot; Capital de la Provincia de Buenos Aires<br>
+    Pol&iacute;ticas p&uacute;blicas e inteligencia artificial<br>
+    @capitaldata
+  </div>
+</footer>
+</body></html>
