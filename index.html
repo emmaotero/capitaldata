@@ -213,7 +213,14 @@
       100% { background-position: 40px 40px; }
     }
 
-    .lp-badge {
+    .hero-logo-img {
+      width: min(420px, 55%);
+      height: auto;
+      opacity: 0.92;
+      position: relative;
+      z-index: 1;
+    }
+
       position: absolute;
       right: 3rem;
       top: 50%;
@@ -352,10 +359,10 @@
 
     /* CARDS */
     .cards {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      display: flex;
       gap: 1px;
       background: rgba(245,242,235,0.08);
+      min-height: 380px;
     }
 
     .card {
@@ -363,26 +370,46 @@
       padding: 2.5rem 2rem;
       position: relative;
       overflow: hidden;
-      transition: background 0.3s;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: flex-grow 0.5s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s;
     }
 
-    .card:hover {
+    .card:hover,
+    .card:focus-within {
+      flex-grow: 2.4;
       background: var(--gris);
+    }
+
+    .card:focus-visible {
+      outline: 2px solid var(--acento);
+      outline-offset: -2px;
     }
 
     .card-number {
       font-family: 'DM Mono', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.15em;
-      color: var(--acento);
-      margin-bottom: 1.5rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.03em;
+      padding: 3px 10px;
+      border-radius: 2px;
+      display: inline-block;
+      width: fit-content;
+      margin-bottom: 1.8rem;
     }
+    .card-numero-politica  { background: rgba(26,63,255,0.18); color: #7d93ff; }
+    .card-numero-finanzas  { background: var(--acento2); color: #ffffff; }
+    .card-numero-economia  { background: rgba(200,255,0,0.14); color: var(--acento); }
+    .card-numero-sociedad  { background: var(--acento); color: var(--negro); }
 
     .card-icon {
-      font-size: 1.5rem;
+      width: 28px;
+      height: 28px;
       margin-bottom: 1.2rem;
       display: block;
     }
+    .card-icon svg { width: 100%; height: 100%; }
 
     .card-title {
       font-family: 'Fraunces', serif;
@@ -390,13 +417,22 @@
       font-weight: 400;
       margin-bottom: 0.8rem;
       line-height: 1.2;
+      white-space: nowrap;
     }
+    .card:hover .card-title,
+    .card:focus-within .card-title { white-space: normal; }
 
     .card-desc {
       font-size: 0.82rem;
       color: var(--texto-suave);
       line-height: 1.7;
+      max-width: 320px;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.35s ease 0.1s, transform 0.35s ease 0.1s;
     }
+    .card:hover .card-desc,
+    .card:focus-within .card-desc { opacity: 1; transform: translateY(0); }
 
     /* SEPARADOR */
     .divider {
@@ -782,7 +818,10 @@
       .hero-left { padding: 7rem 1.5rem 3rem; }
       .hero-right { display: none; }
       .section { padding: 4rem 1.5rem; }
-      .cards { grid-template-columns: 1fr; }
+      .cards { flex-direction: column; min-height: 0; }
+      .card { flex-grow: 1 !important; min-height: auto; }
+      .card-desc { opacity: 1; transform: none; max-width: none; }
+      .card-title { white-space: normal; }
       .manifiesto { padding: 4rem 1.5rem; }
       .informe-card { grid-template-columns: 1fr; }
       .informe-thumb { height: 180px; }
@@ -832,6 +871,7 @@
     <div class="hero-right">
       <div class="hero-visual">
         <div class="grid-map"></div>
+        <img src="capital-data-logo.svg" alt="Capital Data" class="hero-logo-img">
       </div>
       <div class="lp-badge">
         <span class="lp-badge-city">La Plata</span>
@@ -904,29 +944,46 @@
     <div class="section-label">Qué hacemos</div>
     <h2 class="section-title">Analizamos el gobierno local y cómo eso se traduce en la vida de la ciudad</h2>
     <div class="cards">
-      <div class="card">
-        <div class="card-number">01</div>
-        <span class="card-icon">🏛️</span>
+      <div class="card" tabindex="0">
+        <div class="card-number card-numero-politica">Política</div>
+        <span class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#7d93ff" stroke-width="1.5">
+            <path d="M4 21h16M5 21V10M19 21V10M3 10l9-6 9 6M7 10v11M11 10v11M13 10v11M17 10v11" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
         <h3 class="card-title">Sesiones del Concejo</h3>
         <p class="card-desc">Procesamos y analizamos cada sesión del Concejo Deliberante de La Plata: temas, votaciones, bloques y tendencias.</p>
       </div>
-      <div class="card">
-        <div class="card-number">02</div>
-        <span class="card-icon">📋</span>
+      <div class="card" tabindex="0">
+        <div class="card-number card-numero-finanzas">Finanzas públicas</div>
+        <span class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#7d93ff" stroke-width="1.5">
+            <path d="M7 3h8l4 4v14H7z" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9.5 15.5l5-5M10 11h.01M14 15h.01" stroke-linecap="round"/>
+          </svg>
+        </span>
         <h3 class="card-title">Ordenanzas y presupuesto</h3>
         <p class="card-desc">Evaluamos ordenanzas, presupuesto y rendición de cuentas con IA para entender en qué se gastan sus impuestos.</p>
       </div>
-      <div class="card">
-        <div class="card-number">03</div>
-        <span class="card-icon">📈</span>
-        <h3 class="card-title">Economía y sociedad</h3>
-        <p class="card-desc">Relevamos indicadores que hacen a la vida cotidiana de la ciudad — mercado inmobiliario, actividad comercial, seguridad — sin evaluar gestiones puntuales.</p>
+      <div class="card" tabindex="0">
+        <div class="card-number card-numero-economia">Economía</div>
+        <span class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#c8ff00" stroke-width="1.5">
+            <path d="M3 9l2-5h14l2 5M4 9v11h16V9M4 9h16M9 20v-6h6v6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <h3 class="card-title">Actividad económica</h3>
+        <p class="card-desc">Relevamos mercado inmobiliario, comercios habilitados y otros indicadores productivos de la ciudad.</p>
       </div>
-      <div class="card">
-        <div class="card-number">04</div>
-        <span class="card-icon">📊</span>
-        <h3 class="card-title">Informes periódicos</h3>
-        <p class="card-desc">Generamos reportes sobre el estado de las políticas públicas y los indicadores locales, comparados en el tiempo y con otros municipios.</p>
+      <div class="card" tabindex="0">
+        <div class="card-number card-numero-sociedad">Sociedad</div>
+        <span class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#c8ff00" stroke-width="1.5">
+            <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <h3 class="card-title">Seguridad y sociedad</h3>
+        <p class="card-desc">Relevamos indicadores de seguridad y calidad de vida de la ciudad, sin evaluar gestiones puntuales.</p>
       </div>
     </div>
   </div>
@@ -947,9 +1004,9 @@
   <div class="informe-section" id="informes">
     <div class="section-label">Informes</div>
 
-    <div class="eje-block" id="informes-institucional">
-      <div class="eje-eyebrow">Eje 01 · Fiscalización</div>
-      <h3 class="eje-title">Concejo &amp; Presupuesto</h3>
+    <div class="eje-block" id="informes-politica">
+      <div class="eje-eyebrow">Eje 01 · Fiscalización legislativa</div>
+      <h3 class="eje-title">Política</h3>
     </div>
 
     <div class="informe-card" style="margin-top:1px">
@@ -970,7 +1027,12 @@
       </div>
     </div>
 
-    <div class="informe-card">
+    <div class="eje-block" id="informes-finanzas">
+      <div class="eje-eyebrow">Eje 02 · Presupuesto y tributos</div>
+      <h3 class="eje-title">Finanzas Públicas</h3>
+    </div>
+
+    <div class="informe-card" style="margin-top:1px">
       <div class="informe-thumb">
         <img src="thumb-ordenanza.jpg" alt="Palacio Municipal de La Plata" style="width:100%;height:100%;object-fit:cover;" />
       </div>
@@ -988,9 +1050,9 @@
       </div>
     </div>
 
-    <div class="eje-block" id="informes-economia-sociedad">
-      <div class="eje-eyebrow">Eje 02 · Indicadores locales</div>
-      <h3 class="eje-title">Economía y Sociedad</h3>
+    <div class="eje-block" id="informes-economia">
+      <div class="eje-eyebrow">Eje 03 · Indicadores productivos</div>
+      <h3 class="eje-title">Economía</h3>
     </div>
 
     <div class="informe-card" style="margin-top:1px">
@@ -1009,6 +1071,11 @@
         </p>
         <a href="mapa_comercios_capital_data.html" class="informe-link">Abrir mapa interactivo →</a>
       </div>
+    </div>
+
+    <div class="eje-block" id="informes-sociedad">
+      <div class="eje-eyebrow">Eje 04 · Seguridad y calidad de vida</div>
+      <h3 class="eje-title">Sociedad</h3>
     </div>
 
     <div class="informe-card" style="margin-top:1px">
