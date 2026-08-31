@@ -78,6 +78,16 @@
 
     .nav-links a:hover { color: var(--blanco); }
 
+    .nav-tagline {
+      font-family: 'Instrument Sans', sans-serif;
+      font-weight: 500;
+      font-style: normal;
+      text-transform: none;
+      font-size: 0.85rem;
+      color: var(--blanco);
+      margin-left: 0.6rem;
+    }
+
     /* HERO */
     .hero {
       min-height: 100vh;
@@ -198,8 +208,8 @@
     }
 
     .grid-map {
-      width: 100%;
-      height: 100%;
+      position: absolute;
+      inset: 0;
       opacity: 0.15;
       background-image:
         linear-gradient(rgba(200,255,0,0.3) 1px, transparent 1px),
@@ -214,15 +224,33 @@
     }
 
     .hero-logo-img {
-      width: min(420px, 55%);
+      width: 180px;
       height: auto;
-      opacity: 0.92;
-      position: relative;
-      z-index: 1;
+      opacity: 0.9;
     }
 
+    .hero-center-block {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.5rem;
+    }
+
+    .hero-tagline {
+      font-family: 'Instrument Sans', sans-serif;
+      font-weight: 500;
+      font-size: clamp(1.6rem, 2.6vw, 2.4rem);
+      line-height: 1.5;
+      color: var(--acento);
+      text-align: center;
+      max-width: 620px;
+      margin: 0;
+    }
+
+    .lp-badge {
       position: absolute;
-      right: 3rem;
       top: 50%;
       transform: translateY(-50%);
       text-align: right;
@@ -894,19 +922,13 @@
 
   <!-- NAV -->
   <nav>
-    <div class="nav-logo">Capital Data</div>
-    <ul class="nav-links">
-      <li><a href="#que-hacemos">Qué hacemos</a></li>
-      <li><a href="#informes">Informes</a></li>
-      <li><a href="#nosotros">Nosotros</a></li>
-      <li><a href="#">Instagram</a></li>
-    </ul>
+    <div class="nav-logo">Capital Data<span class="nav-tagline">- Una ciudad mejor gobernada empieza por una ciudad mejor comprendida</span></div>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
     <div class="hero-left">
-      <div class="hero-tag fade-in">La Plata · Capital de Buenos Aires</div>
+      <div class="hero-tag fade-in">La Plata · Provincia de Buenos Aires</div>
       <h1 class="hero-title fade-in">
         Capital<br><span class="ia">Data</span>
       </h1>
@@ -917,16 +939,11 @@
         <a href="#informes" class="btn-primary">Ver informes</a>
         <a href="#nosotros" class="btn-secondary">Quiénes somos</a>
       </div>
-      <div class="hero-deco-line"><span>La Plata, PBA</span></div>
     </div>
     <div class="hero-right">
       <div class="hero-visual">
         <div class="grid-map"></div>
         <img src="capital-data-logo.svg" alt="Capital Data" class="hero-logo-img">
-      </div>
-      <div class="lp-badge">
-        <span class="lp-badge-city">La Plata</span>
-        <span class="lp-badge-sub">Capital · Prov. Buenos Aires</span>
       </div>
     </div>
   </section>
@@ -993,7 +1010,7 @@
   <!-- QUÉ HACEMOS -->
   <div class="section" id="que-hacemos">
     <div class="section-label">Qué hacemos</div>
-    <h2 class="section-title">Analizamos el gobierno local y cómo eso se traduce en la vida de la ciudad</h2>
+    <h2 class="section-title">Analizamos el gobierno y la economía local y cómo eso se traduce en la vida de los ciudadanos.</h2>
     <div class="cards">
       <a href="#informes-politica" class="card">
         <div class="card-number card-numero-politica">Política</div>
@@ -1152,7 +1169,7 @@
           Somos un equipo multidisciplinario de profesionales, investigadores y analistas con una convicción compartida: que el análisis riguroso de las políticas públicas locales es una herramienta de transformación concreta.
         </p>
         <p class="nosotros-body">
-          Combinamos formación en <strong>ciencias sociales, derecho, economía y tecnología</strong> con el uso de inteligencia artificial para hacer algo que antes era inviable a esta escala: procesar sistemáticamente sesiones legislativas, ordenanzas, presupuestos y contrataciones públicas, y convertir esa información en análisis útil y accesible.
+          Combinamos formación en <strong>ciencias sociales, derecho, economía y tecnología</strong> con el uso de inteligencia artificial para procesar y analizar la información pública, y convertir esa información en análisis útil y accesible.
         </p>
         <p class="nosotros-body">
           Trabajamos desde <strong>La Plata, capital de la provincia de Buenos Aires</strong>, convencidos de que una ciudad mejor gobernada empieza por una ciudad mejor comprendida.
