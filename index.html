@@ -839,6 +839,55 @@
       .stat-item { border-right: none; border-bottom: 1px solid rgba(245,242,235,0.08); padding: 2rem 1.5rem; }
       .stat-item:last-child { border-bottom: none; }
     }
+    /* CONTACTO */
+    .contacto-form {
+      max-width: 600px;
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+
+    .contacto-campo label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--texto-suave);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .contacto-campo input,
+    .contacto-campo textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(245,242,235,0.2);
+      color: var(--blanco);
+      font-family: 'Instrument Sans', sans-serif;
+      font-size: 0.95rem;
+      padding: 0.6rem 0;
+      transition: border-color 0.2s;
+    }
+
+    .contacto-campo input:focus,
+    .contacto-campo textarea:focus {
+      outline: none;
+      border-color: var(--acento);
+    }
+
+    .contacto-campo textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .contacto-form button {
+      align-self: flex-start;
+      margin-top: 0.5rem;
+      border: none;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -1119,6 +1168,28 @@
       </div>
     </div>
   </section>
+
+  <!-- CONTACTO -->
+  <div class="section" id="contacto">
+    <div class="section-label">Contacto</div>
+    <h2 class="section-title">¿Tenés una consulta, un dato o una idea para un informe?</h2>
+    <!-- IMPORTANTE: reemplazar "hola@capitaldata.ar" por el mail real apenas este creado -->
+    <form class="contacto-form" action="mailto:hola@capitaldata.ar" method="post" enctype="text/plain">
+      <div class="contacto-campo">
+        <label for="contacto-nombre">Nombre y apellido</label>
+        <input type="text" id="contacto-nombre" name="nombre" required>
+      </div>
+      <div class="contacto-campo">
+        <label for="contacto-email">Email</label>
+        <input type="email" id="contacto-email" name="email" required>
+      </div>
+      <div class="contacto-campo">
+        <label for="contacto-mensaje">Mensaje</label>
+        <textarea id="contacto-mensaje" name="mensaje" required></textarea>
+      </div>
+      <button type="submit" class="btn-primary">Enviar mensaje</button>
+    </form>
+  </div>
 
   <!-- FOOTER -->
   <footer>
