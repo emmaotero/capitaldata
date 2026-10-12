@@ -475,6 +475,25 @@
 
     .informe-link:hover { gap: 1rem; }
 
+    .eje-bloque {
+      margin: 4rem 0 1.5rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid rgba(245,242,235,0.12);
+    }
+    .eje-bloque:first-of-type { margin-top: 2rem; }
+    .eje-titulo {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+      font-weight: 300;
+      margin-bottom: .6rem;
+    }
+    .eje-desc {
+      font-size: 0.85rem;
+      color: var(--texto-suave);
+      line-height: 1.7;
+      max-width: 640px;
+    }
+
     /* FOOTER */
     footer {
       border-top: 1px solid rgba(245,242,235,0.08);
@@ -868,6 +887,11 @@
   <div class="informe-section" id="informes">
     <div class="section-label">Informes</div>
 
+    <div class="eje-bloque">
+      <div class="eje-titulo">Política y finanzas públicas</div>
+      <p class="eje-desc">Fiscalizamos las decisiones del gobierno local: qué se debate y se vota en el Concejo Deliberante, qué se cobra y en qué se gastan sus impuestos.</p>
+    </div>
+
     <div class="informe-card" style="margin-top:1px">
       <div class="informe-meta">
         <div class="informe-tag">HCD La Plata &middot; 83° Período</div>
@@ -898,6 +922,11 @@
       </div>
     </div>
 
+    <div class="eje-bloque">
+      <div class="eje-titulo">Economía y sociedad</div>
+      <p class="eje-desc">Describimos cómo funciona la ciudad: actividad comercial, seguridad y otros datos públicos, con mapas que se pueden explorar.</p>
+    </div>
+
     <div class="informe-card" style="margin-top:1px">
       <div class="informe-meta">
         <div class="informe-tag">Herramienta · Datos PBA</div>
@@ -912,6 +941,22 @@
         <a href="mapa-delito-pba.html" class="informe-link">Abrir mapa interactivo →</a>
       </div>
     </div>
+
+    <div class="informe-card" style="margin-top:1px">
+      <div class="informe-meta">
+        <div class="informe-tag">Herramienta · Municipalidad de La Plata</div>
+        <div class="informe-num" style="font-size:2rem;opacity:.2">&#x1F4CD;</div>
+        <div class="informe-fecha">Comercios habilitados &middot; Agosto 2026</div>
+      </div>
+      <div class="informe-content">
+        <h3 class="informe-titulo">Mapa de comercios habilitados</h3>
+        <p class="informe-desc">
+          Los establecimientos habilitados de La Plata, ubicados en el mapa a partir de datos del Observatorio de Datos Productivos municipal. Filtrá por categoría, rubro y actividad, mirá la densidad en un mapa de calor o buscá dentro de un radio desde cualquier punto.
+        </p>
+        <a href="mapa_comercios_capital_data.html" class="informe-link">Abrir mapa interactivo →</a>
+      </div>
+    </div>
+  </div>
 
   <!-- QUIÉNES SOMOS -->
   <section class="nosotros" id="nosotros">
