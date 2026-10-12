@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Capital Data — Política pública, economía y sociedad</title>
+  <title>Capital IA — Políticas públicas e inteligencia artificial</title>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
@@ -77,16 +77,6 @@
     }
 
     .nav-links a:hover { color: var(--blanco); }
-
-    .nav-tagline {
-      font-family: 'Instrument Sans', sans-serif;
-      font-weight: 500;
-      font-style: normal;
-      text-transform: none;
-      font-size: 0.85rem;
-      color: var(--blanco);
-      margin-left: 0.6rem;
-    }
 
     /* HERO */
     .hero {
@@ -208,8 +198,8 @@
     }
 
     .grid-map {
-      position: absolute;
-      inset: 0;
+      width: 100%;
+      height: 100%;
       opacity: 0.15;
       background-image:
         linear-gradient(rgba(200,255,0,0.3) 1px, transparent 1px),
@@ -223,34 +213,9 @@
       100% { background-position: 40px 40px; }
     }
 
-    .hero-logo-img {
-      width: min(180px, 55%);
-      height: auto;
-      opacity: 0.9;
-    }
-
-    .hero-center-block {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2.5rem;
-    }
-
-    .hero-tagline {
-      font-family: 'Instrument Sans', sans-serif;
-      font-weight: 500;
-      font-size: clamp(1.6rem, 2.6vw, 2.4rem);
-      line-height: 1.5;
-      color: var(--acento);
-      text-align: center;
-      max-width: 620px;
-      margin: 0;
-    }
-
     .lp-badge {
       position: absolute;
+      right: 3rem;
       top: 50%;
       transform: translateY(-50%);
       text-align: right;
@@ -332,50 +297,6 @@
       background: rgba(245,242,235,0.1);
     }
 
-    .informe-eje-label {
-      margin-top: 5rem;
-    }
-
-    .informe-eje-label:first-of-type {
-      margin-top: 0;
-    }
-
-    /* TÍTULOS DE EJE — más grandes, para que se destaquen */
-    .eje-block {
-      margin-top: 5rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .eje-block:first-of-type {
-      margin-top: 0;
-    }
-
-    .eje-eyebrow {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--acento2);
-      margin-bottom: 0.8rem;
-    }
-
-    .eje-title {
-      font-family: 'Fraunces', serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 300;
-      line-height: 1.1;
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    .eje-title::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: rgba(245,242,235,0.12);
-    }
-
     .section-title {
       font-family: 'Fraunces', serif;
       font-size: clamp(2rem, 4vw, 3.5rem);
@@ -387,10 +308,10 @@
 
     /* CARDS */
     .cards {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 1px;
       background: rgba(245,242,235,0.08);
-      min-height: 380px;
     }
 
     .card {
@@ -398,48 +319,26 @@
       padding: 2.5rem 2rem;
       position: relative;
       overflow: hidden;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-      color: inherit;
-      text-decoration: none;
-      transition: flex-grow 0.5s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s;
+      transition: background 0.3s;
     }
 
-    .card:hover,
-    .card:focus-within {
-      flex-grow: 2.4;
+    .card:hover {
       background: var(--gris);
-    }
-
-    .card:focus-visible {
-      outline: 2px solid var(--acento);
-      outline-offset: -2px;
     }
 
     .card-number {
       font-family: 'DM Mono', monospace;
-      font-size: 0.68rem;
-      letter-spacing: 0.03em;
-      padding: 3px 10px;
-      border-radius: 2px;
-      display: inline-block;
-      width: fit-content;
-      margin-bottom: 1.8rem;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      color: var(--acento);
+      margin-bottom: 1.5rem;
     }
-    .card-numero-politica  { background: rgba(26,63,255,0.18); color: #7d93ff; }
-    .card-numero-finanzas  { background: var(--acento2); color: #ffffff; }
-    .card-numero-economia  { background: rgba(200,255,0,0.14); color: var(--acento); }
-    .card-numero-sociedad  { background: var(--acento); color: var(--negro); }
 
     .card-icon {
-      width: 28px;
-      height: 28px;
+      font-size: 1.5rem;
       margin-bottom: 1.2rem;
       display: block;
     }
-    .card-icon svg { width: 100%; height: 100%; }
 
     .card-title {
       font-family: 'Fraunces', serif;
@@ -447,22 +346,13 @@
       font-weight: 400;
       margin-bottom: 0.8rem;
       line-height: 1.2;
-      white-space: nowrap;
     }
-    .card:hover .card-title,
-    .card:focus-within .card-title { white-space: normal; }
 
     .card-desc {
       font-size: 0.82rem;
       color: var(--texto-suave);
       line-height: 1.7;
-      max-width: 320px;
-      opacity: 0;
-      transform: translateY(6px);
-      transition: opacity 0.35s ease 0.1s, transform 0.35s ease 0.1s;
     }
-    .card:hover .card-desc,
-    .card:focus-within .card-desc { opacity: 1; transform: translateY(0); }
 
     /* SEPARADOR */
     .divider {
@@ -515,32 +405,8 @@
     .informe-card {
       border: 1px solid rgba(245,242,235,0.12);
       display: grid;
-      grid-template-columns: 200px 1fr 2fr;
+      grid-template-columns: 1fr 2fr;
       overflow: hidden;
-    }
-
-    .informe-thumb {
-      background: var(--negro);
-      border-right: 1px solid rgba(245,242,235,0.1);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .informe-thumb svg {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    .informe-thumb-tag {
-      position: absolute;
-      bottom: 0.6rem;
-      left: 0.6rem;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.5rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(245,242,235,0.35);
     }
 
     .informe-meta {
@@ -848,13 +714,9 @@
       .hero-left { padding: 7rem 1.5rem 3rem; }
       .hero-right { display: none; }
       .section { padding: 4rem 1.5rem; }
-      .cards { flex-direction: column; min-height: 0; }
-      .card { flex-grow: 1 !important; min-height: auto; }
-      .card-desc { opacity: 1; transform: none; max-width: none; }
-      .card-title { white-space: normal; }
+      .cards { grid-template-columns: 1fr; }
       .manifiesto { padding: 4rem 1.5rem; }
       .informe-card { grid-template-columns: 1fr; }
-      .informe-thumb { height: 180px; }
       .informe-meta { padding: 2rem 1.5rem; flex-direction: row; align-items: center; }
       .informe-num { display: none; }
       .informe-content { padding: 2rem 1.5rem; }
@@ -867,83 +729,44 @@
       .stat-item { border-right: none; border-bottom: 1px solid rgba(245,242,235,0.08); padding: 2rem 1.5rem; }
       .stat-item:last-child { border-bottom: none; }
     }
-    /* CONTACTO */
-    .contacto-form {
-      max-width: 600px;
-      margin-top: 2.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.4rem;
-    }
-
-    .contacto-campo label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--texto-suave);
-      margin-bottom: 0.5rem;
-      display: block;
-    }
-
-    .contacto-campo input,
-    .contacto-campo textarea {
-      width: 100%;
-      background: transparent;
-      border: none;
-      border-bottom: 1px solid rgba(245,242,235,0.2);
-      color: var(--blanco);
-      font-family: 'Instrument Sans', sans-serif;
-      font-size: 0.95rem;
-      padding: 0.6rem 0;
-      transition: border-color 0.2s;
-    }
-
-    .contacto-campo input:focus,
-    .contacto-campo textarea:focus {
-      outline: none;
-      border-color: var(--acento);
-    }
-
-    .contacto-campo textarea {
-      resize: vertical;
-      min-height: 110px;
-    }
-
-    .contacto-form button {
-      align-self: flex-start;
-      margin-top: 0.5rem;
-      border: none;
-      cursor: pointer;
-    }
   </style>
 </head>
 <body>
 
   <!-- NAV -->
   <nav>
-    <div class="nav-logo">Capital Data</div>
+    <div class="nav-logo">Capital IA</div>
+    <ul class="nav-links">
+      <li><a href="#que-hacemos">Qué hacemos</a></li>
+      <li><a href="#informes">Informes</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#">Instagram</a></li>
+    </ul>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
     <div class="hero-left">
-      <div class="hero-tag fade-in">La Plata · Provincia de Buenos Aires</div>
+      <div class="hero-tag fade-in">La Plata · Capital de Buenos Aires</div>
       <h1 class="hero-title fade-in">
-        Capital<br><span class="ia">Data</span>
+        Capital<br><span class="ia">IA</span>
       </h1>
       <p class="hero-subtitle fade-in">
-        Política pública,<br>economía y sociedad
+        Políticas públicas e<br>inteligencia artificial
       </p>
       <div class="hero-cta fade-in">
         <a href="#informes" class="btn-primary">Ver informes</a>
         <a href="#nosotros" class="btn-secondary">Quiénes somos</a>
       </div>
+      <div class="hero-deco-line"><span>La Plata · 2025</span></div>
     </div>
     <div class="hero-right">
       <div class="hero-visual">
         <div class="grid-map"></div>
-        <img src="capital-data-logo.svg" alt="Capital Data" class="hero-logo-img">
+      </div>
+      <div class="lp-badge">
+        <span class="lp-badge-city">La Plata</span>
+        <span class="lp-badge-sub">Capital · Prov. Buenos Aires</span>
       </div>
     </div>
   </section>
@@ -957,9 +780,7 @@
       <span class="ticker-item ticker-sep">·</span>
       <span class="ticker-item">Sesiones legislativas</span>
       <span class="ticker-item ticker-sep">·</span>
-      <span class="ticker-item">Economía y sociedad</span>
-      <span class="ticker-item ticker-sep">·</span>
-      <span class="ticker-item">Seguridad</span>
+      <span class="ticker-item">Políticas públicas</span>
       <span class="ticker-item ticker-sep">·</span>
       <span class="ticker-item">Ciudad inteligente</span>
       <span class="ticker-item ticker-sep">·</span>
@@ -976,9 +797,7 @@
       <span class="ticker-item ticker-sep">·</span>
       <span class="ticker-item">Sesiones legislativas</span>
       <span class="ticker-item ticker-sep">·</span>
-      <span class="ticker-item">Economía y sociedad</span>
-      <span class="ticker-item ticker-sep">·</span>
-      <span class="ticker-item">Seguridad</span>
+      <span class="ticker-item">Políticas públicas</span>
       <span class="ticker-item ticker-sep">·</span>
       <span class="ticker-item">Ciudad inteligente</span>
       <span class="ticker-item ticker-sep">·</span>
@@ -1010,45 +829,26 @@
   <!-- QUÉ HACEMOS -->
   <div class="section" id="que-hacemos">
     <div class="section-label">Qué hacemos</div>
-    <h2 class="section-title">Analizamos el gobierno y la economía local y cómo eso se traduce en la vida de los ciudadanos.</h2>
+    <h2 class="section-title">Analizamos el gobierno local con herramientas de IA</h2>
     <div class="cards">
-      <a href="#informes-politica" class="card">
-        <div class="card-number card-numero-politica">Política</div>
-        <span class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#7d93ff" stroke-width="1.5">
-            <path d="M4 21h16M5 21V10M19 21V10M3 10l9-6 9 6M7 10v11M11 10v11M13 10v11M17 10v11" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-        <p class="card-desc">Posicionamiento de las distintas fuerzas políticas con representación legislativa. Tendencias y resultados electorales.</p>
-      </a>
-      <a href="#informes-finanzas" class="card">
-        <div class="card-number card-numero-finanzas">Finanzas públicas</div>
-        <span class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#7d93ff" stroke-width="1.5">
-            <path d="M7 3h8l4 4v14H7z" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M9.5 15.5l5-5M10 11h.01M14 15h.01" stroke-linecap="round"/>
-          </svg>
-        </span>
-        <p class="card-desc">Análisis de las Ordenanzas Fiscal e Impositiva, Presupuesto y Rendición de Cuentas. Impacto de políticas públicas locales.</p>
-      </a>
-      <a href="#informes-economia" class="card">
-        <div class="card-number card-numero-economia">Economía</div>
-        <span class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#c8ff00" stroke-width="1.5">
-            <path d="M3 9l2-5h14l2 5M4 9v11h16V9M4 9h16M9 20v-6h6v6" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-        <p class="card-desc">Análisis de los principales indicadores de actividad económica de la Ciudad. Comercio, industria, empleo, sector inmobiliario.</p>
-      </a>
-      <a href="#informes-sociedad" class="card">
-        <div class="card-number card-numero-sociedad">Sociedad</div>
-        <span class="card-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#c8ff00" stroke-width="1.5">
-            <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-        <p class="card-desc">Calidad de vida en la Ciudad.</p>
-      </a>
+      <div class="card">
+        <div class="card-number">01</div>
+        <span class="card-icon">🏛️</span>
+        <h3 class="card-title">Sesiones del Concejo</h3>
+        <p class="card-desc">Procesamos y analizamos cada sesión del Concejo Deliberante de La Plata: temas, votaciones, bloques y tendencias.</p>
+      </div>
+      <div class="card">
+        <div class="card-number">02</div>
+        <span class="card-icon">📋</span>
+        <h3 class="card-title">Ordenanzas y normativa</h3>
+        <p class="card-desc">Evaluamos ordenanzas con IA para detectar contradicciones, impacto ciudadano y coherencia con políticas provinciales y nacionales.</p>
+      </div>
+      <div class="card">
+        <div class="card-number">03</div>
+        <span class="card-icon">📊</span>
+        <h3 class="card-title">Informes de gestión</h3>
+        <p class="card-desc">Generamos reportes periódicos sobre el estado de las políticas públicas locales, comparados con otras ciudades y estándares internacionales.</p>
+      </div>
     </div>
   </div>
 
@@ -1059,7 +859,7 @@
     <div class="manifiesto-inner">
       <div class="manifiesto-label">Por qué existimos</div>
       <p class="manifiesto-text">
-        La información pública <strong>existe</strong>, pero es difícil de leer, cruzar y entender. La inteligencia artificial cambia eso. <strong>Capital Data</strong> usa esas herramientas para hacer el gobierno local más legible para todos.
+        La información pública <strong>existe</strong>, pero es difícil de leer, cruzar y entender. La inteligencia artificial cambia eso. <strong>Capital IA</strong> usa esas herramientas para hacer el gobierno local más legible para todos.
       </p>
     </div>
   </div>
@@ -1068,14 +868,7 @@
   <div class="informe-section" id="informes">
     <div class="section-label">Informes</div>
 
-    <div class="eje-block" id="informes-politica">
-      <h3 class="eje-title">Política</h3>
-    </div>
-
     <div class="informe-card" style="margin-top:1px">
-      <div class="informe-thumb">
-        <img src="thumb-sesiones.jpg" alt="Recinto del Concejo Deliberante de La Plata en sesión" style="width:100%;height:100%;object-fit:cover;" />
-      </div>
       <div class="informe-meta">
         <div class="informe-tag">HCD La Plata &middot; 83° Período</div>
         <div class="informe-num">10</div>
@@ -1084,20 +877,13 @@
       <div class="informe-content">
         <h3 class="informe-titulo">Sesiones del Concejo Deliberante</h3>
         <p class="informe-desc">
-          10 sesiones ordinarias analizadas. Debates, votaciones e intervenciones de los 24 concejales, procesadas con inteligencia artificial a partir de las actas y grabaciones oficiales del 83° Período Legislativo.
+          14 sesiones ordinarias analizadas. Debates, votaciones e intervenciones de los 23 concejales, procesadas con inteligencia artificial a partir de las actas y grabaciones oficiales del 83° Período Legislativo.
         </p>
         <a href="sesiones.html" class="informe-link">Ver todas las sesiones →</a>
       </div>
     </div>
 
-    <div class="eje-block" id="informes-finanzas">
-      <h3 class="eje-title">Finanzas Públicas</h3>
-    </div>
-
-    <div class="informe-card" style="margin-top:1px">
-      <div class="informe-thumb">
-        <img src="thumb-ordenanza.jpg" alt="Palacio Municipal de La Plata" style="width:100%;height:100%;object-fit:cover;" />
-      </div>
+    <div class="informe-card">
       <div class="informe-meta">
         <div class="informe-tag">Análisis tributario · 2026</div>
         <div class="informe-num" style="font-size:2.8rem;opacity:.15">23</div>
@@ -1112,36 +898,7 @@
       </div>
     </div>
 
-    <div class="eje-block" id="informes-economia">
-      <h3 class="eje-title">Economía</h3>
-    </div>
-
     <div class="informe-card" style="margin-top:1px">
-      <div class="informe-thumb">
-        <img src="thumb-mapa-comercios.jpg" alt="Mapa de comercios habilitados en La Plata" style="width:100%;height:100%;object-fit:cover;" />
-      </div>
-      <div class="informe-meta">
-        <div class="informe-tag">Ciudad Productiva · Agosto 2026</div>
-        <div class="informe-num" style="font-size:2rem;opacity:.2">🏪</div>
-        <div class="informe-fecha">9.707 establecimientos habilitados</div>
-      </div>
-      <div class="informe-content">
-        <h3 class="informe-titulo">Mapa de comercios habilitados</h3>
-        <p class="informe-desc">
-          Los 9.707 establecimientos comerciales habilitados en La Plata, georreferenciados por rubro y actividad. Un panorama de dónde y cómo se despliega la actividad económica de la ciudad, a partir de datos del Observatorio de Datos Productivos municipal.
-        </p>
-        <a href="mapa_comercios_capital_data.html" class="informe-link">Abrir mapa interactivo →</a>
-      </div>
-    </div>
-
-    <div class="eje-block" id="informes-sociedad">
-      <h3 class="eje-title">Sociedad</h3>
-    </div>
-
-    <div class="informe-card" style="margin-top:1px">
-      <div class="informe-thumb">
-        <img src="thumb-mapa-delito.jpg" alt="Mapa del delito por partido, Provincia de Buenos Aires" style="width:100%;height:100%;object-fit:cover;" />
-      </div>
       <div class="informe-meta">
         <div class="informe-tag">Herramienta · Datos PBA</div>
         <div class="informe-num" style="font-size:2rem;opacity:.2">&#x1F5FA;</div>
@@ -1169,7 +926,7 @@
           Somos un equipo multidisciplinario de profesionales, investigadores y analistas con una convicción compartida: que el análisis riguroso de las políticas públicas locales es una herramienta de transformación concreta.
         </p>
         <p class="nosotros-body">
-          Combinamos formación en <strong>ciencias sociales, derecho, economía y tecnología</strong> con el uso de inteligencia artificial para procesar y analizar la información pública, y convertir esa información en análisis útil y accesible.
+          Combinamos formación en <strong>ciencias sociales, derecho, economía y tecnología</strong> con el uso de inteligencia artificial para hacer algo que antes era inviable a esta escala: procesar sistemáticamente sesiones legislativas, ordenanzas, presupuestos y contrataciones públicas, y convertir esa información en análisis útil y accesible.
         </p>
         <p class="nosotros-body">
           Trabajamos desde <strong>La Plata, capital de la provincia de Buenos Aires</strong>, convencidos de que una ciudad mejor gobernada empieza por una ciudad mejor comprendida.
@@ -1186,35 +943,13 @@
     </div>
   </section>
 
-  <!-- CONTACTO -->
-  <div class="section" id="contacto">
-    <div class="section-label">Contacto</div>
-    <h2 class="section-title">¿Tenés una consulta, un dato o una idea para un informe?</h2>
-    <!-- IMPORTANTE: reemplazar "hola@capitaldata.ar" por el mail real apenas este creado -->
-    <form class="contacto-form" action="mailto:hola@capitaldata.ar" method="post" enctype="text/plain">
-      <div class="contacto-campo">
-        <label for="contacto-nombre">Nombre y apellido</label>
-        <input type="text" id="contacto-nombre" name="nombre" required>
-      </div>
-      <div class="contacto-campo">
-        <label for="contacto-email">Email</label>
-        <input type="email" id="contacto-email" name="email" required>
-      </div>
-      <div class="contacto-campo">
-        <label for="contacto-mensaje">Mensaje</label>
-        <textarea id="contacto-mensaje" name="mensaje" required></textarea>
-      </div>
-      <button type="submit" class="btn-primary">Enviar mensaje</button>
-    </form>
-  </div>
-
   <!-- FOOTER -->
   <footer>
-    <div class="footer-logo">Capital <span>Data</span></div>
+    <div class="footer-logo">Capital <span>IA</span></div>
     <div class="footer-info">
       La Plata · Capital de la Provincia de Buenos Aires<br>
-      Política pública, economía y sociedad<br>
-      <span style="color: var(--acento); font-size: 0.55rem;">@capitaldata</span>
+      Políticas públicas e inteligencia artificial<br>
+      <span style="color: var(--acento); font-size: 0.55rem;">@capital.ia</span>
     </div>
   </footer>
 
