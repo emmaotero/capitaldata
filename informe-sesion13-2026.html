@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sesión N°13 · 2026 — Capital IA</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{--azul:#1a3fff;--negro:#0a0a0a;--crema:#f5f2eb;--gris-claro:#f0ede6;--gris-borde:#e2ddd4;--texto:#1a1a1a;--texto-suave:#6b6b6b;--acento:#c8ff00}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:"Instrument Sans",sans-serif;background:var(--crema);color:var(--texto);max-width:1200px;margin:0 auto;padding:0}
+.informe-nav{background:var(--negro);padding:1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.informe-nav-logo{font-family:"DM Mono",monospace;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--acento);text-decoration:none;display:flex;align-items:center;gap:.6rem}
+.informe-nav-back{font-family:"DM Mono",monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,242,235,.4);text-decoration:none;transition:color .2s}
+.informe-nav-back:hover{color:var(--crema)}
+.informe-header{background:var(--negro);padding:5rem 2.5rem 4rem;position:relative;overflow:hidden}
+.informe-header::after{content:"";position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--azul),transparent)}
+.informe-eyebrow{font-family:"DM Mono",monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acento);margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem}
+.informe-eyebrow::before{content:"";display:block;width:2rem;height:1px;background:var(--acento)}
+.informe-header h1{font-family:"Fraunces",serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:300;color:var(--crema);line-height:1.1;letter-spacing:-.02em;margin-bottom:2rem;max-width:800px}
+.informe-meta-bar{display:flex;gap:2rem;flex-wrap:wrap}
+.informe-meta-item{font-family:"DM Mono",monospace;font-size:.65rem;letter-spacing:.1em;color:rgba(245,242,235,.4)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--gris-borde);border-bottom:1px solid var(--gris-borde)}
+.stat{background:white;padding:2rem 1.5rem;text-align:center}
+.stat .n{font-family:"Fraunces",serif;font-size:2.8rem;font-weight:300;color:var(--azul);line-height:1;margin-bottom:.4rem}
+.stat .label{font-family:"DM Mono",monospace;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--texto-suave)}
+.res{background:white;border-left:3px solid var(--azul);padding:2rem 2.5rem;font-family:"Fraunces",serif;font-size:1.05rem;font-weight:300;font-style:italic;line-height:1.7;color:var(--texto)}
+.contenido{padding:3rem 2.5rem}
+h2{font-family:"Fraunces",serif;font-size:1.8rem;font-weight:300;color:var(--negro);margin-top:3.5rem;margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:1px solid var(--gris-borde)}
+h2:first-child{margin-top:0}
+h3{font-family:"Fraunces",serif;font-size:1.05rem;font-weight:400;color:var(--negro);margin:0 0 10px 0}
+.card{background:white;border:1px solid var(--gris-borde);padding:2rem;margin-bottom:1.5rem}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+th{background:var(--negro);color:var(--crema);padding:.75rem 1rem;text-align:left;font-family:"DM Mono",monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;font-weight:400}
+td{padding:.85rem 1rem;border-bottom:1px solid var(--gris-borde);vertical-align:top;line-height:1.5}
+tr:last-child td{border-bottom:none}tr:hover td{background:var(--gris-claro)}
+.informe-footer{background:var(--negro);padding:2.5rem;display:flex;justify-content:space-between;align-items:center}
+.informe-footer-logo{font-family:"Fraunces",serif;font-size:1.2rem;font-weight:300;color:var(--crema);display:flex;align-items:center;gap:.5rem}
+.informe-footer-logo span{color:var(--acento);font-style:italic}
+.informe-footer-info{font-family:"DM Mono",monospace;font-size:.58rem;letter-spacing:.1em;color:rgba(245,242,235,.3);text-align:right;line-height:1.8}
+@media(max-width:768px){.informe-header{padding:3.5rem 1.5rem 3rem}.contenido{padding:2rem 1.5rem}.res{padding:1.5rem}.informe-nav{padding:1rem 1.5rem}.informe-footer{flex-direction:column;gap:1rem;text-align:center}}
+</style>
+</head>
+<body>
+
+<nav class="informe-nav">
+  <a href="index.html" class="informe-nav-logo"><span style="display:inline-flex;align-items:center;width:28px;height:28px;flex-shrink:0"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 48 48"><title>Capital IA</title><line x1="24" y1="24" x2="6" y2="6" stroke="#1a3fff" stroke-width="1" opacity="0.75"/><line x1="24" y1="24" x2="24" y2="5" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/><line x1="24" y1="24" x2="42" y2="6" stroke="#1a3fff" stroke-width="1" opacity="0.75"/><line x1="24" y1="24" x2="43" y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/><line x1="24" y1="24" x2="42" y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/><line x1="24" y1="24" x2="24" y2="43" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/><line x1="24" y1="24" x2="6" y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/><line x1="24" y1="24" x2="5" y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/><circle cx="6" cy="6" r="2.5" fill="#c8ff00"/><circle cx="24" cy="5" r="1.8" fill="#1a3fff"/><circle cx="42" cy="6" r="2.5" fill="#c8ff00"/><circle cx="43" cy="24" r="1.8" fill="#1a3fff"/><circle cx="42" cy="42" r="2.5" fill="#c8ff00"/><circle cx="24" cy="43" r="1.8" fill="#1a3fff"/><circle cx="6" cy="42" r="2.5" fill="#c8ff00"/><circle cx="5" cy="24" r="1.8" fill="#1a3fff"/><circle cx="13" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/><circle cx="13" cy="13" r="1" fill="#c8ff00"/><circle cx="35" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/><circle cx="35" cy="13" r="1" fill="#c8ff00"/><circle cx="35" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/><circle cx="35" cy="35" r="1" fill="#c8ff00"/><circle cx="13" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/><circle cx="13" cy="35" r="1" fill="#c8ff00"/><circle cx="24" cy="24" r="7" fill="#0a0a0a" stroke="#c8ff00" stroke-width="1.5"/><circle cx="24" cy="24" r="3.5" fill="#1a3fff"/><circle cx="24" cy="24" r="1.5" fill="#c8ff00"/></svg></span>Capital IA</a>
+  <a href="sesiones.html" class="informe-nav-back">&larr; Sesiones</a>
+</nav>
+
+<div class="informe-header">
+  <div class="informe-eyebrow">Informe N&deg;13 &middot; 2026</div>
+  <h1>Sesi&oacute;n Ordinaria N&deg;13<br>83&deg; Per&iacute;odo Legislativo</h1>
+  <div class="informe-meta-bar">
+    <span class="informe-meta-item">&#128197; 24 de septiembre de 2026</span>
+    <span class="informe-meta-item">&#128336; 11:25 hs</span>
+    <span class="informe-meta-item">&#128203; 20 concejales presentes</span>
+    <span class="informe-meta-item">&#127937; Juramento Mat&iacute;as Laura</span>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="n">20</div><div class="label">Presentes</div></div>
+  <div class="stat"><div class="n">5</div><div class="label">Debates pol&iacute;ticos</div></div>
+  <div class="stat"><div class="n">~30</div><div class="label">Puntos aprobados</div></div>
+  <div class="stat"><div class="n">1</div><div class="label">Votaci&oacute;n dividida</div></div>
+</div>
+
+<div class="res">Sesi&oacute;n de alta intensidad pol&iacute;tica con cinco debates de fondo. El eje central fue la movilidad urbana: el proyecto de observatorio de datos de transporte (plataformas y taxis, con metodolog&iacute;a UNLP) protagoniz&oacute; el cruce m&aacute;s extenso, con LLA y PRO cuestionando a la universidad como fuente. Tambi&eacute;n se debatieron la promoci&oacute;n del GNC, un decreto sobre Venezuela (cruce sobre author&iacute;a), el nombramiento de un funcionario en la V&iacute;a de Gobierno, y la ley provincial de inviolabilidad de domicilio &mdash; donde LLA y PRO votaron en contra. Oscar Pedroza fue declarado Personalidad Destacada con voto negativo de PRO (por su car&aacute;cter sindical) y ausencia de LLA. PRO y FP cruzaron posturas sobre juicio por jurados. Jur&oacute; el concejal Mat&iacute;as Laura. Staffolani iz&oacute; y arri&oacute; el Pabel&oacute;n Nacional.</div>
+
+<div class="contenido">
+
+<h2>&#128101; Concejales</h2>
+<div class="card"><table>
+<tr><th>Nombre</th><th>Cargo</th><th>Bloque</th><th>Interv.</th><th>Posici&oacute;n</th><th>Temas principales</th><th>Resumen</th></tr>
+
+<tr><td><strong>Marcelo Gustavo GALLAND</strong></td><td>Presidente</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center">&mdash;</td><td><span style="background:#7f8c8d;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">presidencia</span></td><td>Conducci&oacute;n de sesi&oacute;n</td><td>Presidi&oacute; la sesi&oacute;n. Administr&oacute; los debates de transporte, GNC e inviolabilidad. Condujo el juramento del concejal Mat&iacute;as Laura.</td></tr>
+
+<tr><td><strong>Gustavo STAFFOLANI</strong></td><td>Concejal</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~3</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>GNC, Pabel&oacute;n Nacional, funcionario VdG</td><td>Iz&oacute; y arri&oacute; el Pabel&oacute;n Nacional. Intervino en el debate de GNC con argumentos t&eacute;cnicos sobre transici&oacute;n energ&eacute;tica. Respondi&oacute; cuestionamientos de la oposici&oacute;n sobre el nombramiento de un funcionario en la V&iacute;a de Gobierno, vinculado al caso Florencia Pe&ntilde;a.</td></tr>
+
+<tr><td><strong>Josefina Mar&iacute;a BOLIS</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~4</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Observatorio transporte (UNLP), inviolabilidad, juicio por jurados</td><td>Defendi&oacute; el proyecto de observatorio de datos de transporte y la metodolog&iacute;a UNLP ante las cr&iacute;ticas de LLA y PRO. Respondi&oacute; el proyecto de juicio por jurados de PRO. Intervino en el debate de inviolabilidad de domicilio. Solicit&oacute; al inicio el adelantamiento del punto 150, aprobado por el cuerpo.</td></tr>
+
+<tr><td><strong>Nicol&aacute;s Luis MORZONE</strong></td><td>Concejal</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">PRO</span></td><td style="text-align:center;font-weight:bold">~5</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Juicio por jurados, GNC, estupefacientes, inviolabilidad</td><td>El concejal con mayor n&uacute;mero de intervenciones. Co-present&oacute; junto a Zanetto el proyecto de juicio por jurados. Debati&oacute; sobre GNC. Junto a Bard&oacute;n impuls&oacute; una declaraci&oacute;n sobre estupefacientes. Vot&oacute; en contra de la ley de inviolabilidad de domicilio. El bloque PRO vot&oacute; en contra del reconocimiento a Oscar Pedroza por su car&aacute;cter sindical.</td></tr>
+
+<tr><td><strong>Mar&iacute;a Florencia BARD&Oacute;N</strong></td><td>Concejala</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~4</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Observatorio transporte (cr&iacute;tica), estupefacientes, inviolabilidad</td><td>Cuestion&oacute; la elecci&oacute;n de la UNLP como fuente del observatorio de transporte, poniendo en duda su imparcialidad. Junto a Morzone impuls&oacute; la declaraci&oacute;n sobre estupefacientes. Vot&oacute; en contra de la ley de inviolabilidad.</td></tr>
+
+<tr><td><strong>Juan Pablo ALLAN</strong></td><td>Vicepresidente 2&deg;</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~3</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Observatorio transporte (cr&iacute;tica), GNC</td><td>Se sum&oacute; a las cr&iacute;ticas al observatorio de transporte, cuestionando la intervenci&oacute;n estatal y el rol de la UNLP. Intervino en el debate de GNC desde una postura de menor intervenci&oacute;n del municipio.</td></tr>
+
+<tr><td><strong>Sergio Daniel RESA</strong></td><td>Concejal</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~4</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Venezuela, GNC, Pedroza</td><td>Intervino en el debate de Venezuela aclarando la autor&iacute;a del pedido desde el bloque FP. Particip&oacute; del debate de GNC. Present&oacute; el reconocimiento a Oscar Pedroza como Personalidad Destacada. Alta presencia en sesi&oacute;n.</td></tr>
+
+<tr><td><strong>Juan Manuel GRANILLO FERN&Aacute;NDEZ</strong></td><td>Vicepresidente 1&deg;</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~3</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>GNC, juicio por jurados, inviolabilidad</td><td>Defendi&oacute; la postura del oficialismo sobre GNC. Respondi&oacute; argumentos jur&iacute;dicos sobre el proyecto de juicio por jurados. Intervino en el debate de inviolabilidad.</td></tr>
+
+<tr><td><strong>Gonzalo BARCIA</strong></td><td>Concejal</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>GNC</td><td>Particip&oacute; en el debate de GNC, argumentando su accesibilidad para sectores medios y bajos.</td></tr>
+
+<tr><td><strong>Ana Laura DE FEO</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>GNC</td><td>Present&oacute; la iniciativa de promoci&oacute;n del GNC, exponiendo los fundamentos de la ordenanza.</td></tr>
+
+<tr><td><strong>Pablo MORALES</strong></td><td>Concejal</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Calles QR (proyecto LLA)</td><td>Impuls&oacute; el proyecto de se&ntilde;alizaci&oacute;n de calles con c&oacute;digos QR, aprobado en la sesi&oacute;n.</td></tr>
+
+<tr><td><strong>Federico ZANETTO</strong></td><td>Concejal</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">PRO</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Juicio por jurados</td><td>Co-present&oacute; junto a Morzone el proyecto de juicio por jurados.</td></tr>
+
+<tr><td><strong>Dami&aacute;n DI DIO</strong></td><td>Concejal</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Juicio por jurados (respuesta)</td><td>Respondi&oacute; el proyecto de Morzone y Zanetto sobre juicio por jurados, cuestionando su alcance e implementaci&oacute;n.</td></tr>
+
+<tr><td><strong>Mat&iacute;as LAURA</strong></td><td>Concejal (ingresa)</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center">&mdash;</td><td><span style="background:#7f8c8d;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">ceremonial</span></td><td>Juramento</td><td>Prest&oacute; juramento al inicio de la sesi&oacute;n como reemplazo del concejal Pablo El&iacute;as, quien obtuvo licencia por Decreto N&deg; 300. Ocup&oacute; su banca a partir de esta sesi&oacute;n.</td></tr>
+
+</table></div>
+
+<h2>&#128203; Temas tratados</h2>
+<div class="card"><table>
+<tr><th>#</th><th>T&iacute;tulo</th><th>Tipo</th><th>Concejales que hablaron</th><th>Resultado</th></tr>
+
+<tr><td style="text-align:center">Apertura</td><td><strong>Juramento del concejal Mat&iacute;as Laura (reemplaza a Pablo El&iacute;as &mdash; Dcto. 300). Adelantamiento del punto 150 &mdash; moci&oacute;n de Bolis</strong></td><td>Institucional</td><td>BOLIS (moci&oacute;n)</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Jurado / Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">Pts. DE</td><td><strong>Mensajes del Departamento Ejecutivo: ratificaci&oacute;n convenio Asoc. Civil &ldquo;Integral Una Movida de Locos&rdquo; &mdash; donaci&oacute;n del Banco Provincia &mdash; reserva de espacio en Calle 10 N&deg; 1576 (Centro de D&iacute;az y Flores)</strong></td><td>Mensajes del DE</td><td>&mdash;</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisiones / Aprobados</span></td></tr>
+
+<tr><td style="text-align:center">Venezuela</td><td><strong>Decreto sobre Venezuela &mdash; declaraci&oacute;n institucional sobre la situaci&oacute;n pol&iacute;tica. Cruce sobre autor&iacute;a del pedido</strong></td><td>Declaraci&oacute;n &mdash; FP</td><td>RESA, varios</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">Observatorio transporte</td><td><strong>Creaci&oacute;n de observatorio de datos de movilidad urbana: plataformas (Uber, Cabify) y taxis. Metodolog&iacute;a UNLP</strong></td><td>Ordenanza &mdash; FP (Bolis)</td><td>BOLIS, BARD&Oacute;N, ALLAN, RESA</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado (LLA y PRO en contra)</span></td></tr>
+
+<tr><td style="text-align:center">GNC</td><td><strong>Promoci&oacute;n del Gas Natural Comprimido (GNC) como combustible alternativo en el municipio</strong></td><td>Ordenanza &mdash; FP (De Feo)</td><td>DE FEO, STAFFOLANI, BARCIA, ALLAN, MORZONE, GRANILLO</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">Funcionario VdG</td><td><strong>Cuestionamiento al nombramiento de un funcionario en la V&iacute;a de Gobierno (caso Florencia Pe&ntilde;a) &mdash; responde Staffolani</strong></td><td>Debate &mdash; oposici&oacute;n</td><td>&Aacute;LVAREZ, STAFFOLANI</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Resuelto en sesi&oacute;n</span></td></tr>
+
+<tr><td style="text-align:center">Juicio por jurados</td><td><strong>Proyecto de adhesi&oacute;n al juicio por jurados &mdash; PRO (Morzone + Zanetto) vs. FP (Bolis + Di Dio + Granillo)</strong></td><td>Resoluci&oacute;n &mdash; PRO</td><td>MORZONE, ZANETTO, BOLIS, DI DIO, GRANILLO</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisiones</span></td></tr>
+
+<tr><td style="text-align:center">Estupefacientes</td><td><strong>Declaraci&oacute;n sobre pol&iacute;tica de estupefacientes &mdash; impulsada por Bard&oacute;n (LLA) y Morzone (PRO)</strong></td><td>Declaraci&oacute;n &mdash; oposici&oacute;n</td><td>BARD&Oacute;N, MORZONE</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">Inviolabilidad</td><td><strong>Ley provincial de inviolabilidad de domicilio &mdash; voto dividido: LLA y PRO en contra</strong></td><td>Declaraci&oacute;n / adhesi&oacute;n &mdash; FP</td><td>BOLIS, GRANILLO, BARD&Oacute;N, MORZONE</td><td><span style="background:#e74c3c;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10007; LLA y PRO en contra</span></td></tr>
+
+<tr><td style="text-align:center">Calles QR</td><td><strong>Se&ntilde;alizaci&oacute;n de calles con c&oacute;digos QR &mdash; proyecto LLA (Morales)</strong></td><td>Ordenanza &mdash; LLA</td><td>MORALES</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">Puesto de flores</td><td><strong>Habilitaci&oacute;n de puesto de flores en espacio p&uacute;blico &mdash; proyecto LLA</strong></td><td>Ordenanza &mdash; LLA</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">CGT</td><td><strong>Declaraci&oacute;n por el aniversario de la Confederaci&oacute;n General del Trabajo</strong></td><td>Declaraci&oacute;n</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">Balderston</td><td><strong>Daniel Balderston &mdash; Hu&eacute;sped de Honor de La Plata</strong></td><td>Declaraci&oacute;n</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">Femicidios</td><td><strong>Declaraci&oacute;n de preocupaci&oacute;n institucional ante el aumento de femicidios</strong></td><td>Declaraci&oacute;n</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">FRAMEDIC</td><td><strong>Reconocimiento o declaraci&oacute;n vinculada a FRAMEDIC</strong></td><td>Declaraci&oacute;n</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">Embajador Espa&ntilde;a</td><td><strong>Embajador de Espa&ntilde;a Ar&iacute;stegui &mdash; Visitante Ilustre de La Plata</strong></td><td>Declaraci&oacute;n</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">Pedroza</td><td><strong>Oscar Pedroza &mdash; Personalidad Destacada (referente sindical)</strong></td><td>Declaraci&oacute;n &mdash; FP (Resa)</td><td>RESA</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado (PRO en contra, LLA ausente)</span></td></tr>
+
+<tr><td style="text-align:center">Pabel&oacute;n</td><td><strong>Iz&oacute; y arri&oacute; el Pabel&oacute;n Nacional</strong></td><td>Ceremonial</td><td>STAFFOLANI</td><td><span style="background:#7f8c8d;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">Ceremonial</span></td></tr>
+
+</table></div>
+
+<h2>&#128172; Debates</h2>
+<div class="card">
+
+  <div style="border-left:5px solid #2980b9;padding:15px;margin-bottom:20px;background:#f0f7ff;border-radius:5px">
+    <h3 style="color:#1a5276">&#128660; Observatorio de datos de movilidad urbana (plataformas y taxis) &mdash; el debate central</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#2980b9">FP (Bolis, Resa) &mdash; a favor</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Bolis defendi&oacute; la creaci&oacute;n del observatorio como herramienta de informaci&oacute;n p&uacute;blica para regular el mercado de transporte de pasajeros.</li>
+          <li>Justific&oacute; la elecci&oacute;n de la UNLP por su trayectoria en relevamientos de transporte urbano en el &aacute;rea metropolitana.</li>
+          <li>Resa refut&oacute; las cr&iacute;ticas se&ntilde;alando que la UNLP es una instituci&oacute;n p&uacute;blica de excelencia elegida por criterios t&eacute;cnicos, no pol&iacute;ticos.</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#8e44ad">LLA (Bard&oacute;n, Allan) y PRO &mdash; en contra</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Bard&oacute;n cuestion&oacute; la objetividad e imparcialidad de la UNLP como fuente de datos, advirtiendo sobre el riesgo de que el observatorio se convierta en una herramienta ideol&oacute;gica.</li>
+          <li>Allan cuestion&oacute; la pertinencia del observatorio para regular plataformas que considera deben operar en un mercado libre.</li>
+        </ul>
+      </div>
+    </div>
+    <p style="color:#6b6b6b;font-style:italic;font-size:.9em;margin-top:10px">El proyecto fue aprobado por los votos de FP. Fue el debate m&aacute;s extenso de la sesi&oacute;n.</p>
+  </div>
+
+  <div style="border-left:5px solid #27ae60;padding:15px;margin-bottom:20px;background:#f0faf4;border-radius:5px">
+    <h3 style="color:#1e8449">&#9959;&#65039; GNC &mdash; promoci&oacute;n como combustible alternativo</h3>
+    <p style="font-size:.9em;color:#444;line-height:1.7">FP present&oacute; una ordenanza para promover el uso del Gas Natural Comprimido en el parque automotor platense. <strong>De Feo</strong> expuso los fundamentos: ahorro para usuarios e impacto ambiental positivo. <strong>Staffolani</strong> aport&oacute; datos sobre infraestructura de GNC en La Plata en relaci&oacute;n a la transici&oacute;n energ&eacute;tica. <strong>Barcia</strong> destac&oacute; su accesibilidad para sectores medios y bajos. Desde LLA, <strong>Allan</strong> cuestion&oacute; el rol del municipio en promover un combustible espec&iacute;fico; desde PRO, <strong>Morzone</strong> pregunt&oacute; sobre la disponibilidad real de estaciones en el partido. <strong>Granillo Fern&aacute;ndez</strong> cerr&oacute; reafirmando el car&aacute;cter de promoci&oacute;n &mdash; no obligaci&oacute;n &mdash; de la norma. Aprobado.</p>
+  </div>
+
+  <div style="border-left:5px solid #f39c12;padding:15px;margin-bottom:20px;background:#fef9f0;border-radius:5px">
+    <h3 style="color:#ca6f1e">&#9878;&#65039; Juicio por jurados &mdash; PRO presenta, FP responde</h3>
+    <p style="font-size:.9em;color:#444;line-height:1.7"><strong>Morzone y Zanetto (PRO)</strong> presentaron un proyecto sobre la figura del juicio por jurados, exponi&eacute;ndolo como mecanismo de participaci&oacute;n ciudadana y herramienta contra la arbitrariedad judicial. FP respondi&oacute; con tres concejales: <strong>Bolis</strong> cuestion&oacute; su pertinencia en el &aacute;mbito municipal; <strong>Di Dio</strong> ampli&oacute; los argumentos cr&iacute;ticos; <strong>Granillo Fern&aacute;ndez</strong> cerr&oacute; con argumentos jur&iacute;dicos y de garant&iacute;as. El proyecto fue enviado a comisiones.</p>
+  </div>
+
+  <div style="border-left:5px solid #e74c3c;padding:15px;margin-bottom:20px;background:#fdf2f2;border-radius:5px">
+    <h3 style="color:#c0392b">&#128308; Inviolabilidad de domicilio &mdash; LLA y PRO votan en contra</h3>
+    <p style="font-size:.9em;color:#444;line-height:1.7">FP impuls&oacute; un pronunciamiento o adhesi&oacute;n vinculado a la ley provincial de inviolabilidad de domicilio. <strong>Bard&oacute;n y Morzone</strong> lideraron el voto negativo desde LLA y PRO, argumentando que la norma podr&iacute;a limitar la acci&oacute;n policial en situaciones de flagrancia y poner en riesgo la seguridad ciudadana. Fue el &uacute;nico punto de la sesi&oacute;n donde LLA y PRO expresaron voto expl&iacute;cito en contra.</p>
+  </div>
+
+  <div style="border-left:5px solid #8e44ad;padding:15px;margin-bottom:20px;background:#f9f0ff;border-radius:5px">
+    <h3 style="color:#6c3483">&#128221; Venezuela &mdash; cruce sobre la autor&iacute;a del pedido</h3>
+    <p style="font-size:.9em;color:#444;line-height:1.7">Se debati&oacute; una declaraci&oacute;n sobre la situaci&oacute;n pol&iacute;tica en Venezuela. El cruce m&aacute;s relevante no fue sobre el contenido sino sobre qui&eacute;n hab&iacute;a impulsado el pedido. <strong>Resa (FP)</strong> intervino para aclarar que la iniciativa parti&oacute; del bloque FP, refutando versiones que circulaban en el recinto sobre su origen. Aprobado.</p>
+  </div>
+
+  <div style="border-left:5px solid #7f8c8d;padding:15px;background:#f8f8f8;border-radius:5px">
+    <h3 style="color:#555">&#127941; Reconocimiento a Oscar Pedroza &mdash; voto dividido por su perfil sindical</h3>
+    <p style="font-size:.9em;color:#444;line-height:1.7">FP impuls&oacute; la declaraci&oacute;n de Personalidad Destacada para Oscar Pedroza, referente sindical, presentada por <strong>Resa</strong>. El bloque PRO vot&oacute; expl&iacute;citamente en contra, argumentando que no acompa&ntilde;an reconocimientos institucionales a dirigentes sindicales. LLA no vot&oacute;, sin dejar constancia formal de su posici&oacute;n. Aprobado por los votos de FP.</p>
+  </div>
+
+</div>
+
+</div>
+
+<footer class="informe-footer">
+  <div class="informe-footer-logo"><span style="display:inline-flex;align-items:center;width:20px;height:20px;flex-shrink:0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 48 48"><line x1="24" y1="24" x2="6" y2="6" stroke="#1a3fff" stroke-width="1" opacity="0.75"/><line x1="24" y1="24" x2="24" y2="5" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/><line x1="24" y1="24" x2="42" y2="6" stroke="#1a3fff" stroke-width="1" opacity="0.75"/><line x1="24" y1="24" x2="43" y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/><line x1="24" y1="24" x2="42" y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/><line x1="24" y1="24" x2="24" y2="43" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/><line x1="24" y1="24" x2="6" y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/><line x1="24" y1="24" x2="5" y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/><circle cx="6" cy="6" r="2.5" fill="#c8ff00"/><circle cx="24" cy="5" r="1.8" fill="#1a3fff"/><circle cx="42" cy="6" r="2.5" fill="#c8ff00"/><circle cx="43" cy="24" r="1.8" fill="#1a3fff"/><circle cx="42" cy="42" r="2.5" fill="#c8ff00"/><circle cx="24" cy="43" r="1.8" fill="#1a3fff"/><circle cx="6" cy="42" r="2.5" fill="#c8ff00"/><circle cx="5" cy="24" r="1.8" fill="#1a3fff"/><circle cx="13" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/><circle cx="13" cy="13" r="1" fill="#c8ff00"/><circle cx="35" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/><circle cx="35" cy="13" r="1" fill="#c8ff00"/><circle cx="35" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/><circle cx="35" cy="35" r="1" fill="#c8ff00"/><circle cx="13" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/><circle cx="13" cy="35" r="1" fill="#c8ff00"/><circle cx="24" cy="24" r="7" fill="#0a0a0a" stroke="#c8ff00" stroke-width="1.5"/><circle cx="24" cy="24" r="3.5" fill="#1a3fff"/><circle cx="24" cy="24" r="1.5" fill="#c8ff00"/></svg></span>Capital <span>IA</span></div>
+  <div class="informe-footer-info">
+    La Plata &middot; Capital de la Provincia de Buenos Aires<br>
+    Pol&iacute;ticas p&uacute;blicas e inteligencia artificial<br>
+    @capital.ia
+  </div>
+</footer>
+
+</body>
+</html>

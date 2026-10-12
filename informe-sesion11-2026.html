@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sesión N°11 · 2026 — Capital IA</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{--azul:#1a3fff;--negro:#0a0a0a;--crema:#f5f2eb;--gris-claro:#f0ede6;--gris-borde:#e2ddd4;--texto:#1a1a1a;--texto-suave:#6b6b6b;--acento:#c8ff00}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:"Instrument Sans",sans-serif;background:var(--crema);color:var(--texto);max-width:1200px;margin:0 auto;padding:0}
+.informe-nav{background:var(--negro);padding:1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.informe-nav-logo{font-family:"DM Mono",monospace;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--acento);text-decoration:none;display:flex;align-items:center;gap:.6rem}
+.informe-nav-back{font-family:"DM Mono",monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,242,235,.4);text-decoration:none;transition:color .2s}
+.informe-nav-back:hover{color:var(--crema)}
+.informe-header{background:var(--negro);padding:5rem 2.5rem 4rem;position:relative;overflow:hidden}
+.informe-header::after{content:"";position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--azul),transparent)}
+.informe-eyebrow{font-family:"DM Mono",monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acento);margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem}
+.informe-eyebrow::before{content:"";display:block;width:2rem;height:1px;background:var(--acento)}
+.informe-header h1{font-family:"Fraunces",serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:300;color:var(--crema);line-height:1.1;letter-spacing:-.02em;margin-bottom:2rem;max-width:800px}
+.informe-meta-bar{display:flex;gap:2rem;flex-wrap:wrap}
+.informe-meta-item{font-family:"DM Mono",monospace;font-size:.65rem;letter-spacing:.1em;color:rgba(245,242,235,.4)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--gris-borde);border-bottom:1px solid var(--gris-borde)}
+.stat{background:white;padding:2rem 1.5rem;text-align:center}
+.stat .n{font-family:"Fraunces",serif;font-size:2.8rem;font-weight:300;color:var(--azul);line-height:1;margin-bottom:.4rem}
+.stat .label{font-family:"DM Mono",monospace;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--texto-suave)}
+.res{background:white;border-left:3px solid var(--azul);padding:2rem 2.5rem;font-family:"Fraunces",serif;font-size:1.05rem;font-weight:300;font-style:italic;line-height:1.7;color:var(--texto)}
+.contenido{padding:3rem 2.5rem}
+h2{font-family:"Fraunces",serif;font-size:1.8rem;font-weight:300;color:var(--negro);margin-top:3.5rem;margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:1px solid var(--gris-borde)}
+h2:first-child{margin-top:0}
+.card{background:white;border:1px solid var(--gris-borde);padding:2rem;margin-bottom:1.5rem}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+th{background:var(--negro);color:var(--crema);padding:.75rem 1rem;text-align:left;font-family:"DM Mono",monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;font-weight:400}
+td{padding:.85rem 1rem;border-bottom:1px solid var(--gris-borde);vertical-align:top;line-height:1.5}
+tr:last-child td{border-bottom:none}tr:hover td{background:var(--gris-claro)}
+.informe-footer{background:var(--negro);padding:2.5rem;display:flex;justify-content:space-between;align-items:center}
+.informe-footer-logo{font-family:"Fraunces",serif;font-size:1.2rem;font-weight:300;color:var(--crema)}
+.informe-footer-logo span{color:var(--acento);font-style:italic}
+.informe-footer-info{font-family:"DM Mono",monospace;font-size:.58rem;letter-spacing:.1em;color:rgba(245,242,235,.3);text-align:right;line-height:1.8}
+@media(max-width:768px){.informe-header{padding:3.5rem 1.5rem 3rem}.contenido{padding:2rem 1.5rem}.res{padding:1.5rem}.informe-nav{padding:1rem 1.5rem}.informe-footer{flex-direction:column;gap:1rem;text-align:center}}
+</style>
+</head>
+<body>
+
+<nav class="informe-nav">
+  <a href="index.html" class="informe-nav-logo" style="display:flex;align-items:center;gap:.6rem"><span style="display:inline-flex;align-items:center;width:28px;height:28px;flex-shrink:0"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 48 48"><title>Capital IA</title><line x1="24" y1="24" x2="6" y2="6" stroke="#1a3fff" stroke-width="1" opacity="0.75"/><line x1="24" y1="24" x2="24" y2="5" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/><line x1="24" y1="24" x2="42" y2="6" stroke="#1a3fff" stroke-width="1" opacity="0.75"/><line x1="24" y1="24" x2="43" y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/><line x1="24" y1="24" x2="42" y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/><line x1="24" y1="24" x2="24" y2="43" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/><line x1="24" y1="24" x2="6" y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/><line x1="24" y1="24" x2="5" y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/><circle cx="6" cy="6" r="2.5" fill="#c8ff00"/><circle cx="24" cy="5" r="1.8" fill="#1a3fff"/><circle cx="42" cy="6" r="2.5" fill="#c8ff00"/><circle cx="43" cy="24" r="1.8" fill="#1a3fff"/><circle cx="42" cy="42" r="2.5" fill="#c8ff00"/><circle cx="24" cy="43" r="1.8" fill="#1a3fff"/><circle cx="6" cy="42" r="2.5" fill="#c8ff00"/><circle cx="5" cy="24" r="1.8" fill="#1a3fff"/><circle cx="13" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/><circle cx="13" cy="13" r="1" fill="#c8ff00"/><circle cx="35" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/><circle cx="35" cy="13" r="1" fill="#c8ff00"/><circle cx="35" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/><circle cx="35" cy="35" r="1" fill="#c8ff00"/><circle cx="13" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/><circle cx="13" cy="35" r="1" fill="#c8ff00"/><circle cx="24" cy="24" r="7" fill="#0a0a0a" stroke="#c8ff00" stroke-width="1.5"/><circle cx="24" cy="24" r="3.5" fill="#1a3fff"/><circle cx="24" cy="24" r="1.5" fill="#c8ff00"/></svg></span>Capital IA</a>
+  <a href="sesiones.html" class="informe-nav-back">&larr; Sesiones</a>
+</nav>
+
+<div class="informe-header">
+  <div class="informe-eyebrow">Informe N&deg;11 &middot; 2026</div>
+  <h1>Sesi&oacute;n Ordinaria N&deg;11<br>83&deg; Per&iacute;odo Legislativo</h1>
+  <div class="informe-meta-bar">
+    <span class="informe-meta-item">&#128197; 27 de agosto de 2026</span>
+    <span class="informe-meta-item">&#128336; 11:55 &mdash; 15:50 hs</span>
+    <span class="informe-meta-item">&#128203; 22 concejales presentes</span>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="n">22</div><div class="label">Presentes</div></div>
+  <div class="stat"><div class="n">3</div><div class="label">Debates principales</div></div>
+  <div class="stat"><div class="n">187</div><div class="label">Puntos en el sumario</div></div>
+  <div class="stat"><div class="n">3h 55m</div><div class="label">Duraci&oacute;n</div></div>
+</div>
+
+<div class="res">Sesi&oacute;n presidida por Marcelo Galland. Recavarren iz&oacute; y arri&oacute; el Pabel&oacute;n. Tres debates de fondo: los cortes de luz masivos de EDELAP, donde el PRO propuso la desconcesi&oacute;n del servicio y acus&oacute; a FP de bloquear su tratamiento en labor; el suicidio y la salud mental, con un intercambio tenso entre bloques sobre la pertinencia del lenguaje y un cruce directo entre el PRO y LLA; y el endeudamiento y las aplicaciones financieras digitales, donde FP impuls&oacute; un programa de concientizaci&oacute;n y LLA respondi&oacute; priorizando la educaci&oacute;n sobre la regulaci&oacute;n. Tambi&eacute;n: sello para comercios familiares hist&oacute;ricos, rotonda al inmigrante italiano y Juan Pablo Belatti propuesto como Ciudadano Ilustre.</div>
+
+<div class="contenido">
+
+<h2>&#128101; Concejales</h2><div class="card"><table>
+<tr><th>Nombre</th><th>Cargo</th><th>Bloque</th><th>Interv.</th><th>Posici&oacute;n</th><th>Temas principales</th><th>Resumen</th></tr>
+
+<tr><td><strong>Marcelo Gustavo GALLAND</strong></td><td>Presidente</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center">&mdash;</td><td><span style="background:#7f8c8d;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">presidencia</span></td><td>Conducci&oacute;n de sesi&oacute;n</td><td>Presidi&oacute; la sesi&oacute;n. Condujo los debates sin aplicar llamamiento al orden en ning&uacute;n momento, pese a la tensi&oacute;n del debate de EDELAP. Invit&oacute; a Recavarren a izar y arriar el Pabel&oacute;n.</td></tr>
+
+<tr><td><strong>Nicol&aacute;s Luis MORZONE</strong></td><td>Concejal</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">PRO</span></td><td style="text-align:center;font-weight:bold">~8</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>EDELAP (desconcesi&oacute;n), crisis de representaci&oacute;n, endeudamiento, suicidio</td><td>El m&aacute;s activo de la sesi&oacute;n. Se declar&oacute; "enojado y frustrado" porque su proyecto de desconcesi&oacute;n de EDELAP fue bloqueado en labor. Fund&oacute; el debate citando a Plat&oacute;n (La Rep&uacute;blica, 380 a.C.), Ortega y Gasset (La Rebeli&oacute;n de las Masas, 1930) y Roberto Bobbio para acusar al Concejo de ser una "instituci&oacute;n invisible" distanciada de la realidad. Denunci&oacute; que 73.000 platenses estuvieron sin luz y que solo Guillermo Bard&oacute;n lo apoy&oacute; en labor. Intervino tambi&eacute;n en el debate de suicidio/salud mental, donde Barcia le aclar&oacute; sus alcances, y en endeudamiento.</td></tr>
+
+<tr><td><strong>Josefina Mar&iacute;a BOLIS</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~6</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Endeudamiento / fintech, EDELAP (respuesta a LLA+PRO), salud mental</td><td>Present&oacute; el debate sobre el endeudamiento de los platenses con billeteras virtuales y aplicaciones financieras. En EDELAP cuestion&oacute; a Morzone por "conmoverse" con el endeudamiento pero no con que los platenses paguen 300 mil pesos por cuatro lamparitas y queden sin luz una semana. En salud mental acompa&ntilde;&oacute; la posici&oacute;n de Maggio. Intervino para rebatir a LLA y PRO sobre el rol municipal en el servicio el&eacute;ctrico.</td></tr>
+
+<tr><td><strong>Juan Manuel GRANILLO FERN&Aacute;NDEZ</strong></td><td>Vicepresidente 1&deg;</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~5</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Endeudamiento (ganancias bancarias), EDELAP</td><td>En el debate de endeudamiento explic&oacute; que las ganancias "hiperextraordinarias" de los bancos en 2024 y 2025 son la causa real del problema, no las tasas municipales. Cuestion&oacute; que los d&eacute;ficits del municipio sean el punto focal cuando el Santander y el Galicia se llevan ganancias r&eacute;cord. Intervino en EDELAP, diferenciando la responsabilidad del municipio de la del concesionario y el regulador provincial.</td></tr>
+
+<tr><td><strong>Gast&oacute;n Manuel &Aacute;LVAREZ</strong></td><td>Concejal</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~6</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Sello comercios familiares, endeudamiento/fintech, EDELAP</td><td>En el sello de comercios acompa&ntilde;&oacute; el proyecto pero consider&oacute; que "se qued&oacute; corto": los comercios de 50, 60 y 100 a&ntilde;os merecen un incentivo m&aacute;s concreto. En endeudamiento aport&oacute; una perspectiva diferente a la de Santana. En EDELAP intervino sobre la responsabilidad del concesionario y las herramientas municipales disponibles.</td></tr>
+
+<tr><td><strong>Romina del Carmen SANTANA</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~5</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Libreta Sanitaria Digital, endeudamiento (billeteras virtuales), jubilados</td><td>Present&oacute; el proyecto de Libreta Sanitaria Digital. Luego intervino extensamente en el debate de endeudamiento: present&oacute; un programa de concientizaci&oacute;n sobre el uso responsable de aplicaciones financieras digitales, con foco en adultos mayores que no conocen las tasas reales de las billeteras virtuales. Intervino tambi&eacute;n en el punto del d&iacute;a del jubilado.</td></tr>
+
+<tr><td><strong>Micaela MAGGIO</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~4</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Suicidio y salud mental (datos nacionales e internacionales), Observatorio Municipal</td><td>Present&oacute; el proyecto de preocupaci&oacute;n por el aumento de suicidios. Aport&oacute; datos del Observatorio de Pol&iacute;tica Criminal y el Ministerio de Salud: 11,8 suicidios por 100.000 habitantes en Argentina (2025). Explic&oacute; la dificultad de construir datos locales porque los suicidios consumados siguen otro circuito que los intentos hospitalizados. Convoc&oacute; a los medios y redes a respetar el protocolo de comunicaci&oacute;n sobre el tema.</td></tr>
+
+<tr><td><strong>Mar&iacute;a Florencia BARCIA</strong></td><td>Concejala</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~3</td><td><span style="background:#3498db;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">moderado</span></td><td>Suicidio y salud mental (pedido de mayor respeto)</td><td>Intervino en el debate del suicidio pidiendo que no se hable del tema "con tanta alivianidad". Record&oacute; que los familiares de personas con problemas de salud mental sufren mucho. Celebr&oacute; que el Ejecutivo se preocupe por el tema y mencion&oacute; que ella hab&iacute;a presentado un pedido de informe en agosto de 2025. Propuso que el trabajo sea conjunto entre bloques.</td></tr>
+
+<tr><td><strong>Mar&iacute;a Florencia DE FEO</strong></td><td>Concejala</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~4</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Endeudamiento (consulta refl&eacute;xiva), EDELAP</td><td>Intervino con una "pregunta ret&oacute;rica" en el debate de endeudamiento para enriquecer el trabajo en comisi&oacute;n. Intervino tambi&eacute;n en EDELAP aportando datos sobre los cortes y el marco regulatorio.</td></tr>
+
+<tr><td><strong>Juan Pablo ALLAN</strong></td><td>Vicepresidente 2&deg;</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Endeudamiento / fintech (perspectiva libertaria)</td><td>Intervino en el debate de endeudamiento se&ntilde;alando que el problema del sobreendeudamiento en fintechs viene de mucho antes que la gesti&oacute;n actual y que la soluci&oacute;n no pasa por regulaci&oacute;n sino por educaci&oacute;n financiera.</td></tr>
+
+<tr><td><strong>Guillermo Arcadio BARD&Oacute;N</strong></td><td>Concejal</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~3</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>EDELAP (apoyo en labor a Morzone), salud mental</td><td>Fue mencionado por Morzone como el &uacute;nico presidente de bloque que lo apoy&oacute; en la reuni&oacute;n de labor para que el proyecto de desconcesi&oacute;n de EDELAP se tratara en sesi&oacute;n. Intervino brevemente en el debate de salud mental.</td></tr>
+
+<tr><td><strong>Mar&iacute;a Ona PARRILLI</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>EDELAP (posici&oacute;n FP en labor)</td><td>Fue se&ntilde;alada por Morzone como la concejala de FP que "deliberadamente" se mostr&oacute; interesada en que el proyecto de desconcesi&oacute;n de EDELAP no se tratara en la sesi&oacute;n.</td></tr>
+
+<tr><td><strong>Ra&uacute;l Omar RECAVARREN</strong></td><td>Concejal</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~1</td><td><span style="background:#7f8c8d;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">ceremonial</span></td><td>Pabel&oacute;n Nacional</td><td>Ize&oacute; y arri&oacute; el Pabel&oacute;n Nacional.</td></tr>
+
+</table></div>
+
+<h2>&#128203; Temas tratados</h2><div class="card"><table>
+<tr><th>#</th><th>T&iacute;tulo</th><th>Tipo</th><th>Concejales que hablaron</th><th>Resultado</th></tr>
+
+<tr><td style="text-align:center">5</td><td><strong>Ciudadano Ilustre &mdash; Juan Pablo Belatti (trayectoria como &aacute;rbitro de f&uacute;tbol)</strong></td><td>Comunicaci&oacute;n oficial &mdash; Secretar&iacute;a de Trabajo</td><td>&mdash;</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisi&oacute;n de Cultura</span></td></tr>
+
+<tr><td style="text-align:center">Varios</td><td><strong>Libreta Sanitaria Digital</strong></td><td>Proyecto de Ordenanza &mdash; FP (Santana)</td><td>SANTANA</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisi&oacute;n de Salud</span></td></tr>
+
+<tr><td style="text-align:center">29</td><td><strong>Programa Municipal de Concientizaci&oacute;n sobre Endeudamiento Responsable y Aplicaciones Financieras Digitales</strong></td><td>Proyecto de Ordenanza &mdash; FP (Santana)</td><td>SANTANA, BOLIS, GRANILLO FERN&Aacute;NDEZ, ALLAN, DE FEO</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisi&oacute;n de Legislaci&oacute;n</span></td></tr>
+
+<tr><td style="text-align:center">33</td><td><strong>Promover la desconcesi&oacute;n del servicio p&uacute;blico de energ&iacute;a el&eacute;ctrica prestado por EDELAP</strong></td><td>Proyecto de Ordenanza &mdash; PRO (Morzone)</td><td>MORZONE, BOLIS, GRANILLO FERN&Aacute;NDEZ, BARD&Oacute;N</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisi&oacute;n de Legislaci&oacute;n</span></td></tr>
+
+<tr><td style="text-align:center">54</td><td><strong>Preocupaci&oacute;n del Cuerpo por el aumento de suicidios en la ciudad</strong></td><td>Decreto &mdash; FP (Maggio) &mdash; despacho de labor</td><td>MAGGIO, BARCIA, MORZONE</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">183</td><td><strong>Sello "Talentos Productivos &mdash; Comercios Familiares Hist&oacute;ricos"</strong></td><td>Ordenanza &mdash; Comisi&oacute;n de Desarrollo Local &mdash; despacho de labor</td><td>&Aacute;LVAREZ</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobada</span></td></tr>
+
+<tr><td style="text-align:center">184</td><td><strong>Rotonda al Inmigrante Italiano &mdash; intersecci&oacute;n de Avda. 520 y 25</strong></td><td>Ordenanza &mdash; FP &mdash; despacho de labor</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobada</span></td></tr>
+
+<tr><td style="text-align:center">185</td><td><strong>Inter&eacute;s Municipal &mdash; proyecto "Estudi&aacute; Ciencia, estudi&aacute; en el Observatorio" (FCAG-UNLP)</strong></td><td>Decreto &mdash; UCR (Staffolani)</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">186</td><td><strong>Informe sobre estado de implementaci&oacute;n de la Ordenanza 12.049 (Observatorio Municipal sobre Suicidio)</strong></td><td>Resoluci&oacute;n &mdash; UCR (Staffolani)</td><td>STAFFOLANI</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisi&oacute;n de Salud</span></td></tr>
+
+<tr><td style="text-align:center">187</td><td><strong>Inter&eacute;s Municipal &mdash; 3&deg; Congreso Federal e Internacional de Juventudes (14&ndash;15 de septiembre)</strong></td><td>Decreto &mdash; FP</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">OD N&deg;7 y N&deg;8</td><td><strong>Reservas de estacionamiento, bacheo, luminarias, zanjeo y obras varias</strong></td><td>Resoluciones &mdash; Comisiones de Transporte y Obras</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Todos aprobados</span></td></tr>
+
+</table></div>
+
+<h2>&#128381;&#65039; Votaciones destacadas</h2><div class="card">
+
+<div style="border:1px solid #e2ddd4;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0;font-family:'Fraunces',serif;font-weight:400">#1 &mdash; Preocupaci&oacute;n por el aumento de suicidios (Pt. 54)</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Aprobado</span></div>
+<div style="margin-top:8px">&#10003; <b>Unanimidad</b> &mdash; despacho de labor</div>
+<p style="color:#6b6b6b;font-style:italic;font-size:.9em;margin-top:6px">Aprobado sin disidencias. El debate posterior fue el m&aacute;s sensible de la sesi&oacute;n: Maggio aport&oacute; datos, Barcia pidi&oacute; mayor cuidado en el lenguaje y Morzone intervino sobre el marco de la salud mental municipal.</p></div>
+
+<div style="border:1px solid #e2ddd4;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #27ae60">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0;font-family:'Fraunces',serif;font-weight:400">#2 &mdash; Sello "Talentos Productivos &mdash; Comercios Familiares Hist&oacute;ricos" (Pt. 183)</h4><span style="background:#27ae60;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">Aprobado</span></div>
+<div style="margin-top:8px">&#10003; <b>Todos los bloques</b></div>
+<p style="color:#6b6b6b;font-style:italic;font-size:.9em;margin-top:6px">&Aacute;lvarez (LLA) acompa&ntilde;&oacute; el proyecto pero consider&oacute; que "se qued&oacute; corto" para los comercios de m&aacute;s de 50 a&ntilde;os.</p></div>
+
+<div style="border:1px solid #e2ddd4;border-radius:8px;padding:15px;margin-bottom:15px;border-left:5px solid #e67e22">
+<div style="display:flex;justify-content:space-between;align-items:center"><h4 style="margin:0;font-family:'Fraunces',serif;font-weight:400">#3 &mdash; Proyecto de desconcesi&oacute;n de EDELAP (Pt. 33)</h4><span style="background:#f39c12;color:white;padding:5px 12px;border-radius:5px;font-weight:bold">A Comisi&oacute;n</span></div>
+<p style="color:#6b6b6b;font-style:italic;font-size:.9em;margin-top:6px">Morzone logr&oacute; que se tratara en sesi&oacute;n (tras el bloqueo en labor) pero fue girado a la Comisi&oacute;n de Legislaci&oacute;n sin aprobaci&oacute;n directa.</p></div>
+
+</div>
+
+<h2>&#128172; Principales puntos de debate</h2>
+<div class="card">
+
+  <div style="border-left:5px solid #e74c3c;padding:15px;margin-bottom:20px;background:#fdf2f2;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#c0392b">&#128308; 1. EDELAP &mdash; "Instituci&oacute;n invisible" y la propuesta de desconcesi&oacute;n</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#f39c12">PRO (Morzone) + LLA (Bard&oacute;n)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>73.000 platenses estuvieron sin luz. Morzone propone promover la desconcesi&oacute;n del servicio p&uacute;blico de energ&iacute;a el&eacute;ctrica prestado por EDELAP.</li>
+          <li>Cit&oacute; a Plat&oacute;n (La Rep&uacute;blica, 380 a.C.), Ortega y Gasset (La Rebeli&oacute;n de las Masas, 1930) y Bobbio para acusar al Concejo de ser una "instituci&oacute;n invisible" que se distancia de la realidad y mantiene "conversaciones internas in&oacute;cuas".</li>
+          <li>Bard&oacute;n fue el &uacute;nico presidente de bloque que lo apoy&oacute; en labor. Acus&oacute; a la concejala Parrilli de FP de haberse opuesto "deliberadamente" al tratamiento.</li>
+          <li>"&iquest;Ustedes se piensan que un pedido de informe va a mover el amper&iacute;metro de EDELAP?"</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#2980b9">Fuerza Patria (Bolis, Granillo Fern&aacute;ndez)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Bolis: "parece que le conmueve mucho al concejal cuando hablamos de endeudamiento, pero no le conmueve cuando los platenses pagan 300 mil pesos por cuatro lamparitas y los dejan 7, 8, 9 d&iacute;as sin luz".</li>
+          <li>Granillo Fern&aacute;ndez: el problema no es la tasa municipal sino las ganancias "hiperextraordinarias" de los bancos. La responsabilidad de EDELAP compete al concesionario y al regulador provincial, no al municipio.</li>
+          <li>La desconcesi&oacute;n es una medida que excede las competencias municipales y que puede demorar a&ntilde;os en tramitarse.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-left:5px solid #2ecc71;padding:15px;margin-bottom:20px;background:#eafaf1;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#1e8449">&#128994; 2. Suicidio y salud mental &mdash; Datos, protocolo y sensibilidad</h3>
+    <p style="font-size:.9em;color:#444;line-height:1.7"><strong>Maggio (FP)</strong> present&oacute; datos del Observatorio de Pol&iacute;tica Criminal: 11,8 suicidios por 100.000 habitantes en Argentina (2025), con mayor concentraci&oacute;n en pa&iacute;ses de menores ingresos. Explic&oacute; la dificultad metodol&oacute;gica para construir datos locales y convoc&oacute; a medios y redes a respetar el protocolo de comunicaci&oacute;n (evitar descripci&oacute;n de m&eacute;todos, dar visibilidad a recursos de ayuda). <strong>Barcia (LLA)</strong> pidi&oacute; que no se hable del tema "con tanta alivianidad": "los familiares de la gente con problemas de salud mental sufren much&iacute;simo". Record&oacute; que ella hab&iacute;a presentado un pedido de informe en agosto de 2025 y propuso trabajo conjunto entre bloques.</p>
+    <div style="margin-top:12px;background:#fff3cd;border:1px solid #ffc107;padding:12px;border-radius:5px;font-size:.9em">
+      <strong>Cruce pol&iacute;tico Morzone &ndash; Barcia:</strong> Tras la intervenci&oacute;n de Barcia, Morzone tom&oacute; la palabra y la llam&oacute; "la herencia de Barcia actualmente en La Libertad Avanza", en referencia a que Barcia ocupa una banca que era del PRO. El comentario fue interpretado como una acusaci&oacute;n de haber "robado" esa banca al bloque. Staffolani (UCR) calific&oacute; el cruce de "lamentable" y pidi&oacute; respeto entre los concejales.
+    </div>
+  </div>
+
+  <div style="border-left:5px solid #8e44ad;padding:15px;background:#f9f4fd;border-radius:5px">
+    <h3 style="margin:0 0 10px 0;color:#6c3483">&#128995; 3. Endeudamiento y aplicaciones financieras digitales</h3>
+    <div style="display:flex;gap:15px;flex-wrap:wrap;margin-top:10px">
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#2980b9">Fuerza Patria (Santana, Bolis, Granillo Fern&aacute;ndez)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Santana: programa de concientizaci&oacute;n sobre billeteras virtuales con foco en adultos mayores que no conocen las tasas reales ni el costo financiero total.</li>
+          <li>Granillo Fern&aacute;ndez: las ganancias extraordinarias de los bancos (2024&ndash;2025) son el problema de fondo, no la educaci&oacute;n financiera.</li>
+          <li>Bolis: el sobreendeudamiento con fintechs afecta m&aacute;s a quienes no tienen acceso al cr&eacute;dito bancario tradicional.</li>
+        </ul>
+      </div>
+      <div style="flex:1;min-width:280px;background:white;padding:12px;border-radius:5px;border:1px solid #eee">
+        <strong style="color:#8e44ad">LLA (Allan, &Aacute;lvarez) y PRO (Morzone)</strong>
+        <ul style="margin:8px 0;padding-left:18px;font-size:.9em">
+          <li>Allan: el problema de las fintechs viene de antes de esta gesti&oacute;n y la soluci&oacute;n es educaci&oacute;n, no regulaci&oacute;n.</li>
+          <li>&Aacute;lvarez coincidi&oacute; en la propuesta de educaci&oacute;n financiera aunque discrepa en el diagn&oacute;stico de las causas.</li>
+          <li>Morzone: coincide en la preocupaci&oacute;n pero desde la perspectiva de la libertad econ&oacute;mica individual.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+<footer class="informe-footer">
+  <div class="informe-footer-logo" style="display:flex;align-items:center;gap:.5rem"><span style="display:inline-flex;align-items:center;width:20px;height:20px;flex-shrink:0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 48 48"><title>Capital IA</title><line x1="24" y1="24" x2="6" y2="6" stroke="#1a3fff" stroke-width="1" opacity="0.75"/><line x1="24" y1="24" x2="24" y2="5" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/><line x1="24" y1="24" x2="42" y2="6" stroke="#1a3fff" stroke-width="1" opacity="0.75"/><line x1="24" y1="24" x2="43" y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/><line x1="24" y1="24" x2="42" y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/><line x1="24" y1="24" x2="24" y2="43" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/><line x1="24" y1="24" x2="6" y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/><line x1="24" y1="24" x2="5" y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/><circle cx="6" cy="6" r="2.5" fill="#c8ff00"/><circle cx="24" cy="5" r="1.8" fill="#1a3fff"/><circle cx="42" cy="6" r="2.5" fill="#c8ff00"/><circle cx="43" cy="24" r="1.8" fill="#1a3fff"/><circle cx="42" cy="42" r="2.5" fill="#c8ff00"/><circle cx="24" cy="43" r="1.8" fill="#1a3fff"/><circle cx="6" cy="42" r="2.5" fill="#c8ff00"/><circle cx="5" cy="24" r="1.8" fill="#1a3fff"/><circle cx="13" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/><circle cx="13" cy="13" r="1" fill="#c8ff00"/><circle cx="35" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/><circle cx="35" cy="13" r="1" fill="#c8ff00"/><circle cx="35" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/><circle cx="35" cy="35" r="1" fill="#c8ff00"/><circle cx="13" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/><circle cx="13" cy="35" r="1" fill="#c8ff00"/><circle cx="24" cy="24" r="7" fill="#0a0a0a" stroke="#c8ff00" stroke-width="1.5"/><circle cx="24" cy="24" r="3.5" fill="#1a3fff"/><circle cx="24" cy="24" r="1.5" fill="#c8ff00"/></svg></span>Capital <span>IA</span></div>
+  <div class="informe-footer-info">
+    La Plata &middot; Capital de la Provincia de Buenos Aires<br>
+    Pol&iacute;ticas p&uacute;blicas e inteligencia artificial<br>
+    @capital.ia
+  </div>
+</footer>
+
+</body>
+</html>

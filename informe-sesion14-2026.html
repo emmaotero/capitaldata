@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sesión N°14 · 2026 — Capital IA</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,700;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{--azul:#1a3fff;--negro:#0a0a0a;--crema:#f5f2eb;--gris-claro:#f0ede6;--gris-borde:#e2ddd4;--texto:#1a1a1a;--texto-suave:#6b6b6b;--acento:#c8ff00}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:"Instrument Sans",sans-serif;background:var(--crema);color:var(--texto);max-width:1200px;margin:0 auto;padding:0}
+.informe-nav{background:var(--negro);padding:1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100}
+.informe-nav-logo{font-family:"DM Mono",monospace;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--acento);text-decoration:none;display:flex;align-items:center;gap:.6rem}
+.informe-nav-back{font-family:"DM Mono",monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,242,235,.4);text-decoration:none;transition:color .2s}
+.informe-nav-back:hover{color:var(--crema)}
+.informe-header{background:var(--negro);padding:5rem 2.5rem 4rem;position:relative;overflow:hidden}
+.informe-header::after{content:"";position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--azul),transparent)}
+.informe-eyebrow{font-family:"DM Mono",monospace;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acento);margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem}
+.informe-eyebrow::before{content:"";display:block;width:2rem;height:1px;background:var(--acento)}
+.informe-header h1{font-family:"Fraunces",serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:300;color:var(--crema);line-height:1.1;letter-spacing:-.02em;margin-bottom:2rem;max-width:800px}
+.informe-meta-bar{display:flex;gap:2rem;flex-wrap:wrap}
+.informe-meta-item{font-family:"DM Mono",monospace;font-size:.65rem;letter-spacing:.1em;color:rgba(245,242,235,.4)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--gris-borde);border-bottom:1px solid var(--gris-borde)}
+.stat{background:white;padding:2rem 1.5rem;text-align:center}
+.stat .n{font-family:"Fraunces",serif;font-size:2.8rem;font-weight:300;color:var(--azul);line-height:1;margin-bottom:.4rem}
+.stat .label{font-family:"DM Mono",monospace;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--texto-suave)}
+.res{background:white;border-left:3px solid var(--azul);padding:2rem 2.5rem;font-family:"Fraunces",serif;font-size:1.05rem;font-weight:300;font-style:italic;line-height:1.7;color:var(--texto)}
+.contenido{padding:3rem 2.5rem}
+h2{font-family:"Fraunces",serif;font-size:1.8rem;font-weight:300;color:var(--negro);margin-top:3.5rem;margin-bottom:1.5rem;padding-bottom:.75rem;border-bottom:1px solid var(--gris-borde)}
+h2:first-child{margin-top:0}
+h3{font-family:"Fraunces",serif;font-size:1.05rem;font-weight:400;color:var(--negro);margin:0 0 10px 0}
+.card{background:white;border:1px solid var(--gris-borde);padding:2rem;margin-bottom:1.5rem}
+table{width:100%;border-collapse:collapse;font-size:.85rem}
+th{background:var(--negro);color:var(--crema);padding:.75rem 1rem;text-align:left;font-family:"DM Mono",monospace;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;font-weight:400}
+td{padding:.85rem 1rem;border-bottom:1px solid var(--gris-borde);vertical-align:top;line-height:1.5}
+tr:last-child td{border-bottom:none}tr:hover td{background:var(--gris-claro)}
+.informe-footer{background:var(--negro);padding:2.5rem;display:flex;justify-content:space-between;align-items:center}
+.informe-footer-logo{font-family:"Fraunces",serif;font-size:1.2rem;font-weight:300;color:var(--crema);display:flex;align-items:center;gap:.5rem}
+.informe-footer-logo span{color:var(--acento);font-style:italic}
+.informe-footer-info{font-family:"DM Mono",monospace;font-size:.58rem;letter-spacing:.1em;color:rgba(245,242,235,.3);text-align:right;line-height:1.8}
+@media(max-width:768px){.informe-header{padding:3.5rem 1.5rem 3rem}.contenido{padding:2rem 1.5rem}.res{padding:1.5rem}.informe-nav{padding:1rem 1.5rem}.informe-footer{flex-direction:column;gap:1rem;text-align:center}}
+</style>
+</head>
+<body>
+
+<nav class="informe-nav">
+  <a href="index.html" class="informe-nav-logo"><span style="display:inline-flex;align-items:center;width:28px;height:28px;flex-shrink:0"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 48 48"><title>Capital IA</title><line x1="24" y1="24" x2="6" y2="6" stroke="#1a3fff" stroke-width="1" opacity="0.75"/><line x1="24" y1="24" x2="24" y2="5" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/><line x1="24" y1="24" x2="42" y2="6" stroke="#1a3fff" stroke-width="1" opacity="0.75"/><line x1="24" y1="24" x2="43" y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/><line x1="24" y1="24" x2="42" y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/><line x1="24" y1="24" x2="24" y2="43" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/><line x1="24" y1="24" x2="6" y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/><line x1="24" y1="24" x2="5" y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/><circle cx="6" cy="6" r="2.5" fill="#c8ff00"/><circle cx="24" cy="5" r="1.8" fill="#1a3fff"/><circle cx="42" cy="6" r="2.5" fill="#c8ff00"/><circle cx="43" cy="24" r="1.8" fill="#1a3fff"/><circle cx="42" cy="42" r="2.5" fill="#c8ff00"/><circle cx="24" cy="43" r="1.8" fill="#1a3fff"/><circle cx="6" cy="42" r="2.5" fill="#c8ff00"/><circle cx="5" cy="24" r="1.8" fill="#1a3fff"/><circle cx="13" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/><circle cx="13" cy="13" r="1" fill="#c8ff00"/><circle cx="35" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/><circle cx="35" cy="13" r="1" fill="#c8ff00"/><circle cx="35" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/><circle cx="35" cy="35" r="1" fill="#c8ff00"/><circle cx="13" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/><circle cx="13" cy="35" r="1" fill="#c8ff00"/><circle cx="24" cy="24" r="7" fill="#0a0a0a" stroke="#c8ff00" stroke-width="1.5"/><circle cx="24" cy="24" r="3.5" fill="#1a3fff"/><circle cx="24" cy="24" r="1.5" fill="#c8ff00"/></svg></span>Capital IA</a>
+  <a href="sesiones.html" class="informe-nav-back">&larr; Sesiones</a>
+</nav>
+
+<div class="informe-header">
+  <div class="informe-eyebrow">Informe N&deg;14 &middot; 2026</div>
+  <h1>Sesi&oacute;n Ordinaria N&deg;14<br>83&deg; Per&iacute;odo Legislativo</h1>
+  <div class="informe-meta-bar">
+    <span class="informe-meta-item">&#128197; 8 de octubre de 2026</span>
+    <span class="informe-meta-item">&#128336; 12:00 hs</span>
+    <span class="informe-meta-item">&#128203; 22 concejales presentes</span>
+    <span class="informe-meta-item">&#128100; JP Allan en licencia &mdash; ingresa Lucero</span>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="n">22</div><div class="label">Presentes</div></div>
+  <div class="stat"><div class="n">5</div><div class="label">Debates pol&iacute;ticos</div></div>
+  <div class="stat"><div class="n">14</div><div class="label">Puntos aprobados</div></div>
+  <div class="stat"><div class="n">1</div><div class="label">Cambio de banca</div></div>
+</div>
+
+<div class="res">Sesi&oacute;n de debate intenso dominada por el conflicto Uber/DiDi/taxis, el punto m&aacute;s extenso de la jornada con nueve concejales interviniendo y posiciones irreconciliables entre PRO+LLA (legalizar plataformas) y FP (regular primero). Morzone protagoniz&oacute; los principales cruces: en privatizaci&oacute;n del zool&oacute;gico lo contest&oacute; Horomandiuk se&ntilde;alando que &eacute;l era funcionario cuando se cerr&oacute;; en el beneplácito del impuesto a transferencias de capital, Morzone descalific&oacute; el proyecto como obra de &ldquo;ladrones&rdquo;, respondido por Parrilli. El fallo de la Corte sobre el CECIM tambi&eacute;n gener&oacute; un cruce Bolis&ndash;Álvarez&ndash;Granillo&ndash;Morzone. &Aacute;lvarez tom&oacute; la palabra sobre seguridad local. JP Allan solicit&oacute; licencia y fue reemplazado por Lucero. &Aacute;lvarez iz&oacute; el Pabel&oacute;n Nacional.</div>
+
+<div class="contenido">
+
+<h2>&#128101; Concejales</h2>
+<div class="card"><table>
+<tr><th>Nombre</th><th>Cargo</th><th>Bloque</th><th>Interv.</th><th>Posici&oacute;n</th><th>Temas principales</th><th>Resumen</th></tr>
+
+<tr><td><strong>Marcelo Gustavo GALLAND</strong></td><td>Presidente</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center">&mdash;</td><td><span style="background:#7f8c8d;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">presidencia</span></td><td>Conducci&oacute;n de sesi&oacute;n</td><td>Presidi&oacute; la sesi&oacute;n. Gestion&oacute; el debate extenso sobre plataformas de transporte, la discusi&oacute;n sobre el zool&oacute;gico, el fallo del CECIM y los dem&aacute;s puntos del sumario.</td></tr>
+
+<tr><td><strong>Nicol&aacute;s Luis MORZONE</strong></td><td>Concejal</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">PRO</span></td><td style="text-align:center;font-weight:bold">~8</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Uber/plataformas, privatizaci&oacute;n zool&oacute;gico, beneplácito impuesto, CECIM</td><td>El concejal con mayor presencia en sesi&oacute;n. Protagonist&oacute; el debate de plataformas defendiendo la legalizaci&oacute;n de Uber/DiDi y criticando al municipio por &ldquo;cazar Ubers&rdquo;. Present&oacute; el proyecto de privatizaci&oacute;n del zool&oacute;gico. Descalific&oacute; el beneplácito del impuesto a transferencias de capital llamando &ldquo;ladrones&rdquo; a sus impulsores. Deslegitim&oacute; al CECIM en el debate sobre el fallo de la Corte. Fue respondido en todos los temas por concejales del oficialismo.</td></tr>
+
+<tr><td><strong>Juan Manuel GRANILLO FERN&Aacute;NDEZ</strong></td><td>Vicepresidente 1&deg;</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~5</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Plataformas/taxis, Registro Entidades Bien P&uacute;blico, CECIM</td><td>Respondi&oacute; extensamente a Morzone en el debate de plataformas, diferenciando relaci&oacute;n laboral de trabajo aut&oacute;nomo y cuestionando el concepto de &ldquo;fisura&rdquo; como categor&iacute;a penal de autor. Present&oacute; el Registro de Entidades de Bien P&uacute;blico. Particip&oacute; del debate sobre el fallo del CECIM.</td></tr>
+
+<tr><td><strong>Josefina Mar&iacute;a BOLIS</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~4</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Beneplácito impuesto a transferencias, CECIM, plataformas</td><td>Present&oacute; el beneplácito por el proyecto de impuesto a transferencias internacionales de capital, argumentando su potencial redistributivo. Present&oacute; el fallo de la Corte sobre el CECIM. Tambi&eacute;n intervino en el debate de plataformas.</td></tr>
+
+<tr><td><strong>Gast&oacute;n &Aacute;LVAREZ</strong></td><td>Concejal</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~3</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Pabel&oacute;n Nacional, seguridad local, CECIM</td><td>Iz&oacute; el Pabel&oacute;n Nacional al inicio de la sesi&oacute;n. Tom&oacute; la palabra sobre seguridad local. Cuestion&oacute; el planteo de Bolis sobre el fallo del CECIM.</td></tr>
+
+<tr><td><strong>Pablo EL&Iacute;AS</strong></td><td>Concejal</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~3</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Plataformas/taxis</td><td>Solicit&oacute; una interrupci&oacute;n a Morzone durante el debate de plataformas. Pregunt&oacute; si el bloque PRO tambi&eacute;n defender&iacute;a a los choferes de aplicaciones que reclaman derechos laborales frente a las plataformas.</td></tr>
+
+<tr><td><strong>Ona PARRILLI</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~3</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Plataformas/taxis, beneplácito impuesto</td><td>Intervino en el debate de plataformas se&ntilde;alando que el crecimiento de las aplicaciones coincidi&oacute; con el per&iacute;odo 2016 y con la p&eacute;rdida de empleo formal. Respondi&oacute; a Morzone ante su descalificaci&oacute;n del proyecto de impuesto a transferencias de capital.</td></tr>
+
+<tr><td><strong>Romina SANTANA</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Plataformas/taxis</td><td>Intervino en el debate de plataformas desde una perspectiva sindical y laboral, destacando el convenio de la OIT sobre trabajo de plataformas y pidiendo que la pol&iacute;tica legisle con altura.</td></tr>
+
+<tr><td><strong>Sergio Daniel RESA</strong></td><td>Concejal</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Plataformas/taxis</td><td>Intervino en el debate de plataformas.</td></tr>
+
+<tr><td><strong>Ana Laura DE FEO</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Plataformas/taxis</td><td>Intervino en el debate de plataformas desde el bloque FP.</td></tr>
+
+<tr><td><strong>Mar&iacute;a Florencia BARD&Oacute;N</strong></td><td>Concejala</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#e74c3c;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">oposici&oacute;n</span></td><td>Plataformas/taxis, impuesto OIT</td><td>Intervino durante el debate de plataformas cuestionando la posici&oacute;n del oficialismo. Objet&oacute; el argumento de Parrilli sobre la adhesi&oacute;n a la OIT, se&ntilde;alando que la mayor&iacute;a de los conductores autoconvocados no quieren esa regulaci&oacute;n.</td></tr>
+
+<tr><td><strong>Melany HOROMANDIUK</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~2</td><td><span style="background:#27ae60;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">a favor gesti&oacute;n</span></td><td>Privatizaci&oacute;n zool&oacute;gico</td><td>Respondi&oacute; al proyecto de Morzone sobre privatizaci&oacute;n del zool&oacute;gico, se&ntilde;alando que el concejal fue funcionario durante el per&iacute;odo en que se cerr&oacute; el establecimiento.</td></tr>
+
+<tr><td><strong>Soledad PEDERN</strong></td><td>Concejala</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center;font-weight:bold">~1</td><td><span style="background:#7f8c8d;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">ceremonial</span></td><td>Adelantamiento punto 54</td><td>Solicit&oacute; al inicio el adelantamiento del punto 54 (licencia de Allan), aprobado por el cuerpo.</td></tr>
+
+<tr><td><strong>Francisco LUCERO</strong></td><td>Concejal (ingresa)</td><td><span style="background:#2980b9;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">Fuerza Patria</span></td><td style="text-align:center">&mdash;</td><td><span style="background:#7f8c8d;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">ceremonial</span></td><td>Ingreso por licencia de Allan</td><td>Ocup&oacute; su banca a partir de esta sesi&oacute;n como reemplazo de JP Allan, quien solicit&oacute; licencia aprobada por el cuerpo.</td></tr>
+
+<tr><td><strong>Juan Pablo ALLAN</strong></td><td>Vicepresidente 2&deg; (licencia)</td><td><span style="background:#8e44ad;color:white;padding:3px 8px;border-radius:4px;font-size:.8em">La Libertad Avanza</span></td><td style="text-align:center">&mdash;</td><td><span style="background:#7f8c8d;color:white;padding:3px 10px;border-radius:20px;font-size:.85em">ceremonial</span></td><td>Licencia</td><td>Solicit&oacute; licencia aprobada al inicio de la sesi&oacute;n. Se retir&oacute; siendo reemplazado por Lucero.</td></tr>
+
+</table></div>
+
+<h2>&#128203; Temas tratados</h2>
+<div class="card"><table>
+<tr><th>#</th><th>T&iacute;tulo</th><th>Tipo</th><th>Concejales que hablaron</th><th>Resultado</th></tr>
+
+<tr><td style="text-align:center">Apertura</td><td><strong>Licencia JP Allan &mdash; adelantamiento punto 54 (moci&oacute;n Pedern). Ingresa Francisco Lucero. &Aacute;lvarez iz&oacute; el Pabel&oacute;n Nacional</strong></td><td>Institucional</td><td>PEDERN (moci&oacute;n), &Aacute;LVAREZ (pabel&oacute;n)</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">Pt. 1</td><td><strong>Transacci&oacute;n extrajudicial &mdash; Sra. Alegretti Silvina Alicia</strong></td><td>Mensaje DE</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">Pt. 2</td><td><strong>Ratificaci&oacute;n convenio &mdash; Asoc. Civil Taller Protegido Los Tilos</strong></td><td>Mensaje DE</td><td>&mdash;</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisi&oacute;n de Hacienda</span></td></tr>
+
+<tr><td style="text-align:center">Pt. 3</td><td><strong>Transacci&oacute;n extrajudicial &mdash; Sr. Piscicelli Mauricio</strong></td><td>Mensaje DE</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">Pt. 4</td><td><strong>Baja del patrimonio municipal &mdash; Volkswagen Amarok NHE 675</strong></td><td>Mensaje DE</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">Pt. 5</td><td><strong>Baja del patrimonio municipal &mdash; Renault Kangoo AB221EI</strong></td><td>Mensaje DE</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">Pt. 6</td><td><strong>Creaci&oacute;n del Registro de Entidades de Bien P&uacute;blico</strong></td><td>Ordenanza &mdash; FP (Granillo)</td><td>GRANILLO</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">Plataformas</td><td><strong>Uber/DiDi/Taxis &mdash; debate sobre legalizaci&oacute;n de plataformas digitales de transporte y conflicto con taxistas</strong></td><td>Asuntos particulares &mdash; PRO (Morzone)</td><td>MORZONE, ELÍAS, GRANILLO, PARRILLI, SANTANA, DE FEO, RESA, BARD&Oacute;N, BOLIS</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">Debate &mdash; sin resoluci&oacute;n</span></td></tr>
+
+<tr><td style="text-align:center">Zool&oacute;gico</td><td><strong>Privatizaci&oacute;n del zool&oacute;gico municipal &mdash; proyecto Morzone; responde Horomandiuk</strong></td><td>Asuntos particulares &mdash; PRO</td><td>MORZONE, HOROMANDIUK</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisiones</span></td></tr>
+
+<tr><td style="text-align:center">Impuesto</td><td><strong>Beneplácito por proyecto de ley nacional: impuesto a transferencias internacionales de capital &mdash; cruce Morzone/Parrilli</strong></td><td>Beneplácito &mdash; FP (Bolis)</td><td>BOLIS, MORZONE, PARRILLI</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisi&oacute;n de Legislaci&oacute;n</span></td></tr>
+
+<tr><td style="text-align:center">CECIM</td><td><strong>Fallo de la Corte sobre el CECIM &mdash; debate Bolis, &Aacute;lvarez, Granillo, Morzone</strong></td><td>Declaraci&oacute;n &mdash; FP (Bolis)</td><td>BOLIS, &Aacute;LVAREZ, GRANILLO, MORZONE</td><td><span style="background:#f39c12;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">A Comisiones</span></td></tr>
+
+<tr><td style="text-align:center">Seguridad</td><td><strong>Seguridad local &mdash; intervenci&oacute;n &Aacute;lvarez</strong></td><td>Asuntos particulares &mdash; FP</td><td>&Aacute;LVAREZ</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Exposici&oacute;n</span></td></tr>
+
+<tr><td style="text-align:center">Natalicio Per&oacute;n</td><td><strong>Natalicio de Juan Domingo Per&oacute;n</strong></td><td>Declaraci&oacute;n &mdash; FP</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">Hamas</td><td><strong>Profundo pesar por el aniversario de los ataques terroristas de Hamas (7/10/2023)</strong></td><td>Declaraci&oacute;n</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">Suicidio adolescente</td><td><strong>De Inter&eacute;s Municipal: charla &ldquo;El Suicidio Adolescente y su Prevenci&oacute;n&rdquo; (Mes de Prevenci&oacute;n del Suicidio)</strong></td><td>Declaraci&oacute;n</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">Veh&iacute;culos abandonados</td><td><strong>Solicitud al DE para remoci&oacute;n de veh&iacute;culos abandonados en distintos puntos de la ciudad</strong></td><td>Resoluci&oacute;n</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">ABSA</td><td><strong>Solicitud al DE para dirigirse a ABSA a fin de reparar p&eacute;rdidas de agua en la ciudad</strong></td><td>Resoluci&oacute;n</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">City Bell</td><td><strong>De Inter&eacute;s Municipal: 100&deg; aniversario del Club Atl&eacute;tico, Cultural y de Fomento City Bell</strong></td><td>Declaraci&oacute;n</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobado</span></td></tr>
+
+<tr><td style="text-align:center">Estacionamiento</td><td><strong>Espacios reservados de estacionamiento (sin cargo) &mdash; Sra. Lobato (calle 39 N&deg;724) y Sra. Fares (Diagonal 74 N&deg;1020)</strong></td><td>Ordenanza</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobados</span></td></tr>
+
+<tr><td style="text-align:center">EMATUR</td><td><strong>Ratificaci&oacute;n convenio EMATUR &mdash; Facultad de Ciencias Econ&oacute;micas UNLP (sept. 2025) y Sociedad Turability Global Group SRL (mar. 2026)</strong></td><td>Ratificaci&oacute;n &mdash; DE</td><td>&mdash;</td><td><span style="background:#27ae60;color:white;padding:3px 8px;border-radius:4px;font-size:.85em">&#10003; Aprobados</span></td></tr>
+
+</table></div>
+
+<h2>&#128172; Debates</h2>
+<div class="card">
+
+  <div style="border-left:4px solid #e74c3c;padding:1.5rem;margin-bottom:2rem">
+    <h3>Uber / DiDi / Taxis &mdash; plataformas digitales de transporte</h3>
+    <p style="font-size:.85rem;color:var(--texto-suave);font-family:'DM Mono',monospace;margin-bottom:1rem">El debate m&aacute;s extenso de la sesi&oacute;n &middot; 9 concejales intervinieron &middot; Art. 98 &mdash; extensi&oacute;n de tiempo</p>
+    <div style="display:flex;gap:1.5rem;flex-wrap:wrap">
+      <div style="flex:1;min-width:240px">
+        <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:#e74c3c;margin-bottom:.5rem">PRO + LLA &mdash; legalizar plataformas</p>
+        <p style="font-size:.9rem;line-height:1.6"><strong>Morzone</strong> abri&oacute; el debate con una extensa alocuci&oacute;n en nombre del art. 98. Defendi&oacute; la legalidad de Uber, DiDi y Cabify apelando al art. 19 de la Constituci&oacute;n (&ldquo;lo que no est&aacute; prohibido no est&aacute; prohibido&rdquo;) y denunci&oacute; que la Secretar&iacute;a de Seguridad municipal estaba &ldquo;cazando Ubers&rdquo;. Lleg&oacute; a mostrar un cartel en el recinto. <strong>Bard&oacute;n</strong> (LLA) objet&oacute; la posici&oacute;n del oficialismo sobre la OIT, destacando que la mayor&iacute;a de conductores autoconvocados rechazan esa regulaci&oacute;n.</p>
+      </div>
+      <div style="flex:1;min-width:240px">
+        <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:#27ae60;margin-bottom:.5rem">FP &mdash; regular antes de legalizar</p>
+        <p style="font-size:.9rem;line-height:1.6"><strong>Granillo</strong> respondi&oacute; que el transporte es una actividad regulada y que &ldquo;lo que no est&aacute; prohibido est&aacute; permitido&rdquo; no aplica a rubros sujetos a habilitaci&oacute;n. Cuestion&oacute; el uso del t&eacute;rmino &ldquo;fisura&rdquo; como categor&iacute;a jur&iacute;dica, acusando a Morzone de derecho penal de autor. <strong>El&iacute;as</strong> pregunt&oacute; si PRO tambi&eacute;n defender&iacute;a a los choferes que reclaman derechos laborales a las plataformas. <strong>Parrilli</strong> y <strong>Santana</strong> señalaron que el crecimiento de las apps coincide con la precarización laboral desde 2016. <strong>Resa</strong>, <strong>De Feo</strong> y <strong>Bolis</strong> también intervinieron.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-left:4px solid #e67e22;padding:1.5rem;margin-bottom:2rem">
+    <h3>Privatizaci&oacute;n del Zool&oacute;gico municipal</h3>
+    <p style="font-size:.85rem;color:var(--texto-suave);font-family:'DM Mono',monospace;margin-bottom:1rem">Cruce personal &middot; Morzone vs. Horomandiuk</p>
+    <div style="display:flex;gap:1.5rem;flex-wrap:wrap">
+      <div style="flex:1;min-width:240px">
+        <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:#e74c3c;margin-bottom:.5rem">PRO &mdash; privatizaci&oacute;n</p>
+        <p style="font-size:.9rem;line-height:1.6"><strong>Morzone</strong> present&oacute; el proyecto de privatizaci&oacute;n del zool&oacute;gico, argumentando la gesti&oacute;n privada como alternativa al cierre.</p>
+      </div>
+      <div style="flex:1;min-width:240px">
+        <p style="font-family:'DM Mono",monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:#27ae60;margin-bottom:.5rem">FP &mdash; responsabilidad hist&oacute;rica</p>
+        <p style="font-size:.9rem;line-height:1.6"><strong>Horomandiuk</strong> respondi&oacute; se&ntilde;alando que el concejal Morzone fue funcionario durante la gesti&oacute;n en que se cerr&oacute; el zool&oacute;gico, colocando en evidencia la contradicci&oacute;n pol&iacute;tica del planteo.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-left:4px solid #9b59b6;padding:1.5rem;margin-bottom:2rem">
+    <h3>Beneplácito por impuesto a transferencias internacionales de capital</h3>
+    <p style="font-size:.85rem;color:var(--texto-suave);font-family:'DM Mono',monospace;margin-bottom:1rem">Cruce breve &middot; Bolis, Morzone, Parrilli</p>
+    <div style="display:flex;gap:1.5rem;flex-wrap:wrap">
+      <div style="flex:1;min-width:240px">
+        <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:#e74c3c;margin-bottom:.5rem">PRO &mdash; rechazo</p>
+        <p style="font-size:.9rem;line-height:1.6"><strong>Morzone</strong> descalific&oacute; el proyecto de beneplácito afirmando que era iniciativa de &ldquo;ladrones&rdquo;, en referencia a los impulsores del impuesto a las transferencias de capital.</p>
+      </div>
+      <div style="flex:1;min-width:240px">
+        <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:#27ae60;margin-bottom:.5rem">FP &mdash; redistribuci&oacute;n fiscal</p>
+        <p style="font-size:.9rem;line-height:1.6"><strong>Bolis</strong> defend&iacute;o el proyecto como herramienta redistributiva: gravar la fuga de divisas y destinar los fondos a universidades, PAMI, salud y obras p&uacute;blicas. <strong>Parrilli</strong> respondi&oacute; a la descalificaci&oacute;n de Morzone.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-left:4px solid #1a3fff;padding:1.5rem;margin-bottom:2rem">
+    <h3>Fallo de la Corte sobre el CECIM</h3>
+    <p style="font-size:.85rem;color:var(--texto-suave);font-family:'DM Mono',monospace;margin-bottom:1rem">Cruce cuatro concejales &middot; Bolis, &Aacute;lvarez, Granillo, Morzone</p>
+    <div style="display:flex;gap:1.5rem;flex-wrap:wrap">
+      <div style="flex:1;min-width:240px">
+        <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:#27ae60;margin-bottom:.5rem">FP &mdash; reconocimiento del fallo</p>
+        <p style="font-size:.9rem;line-height:1.6"><strong>Bolis</strong> present&oacute; el fallo de la Corte que involucra al CECIM. <strong>Granillo</strong> acompa&ntilde;&oacute; y extendi&oacute; el debate.</p>
+      </div>
+      <div style="flex:1;min-width:240px">
+        <p style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:#e74c3c;margin-bottom:.5rem">Cuestionamiento a la instituci&oacute;n</p>
+        <p style="font-size:.9rem;line-height:1.6"><strong>&Aacute;lvarez</strong> cuestion&oacute; el planteo inicial. <strong>Morzone</strong> deslegitim&oacute; al CECIM como instituci&oacute;n, minimizando el alcance del fallo.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-left:4px solid #7f8c8d;padding:1.5rem">
+    <h3>Seguridad local &mdash; &Aacute;lvarez</h3>
+    <p style="font-size:.85rem;color:var(--texto-suave);font-family:'DM Mono',monospace;margin-bottom:.75rem">Asuntos particulares &middot; exposici&oacute;n unilateral</p>
+    <p style="font-size:.9rem;line-height:1.6">El concejal <strong>Gast&oacute;n &Aacute;lvarez</strong> tom&oacute; la palabra sobre la situaci&oacute;n de seguridad en La Plata, plantando una postura del bloque FP sobre el tema.</p>
+  </div>
+
+</div>
+
+</div>
+
+<footer class="informe-footer">
+  <div class="informe-footer-logo" style="display:flex;align-items:center;gap:.5rem"><span style="display:inline-flex;align-items:center;width:20px;height:20px;flex-shrink:0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 48 48"><title>Capital IA</title><line x1="24" y1="24" x2="6" y2="6" stroke="#1a3fff" stroke-width="1" opacity="0.75"/><line x1="24" y1="24" x2="24" y2="5" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/><line x1="24" y1="24" x2="42" y2="6" stroke="#1a3fff" stroke-width="1" opacity="0.75"/><line x1="24" y1="24" x2="43" y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/><line x1="24" y1="24" x2="42" y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/><line x1="24" y1="24" x2="24" y2="43" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/><line x1="24" y1="24" x2="6" y2="42" stroke="#1a3fff" stroke-width="1" opacity="0.75"/><line x1="24" y1="24" x2="5" y2="24" stroke="#1a3fff" stroke-width="0.8" opacity="0.55"/><circle cx="6" cy="6" r="2.5" fill="#c8ff00"/><circle cx="24" cy="5" r="1.8" fill="#1a3fff"/><circle cx="42" cy="6" r="2.5" fill="#c8ff00"/><circle cx="43" cy="24" r="1.8" fill="#1a3fff"/><circle cx="42" cy="42" r="2.5" fill="#c8ff00"/><circle cx="24" cy="43" r="1.8" fill="#1a3fff"/><circle cx="6" cy="42" r="2.5" fill="#c8ff00"/><circle cx="5" cy="24" r="1.8" fill="#1a3fff"/><circle cx="13" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/><circle cx="13" cy="13" r="1" fill="#c8ff00"/><circle cx="35" cy="13" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/><circle cx="35" cy="13" r="1" fill="#c8ff00"/><circle cx="35" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/><circle cx="35" cy="35" r="1" fill="#c8ff00"/><circle cx="13" cy="35" r="2.5" fill="none" stroke="#c8ff00" stroke-width="1.2"/><circle cx="13" cy="35" r="1" fill="#c8ff00"/><circle cx="24" cy="24" r="7" fill="#0a0a0a" stroke="#c8ff00" stroke-width="1.5"/><circle cx="24" cy="24" r="3.5" fill="#1a3fff"/><circle cx="24" cy="24" r="1.5" fill="#c8ff00"/></svg></span>Capital <span>IA</span></div>
+  <div class="informe-footer-info">
+    Sesi&oacute;n Ordinaria N&deg;14 &middot; 83&deg; Per&iacute;odo<br>
+    8 de octubre de 2026 &middot; Concejo Deliberante de La Plata<br>
+    Generado con Capital IA
+  </div>
+</footer>
+
+</body>
+</html>
