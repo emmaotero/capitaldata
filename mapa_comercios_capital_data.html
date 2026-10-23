@@ -268,6 +268,20 @@
   .cat-table td{padding:5px 6px; text-align:right; border-top:1px solid var(--gris-borde); font-family:'DM Mono',monospace;}
   .cat-table td:first-child{font-family:'Instrument Sans',sans-serif; line-height:1.25;}
   .cat-table .pos{color:var(--ok);} .cat-table .neg{color:var(--warn);}
+  .act-tools{padding:0 10px 8px;}
+  .act-scroll{max-height:320px; overflow-y:auto; border-top:1px solid var(--gris-borde);}
+  .cat-table tr.clickable{cursor:pointer;}
+  .cat-table tr.clickable:hover td{background:var(--gris-claro);}
+  .cat-table tr.sel td{background:var(--acento); color:var(--negro);}
+  .act-chip{
+    display:none; align-items:center; gap:8px; margin-top:10px;
+    background:var(--negro); color:var(--crema); border-radius:8px; padding:8px 10px; font-size:11.5px; line-height:1.3;
+  }
+  .act-chip span{flex:1;}
+  .act-chip button{
+    flex-shrink:0; border:1px solid var(--acento); background:transparent; color:var(--acento);
+    font-family:'DM Mono',monospace; font-size:10px; padding:3px 8px; border-radius:6px; cursor:pointer;
+  }
   .popup-tag.nuevo{background:var(--acento); color:var(--negro); border:1px solid var(--negro);}
   .popup-tag.baja{background:#fff; color:var(--warn); border:1px dashed var(--warn);}
   .popup-tag.cambio{background:var(--gris-claro); color:var(--texto-suave); border:1px solid var(--gris-borde);}
@@ -338,6 +352,13 @@
         <summary>Variación por categoría</summary>
         <div id="catDelta"></div>
       </details>
+      <details class="cat-details">
+        <summary>Variación por actividad específica</summary>
+        <div class="act-tools"><input type="text" id="actFilter" placeholder="Filtrar actividades…"></div>
+        <p class="group-hint" id="actHint" style="margin:0 10px 8px;"></p>
+        <div id="actDelta" class="act-scroll"></div>
+      </details>
+      <div class="act-chip" id="actChip"><span id="actChipText"></span><button id="actChipClear" type="button">Quitar</button></div>
       <p class="group-hint" id="statCambios"></p>
     </div>
 
@@ -11293,6 +11314,7 @@ INDUSTRIA,-34.951247,-57.997734,Elaboración de productos alimenticios n.c.p.,AF
   };
   let viewMode = 'sep';
   let highlightChanges = true;
+  let actividadFiltro = null;   // actividad específica elegida en la tabla de variación
   let allRowsFull = [];
   // Ubicación con la que cada comercio se dibuja según la vista (null = no se puede dibujar).
   // En la vista de agosto se respeta lo que tenía ese listado: los que no estaban
@@ -11438,6 +11460,7 @@ INDUSTRIA,-34.951247,-57.997734,Elaboración de productos alimenticios n.c.p.,AF
       const pos = ubicacionEnVista(base);
       if(!pos) return;
       const row = (pos[0] === base.lat && pos[1] === base.lon) ? base : Object.assign({}, base, { lat: pos[0], lon: pos[1] });
+      if(actividadFiltro && row.actividad !== actividadFiltro) return;
       const key = row[groupField] || 'Otros / sin clasificar';
       if(!activeGroups.has(key)) return;
       if(q && !(row.nombre.toLowerCase().includes(q) || row.actividad.toLowerCase().includes(q))) return;
@@ -11600,7 +11623,72 @@ INDUSTRIA,-34.951247,-57.997734,Elaboración de productos alimenticios n.c.p.,AF
         '<td class="' + (f.d > 0 ? 'pos' : f.d < 0 ? 'neg' : '') + '">' + fmtSigned(f.d) + '</td></tr>'
       ).join('') +
       '</tbody></table>';
+    armarActividades(todas);
   }
+
+  // ----- variación por actividad específica -----
+  let actFilas = [];
+  let actVisibles = [];
+  let actTotal = 0;
+
+  function armarActividades(todas){
+    const acts = {};
+    todas.forEach(r => {
+      if(!r.actividad) return;
+      const a = acts[r.actividad] || (acts[r.actividad] = { ago:0, sep:0 });
+      if(ESTADOS_AGO.has(r.estado)) a.ago++;
+      if(ESTADOS_SEP.has(r.estado)) a.sep++;
+    });
+    const todasLasActs = Object.keys(acts);
+    actTotal = todasLasActs.length;
+    actFilas = todasLasActs
+      .filter(k => acts[k].sep !== acts[k].ago)
+      .map(k => ({ k, ago:acts[k].ago, sep:acts[k].sep, d:acts[k].sep - acts[k].ago }))
+      .sort((a, b) => b.d - a.d || b.sep - a.sep || a.k.localeCompare(b.k, 'es'));
+    document.getElementById('actHint').textContent =
+      'Se muestran las ' + fmtN(actFilas.length) + ' actividades que cambiaron entre meses (de ' + fmtN(actTotal) +
+      '). Tocá una para ver solo esa en el mapa.';
+    dibujarActividades();
+  }
+
+  function dibujarActividades(){
+    const q = document.getElementById('actFilter').value.trim().toLowerCase();
+    actVisibles = actFilas.filter(f => !q || f.k.toLowerCase().includes(q));
+    const cont = document.getElementById('actDelta');
+    if(!actVisibles.length){
+      cont.innerHTML = '<p class="group-hint" style="margin:8px 10px;">Ninguna actividad coincide.</p>';
+      return;
+    }
+    cont.innerHTML =
+      '<table class="cat-table"><thead><tr><th>Actividad</th><th>Ago</th><th>Sep</th><th>Δ</th></tr></thead><tbody>' +
+      actVisibles.map((f, i) =>
+        '<tr class="clickable' + (f.k === actividadFiltro ? ' sel' : '') + '" data-i="' + i + '"><td>' + esc(f.k) + '</td><td>' +
+        fmtN(f.ago) + '</td><td>' + fmtN(f.sep) + '</td><td class="' + (f.d > 0 ? 'pos' : 'neg') + '">' + fmtSigned(f.d) + '</td></tr>'
+      ).join('') +
+      '</tbody></table>';
+  }
+
+  function fijarActividad(k){
+    actividadFiltro = k;
+    const chip = document.getElementById('actChip');
+    if(k){
+      document.getElementById('actChipText').textContent = 'Mostrando solo: ' + k;
+      chip.style.display = 'flex';
+    } else {
+      chip.style.display = 'none';
+    }
+    dibujarActividades();
+    renderMarkers();
+  }
+
+  document.getElementById('actDelta').addEventListener('click', e => {
+    const tr = e.target.closest('tr[data-i]');
+    if(!tr) return;
+    const f = actVisibles[parseInt(tr.dataset.i, 10)];
+    if(f) fijarActividad(f.k === actividadFiltro ? null : f.k);
+  });
+  document.getElementById('actFilter').addEventListener('input', dibujarActividades);
+  document.getElementById('actChipClear').addEventListener('click', () => fijarActividad(null));
 
   function refreshGroupCounts(){
     const counts = {};
